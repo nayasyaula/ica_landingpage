@@ -7,22 +7,21 @@
     <section id="home" class="hero-bg">
         <div class="max-w-7xl mx-auto px-4 text-center w-full">
             <div class="mb-8">
-                <span class="text-gold-400 uppercase tracking-widest text-sm mb-4 inline-block">Est. 1990</span>
+                <span class="text-gold-400 uppercase tracking-widest text-xl mb-4 inline-block">GALA DINNER & AWARDING NIGHT
+                    ICA 2025
+                </span>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                     <span class="text-white">Indonesian</span>
                     <span class="gold-accent block">Cat Association</span>
                 </h1>
                 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gold-200">
-                    Mukernas & Gala Dinner ICA 2025
-                </p>
-                <p class="text-lg text-white mb-10 max-w-2xl mx-auto">
-                    An exclusive gathering of feline enthusiasts, breeders, and experts celebrating excellence in the cat world.
+                    Metropolitan Catropolitan Style
                 </p>
                 <div class="space-x-4 space-y-4 md:space-y-0">
                     <a href="#contact" class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block">
                         <i class="fas fa-calendar-check mr-2"></i> Register Now
                     </a>
-                    <a href="#schedule" class="btn-outline-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+                    <a href="#schedule" class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block">
                         <i class="fas fa-clock mr-2"></i> View Schedule
                     </a>
                 </div>
@@ -42,37 +41,29 @@
                 <div>
                     <h2 class="section-title text-4xl font-bold mb-6 text-white">About ICA 2025</h2>
                     <p class="text-gray-300 mb-6 text-lg">
-                        The Indonesian Cat Association proudly presents the most prestigious feline event of the year - Mukernas & Gala Dinner ICA 2025.
+                        Agenda tahunan Mukernas & Gala Dinner ICA 2025 bertema "Metropolitan - CATROPOLITAN STYLE" hadir
+                        dengan konsep baru yang kreatif dan berkelas.
                     </p>
                     <p class="text-gray-300 mb-6">
-                        For over three decades, ICA has been at the forefront of promoting feline welfare, breed standards, and the vibrant community of cat enthusiasts across Indonesia and beyond.
+                        Kegiatan dibagi dua sesi: Mukernas (±60-100 peserta) dan Gala Dinner & Awarding (±100-300 peserta).
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Rangkaian acaranya meliputi pameran, seminar, pelatihan, serta edukasi seputar dunia kucing, dengan
+                        puncak malam penghargaan bagi kucing terbaik nasional.
                     </p>
                     <p class="text-gray-300 mb-8">
-                        This year's event brings together the most distinguished experts, breeders, and feline aficionados for an unforgettable experience of education, networking, and celebration.
+                        Event ini bertujuan menjaring lebih banyak pencinta kucing untuk bergabung. Terbuka untuk umum —
+                        mulai dari anggota ICA, kolektor, breeder, hingga masyarakat luas — acara ini dikemas modern,
+                        interaktif, dan inspiratif.
                     </p>
-                    <div class="flex space-x-4">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold gold-accent mb-1">30+</div>
-                            <div class="text-gray-400 text-sm">Years of Excellence</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold gold-accent mb-1">500+</div>
-                            <div class="text-gray-400 text-sm">Expected Guests</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold gold-accent mb-1">15+</div>
-                            <div class="text-gray-400 text-sm">International Speakers</div>
-                        </div>
-                    </div>
                 </div>
-                <div class="bg-dark-gray border border-medium-gray rounded-lg overflow-hidden h-96 flex items-center justify-center relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-70 z-10"></div>
-                    <div class="text-center z-20 p-8">
-                        <i class="fas fa-paw text-6xl gold-accent mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-2">Elegant Venue</h3>
-                        <p class="text-gold-200">The Grand Ballroom, Jakarta</p>
-                        <p class="text-gray-300 mt-4">October 15-17, 2025</p>
-                    </div>
+                <div class="bg-dark-gray rounded-lg overflow-hidden h-96 relative gold-border-frame image-hover-container">
+                    <!-- Background image filling the entire container -->
+                    <img src="{{ asset('images/ab-ICA.png') }}" alt="ICA Background"
+                        class="absolute inset-0 w-full h-full object-cover">
+
+                    <!-- Gradient overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-70"></div>
                 </div>
             </div>
         </div>
@@ -81,10 +72,13 @@
     <!-- Speakers Section -->
     <section id="speakers" class="py-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Visionary Voices of Catropolitan</h2>
-            <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
-                Meet the urban pioneers shaping the future of feline excellence in metropolitan style
-            </p>
+            <div class="text-center w-full">
+
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Visionary Voices of Catropolitan</h2>
+                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
+                    Meet the urban pioneers shaping the future of feline excellence in metropolitan style
+                </p>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Speaker 1 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
@@ -93,7 +87,8 @@
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white">Dr. Felina Whiskers</h3>
                     <p class="text-gold-400 mb-4">Feline Genetics Specialist</p>
-                    <p class="text-gray-300">World-renowned expert in feline genetics with over 20 years of research experience in breed development and health.</p>
+                    <p class="text-gray-300">World-renowned expert in feline genetics with over 20 years of research
+                        experience in breed development and health.</p>
                 </div>
 
                 <!-- Speaker 2 -->
@@ -103,7 +98,8 @@
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white">Thomas Pawlington</h3>
                     <p class="text-gold-400 mb-4">Cat Behaviorist & Trainer</p>
-                    <p class="text-gray-300">Internationally acclaimed behaviorist transforming how we understand and interact with our feline companions.</p>
+                    <p class="text-gray-300">Internationally acclaimed behaviorist transforming how we understand and
+                        interact with our feline companions.</p>
                 </div>
 
                 <!-- Speaker 3 -->
@@ -113,7 +109,8 @@
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white">Prof. Miaow Gonzalez</h3>
                     <p class="text-gold-400 mb-4">Veterinary Nutritionist</p>
-                    <p class="text-gray-300">Pioneering researcher in feline nutrition, developing dietary solutions for optimal health across all life stages.</p>
+                    <p class="text-gray-300">Pioneering researcher in feline nutrition, developing dietary solutions for
+                        optimal health across all life stages.</p>
                 </div>
             </div>
         </div>
@@ -122,148 +119,182 @@
     <!-- Schedule Section -->
     <section id="schedule" class="py-20 gold-pattern">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Event Schedule</h2>
-            <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
-                Three days of exclusive feline knowledge, networking, and celebration
-            </p>
+            <div class="text-center w-full">
 
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Event Schedule</h2>
+                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
+                    Three days of exclusive feline knowledge, networking, and celebration
+                </p>
+            </div>
             <!-- Schedule Tabs -->
             <div class="schedule-tabs">
                 <button class="schedule-tab active" data-day="day1">
-                    <i class="fas fa-calendar-day mr-2"></i>Day 1 - October 15
+                    <i class="fas fa-calendar-day mr-2"></i>Day 1 - Nov 28
                 </button>
                 <button class="schedule-tab" data-day="day2">
-                    <i class="fas fa-calendar-day mr-2"></i>Day 2 - October 16
+                    <i class="fas fa-calendar-day mr-2"></i>GALA DINNER & AWARDING NIGHT
                 </button>
                 <button class="schedule-tab" data-day="day3">
-                    <i class="fas fa-calendar-day mr-2"></i>Day 3 - October 17
+                    <i class="fas fa-calendar-day mr-2"></i>Day 3 - Nov 30
                 </button>
             </div>
 
             <!-- Day 1 Schedule -->
             <div class="schedule-day active" id="day1">
-                <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">08:00 - 09:00</span>
-                    <h3 class="timeline-title">Registration & Welcome Coffee</h3>
-                    <p class="timeline-description">Arrival and registration with premium coffee and pastries. Network with fellow feline enthusiasts.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">09:00 - 10:30</span>
-                    <h3 class="timeline-title">Opening Ceremony</h3>
-                    <p class="timeline-speaker">Keynote: Dr. Felina Whiskers</p>
-                    <p class="timeline-description">Grand opening with traditional dance performance and welcome addresses from ICA leadership.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">10:30 - 12:00</span>
-                    <h3 class="timeline-title">Feline Genetics Masterclass</h3>
-                    <p class="timeline-speaker">Dr. Felina Whiskers</p>
-                    <p class="timeline-description">Advanced session on genetic markers, inheritance patterns, and breeding best practices.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">12:00 - 13:30</span>
-                    <h3 class="timeline-title">Networking Lunch</h3>
-                    <p class="timeline-description">Gourmet lunch featuring international cuisine. Exclusive roundtable discussions.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">13:30 - 15:00</span>
-                    <h3 class="timeline-title">Breed Standards Workshop</h3>
-                    <p class="timeline-speaker">International Cat Judges Panel</p>
-                    <p class="timeline-description">Hands-on workshop examining breed standards and judging criteria.</p>
+                <div class="timeline-item schedule-highlight schedule-highlight">
+                    <span class="timeline-time">13:00 - 14:00</span>
+                    <h3 class="timeline-title">Registrasi Peserta & Check-In Hotel</h3>
+                    <p class="timeline-description">Panitia & EO</p>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">19:00 - 22:00</span>
-                    <h3 class="timeline-title">Welcome Gala Dinner</h3>
-                    <p class="timeline-description">Black-tie optional event with live music, fine dining, and special guest appearances.</p>
+                    <span class="timeline-time">14:00 - 14:30</span>
+                    <h3 class="timeline-title">Pembukaan Acara Mukernas ICA 2025</h3>
+                    <p class="timeline-description">MC & Panitia</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">14:30 - 14:45</span>
+                    <h3 class="timeline-title">Menyanyikan Lagu Indonesia Raya & Mars ICA</h3>
+                    <p class="timeline-description">Panitia</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">14:45 - 15:15</span>
+                    <h3 class="timeline-title">Sambutan Ketua Umum ICA</h3>
+                    <p class="timeline-description">Russy Idroes</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">15:15 - 15:30</span>
+                    <h3 class="timeline-title">Sambutan Perwakilan FIFA / Tamu Undangan</h3>
+                    <p class="timeline-description">Undangan Khusus</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">15:30 - 16:00</span>
+                    <h3 class="timeline-title">Doa & Pembukaan Resmi Mukernas</h3>
+                    <p class="timeline-description">Panitia</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">16:00 - 16:15</span>
+                    <h3 class="timeline-title">Coffee Break</h3>
+                    <p class="timeline-description">EO</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">16:15 - 18:00</span>
+                    <h3 class="timeline-title">Sidang Pleno 1 : Laporan Pertanggungjawaban Pengurus</h3>
+                    <p class="timeline-description">Steering Committee</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">18:00 - 19:30</span>
+                    <h3 class="timeline-title">Istirahat / Makan Malam</h3>
+                    <p class="timeline-description">Panitia Hotel</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">19:30 - 21:30</span>
+                    <h3 class="timeline-title">Sesi Diskusi Bebas / Networking Night</h3>
+                    <p class="timeline-description">Panitia & EO</p>
                 </div>
             </div>
 
             <!-- Day 2 Schedule -->
             <div class="schedule-day" id="day2">
-                <div class="timeline-item">
-                    <span class="timeline-time">08:30 - 10:00</span>
-                    <h3 class="timeline-title">Feline Behavior Deep Dive</h3>
-                    <p class="timeline-speaker">Thomas Pawlington</p>
-                    <p class="timeline-description">Understanding complex feline behaviors and advanced training techniques.</p>
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">19:00 - 19:30</span>
+                    <h3 class="timeline-title">Kedatangan Tamu & Welcome Drink</h3>
+                    <p class="timeline-description">EO & Panitia</p>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">10:00 - 11:30</span>
-                    <h3 class="timeline-title">Nutrition Science Symposium</h3>
-                    <p class="timeline-speaker">Prof. Miaow Gonzalez</p>
-                    <p class="timeline-description">Latest research in feline nutrition and dietary requirements across life stages.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">11:30 - 13:00</span>
-                    <h3 class="timeline-title">Breeder's Roundtable</h3>
-                    <p class="timeline-speaker">International Breeder Association</p>
-                    <p class="timeline-description">Panel discussion on ethical breeding practices and industry challenges.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">13:00 - 14:30</span>
-                    <h3 class="timeline-title">Lunch & Learn</h3>
-                    <p class="timeline-description">Casual lunch with topic-specific breakout sessions.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">14:30 - 16:30</span>
-                    <h3 class="timeline-title">Healthcare Innovation Forum</h3>
-                    <p class="timeline-speaker">Veterinary Specialists Panel</p>
-                    <p class="timeline-description">Emerging technologies and treatments in feline healthcare.</p>
+                    <span class="timeline-time">19:30 - 19:45</span>
+                    <h3 class="timeline-title">Pembukaan Gala Dinner oleh MC</h3>
+                    <p class="timeline-description">EO</p>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">18:30 - 21:00</span>
-                    <h3 class="timeline-title">Awards Ceremony</h3>
-                    <p class="timeline-description">Celebrating excellence in feline care, breeding, and innovation.</p>
+                    <span class="timeline-time">19:45 - 20:00</span>
+                    <h3 class="timeline-title">Opening Dance "Metropolitan Glamour"</h3>
+                    <p class="timeline-description">EO Dancer Team</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">20:00 - 20:15</span>
+                    <h3 class="timeline-title">Sambutan Ketua Umum ICA</h3>
+                    <p class="timeline-description">Russy Idroes</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">20:15 - 20:30</span>
+                    <h3 class="timeline-title">Sambutan Perwakilan Sponsor</h3>
+                    <p class="timeline-description">Sponsor</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">20:30 - 21:00</span>
+                    <h3 class="timeline-title">Makan Malam & Hiburan Musik</h3>
+                    <p class="timeline-description">Band / Singer</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">21:00 - 22:00</span>
+                    <h3 class="timeline-title">Awarding Session - Penghargaan Kucing & Owner</h3>
+                    <p class="timeline-description">EO & Panitia</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">22:00 - 22:15</span>
+                    <h3 class="timeline-title">Doorprize Session</h3>
+                    <p class="timeline-description">MC & Sponsor</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">22:15 - 22:30</span>
+                    <h3 class="timeline-title">Fashion Parade "Catropolitan Look"</h3>
+                    <p class="timeline-description">EO</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">22:30 - 23:00</span>
+                    <h3 class="timeline-title">Penutupan, Foto Bersama & Live Music</h3>
+                    <p class="timeline-description">EO & Panitia</p>
                 </div>
             </div>
 
             <!-- Day 3 Schedule -->
             <div class="schedule-day" id="day3">
-                <div class="timeline-item">
-                    <span class="timeline-time">09:00 - 10:30</span>
-                    <h3 class="timeline-title">Business of Cats</h3>
-                    <p class="timeline-speaker">Industry Leaders Panel</p>
-                    <p class="timeline-description">Building successful feline-related businesses and brands.</p>
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">07:30 - 08:30</span>
+                    <h3 class="timeline-title">Sarapan Pagi</h3>
+                    <p class="timeline-description">Panitia Hotel</p>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">10:30 - 12:00</span>
-                    <h3 class="timeline-title">Future of Feline Science</h3>
-                    <p class="timeline-speaker">Research Institute Directors</p>
-                    <p class="timeline-description">Cutting-edge research and future directions in feline science.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">12:00 - 13:30</span>
-                    <h3 class="timeline-title">Farewell Lunch</h3>
-                    <p class="timeline-description">Final networking opportunity with international delegates.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-time">13:30 - 15:30</span>
-                    <h3 class="timeline-title">Interactive Workshops</h3>
-                    <p class="timeline-description">Choose from: Advanced Grooming, Photography, or Cat Show Preparation.</p>
+                    <span class="timeline-time">08:30 - 09:00</span>
+                    <h3 class="timeline-title">Evaluasi & Penutupan Mukernas</h3>
+                    <p class="timeline-description">Steering Committee</p>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">16:00 - 17:00</span>
-                    <h3 class="timeline-title">Closing Ceremony</h3>
-                    <p class="timeline-speaker">ICA President & Board Members</p>
-                    <p class="timeline-description">Summary of key insights and announcement of ICA 2026.</p>
+                    <span class="timeline-time">09:00 - 09:30</span>
+                    <h3 class="timeline-title">Pembacaan Keputusan Mukernas 2025</h3>
+                    <p class="timeline-description">Panitia</p>
                 </div>
 
-                <div class="timeline-item">
-                    <span class="timeline-time">19:00 - 23:00</span>
-                    <h3 class="timeline-title">Grand Finale Celebration</h3>
-                    <p class="timeline-description">Exclusive cocktail party and live entertainment to conclude the event.</p>
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">09:30 - 10:00</span>
+                    <h3 class="timeline-title">Penutupan Resmi & Doa Bersama</h3>
+                    <p class="timeline-description">Panitia</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">10.00 - 12:00</span>
+                    <h3 class="timeline-title">Check-out Hotel & Acara Bebas / City Tour Opsional</h3>
+                    <p class="timeline-description">EO</p>
                 </div>
             </div>
         </div>
@@ -272,44 +303,76 @@
     <!-- Location Section -->
     <section id="location" class="py-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Event Location</h2>
-            <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
-                Experience luxury at The Grand Ballroom, Jakarta
-            </p>
+            <div class="text-center w-full">
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Event Location</h2>
+                <p class="text-xl mb-12 max-w-3xl mx-auto text-gold-200">
+                    Experience luxury at Harris Hotel, Kuta Bali
+                </p>
+            </div>
 
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="location-card">
                     <div class="location-image">
+                        <!-- Embedded Google Maps yang langsung ke Larger Map -->
+                        <a href="https://www.google.com/maps/place/HARRIS+Hotel+%26+Residence+Riverview+Kuta+Bali/@-8.7178282,115.1808951,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd246b0d51711e9:0x3037c24b5e7fb3cd!8m2!3d-8.7178282!4d115.1808951!16s%2Fg%2F1tnmcc3x?entry=ttu"
+                            target="_blank" rel="noopener noreferrer"
+                            class="absolute inset-0 w-full h-full block cursor-pointer">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.715321392635!2d115.1783202!3d-8.7178229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246b0d51711e9%3A0x3037c24b5e7fb3cd!2sHARRIS%20Hotel%20%26%20Residence%20Riverview%20Kuta%20Bali!5e0!3m2!1sen!2sid!4v1698765432100!5m2!1sen!2sid"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="w-full h-full transition-all duration-300">
+                            </iframe>
+                        </a>
                         <div class="location-overlay"></div>
-                        <i class="fas fa-map-marker-alt text-6xl gold-accent"></i>
+
+                        <!-- Hover effect overlay -->
+                        <div
+                            class="absolute inset-0 bg-gold-400/0 hover:bg-gold-400/10 transition-all duration-300 flex items-center justify-center pointer-events-none">
+                            <div
+                                class="bg-black/90 rounded-xl p-4 transform scale-95 opacity-0 hover:scale-100 hover:opacity-100 transition-all duration-300 border-2 border-gold-400">
+                                <div class="flex items-center text-white">
+                                    <i class="fas fa-expand-arrows-alt text-gold-400 text-xl mr-3"></i>
+                                    <div class="text-left">
+                                        <div class="font-bold text-gold-400">View Larger Map</div>
+                                        <div class="text-xs text-gray-300 mt-1">Click to open full screen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="location-info">
-                        <h3 class="text-2xl font-bold text-white mb-4">The Grand Ballroom Jakarta</h3>
-                        <p class="text-gray-300 mb-4">A premier venue in the heart of Jakarta, offering state-of-the-art facilities and luxurious ambiance perfect for our prestigious event.</p>
-                        
+                        <h3 class="text-2xl font-bold text-white mb-4">HARRIS Hotel & Residence Riverview Kuta Bali</h3>
+                        <p class="text-gray-300 mb-4"> Pilihan ideal untuk acara dan liburan, dengan ruang luas, layanan
+                            profesional, serta lokasi strategis yang memudahkan akses ke destinasi utama di Kuta.
+                        </p>
+
                         <div class="location-feature">
                             <i class="fas fa-location-dot"></i>
-                            <span>Jalan Jenderal Sudirman Kav. 52-53, Jakarta 12190</span>
+                            <span>Jl. Raya Kuta Tidak. 62A , Badung, Bali, Indonesia 80361</span>
                         </div>
                         <div class="location-feature">
                             <i class="fas fa-phone"></i>
-                            <span>+62 21 2555 6789</span>
+                            <span>+62 361 761 007</span>
                         </div>
                         <div class="location-feature">
-                            <i class="fas fa-car"></i>
-                            <span>Complimentary valet parking available</span>
-                        </div>
-                        <div class="location-feature">
-                            <i class="fas fa-wifi"></i>
-                            <span>High-speed WiFi throughout the venue</span>
+                            <i class="fas fa-bed"></i>
+                            <span>Kamar dan unit residence yang luas dan nyaman</span>
                         </div>
                         <div class="location-feature">
                             <i class="fas fa-utensils"></i>
-                            <span>Multiple dining options and premium catering</span>
+                            <span>Restoran dengan menu sarapan dan pilihan kuliner beragam</span>
+                        </div>
+                        <div class="location-feature">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Pelayanan ramah dan suasana santai cocok untuk keluarga</span>
                         </div>
 
-                        <div class="mt-6">
-                            <a href="#" class="btn-gold px-6 py-3 rounded-lg font-semibold inline-block">
+                        <div class="mt-6 flex gap-3">
+                            <!-- Get Directions Button dengan link yang benar -->
+                            <a href="https://www.google.com/maps/dir//HARRIS+Hotel+%26+Residence+Riverview+Kuta+Bali,+Jalan+Raya+Kuta+No.+99,+Kuta,+Bali+80361/@-8.7178282,115.1808951,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2dd246b0d51711e9:0x3037c24b5e7fb3cd!2m2!1d115.1808951!2d-8.7178282?entry=ttu"
+                                target="_blank" rel="noopener noreferrer"
+                                class="btn-gold px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 hover:scale-105 flex-1 text-center">
                                 <i class="fas fa-directions mr-2"></i> Get Directions
                             </a>
                         </div>
@@ -322,38 +385,78 @@
                         <div class="flex items-start">
                             <i class="fas fa-star text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold">Luxurious Atmosphere</h4>
-                                <p class="text-gray-300">Elegant decor with gold accents and premium amenities</p>
+                                <h4 class="text-white font-semibold">Strategic Kuta Location</h4>
+                                <p class="text-gray-300">Terletak di jantung kawasan Kuta, dekat pantai, pusat perbelanjaan,
+                                    dan destinasi wisata populer.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-users text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold">Capacity</h4>
-                                <p class="text-gray-300">Accommodates up to 800 guests with comfortable seating</p>
+                                <h4 class="text-white font-semibold">Fasilitas Modern</h4>
+                                <p class="text-gray-300">Dilengkapi ballroom luas, ruang meeting modern, serta fasilitas
+                                    lengkap untuk acara bisnis dan sosial.
+
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-film text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold">State-of-the-Art AV</h4>
-                                <p class="text-gray-300">Professional sound and lighting systems for optimal presentations</p>
+                                <h4 class="text-white font-semibold">Beberapa Kolam Renang</h4>
+                                <p class="text-gray-300">Nikmati kolam renang dengan area anak dan dewasa, cocok untuk
+                                    bersantai sebelum atau sesudah acara.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-concierge-bell text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold">Premium Services</h4>
-                                <p class="text-gray-300">Dedicated event staff and concierge services</p>
+                                <h4 class="text-white font-semibold">HARRIS Cafe & Catering</h4>
+                                <p class="text-gray-300">Professional staff to ensure your event runs smoothly</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-paw text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold">Feline-Friendly Areas</h4>
-                                <p class="text-gray-300">Specially designed spaces for demonstration cats and special guests</p>
+                                <h4 class="text-white font-semibold">Feline-Friendly Setup</h4>
+                                <p class="text-gray-300">Specially designed areas for cat demonstrations and exhibitions</p>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Additional Location Info -->
+                    <div class="mt-8 p-6 bg-dark-gray rounded-lg border border-medium-gray">
+                        <h4 class="text-white font-semibold mb-3 flex items-center">
+                            <i class="fas fa-info-circle text-gold-400 mr-2"></i>
+                            Location Advantages
+                        </h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-gold-400 mt-1 mr-2 text-xs"></i>
+                                <span>Strategically located in central Kuta, near main roads and attractions</span>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fas fa-shopping-bag text-gold-400 mt-1 mr-2 text-xs"></i>
+                                <span>Close to Beachwalk Shopping Center and local souvenir markets</span>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fas fa-umbrella-beach text-gold-400 mt-1 mr-2 text-xs"></i>
+                                <span>Approximately 10 minutes drive to Kuta Beach and Legian Beach</span>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fas fa-plane-departure text-gold-400 mt-1 mr-2 text-xs"></i>
+                                <span>Only 15 minutes from Ngurah Rai International Airport</span>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fas fa-concierge-bell text-gold-400 mt-1 mr-2 text-xs"></i>
+                                <span>Easy access to restaurants, cafés, and entertainment venues around Kuta</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -363,22 +466,24 @@
     <!-- Sponsors Section -->
     <section id="sponsors" class="py-20 gold-pattern">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Our Esteemed Sponsors</h2>
-            <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
-                Generously supported by industry leaders in feline care and innovation
-            </p>
+            <div class="text-center w-full">
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Our Esteemed Sponsors</h2>
+                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
+                    Generously supported by industry leaders in feline care and innovation
+                </p>
+            </div>
 
             <!-- Platinum Sponsors -->
             <div class="sponsor-tier">
                 <h3 class="tier-title">Platinum Sponsors</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card">
+                    <div class="sponsor-card platinum-gradient">
                         <div class="text-white text-xl font-bold">PurrfectCare</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card platinum-gradient">
                         <div class="text-white text-xl font-bold">WhiskerTech</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card platinum-gradient">
                         <div class="text-white text-xl font-bold">RoyalFeline</div>
                     </div>
                 </div>
@@ -388,16 +493,16 @@
             <div class="sponsor-tier">
                 <h3 class="tier-title">Gold Sponsors</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card">
+                    <div class="sponsor-card gold-gradient">
                         <div class="text-white text-lg font-semibold">CatNation</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card gold-gradient">
                         <div class="text-white text-lg font-semibold">PawPrint</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card gold-gradient">
                         <div class="text-white text-lg font-semibold">MeowMix Pro</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card gold-gradient">
                         <div class="text-white text-lg font-semibold">FelineWell</div>
                     </div>
                 </div>
@@ -407,20 +512,45 @@
             <div class="sponsor-tier">
                 <h3 class="tier-title">Silver Sponsors</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card">
+                    <div class="sponsor-card silver-gradient">
                         <div class="text-white">KittyCorp</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card silver-gradient">
                         <div class="text-white">Paws & Claws</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card silver-gradient">
                         <div class="text-white">CatHaven</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card silver-gradient">
                         <div class="text-white">PurrFactory</div>
                     </div>
-                    <div class="sponsor-card">
+                    <div class="sponsor-card silver-gradient">
                         <div class="text-white">MeowMart</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bronze Sponsors (New) -->
+            <div class="sponsor-tier">
+                <h3 class="tier-title">Bronze Sponsors</h3>
+                <div class="sponsor-grid">
+                    <div class="sponsor-card bronze-gradient">
+                        <div class="text-white">FelineFriends</div>
+                    </div>
+                    <div class="sponsor-card bronze-gradient">
+                        <div class="text-white">Catopia</div>
+                    </div>
+                    <div class="sponsor-card bronze-gradient">
+                        <div class="text-white">WhiskerWonders</div>
+                    </div>
+                    <div class="sponsor-card bronze-gradient">
+                        <div class="text-white">PawPals</div>
+                    </div>
+                    <div class="sponsor-card bronze-gradient">
+                        <div class="text-white">MeowMingle</div>
+                    </div>
+                    <div class="sponsor-card bronze-gradient">
+                        <div class="text-white">CatCompanions</div>
                     </div>
                 </div>
             </div>
@@ -441,12 +571,12 @@
                 </div>
             @endif
 
-            <form action="{{ route('contact.submit') }}" method="POST" class="form-luxury bg-dark-gray border border-medium-gray p-10 rounded-lg shadow-2xl">
+            <form action="{{ route('contact.submit') }}" method="POST"
+                class="form-luxury bg-dark-gray border border-medium-gray p-10 rounded-lg shadow-2xl">
                 @csrf
                 <div class="mb-8">
                     <label for="name" class="block text-gold-200 mb-3 text-lg">Full Name</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none"
+                    <input type="text" id="name" name="name" required class="w-full px-5 py-4 rounded-lg focus:outline-none"
                         value="{{ old('name') }}" placeholder="Enter your full name">
                     @error('name')
                         <span class="text-red-400 text-sm mt-2 block">{{ $message }}</span>
@@ -456,8 +586,8 @@
                 <div class="mb-8">
                     <label for="email" class="block text-gold-200 mb-3 text-lg">Email Address</label>
                     <input type="email" id="email" name="email" required
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none"
-                        value="{{ old('email') }}" placeholder="Enter your email address">
+                        class="w-full px-5 py-4 rounded-lg focus:outline-none" value="{{ old('email') }}"
+                        placeholder="Enter your email address">
                     @error('email')
                         <span class="text-red-400 text-sm mt-2 block">{{ $message }}</span>
                     @enderror
@@ -466,14 +596,14 @@
                 <div class="mb-8">
                     <label for="message" class="block text-gold-200 mb-3 text-lg">Message</label>
                     <textarea id="message" name="message" required rows="5"
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none" placeholder="Tell us about your interest in the event">{{ old('message') }}</textarea>
+                        class="w-full px-5 py-4 rounded-lg focus:outline-none"
+                        placeholder="Tell us about your interest in the event">{{ old('message') }}</textarea>
                     @error('message')
                         <span class="text-red-400 text-sm mt-2 block">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <button type="submit"
-                    class="w-full btn-gold py-4 rounded-lg font-semibold text-lg transition duration-300">
+                <button type="submit" class="w-full btn-gold py-4 rounded-lg font-semibold text-lg transition duration-300">
                     <i class="fas fa-paper-plane mr-2"></i> Send Request
                 </button>
             </form>
@@ -483,7 +613,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-20 gold-pattern">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Frequently Asked Questions</h2>
+        <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Frequently Asked Questions</h2>
             <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
                 Everything you need to know about ICA 2025
             </p>
@@ -496,7 +626,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Day sessions: Business casual. Evening events: Cocktail attire or black-tie optional for the Gala Dinner. We encourage elegant feline-themed accessories!</p>
+                        <p>Day sessions: Business casual. Evening events: Cocktail attire or black-tie optional for
+                            the Gala
+                            Dinner. We encourage elegant feline-themed accessories!</p>
                     </div>
                 </div>
 
@@ -507,7 +639,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! We have partnered with The Grand Jakarta Hotel for special rates. You can book through our registration portal with 15% discount for ICA attendees.</p>
+                        <p>Yes! We have partnered with The Grand Jakarta Hotel for special rates. You can book
+                            through our
+                            registration portal with 15% discount for ICA attendees.</p>
                     </div>
                 </div>
 
@@ -518,7 +652,11 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>For health and safety reasons, personal pets are not allowed at the main conference sessions. However, we will have designated demonstration areas with show cats and special feline guests.</p>
+                        <p>For health and safety reasons, personal pets are not allowed at the main conference
+                            sessions.
+                            However, we will have designated demonstration areas with show cats and special feline
+                            guests.
+                        </p>
                     </div>
                 </div>
 
@@ -529,7 +667,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We accept all major credit cards, bank transfers, and online payment platforms. Payment plans are available for early bird registrations.</p>
+                        <p>We accept all major credit cards, bank transfers, and online payment platforms. Payment
+                            plans are
+                            available for early bird registrations.</p>
                     </div>
                 </div>
 
@@ -540,7 +680,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Full refunds are available up to 30 days before the event. After that, 50% refund until 15 days before. No refunds within 14 days of the event, but registration is transferable.</p>
+                        <p>Full refunds are available up to 30 days before the event. After that, 50% refund until
+                            15 days
+                            before. No refunds within 14 days of the event, but registration is transferable.</p>
                     </div>
                 </div>
 
@@ -551,7 +693,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! All main stage presentations will be recorded and available to registered attendees for 3 months after the event. Breakout sessions may not all be recorded.</p>
+                        <p>Yes! All main stage presentations will be recorded and available to registered attendees
+                            for 3
+                            months after the event. Breakout sessions may not all be recorded.</p>
                     </div>
                 </div>
             </div>
