@@ -274,7 +274,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Event Location</h2>
             <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200">
-                Experience luxury at The Grand Ballroom, Jakarta
+                Experience luxury at HARRIS Hotel & Residence Riverview Kuta Bali
             </p>
 
             <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -284,16 +284,16 @@
                         <i class="fas fa-map-marker-alt text-6xl gold-accent"></i>
                     </div>
                     <div class="location-info">
-                        <h3 class="text-2xl font-bold text-white mb-4">The Grand Ballroom Jakarta</h3>
+                        <h3 class="text-2xl font-bold text-white mb-4">HARRIS Hotel & Residence Riverview Kuta Bali</h3>
                         <p class="text-gray-300 mb-4">A premier venue in the heart of Jakarta, offering state-of-the-art facilities and luxurious ambiance perfect for our prestigious event.</p>
                         
                         <div class="location-feature">
                             <i class="fas fa-location-dot"></i>
-                            <span>Jalan Jenderal Sudirman Kav. 52-53, Jakarta 12190</span>
+                            <span>Jl. Raya Kuta Tidak. 62A , Badung, Bali, Indonesia 80361</span>
                         </div>
                         <div class="location-feature">
                             <i class="fas fa-phone"></i>
-                            <span>+62 21 2555 6789</span>
+                            <span>+62 361 761 007</span>
                         </div>
                         <div class="location-feature">
                             <i class="fas fa-car"></i>
