@@ -7,8 +7,9 @@
     <title>Indonesian Cat Association - Mukernas & Gala Dinner 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Font Luxury yang lebih elegan -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -20,21 +21,121 @@
             --medium-gray: #2A2A2A;
         }
 
+        /* FONT LUXURY UNTUK SEMUA ELEMEN */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             background-color: var(--black);
             color: #fff;
             scroll-behavior: smooth;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         h1,
         h2,
         h3,
         h4,
-        h5 {
-            font-family: 'Playfair Display', serif;
+        h5,
+        h6 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
+        /* Navigation dengan font luxury */
+        .nav-luxury {
+            font-family: 'Cinzel', serif;
+        }
+
+        .nav-link {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Footer dengan font luxury */
+        .footer-luxury {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Button dengan font luxury */
+        .btn-gold {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Schedule tabs dengan font luxury */
+        .schedule-tab {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+        }
+
+        /* FAQ dengan font luxury */
+        .faq-question {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+
+        .timeline-speaker {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+
+
+        /* Sponsor tiers dengan font luxury */
+        .tier-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+        }
+
+        /* Form elements dengan font luxury */
+        .form-luxury input,
+        .form-luxury textarea {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Mobile menu dengan font luxury */
+        .mobile-menu-link {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+        }
+
+        /* Contact info dengan font luxury */
+        .contact-info {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Section title styling luxury */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Luxury text variants */
+        .luxury-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        .luxury-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        .luxury-caption {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Sisanya tetap sama... */
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
                 url('{{ asset('images/ica1.jpg') }}');
@@ -206,7 +307,6 @@
             background-color: var(--gold);
         }
 
-
         .location-image {
             position: relative;
             height: 250px;
@@ -370,45 +470,131 @@
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        /* Schedule Section Styles */
+        .speaker-image-container {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #D4AF37 0%, #f4d03f 50%, #D4AF37 100%);
+            padding: 3px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .speaker-image-container::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .speaker-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-image-container:hover .speaker-image {
+            transform: scale(1.08);
+        }
+
+        /* Schedule Section Styles - Compact Version */
         .schedule-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--medium-gray);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .schedule-tab {
-            padding: 1rem 2rem;
-            background: transparent;
-            border: none;
-            color: var(--gray-400);
-            font-size: 1.1rem;
-            font-weight: 500;
-            position: relative;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.85rem;
+            min-width: auto;
+        }
+
+        .schedule-tab:hover {
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-1px);
         }
 
         .schedule-tab.active {
-            color: var(--gold);
+            background: #d4af37;
+            color: #1a1a1a;
+            border-color: #d4af37;
         }
 
-        .schedule-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold);
+        .timeline-item {
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .schedule-tab:hover:not(.active) {
-            color: var(--light-gold);
+        .timeline-item:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
+
+        /* Schedule Section Styles - Narrower Width */
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .schedule-tab {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .schedule-tab:hover {
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .schedule-tab.active {
+            background: #d4af37;
+            color: #1a1a1a;
+            border-color: #d4af37;
+        }
+
+        /* Container untuk timeline items dengan width lebih kecil */
         .schedule-day {
+            max-width: 600px;
+            /* Lebih kecil lagi */
+            margin: 0 auto;
             display: none;
         }
 
@@ -417,37 +603,100 @@
         }
 
         .timeline-item {
-            position: relative;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(145deg, var(--dark-gray), var(--black));
-            border: 1px solid var(--medium-gray);
-            border-left: 4px solid var(--gold);
-            border-radius: 0 8px 8px 0;
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
             transition: all 0.3s ease;
+            position: relative;
+            width: 100%;
+            /* Memastikan mengisi container */
         }
 
         .timeline-item:hover {
-            transform: translateX(10px);
-            border-left-color: var(--light-gold);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
         .timeline-time {
             display: inline-block;
-            background: var(--gold);
-            color: var(--black);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            background: rgba(212, 175, 55, 0.15);
+            color: black;
+            padding: 0.25rem 0.6rem;
+            border-radius: 15px;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .timeline-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
             color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .timeline-description {
+            color: #b0b0b0;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .schedule-highlight {
+            border-left: 3px solid #d4af37;
+        }
+
+        .schedule-highlight .timeline-time {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(180, 140, 20, 0.2));
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .schedule-day {
+                max-width: 100%;
+                /* Di mobile full width */
+                padding: 0 0.5rem;
+            }
+
+            .schedule-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.4rem;
+            }
+
+            .schedule-tab {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .timeline-item {
+                padding: 0.8rem;
+                margin-bottom: 0.6rem;
+            }
+        }
+
+        /* Untuk layar sangat kecil */
+        @media (max-width: 480px) {
+            .schedule-day {
+                padding: 0 0.25rem;
+            }
+
+            .schedule-tab {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .timeline-item {
+                padding: 0.7rem;
+            }
+
         }
 
         .timeline-speaker {
@@ -520,20 +769,16 @@
             box-shadow: 0 4px 15px rgba(192, 192, 192, 0.2);
         }
 
-        /* Bronze gradient - sesuai dengan warna bronze klasik */
         .bronze-gradient {
             background: linear-gradient(135deg, #8B4513, #CD7F32, #D2691E, #CD7F32);
             border: 1px solid rgba(205, 127, 50, 0.4);
             box-shadow: 0 4px 15px rgba(205, 127, 50, 0.2);
         }
 
-
-        /* Enhanced hover effects untuk semua gradient cards */
         .platinum-gradient:hover {
             background: linear-gradient(135deg, #FFFFFF, #E5E4E2, #8A8A8A, #C0C0C0);
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 12px 30px rgba(230, 230, 230, 0.4);
-            /* Changed to platinum color */
         }
 
         .gold-gradient:hover {
@@ -556,7 +801,6 @@
 
         .tier-title {
             font-size: 1.5rem;
-            font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
             text-align: center;
@@ -596,7 +840,6 @@
         .faq-question {
             padding: 1.5rem;
             font-size: 1.1rem;
-            font-weight: 600;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -611,6 +854,7 @@
             transition: all 0.3s ease;
             color: var(--gray-300);
             line-height: 1.6;
+            font-size: 1.2rem;
         }
 
         .faq-item.active .faq-answer {
@@ -749,10 +993,10 @@
                         <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
-                    <span class="ml-3 text-white text-lg hidden md:block">Indonesian Cat Association</span>
+                    <span class="ml-3 text-white text-xl hidden md:block luxury-text">Indonesian Cat Association</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition">Home</a>
+                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition ">Home</a>
                     <a href="#about" class="nav-link text-white hover:text-gold-400 transition">About</a>
                     <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition">Speakers</a>
                     <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition">Schedule</a>
@@ -794,9 +1038,11 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <!-- Replaced text with logo image -->
-                    <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo" class="footer-logo">
-                    <!-- Updated description text -->
-                    <p class="text-gray-400 mb-4">
+                    <div class="logo-gold-outline" style="transform: scale(0.8); transform-origin: left;">
+                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                            class="logo-glow">
+                    </div> <!-- Updated description text -->
+                    <p class="text-gray-400 mb-4 luxury-text">
                         Organisasi penyayang kucing di Indonesia yang dibentuk pada tanggal 1 April 2003.
                     </p>
                     <div class="flex space-x-4">
@@ -807,38 +1053,48 @@
                         <a href="https://ica.or.id/" class="text-gray-400 hover:text-gold-400 transition">
                             <i class="fab fa-google text-xl"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@indonesiancatassociation" class="text-gray-400 hover:text-gold-400 transition">
+                        <a href="https://www.tiktok.com/@indonesiancatassociation"
+                            class="text-gray-400 hover:text-gold-400 transition">
                             <i class="fab fa-tiktok text-xl"></i>
                         </a>
-                        <a href="https://www.youtube.com/channel/UCyG4DpLP36Ss5F4ScvyceHQ" class="text-gray-400 hover:text-gold-400 transition">
+                        <a href="https://www.youtube.com/channel/UCyG4DpLP36Ss5F4ScvyceHQ"
+                            class="text-gray-400 hover:text-gold-400 transition">
                             <i class="fab fa-youtube text-xl"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-gold-400 transition">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-gold-400 transition">About</a></li>
-                        <li><a href="#speakers" class="text-gray-400 hover:text-gold-400 transition">Speakers</a></li>
-                        <li><a href="#schedule" class="text-gray-400 hover:text-gold-400 transition">Schedule</a></li>
+                        <li><a href="#home" class="text-gray-400 hover:text-gold-400 transition luxury-text">Home</a>
+                        </li>
+                        <li><a href="#about" class="text-gray-400 hover:text-gold-400 transition luxury-text">About</a>
+                        </li>
+                        <li><a href="#speakers"
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text">Speakers</a></li>
+                        <li><a href="#schedule"
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text">Schedule</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">More Info</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">More Info</h4>
                     <ul class="space-y-2">
-                        <li><a href="#location" class="text-gray-400 hover:text-gold-400 transition">Location</a></li>
-                        <li><a href="#sponsors" class="text-gray-400 hover:text-gold-400 transition">Sponsors</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-gold-400 transition">Contact</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-gold-400 transition">FAQ</a></li>
+                        <li><a href="#location"
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text">Location</a></li>
+                        <li><a href="#sponsors"
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text">Sponsors</a></li>
+                        <li><a href="#contact"
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text">Contact</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-gold-400 transition luxury-text">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
-                    <ul class="space-y-2 text-gray-400">
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400 contact-info">
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt mr-3 gold-accent"></i>
-                            <span>Grand ITC Permata Hijau 1st Floor Block B.6 Unit 6-7 Jl. Arteri Permata Hijau - Jakarta Selatan 12210</span>
+                            <span>Grand ITC Permata Hijau 1st Floor Block B.6 Unit 6-7 Jl. Arteri Permata Hijau -
+                                Jakarta Selatan 12210</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-3 gold-accent"></i>
@@ -855,7 +1111,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-medium-gray mt-8 pt-8 text-center text-gray-500">
+            <div class="border-t border-medium-gray mt-8 pt-8 text-center text-gray-500 luxury-text">
                 <p>&copy; 2024 Indonesian Cat Association. All rights reserved.</p>
             </div>
         </div>
@@ -909,27 +1165,41 @@
             });
         });
 
-        // Schedule Tab Functionality
-        document.querySelectorAll('.schedule-tab').forEach(tab => {
-            tab.addEventListener('click', function () {
+        // Schedule Tab Functionality - SINGLE VERSION
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.schedule-tab');
+            const days = document.querySelectorAll('.schedule-day');
+
+            // Function to switch tabs
+            function switchTab(dayId) {
                 // Remove active class from all tabs and days
-                document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.schedule-day').forEach(d => d.classList.remove('active'));
+                tabs.forEach(t => t.classList.remove('active'));
+                days.forEach(day => day.classList.remove('active'));
 
-                // Add active class to clicked tab
-                this.classList.add('active');
+                // Add active class to clicked tab and corresponding day
+                const activeTab = document.querySelector(`.schedule-tab[data-day="${dayId}"]`);
+                const activeDay = document.getElementById(dayId);
 
-                // Show corresponding day
-                const dayId = this.getAttribute('data-day');
-                document.getElementById(dayId).classList.add('active');
+                if (activeTab && activeDay) {
+                    activeTab.classList.add('active');
+                    activeDay.classList.add('active');
+                }
+            }
+
+            // Add click event to all tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const targetDay = this.getAttribute('data-day');
+                    switchTab(targetDay);
+                });
             });
-        });
 
-        // FAQ Accordion Functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function () {
-                const faqItem = this.parentElement;
-                faqItem.classList.toggle('active');
+            // FAQ Accordion Functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function () {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('active');
+                });
             });
         });
     </script>
