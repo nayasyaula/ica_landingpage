@@ -303,6 +303,12 @@
     <!-- Location Section -->
     <section id="location" class="py-20">
         <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center w-full">
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Event Location</h2>
+                <p class="text-xl mb-12 max-w-3xl mx-auto text-gold-200">
+                    Experience luxury at Harris Hotel, Kuta Bali
+                </p>
+            </div>
 
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="location-card">
@@ -336,9 +342,11 @@
                         </div>
                     </div>
                     <div class="location-info">
-                        <h3 class="text-2xl font-bold text-white mb-4">The Grand Ballroom Jakarta</h3>
-                        <p class="text-gray-300 mb-4">A premier venue in the heart of Jakarta, offering state-of-the-art facilities and luxurious ambiance perfect for our prestigious event.</p>
-                        
+                        <h3 class="text-2xl font-bold text-white mb-4">HARRIS Hotel & Residence Riverview Kuta Bali</h3>
+                        <p class="text-gray-300 mb-4"> Pilihan ideal untuk acara dan liburan, dengan ruang luas, layanan
+                            profesional, serta lokasi strategis yang memudahkan akses ke destinasi utama di Kuta.
+                        </p>
+
                         <div class="location-feature">
                             <i class="fas fa-location-dot"></i>
                             <span>Jl. Raya Kuta Tidak. 62A , Badung, Bali, Indonesia 80361</span>
