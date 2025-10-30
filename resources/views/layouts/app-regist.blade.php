@@ -1001,14 +1001,14 @@
                     <span class="ml-3 text-white text-2xl hidden md:block luxury-text">Indonesian Cat Association</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Home</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">About</a>
-                    <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Speakers</a>
-                    <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Schedule</a>
-                    <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Location</a>
-                    <a href="#sponsors" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsors</a>
+                    <a href="{{ url('/#home') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Home</a>
+                    <a href="{{ url('/#about') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">About</a>
+                    <a href="{{ url('/#speakers') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Speakers</a>
+                    <a href="{{ url('/#schedule') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Schedule</a>
+                    <a href="{{ url('/#location') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Location</a>
+                    <a href="{{ url('/#sponsors') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsors</a>
                     <a href="{{ route('events.index') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Register</a>
-                    <a href="#faq" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
+                    <a href="{{ url('/#faq') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button text-gold-400">
@@ -1020,14 +1020,14 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu">
                 <div class="mobile-menu-links">
-                    <a href="#home" class="mobile-menu-link text-base">Home</a>
-                    <a href="#about" class="mobile-menu-link text-base">About</a>
-                    <a href="#speakers" class="mobile-menu-link text-base">Speakers</a>
-                    <a href="#schedule" class="mobile-menu-link text-base">Schedule</a>
-                    <a href="#location" class="mobile-menu-link text-base">Location</a>
-                    <a href="#sponsors" class="mobile-menu-link text-base">Sponsors</a>
+                    <a href="{{ url('/#home') }}" class="mobile-menu-link text-base">Home</a>
+                    <a href="{{ url('/#about') }}" class="mobile-menu-link text-base">About</a>
+                    <a href="{{ url('/#speakers') }}" class="mobile-menu-link text-base">Speakers</a>
+                    <a href="{{ url('/#schedule') }}" class="mobile-menu-link text-base">Schedule</a>
+                    <a href="{{ url('/#location') }}" class="mobile-menu-link text-base">Location</a>
+                    <a href="{{ url('/#sponsors') }}" class="mobile-menu-link text-base">Sponsors</a>
                     <a href="{{ route('events.index') }}" class="mobile-menu-link text-base">Register</a>
-                    <a href="#faq" class="mobile-menu-link text-base">FAQ</a>
+                    <a href="{{ url('/#faq') }}" class="mobile-menu-link text-base">FAQ</a>
                 </div>
             </div>
         </div>
