@@ -7,15 +7,15 @@
     <section id="home" class="hero-bg">
         <div class="max-w-7xl mx-auto px-4 text-center w-full">
             <div class="mb-8">
-                <span class="text-gold-400 uppercase tracking-widest text-xl mb-4 inline-block luxury-text">GALA DINNER &
+                <span class="text-gold-400 uppercase tracking-widest text-3xl mb-4 inline-block">GALA DINNER &
                     AWARDING NIGHT
                     ICA 2025
                 </span>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight luxury-heading">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
                     <span class="text-white">Indonesian</span>
                     <span class="gold-accent block">Cat Association</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gold-200 luxury-text">
+                <p class="text-xl md:text-3xl mb-8 max-w-3xl mx-auto text-gold-200">
                     Catropolitan Style
                 </p>
                 <div class="space-x-4 space-y-4 md:space-y-0">
@@ -76,7 +76,7 @@
             <div class="text-center w-full mb-12">
                 <h2 class="section-title text-3xl font-bold mb-4 text-white">Visionary Voices of Catropolitan</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
-                    Meet the urban pioneers shaping the future of feline excellence in metropolitan style
+                    Kenali para pelopor yang akan membentuk masa depan keunggulan kucing dalam metropolitan style.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -86,10 +86,13 @@
                         <img src="{{ asset('images/wayan.jpg') }}" alt="DR. IR. I WAYAN KOSTER, M.M" class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading">DR. IR. I WAYAN KOSTER, M.M</h3>
-                    <p class="text-gold-400 mb-4 luxury-text"> PROFIL GUBERNUR BALI</p>
-                    <p class="text-gray-300 luxury-text">I Wayan Koster, Gubernur Bali, dikenal karena komitmennya menjaga 
-                        budaya, lingkungan, dan pembangunan berkelanjutan berbasis kearifan lokal. Di bawah kepemimpinannya, 
-                        Bali menyeimbangkan kemajuan ekonomi, kelestarian alam, dan nilai tradisi, menjadikannya model pembangunan 
+                    <p class="text-gold-400 mb-4 luxury-text text-lg">GUBERNUR BALI</p>
+                    <hr><br>
+                    <p class="text-gray-300 luxury-text text-lg">I Wayan Koster, Gubernur Bali, dikenal karena komitmennya
+                        menjaga
+                        budaya, lingkungan, dan pembangunan berkelanjutan berbasis kearifan lokal. Di bawah kepemimpinannya,
+                        Bali menyeimbangkan kemajuan ekonomi, kelestarian alam, dan nilai tradisi, menjadikannya model
+                        pembangunan
                         berakar pada identitas lokal.</p>
                 </div>
 
@@ -99,23 +102,32 @@
                         <img src="{{ asset('images/russy.jpg') }}" alt="RUSSY IDROES, S.KOM. M.M." class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> RUSSY IDROES, S.KOM. M.M.</h3>
-                    <p class="text-gold-400 mb-4 luxury-text">PROFIL KETUA UMUM ICA</p>
-                    <p class="text-gray-300 luxury-text">Russy Idroes, pendiri Indonesian Cat Association (ICA) dan Ketua 
-                        Umum periode 2024 - 2027, merupakan tokoh penting dalam perkembangan dunia perkucingan Indonesia. 
-                        Sebagai juri kucing non-Eropa yang diakui Fédération Internationale Féline (FIFe), ia berperan besar 
-                        membawa ICA menuju pengakuan internasional dan memperkuat komunitas pecinta kucing Indonesia di kancah global.</p>
+                    <p class="text-gold-400 mb-4 luxury-text text-lg">KETUA UMUM ICA</p>
+                    <hr><br>
+                    <p class="text-gray-300 luxury-text text-lg">Russy Idroes, pendiri Indonesian Cat Association (ICA) dan
+                        Ketua
+                        Umum periode 2024 - 2027, merupakan tokoh penting dalam perkembangan dunia perkucingan Indonesia.
+                        Sebagai juri kucing non-Eropa yang diakui Fédération Internationale Féline (FIFe), ia berperan besar
+                        membawa ICA menuju pengakuan internasional dan memperkuat komunitas pecinta kucing Indonesia di
+                        kancah global.</p>
                 </div>
 
                 <!-- Speaker 3 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/munawaroh.jpg') }}" alt="DR. DRH. MUHAMMAD MUNAWAROH, M.M." class="speaker-image">
+                        <img src="{{ asset('images/munawaroh.jpg') }}" alt="DR. DRH. MUHAMMAD MUNAWAROH, M.M."
+                            class="speaker-image">
                     </div>
-                    <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> DR. DRH. MUHAMMAD MUNAWAROH, M.M.</h3>
-                    <p class="text-gold-400 mb-4 luxury-text"> PROFIL KETUA UMUM PDHI</p>
-                    <p class="text-gray-300 luxury-text">Munawaroh, dokter hewan dan akademisi, dikenal atas kepemimpinannya dalam 
-                        memperkuat profesi veteriner di Indonesia. Sebagai Ketua Umum PDHI, ia berperan aktif meningkatkan kompetensi 
-                        dokter hewan serta mendorong kolaborasi antara akademisi, pemerintah, dan komunitas untuk mewujudkan kesejahteraan 
+                    <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> DR. DRH. MUHAMMAD MUNAWAROH, M.M.
+                    </h3>
+                    <p class="text-gold-400 mb-4 luxury-text text-lg">KETUA UMUM PDHI</p>
+                    <hr><br>
+                    <p class="text-gray-300 luxury-text text-lg">Munawaroh, dokter hewan dan akademisi, dikenal atas
+                        kepemimpinannya dalam
+                        memperkuat profesi veteriner di Indonesia. Sebagai Ketua Umum PDHI, ia berperan aktif meningkatkan
+                        kompetensi
+                        dokter hewan serta mendorong kolaborasi antara akademisi, pemerintah, dan komunitas untuk mewujudkan
+                        kesejahteraan
                         hewan berkelanjutan.</p>
                 </div>
             </div>
@@ -134,14 +146,14 @@
             </div>
             <!-- Schedule Tabs -->
             <div class="schedule-tabs">
-                <button class="schedule-tab active" data-day="day1">
-                    <i class="fas fa-calendar-day mr-2"></i>Hari ke 1 - Nov 28
+                <button class="schedule-tab active text-button" data-day="day1">
+                    <i class="fas fa-calendar-day mr-2"></i>Hari ke 1 - 28 Nov
                 </button>
-                <button class="schedule-tab" data-day="day2">
+                <button class="schedule-tab text-button" data-day="day2">
                     <i class="fas fa-calendar-day mr-2"></i>GALA DINNER & AWARDING NIGHT
                 </button>
-                <button class="schedule-tab" data-day="day3">
-                    <i class="fas fa-calendar-day mr-2"></i>Hari ke 3 - Nov 30
+                <button class="schedule-tab text-button" data-day="day3">
+                    <i class="fas fa-calendar-day mr-2"></i>Hari ke 3 - 30 Nov
                 </button>
             </div>
 
@@ -350,14 +362,16 @@
                     <div class="location-info">
                         <h3 class="text-2xl font-bold text-white mb-4 luxury-heading">HARRIS Hotel & Residence Riverview
                             Kuta Bali</h3>
-                        <p class="text-gray-300 mb-4 luxury-text"> Pilihan ideal untuk acara dan liburan, dengan ruang luas,
+                        <p class="text-gray-300 mb-4 luxury-text text-lg"> Pilihan ideal untuk acara dan liburan, dengan
+                            ruang luas,
                             layanan
                             profesional, serta lokasi strategis yang memudahkan akses ke destinasi utama di Kuta.
                         </p>
 
                         <div class="location-feature">
                             <i class="fas fa-location-dot"></i>
-                            <span class="luxury-text">Jl. Raya Kuta Tidak. 62A , Badung, Bali, Indonesia 80361</span>
+                            <span class="luxury-text text-lg">Jl. Raya Kuta Tidak. 62A , Badung, Bali, Indonesia
+                                80361</span>
                         </div>
                         <div class="location-feature">
                             <i class="fas fa-phone"></i>
@@ -412,7 +426,8 @@
                             <i class="fas fa-film text-gold-400 mt-1 mr-3"></i>
                             <div>
                                 <h4 class="text-white font-semibold luxury-heading">Beberapa Kolam Renang</h4>
-                                <p class="text-gray-300 luxury-text">Nikmati kolam renang dengan area anak dan dewasa, cocok
+                                <p class="text-gray-300 luxury-text">Nikmati kolam renang dengan area anak dan dewasa,
+                                    cocok
                                     untuk
                                     bersantai sebelum atau sesudah acara.</p>
                             </div>
@@ -463,7 +478,8 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-concierge-bell text-gold-400 mt-1 mr-2 text-xs"></i>
-                                <span class="luxury-text">Easy access to restaurants, cafés, and entertainment venues around
+                                <span class="luxury-text">Easy access to restaurants, cafés, and entertainment venues
+                                    around
                                     Kuta</span>
                             </li>
                         </ul>
@@ -587,8 +603,9 @@
                 @csrf
                 <div class="mb-8">
                     <label for="name" class="block text-gold-200 mb-3 text-lg luxury-text">Full Name</label>
-                    <input type="text" id="name" name="name" required class="w-full px-5 py-4 rounded-lg focus:outline-none"
-                        value="{{ old('name') }}" placeholder="Enter your full name">
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-5 py-4 rounded-lg focus:outline-none" value="{{ old('name') }}"
+                        placeholder="Enter your full name">
                     @error('name')
                         <span class="text-red-400 text-sm mt-2 block luxury-text">{{ $message }}</span>
                     @enderror
@@ -607,14 +624,14 @@
                 <div class="mb-8">
                     <label for="message" class="block text-gold-200 mb-3 text-lg luxury-text">Message</label>
                     <textarea id="message" name="message" required rows="5"
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none"
-                        placeholder="Tell us about your interest in the event">{{ old('message') }}</textarea>
+                        class="w-full px-5 py-4 rounded-lg focus:outline-none" placeholder="Tell us about your interest in the event">{{ old('message') }}</textarea>
                     @error('message')
                         <span class="text-red-400 text-sm mt-2 block luxury-text">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <button type="submit" class="w-full btn-gold py-4 rounded-lg font-semibold text-lg transition duration-300">
+                <button type="submit"
+                    class="w-full btn-gold py-4 rounded-lg font-semibold text-lg transition duration-300">
                     <i class="fas fa-paper-plane mr-2"></i> Send Request
                 </button>
             </form>
