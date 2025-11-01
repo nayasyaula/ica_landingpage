@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('images/logo-ICA.png')); ?>">
     <title>QR Scanner - Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -575,13 +575,13 @@
     <div class="admin-top-header">
         <div class="admin-header-content">
             <div class="admin-logo">
-                <img src="{{ asset('images/logo-ICA.png') }}" alt="ICA Logo" class="admin-logo-img">
+                <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="ICA Logo" class="admin-logo-img">
                 <span class="admin-logo-text">Admin Dashboard</span>
             </div>
             <div class="admin-user-menu">
                 <span class="admin-welcome">Welcome, Administrator</span>
-                <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
-                    @csrf
+                <form action="<?php echo e(route('admin.logout')); ?>" method="POST" class="d-inline">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="btn-admin-logout">
                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                     </button>
@@ -594,7 +594,7 @@
     <main class="admin-main-content">
         <div class="admin-dashboard-container">
             <!-- Tombol Kembali -->
-            <a href="{{ route('admin.dashboard') }}" class="back-button">
+            <a href="<?php echo e(route('admin.dashboard')); ?>" class="back-button">
                 <i class="fas fa-arrow-left me-2"></i>Kembali ke Dashboard
             </a>
 
@@ -655,7 +655,7 @@
                             <!-- Tab Input Manual -->
                             <div id="manual-tab" class="tab-content">
                                 <form id="manual-verification-form">
-                                    @csrf
+                                    <?php echo csrf_field(); ?>
                                     <div class="form-group">
                                         <label for="qr-code-input">Kode QR Tiket</label>
                                         <input type="text" name="qr_code" id="qr-code-input" class="form-control"
@@ -884,11 +884,11 @@
             document.getElementById('error-result').style.display = 'block';
             document.getElementById('error-message').textContent = 'Memverifikasi dan melakukan check-in...';
 
-            fetch('{{ route("checkin") }}', {
+            fetch('<?php echo e(route("checkin")); ?>', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
@@ -996,4 +996,4 @@
     </script>
 </body>
 
-</html>
+</html><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/admin/scan-qr.blade.php ENDPATH**/ ?>
