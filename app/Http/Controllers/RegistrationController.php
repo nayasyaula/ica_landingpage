@@ -164,18 +164,34 @@ class RegistrationController extends Controller
 
     public function checkIn(Request $request)
     {
-        $registration = Registration::where('qr_code', $request->qr_code)->first();
+        $registration = Registration::with('event')->where('qr_code', $request->qr_code)->first();
 
         if (!$registration) {
-            return back()->with('error', 'QR Code tidak ditemukan.');
+            return response()->json([
+                'success' => false,
+                'message' => 'QR Code tidak ditemukan.'
+            ]);
         }
 
+        // Cek apakah sudah check-in
+        if ($registration->is_checked_in) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Peserta sudah check-in sebelumnya pada: ' . $registration->checked_in_at->format('d/m/Y H:i'),
+                'registration' => $registration
+            ]);
+        }
+
+        // Lakukan check-in
         $registration->update([
             'is_checked_in' => true,
             'checked_in_at' => now(),
         ]);
 
-        return redirect()->route('admin.dashboard')
-            ->with('success', 'Peserta berhasil check-in dan diarahkan ke dashboard.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Check-in berhasil!',
+            'registration' => $registration
+        ]);
     }
 }

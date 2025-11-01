@@ -33,7 +33,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::get('/scan-qr', [DashboardController::class, 'scanQR'])->name('admin.scan-qr');
     Route::post('/verify-qr', [DashboardController::class, 'verifyQR'])->name('admin.verify-qr');
     Route::get('/registration/{id}', [DashboardController::class, 'viewRegistration'])->name('admin.registration.view');
-    Route::post('/check-in', [RegistrationController::class, 'checkIn'])->name('checkin');
+    Route::post('/check-in', action: [RegistrationController::class, 'checkIn'])->name('checkin');
 });
 
 // Fallback untuk halaman yang tidak ada

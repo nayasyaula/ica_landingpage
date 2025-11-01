@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 <div class="admin-login-page">
     <div class="container admin-login-container">
