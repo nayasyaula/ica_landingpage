@@ -8,7 +8,9 @@
     <title>Indonesian Cat Association - Mukernas & Gala Dinner 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Luxury yang lebih elegan -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,6 +24,378 @@
             --black: #0A0A0A;
             --dark-gray: #1A1A1A;
             --medium-gray: #2A2A2A;
+        }
+
+        /* PERBAIKAN NAVBAR - TAMBAHKAN INI */
+        .nav-luxury {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+            background: rgba(10, 10, 10, 0.98) !important;
+        }
+
+        /* OFFSET UNTUK FIXED NAVBAR */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        #home,
+        #about,
+        #speakers,
+        #schedule,
+        #location,
+        #sponsors,
+        #contact,
+        #faq,
+        #events {
+            padding-top: 80px;
+            margin-top: -80px;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
+                url('{{ asset('images/ica1.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            /* TAMBAHKAN INI: */
+            margin-top: 0 !important;
+            padding-top: 80px !important;
+            box-sizing: border-box;
+        }
+
+        /* PASTIKAN background cover penuh */
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            z-index: -1;
+        }
+
+        /* ===== STYLE KHUSUS HALAMAN TIKET/SUCCESS ===== */
+        .ticket-page {
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .ticket-card {
+            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
+            border-radius: 12px;
+            border: 1px solid #D4AF37;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ticket-header {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #1A1A1A;
+            padding: 20px 15px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            border-bottom: 1px solid #D4AF37;
+        }
+
+        .ticket-header h5 {
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .ticket-header small {
+            opacity: 0.9;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .qr-section {
+            padding: 25px 20px;
+            text-align: center;
+            background: rgba(26, 26, 26, 0.8);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .qr-container {
+            display: inline-block;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: 2px solid #D4AF37;
+        }
+
+        .ticket-details {
+            padding: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            background: rgba(26, 26, 26, 0.6);
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item .label {
+            color: #D4AF37;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            min-width: 100px;
+        }
+
+        .detail-item .value {
+            font-weight: 500;
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            text-align: right;
+            max-width: 60%;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.4;
+        }
+
+        .ticket-actions {
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.8);
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .ticket-btn {
+            border-radius: 6px;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            border: 1px solid #D4AF37;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary {
+            background: transparent;
+            color: #D4AF37;
+        }
+
+        .btn-outline-primary:hover {
+            background: #D4AF37;
+            color: #1A1A1A;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #1A1A1A;
+            border: 1px solid #D4AF37;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #B8860B, #D4AF37);
+            transform: translateY(-2px);
+            color: #1A1A1A;
+        }
+
+        .ticket-alert-success {
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.1);
+            color: #D4AF37;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ticket-alert-success i {
+            color: #D4AF37;
+        }
+
+        /* Pastikan ada spacing untuk navbar */
+        .ticket-container {
+            margin-top: 100px !important;
+            padding-top: 2rem !important;
+        }
+
+        /* Override untuk memastikan tiket terlihat baik */
+        .ticket-card .detail-item .value {
+            font-family: 'Cormorant Garamond', serif !important;
+        }
+
+        .ticket-card .detail-item .label {
+            font-family: 'Cinzel', serif !important;
+        }
+
+        @media (max-width: 768px) {
+            .ticket-container {
+                margin-top: 80px !important;
+                padding-top: 1rem !important;
+            }
+
+            .ticket-col {
+                padding: 0 15px;
+            }
+
+            .ticket-card {
+                max-width: 100%;
+                margin: 0 10px;
+            }
+
+            .ticket-header {
+                padding: 15px 12px;
+            }
+
+            .ticket-header h5 {
+                font-size: 1.1rem;
+            }
+
+            .qr-section {
+                padding: 20px 15px;
+            }
+
+            .ticket-details {
+                padding: 15px;
+            }
+
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 8px 0;
+            }
+
+            .detail-item .value {
+                text-align: left;
+                max-width: 100%;
+                font-size: 0.9rem;
+            }
+
+            .detail-item .label {
+                font-size: 0.8rem;
+                min-width: auto;
+            }
+
+            .ticket-actions {
+                flex-direction: column;
+                gap: 8px;
+                padding: 15px;
+            }
+
+            .ticket-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ticket-container {
+                margin-top: 70px !important;
+            }
+
+            .ticket-col {
+                padding: 0 10px;
+            }
+
+            .ticket-card {
+                margin: 0 5px;
+            }
+
+            .ticket-header {
+                padding: 12px 10px;
+            }
+
+            .ticket-header h5 {
+                font-size: 1rem;
+            }
+
+            .ticket-header small {
+                font-size: 0.75rem;
+            }
+
+            .qr-section {
+                padding: 15px 10px;
+            }
+
+            .qr-container {
+                padding: 10px;
+            }
+
+            .ticket-details {
+                padding: 12px 10px;
+            }
+        }
+
+        @media print {
+
+            .ticket-actions,
+            .ticket-alert-success {
+                display: none !important;
+            }
+
+            .ticket-card {
+                box-shadow: none !important;
+                border: 2px solid #D4AF37 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .ticket-container {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+
+            body {
+                background-color: white !important;
+            }
+
+            .ticket-page {
+                background-color: white !important;
+                padding: 0 !important;
+            }
+
+            .ticket-header {
+                background: #D4AF37 !important;
+                color: #1A1A1A !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .detail-item .label {
+                color: #D4AF37 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+
+        html {
+            scroll-padding-top: 80px;
         }
 
         /* FONT LUXURY UNTUK SEMUA ELEMEN */
@@ -128,6 +502,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             letter-spacing: 0.8px;
+            font-size: 20px;
         }
 
         .luxury-caption {
@@ -1001,13 +1376,12 @@
                     <span class="ml-3 text-white text-2xl hidden md:block luxury-text">Indonesian Cat Association</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Home</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">About</a>
-                    <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Speakers</a>
-                    <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Schedule</a>
-                    <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Location</a>
-                    <a href="#sponsors" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsors</a>
-                    <a href="{{ route('events.index') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Register</a>
+                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
+                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang kami</a>
+                    <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
+                    <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
+                    <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
+                    <a href="#sponsors" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsor</a>
                     <a href="#faq" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
                 </div>
                 <div class="md:hidden">
@@ -1026,7 +1400,7 @@
                     <a href="#schedule" class="mobile-menu-link text-base">Schedule</a>
                     <a href="#location" class="mobile-menu-link text-base">Location</a>
                     <a href="#sponsors" class="mobile-menu-link text-base">Sponsors</a>
-                    <a href="{{ route('events.index') }}" class="mobile-menu-link text-base">Register</a>
+                    <a href="#events" class="mobile-menu-link text-base">Register</a>
                     <a href="#faq" class="mobile-menu-link text-base">FAQ</a>
                 </div>
             </div>
@@ -1070,35 +1444,32 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Quick Links</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Akses Cepat</h4>
                     <ul class="space-y-2">
                         <li>
                             <a href="#home"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Home</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Beranda</a>
                         </li>
                         <li>
                             <a href="#about"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">About</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Tentang Kami</a>
                         </li>
                         <li><a href="#speakers"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Speakers</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Pembicara</a>
                         </li>
                         <li><a href="#schedule"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Schedule</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Jadwal</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">More Info</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Info Lengkap</h4>
                     <ul class="space-y-2">
                         <li><a href="#location"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Location</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Lokasi</a>
                         </li>
                         <li><a href="#sponsors"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Sponsors</a>
-                        </li>
-                        <li><a href="#contact"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Contact</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Sponsor</a>
                         </li>
                         <li><a href="#faq"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">FAQ</a>
@@ -1129,14 +1500,14 @@
                 </div>
             </div>
             <div class="border-t border-medium-gray mt-8 pt-8 text-center text-gray-500 luxury-text">
-                <p>&copy; 2025 Indonesian Cat Association. All rights reserved.</p>
+                <p>&copy; 2025 Bintang Kreasi Multivision</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.querySelector('.mobile-menu');
             const menuIcon = this.querySelector('i');
 
@@ -1156,7 +1527,7 @@
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 const mobileMenu = document.querySelector('.mobile-menu');
                 const menuButton = document.querySelector('.mobile-menu-button');
                 const menuIcon = menuButton.querySelector('i');
@@ -1170,7 +1541,7 @@
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1183,7 +1554,7 @@
         });
 
         // Schedule Tab Functionality - SINGLE VERSION
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.schedule-tab');
             const days = document.querySelectorAll('.schedule-day');
 
@@ -1205,7 +1576,7 @@
 
             // Add click event to all tabs
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     const targetDay = this.getAttribute('data-day');
                     switchTab(targetDay);
                 });
@@ -1213,7 +1584,7 @@
 
             // FAQ Accordion Functionality
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function () {
                     const faqItem = this.parentElement;
                     faqItem.classList.toggle('active');
                 });

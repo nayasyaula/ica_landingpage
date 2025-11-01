@@ -1,6 +1,6 @@
 @extends('layouts.app-regist')
 
-@section('content')
+{{-- @section('content')
     <section id="home" class="hero-bg">
         <div class="max-w-7xl mx-auto px-4 text-center w-full">
             <div class="mb-8">
@@ -213,4 +213,4 @@
             }
         }
     </style>
-@endsection
+@endsection --}}

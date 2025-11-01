@@ -5,77 +5,177 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use App\Mail\EventRegistrationMail;
+use App\Mail\TicketConfirmationMail;
 use Illuminate\Support\Facades\Mail;
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Writer\PngWriter;
+use Illuminate\Support\Facades\Storage;
 
 class RegistrationController extends Controller
 {
     public function create(Event $event)
     {
-        if ($event->available_slots <= 0) {
-            return redirect()->route('events.index')
-                ->with('error', 'Event sudah penuh!');
-        }
-
         return view('registrations.create', compact('event'));
     }
 
     public function store(Request $request, Event $event)
     {
-        $request->validate([
+        // VALIDASI dengan unique email
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('registrations')->where(function ($query) use ($event) {
+                    return $query->where('event_id', $event->id);
+                })
+            ],
             'phone' => 'required|string|max:20',
         ]);
 
-        // Check available slots
-        if ($event->available_slots <= 0) {
-            return back()->with('error', 'Event sudah penuh!');
-        }
-
-        // Check duplicate email for same event
-        $existingRegistration = Registration::where('event_id', $event->id)
-            ->where('email', $request->email)
-            ->first();
-
-        if ($existingRegistration) {
-            return back()->with('error', 'Email ini sudah terdaftar untuk event ini!');
-        }
-
-        // Generate unique QR code
-        $qrCode = Str::uuid()->toString();
+        $qrCodeString = 'ICA-' . strtoupper(Str::random(3)) . '-' . rand(1000, 9999);
 
         $registration = Registration::create([
             'event_id' => $event->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'qr_code' => $qrCode,
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'qr_code' => $qrCodeString,
         ]);
 
-        // Kirim email
         try {
-            Mail::to($registration->email)->send(new EventRegistrationMail($registration));
+            $qrCodePng = QrCode::format('png')
+                ->size(300)
+                ->backgroundColor(255, 255, 255)
+                ->color(0, 0, 0)
+                ->margin(1)
+                ->generate($qrCodeString);
+
+            // Simpan QR code sebagai file
+            $qrFilename = 'qrcode-' . $qrCodeString . '.png';
+            $qrPath = storage_path('app/public/' . $qrFilename);
+
+            // Save QR code to file
+            file_put_contents($qrPath, $qrCodePng);
+
+            Log::info('🌀 QR Code PNG generated: ' . $qrPath);
+
+            // ✅ KIRIM EMAIL DENGAN ATTACHMENT
+            Mail::to($registration->email)->send(new TicketConfirmationMail($registration, $qrPath, $qrFilename));
+
+            Log::info('✅ EMAIL WITH QR ATTACHMENT SENT');
         } catch (\Exception $e) {
-            // Log error but don't show to user
-            \Log::error('Email sending failed: ' . $e->getMessage());
+            Log::error('❌ EMAIL FAILED: ' . $e->getMessage());
+
+            // Fallback: kirim email dengan QR code external
+            $this->sendEmailWithExternalQR($registration);
         }
 
         return redirect()->route('registrations.success', $registration);
     }
 
+    // ✅ FALLBACK DENGAN QR CODE EXTERNAL
+    private function sendEmailWithExternalQR($registration)
+    {
+        try {
+            $qrData = urlencode($registration->qr_code);
+            $qrImageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $qrData . "&format=png";
+
+            Log::info('🌀 Fallback: Using external QR API');
+
+            Mail::send([], [], function ($message) use ($registration, $qrImageUrl) {
+                $message->to($registration->email)
+                    ->subject('Indonesian Cat Assosiation - ')
+                    ->html('
+                        <h2>Pendaftaran Berhasil!</h2>
+                        <p>Halo <strong>' . $registration->name . '</strong>,</p>
+                        <p>Terima kasih telah melakukan pendaftaran. Proses registrasi Anda telah berhasil.</p>
+                        <p>Kami sangat menantikan kehadiran Anda dalam acara ini. Pastikan Anda hadir tepat waktu untuk menikmati rangkaian kegiatan yang telah kami siapkan.</p>
+                        <p>Buka tiket Anda ke Indonesian Cat Assosiation ! Tunjukkan kode QR yang tertera pada saat check-in di lokasi acara untuk konfirmasi kehadiran Anda.</p>
+
+                        <div style="text-align: center; margin: 25px 0;">
+                            <h3>QR Code Anda:</h3>
+                            <img src="' . $qrImageUrl . '" alt="QR Code" 
+                                 style="max-width: 300px; height: auto; border: 3px solid #D4AF37; padding: 15px; background: white;">
+                            <p><strong>Kode: ' . $registration->qr_code . '</strong></p>
+                            <p><small>Scan QR code di atas  </small></p>
+                        </div>
+                    ');
+            });
+
+            Log::info('✅ FALLBACK EMAIL WITH EXTERNAL QR SENT');
+        } catch (\Exception $e) {
+            Log::error('❌ FALLBACK EMAIL FAILED: ' . $e->getMessage());
+        }
+    }
     public function success(Registration $registration)
     {
-        // Generate QR code image untuk tampilan web
-        $qrImage = QrCode::size(200)->generate(route('registrations.show', $registration));
-        
+        // TAMPILKAN QR CODE DI PAGE
+        $qrImage = QrCode::size(200)->generate($registration->qr_code);
+
         return view('registrations.success', compact('registration', 'qrImage'));
     }
 
-    public function show(Registration $registration)
+
+    public function downloadQRCode(Registration $registration)
     {
-        return view('registrations.show', compact('registration'));
+        // Generate sebagai SVG tapi convert ke PNG via JavaScript
+        $qrImage = QrCode::size(300)->generate($registration->qr_code);
+
+        return view('registrations.download', compact('registration', 'qrImage'));
+    }
+
+    public function showQRCode($qrCode)
+    {
+        // Cari registration berdasarkan QR code
+        $registration = Registration::where('qr_code', $qrCode)->firstOrFail();
+
+        // Generate QR Code
+        $qrImage = QrCode::size(300)->generate($registration->qr_code);
+
+        return view('qrcode.show', compact('registration', 'qrImage'));
+    }
+    public function verifyTicket(Request $request)
+    {
+        $registration = \App\Models\Registration::where('qr_code', $request->qr_code)->first();
+
+        if (!$registration) {
+            return redirect()->back()->with('error', 'Kode QR tidak ditemukan.');
+        }
+
+        if ($registration->is_checked_in) {
+            return redirect()->route('admin.dashboard')
+                ->with('info', 'Peserta ini sudah check-in sebelumnya.');
+        }
+
+        $registration->update([
+            'is_checked_in' => true,
+            'checked_in_at' => now(),
+        ]);
+
+        return redirect()->route('admin.dashboard')
+            ->with('success', 'Peserta berhasil check-in!');
+    }
+
+    public function checkIn(Request $request)
+    {
+        $registration = Registration::where('qr_code', $request->qr_code)->first();
+
+        if (!$registration) {
+            return back()->with('error', 'QR Code tidak ditemukan.');
+        }
+
+        $registration->update([
+            'is_checked_in' => true,
+            'checked_in_at' => now(),
+        ]);
+
+        return redirect()->route('admin.dashboard')
+            ->with('success', 'Peserta berhasil check-in dan diarahkan ke dashboard.');
     }
 }

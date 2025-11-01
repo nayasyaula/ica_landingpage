@@ -3,23 +3,25 @@
 namespace Database\Seeders;
 
 use App\Models\Event;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class EventSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run()
-{
-    Event::create([
-        'name' => 'Tech Conference 2024',
-        'description' => 'Konferensi teknologi terbesar tahun ini',
-        'event_date' => now()->addDays(30),
-        'location' => 'Jakarta Convention Center',
-        'capacity' => 100,
-        'is_active' => true
-    ]);
-}
+    {
+        // HAPUS SEMUA EVENT LAMA (gunakan delete() bukan truncate())
+        Event::query()->delete();
+
+        // BUAT HANYA 1 EVENT TANPA CAPACITY
+        Event::create([
+            'name' => 'Indonesian Cat Assosiation',
+            'description' => 'Indonesian Cat Association (ICA) adalah organisasi resmi yang mewadahi para pecinta, pemilik, 
+            dan pengembang ras kucing di Indonesia. ICA berkomitmen untuk mengedukasi masyarakat, meningkatkan kesejahteraan 
+            kucing, serta mempererat hubungan antar komunitas pecinta kucing melalui berbagai kegiatan, pelatihan, dan event nasional.',
+            'event_date' => Carbon::create(2025, 11, 28),
+            'location' => 'HARRIS Hotel & Residence Riverview Kuta Bali',
+            // capacity dihapus - UNLIMITED PARTICIPANTS
+        ]);
+    }
 }

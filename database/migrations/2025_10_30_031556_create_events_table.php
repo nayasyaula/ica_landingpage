@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('description');
             $table->dateTime('event_date');
             $table->string('location');
-            $table->integer('capacity');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

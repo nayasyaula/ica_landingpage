@@ -11,4 +11,5 @@ class EventController extends Controller
         $events = Event::where('is_active', true)->get();
         return view('events.index', compact('events'));
     }
+    
 }

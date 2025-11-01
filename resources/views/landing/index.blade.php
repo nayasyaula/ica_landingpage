@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome - YourBrand')
+@section('title', 'Welcome - Indonesian Cat Association')
 
 @section('content')
     <!-- Home/Hero Section -->
@@ -19,16 +19,16 @@
                     Catropolitan Style
                 </p>
                 <div class="space-x-4 space-y-4 md:space-y-0">
-                    <a href="#contact" class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block">
-                        <i class="fas fa-calendar-check mr-2"></i> Register Now
+                    <a href="#events" class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+                        <i class="fas fa-calendar-check mr-2"></i> Daftar Sekarang
                     </a>
                     <a href="#schedule" class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block">
-                        <i class="fas fa-clock mr-2"></i> View Schedule
+                        <i class="fas fa-clock mr-2"></i> Lihat Jadwal
                     </a>
                 </div>
             </div>
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <a href="#about" class="text-gold-400 text-2xl">
+                <a href="#events" class="text-gold-400 text-2xl">
                     <i class="fas fa-chevron-down"></i>
                 </a>
             </div>
@@ -40,22 +40,22 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="section-title text-4xl font-bold mb-6 text-white">About ICA 2025</h2>
+                    <h2 class="section-title text-4xl font-bold mb-6 text-white">Tentang ICA</h2>
                     <p class="text-gray-300 mb-6 text-lg luxury-text">
-                        Agenda tahunan Mukernas & Gala Dinner ICA 2025 bertema "Metropolitan - CATROPOLITAN STYLE" hadir
-                        dengan konsep baru yang kreatif dan berkelas.
+                        Mukernas & Gala Dinner ICA 2025 merupakan kegiatan tahunan yang selalu dinanti oleh para pecinta
+                        kucing di Indonesia.
+                        Tahun ini, acara tersebut mengangkat tema “Metropolitan CATROPOLITAN STYLE”, menghadirkan konsep
+                        yang segar, kreatif,
+                        dan berbeda dari penyelenggaraan sebelumnya.
                     </p>
                     <p class="text-gray-300 mb-6 text-lg luxury-text">
-                        Kegiatan dibagi dua sesi: Mukernas (±60-100 peserta) dan Gala Dinner & Awarding (±100-300 peserta).
-                    </p>
-                    <p class="text-gray-300 mb-6 text-lg luxury-text">
-                        Rangkaian acaranya meliputi pameran, seminar, pelatihan, serta edukasi seputar dunia kucing, dengan
-                        puncak malam penghargaan bagi kucing terbaik nasional.
-                    </p>
-                    <p class="text-gray-300 mb-8 text-lg luxury-text">
-                        Event ini bertujuan menjaring lebih banyak pencinta kucing untuk bergabung. Terbuka untuk umum —
-                        mulai dari anggota ICA, kolektor, breeder, hingga masyarakat luas — acara ini dikemas modern,
-                        interaktif, dan inspiratif.
+                        Rangkaian acara terbagi menjadi tiga sesi utama. Sesi pertama adalah Mukernas, yang menjadi wadah
+                        bagi anggota organisasi
+                        untuk membahas serta merumuskan program dan kebijakan ICA. Sesi kedua yaitu Gala Dinner & Award
+                        Night, menghadirkan malam
+                        penghargaan penuh kemeriahan bagi kucing-kucing terbaik dari berbagai daerah di Indonesia. Sesi
+                        terakhir ditutup dengan pembacaan
+                        keputusan Mukernas dan penutupan acara sebagai puncak dari seluruh rangkaian kegiatan.
                     </p>
                 </div>
                 <div class="bg-dark-gray rounded-lg overflow-hidden h-96 relative gold-border-frame image-hover-container">
@@ -74,9 +74,9 @@
     <section id="speakers" class="py-16">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center w-full mb-12">
-                <h2 class="section-title text-3xl font-bold mb-4 text-white">Visionary Voices of Catropolitan</h2>
+                <h2 class="section-title text-3xl font-bold mb-4 text-white">Para Pembicara Visioner</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
-                    Kenali para pelopor yang akan membentuk masa depan keunggulan kucing dalam metropolitan style.
+                    Kenali para pelopor yang akan membentuk masa depan keunggulan dunia kucing.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -138,7 +138,7 @@
     <section id="schedule" class="py-16 gold-pattern">
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center w-full">
-                <h2 class="section-title text-3xl font-bold mb-4 text-white">Event Schedule</h2>
+                <h2 class="section-title text-3xl font-bold mb-4 text-white">Jadwal Event</h2>
                 <p class="text-xl text-center mb-12 max-w-2xl mx-auto text-gold-200 luxury-text">
                     Tiga hari seru untuk menambah pengetahuan tentang kucing, menjalin koneksi, dan merayakan komunitas
                     pecinta kucing.
@@ -150,7 +150,7 @@
                     <i class="fas fa-calendar-day mr-2"></i>Hari ke 1 - 28 Nov
                 </button>
                 <button class="schedule-tab text-button" data-day="day2">
-                    <i class="fas fa-calendar-day mr-2"></i>GALA DINNER & AWARDING NIGHT
+                    <i class="fas fa-calendar-day mr-2"></i>Gala Dinner dan Malam Penghargaan
                 </button>
                 <button class="schedule-tab text-button" data-day="day3">
                     <i class="fas fa-calendar-day mr-2"></i>Hari ke 3 - 30 Nov
@@ -322,10 +322,9 @@
     <section id="location" class="py-20">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center w-full">
-                <h2 class="section-title text-4xl font-bold mb-4 text-white">Event Location</h2>
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Lokasi Event</h2>
                 <p class="text-xl mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
-                    Experience luxury at Harris Hotel, Kuta Bali
-                </p>
+                    Rasakan kemewahan di Harris Hotel, Kuta Bali. </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -352,8 +351,9 @@
                                 <div class="flex items-center text-white">
                                     <i class="fas fa-expand-arrows-alt text-gold-400 text-xl mr-3"></i>
                                     <div class="text-left">
-                                        <div class="font-bold text-gold-400 luxury-heading">View Larger Map</div>
-                                        <div class="text-xs text-gray-300 mt-1 luxury-text">Click to open full screen</div>
+                                        <div class="font-bold text-gold-400 luxury-heading">Lihat Peta Lebih Besar</div>
+                                        <div class="text-xs text-gray-300 mt-1 luxury-text">Klik untuk membuka layar penuh
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -395,19 +395,19 @@
                             <a href="https://www.google.com/maps/dir//HARRIS+Hotel+%26+Residence+Riverview+Kuta+Bali,+Jalan+Raya+Kuta+No.+99,+Kuta,+Bali+80361/@-8.7178282,115.1808951,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2dd246b0d51711e9:0x3037c24b5e7fb3cd!2m2!1d115.1808951!2d-8.7178282?entry=ttu"
                                 target="_blank" rel="noopener noreferrer"
                                 class="btn-gold px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 hover:scale-105 flex-1 text-center">
-                                <i class="fas fa-directions mr-2"></i> Get Directions
+                                <i class="fas fa-directions mr-2"></i> Lihat Rute
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <h3 class="text-2xl font-bold text-white mb-6 luxury-heading">Venue Highlights</h3>
+                    <h3 class="text-2xl font-bold text-white mb-6 luxury-heading">Keunggulan Lokasi</h3>
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <i class="fas fa-star text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold luxury-heading">Strategic Kuta Location</h4>
+                                <h4 class="text-white font-semibold luxury-heading">Lokasi Strategis di Kuta</h4>
                                 <p class="text-gray-300 luxury-text">Terletak di jantung kawasan Kuta, dekat pantai, pusat
                                     perbelanjaan,
                                     dan destinasi wisata populer.</p>
@@ -435,17 +435,18 @@
                         <div class="flex items-start">
                             <i class="fas fa-concierge-bell text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold luxury-heading">HARRIS Cafe & Catering</h4>
-                                <p class="text-gray-300 luxury-text">Professional staff to ensure your event runs smoothly
+                                <h4 class="text-white font-semibold luxury-heading">HARRIS Kafe & Katering</h4>
+                                <p class="text-gray-300 luxury-text">Staf profesional siap memastikan acara Anda berjalan
+                                    lancar
                                 </p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-paw text-gold-400 mt-1 mr-3"></i>
                             <div>
-                                <h4 class="text-white font-semibold luxury-heading">Feline-Friendly Setup</h4>
-                                <p class="text-gray-300 luxury-text">Specially designed areas for cat demonstrations and
-                                    exhibitions</p>
+                                <h4 class="text-white font-semibold luxury-heading">Tata ruang ramah kucing</h4>
+                                <p class="text-gray-300 luxury-text">Area khusus yang dirancang untuk demonstrasi dan
+                                    pameran kucing.</p>
                             </div>
                         </div>
                     </div>
@@ -454,33 +455,33 @@
                     <div class="mt-8 p-6 bg-dark-gray rounded-lg border border-medium-gray">
                         <h4 class="text-white font-semibold mb-3 flex items-center luxury-heading">
                             <i class="fas fa-info-circle text-gold-400 mr-2"></i>
-                            Location Advantages
+                            Keunggulan Lokasi
                         </h4>
                         <ul class="text-gray-300 space-y-2 text-sm">
                             <li class="flex items-start">
                                 <i class="fas fa-map-marker-alt text-gold-400 mt-1 mr-2 text-xs"></i>
-                                <span class="luxury-text">Strategically located in central Kuta, near main roads and
-                                    attractions</span>
+                                <span class="luxury-text">Terletak strategis di pusat Kuta, dekat dengan jalan utama dan
+                                    berbagai tempat wisata.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-shopping-bag text-gold-400 mt-1 mr-2 text-xs"></i>
-                                <span class="luxury-text">Close to Beachwalk Shopping Center and local souvenir
-                                    markets</span>
+                                <span class="luxury-text">Berdekatan dengan Beachwalk Shopping Center dan pasar oleh-oleh
+                                    lokal.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-umbrella-beach text-gold-400 mt-1 mr-2 text-xs"></i>
-                                <span class="luxury-text">Approximately 10 minutes drive to Kuta Beach and Legian
+                                <span class="luxury-text">Hanya sekitar 10 menit berkendara menuju Pantai Kuta dan Pantai
+                                    Legian.
                                     Beach</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-plane-departure text-gold-400 mt-1 mr-2 text-xs"></i>
-                                <span class="luxury-text">Only 15 minutes from Ngurah Rai International Airport</span>
+                                <span class="luxury-text">Hanya 15 menit dari Bandara Internasional Ngurah Rai.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-concierge-bell text-gold-400 mt-1 mr-2 text-xs"></i>
-                                <span class="luxury-text">Easy access to restaurants, cafés, and entertainment venues
-                                    around
-                                    Kuta</span>
+                                <span class="luxury-text">Akses mudah ke berbagai restoran, kafe, dan tempat hiburan di
+                                    sekitar Kuta.</span>
                             </li>
                         </ul>
                     </div>
@@ -493,15 +494,14 @@
     <section id="sponsors" class="py-16 gold-pattern">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center w-full">
-                <h2 class="section-title text-4xl font-bold mb-4 text-white">Our Esteemed Sponsors</h2>
+                <h2 class="section-title text-4xl font-bold mb-4 text-white">Para Sponsor Terhormat Kami</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
-                    Generously supported by industry leaders in feline care and innovation
-                </p>
+                    Didukung dengan penuh semangat oleh para pemimpin industri dalam perawatan dan inovasi dunia kucing </p>
             </div>
 
             <!-- Platinum Sponsors -->
             <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Platinum Sponsors</h3>
+                <h3 class="tier-title">Sponsor Platinum</h3>
                 <div class="sponsor-grid">
                     <div class="sponsor-card platinum-gradient">
                         <div class="text-white text-xl font-bold luxury-heading">PurrfectCare</div>
@@ -517,7 +517,7 @@
 
             <!-- Gold Sponsors -->
             <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Gold Sponsors</h3>
+                <h3 class="tier-title">Sponsor Emas</h3>
                 <div class="sponsor-grid">
                     <div class="sponsor-card gold-gradient">
                         <div class="text-white text-lg font-semibold luxury-heading">CatNation</div>
@@ -536,7 +536,7 @@
 
             <!-- Silver Sponsors -->
             <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Silver Sponsors</h3>
+                <h3 class="tier-title">Sponsor Perak</h3>
                 <div class="sponsor-grid">
                     <div class="sponsor-card silver-gradient">
                         <div class="text-white luxury-heading">KittyCorp</div>
@@ -558,7 +558,7 @@
 
             <!-- Bronze Sponsors (New) -->
             <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Bronze Sponsors</h3>
+                <h3 class="tier-title">Sponsor Perunggu</h3>
                 <div class="sponsor-grid">
                     <div class="sponsor-card bronze-gradient">
                         <div class="text-white luxury-heading">FelineFriends</div>
@@ -583,189 +583,208 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-18">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="text-center w-full">
-                <h2 class="section-title text-4xl font-bold text-center mb-4 text-white">Secure Your Invitation</h2>
-                <p class="text-xl text-center mb-12 text-gold-200 luxury-text">
-                    Join the most exclusive feline event of the year
-                </p>
-            </div>
-            @if (session('success'))
-                <div class="bg-green-900 border border-green-700 text-green-200 px-6 py-4 rounded mb-8 luxury-text">
-                    <i class="fas fa-check-circle mr-2"></i> {{ session('success') }}
-                </div>
-            @endif
-
-            <form action="{{ route('contact.submit') }}" method="POST"
-                class="form-luxury bg-dark-gray border border-medium-gray p-10 rounded-lg shadow-2xl">
-                @csrf
-                <div class="mb-8">
-                    <label for="name" class="block text-gold-200 mb-3 text-lg luxury-text">Full Name</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none" value="{{ old('name') }}"
-                        placeholder="Enter your full name">
-                    @error('name')
-                        <span class="text-red-400 text-sm mt-2 block luxury-text">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="mb-8">
-                    <label for="email" class="block text-gold-200 mb-3 text-lg luxury-text">Email Address</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none" value="{{ old('email') }}"
-                        placeholder="Enter your email address">
-                    @error('email')
-                        <span class="text-red-400 text-sm mt-2 block luxury-text">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="mb-8">
-                    <label for="message" class="block text-gold-200 mb-3 text-lg luxury-text">Message</label>
-                    <textarea id="message" name="message" required rows="5"
-                        class="w-full px-5 py-4 rounded-lg focus:outline-none" placeholder="Tell us about your interest in the event">{{ old('message') }}</textarea>
-                    @error('message')
-                        <span class="text-red-400 text-sm mt-2 block luxury-text">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <button type="submit"
-                    class="w-full btn-gold py-4 rounded-lg font-semibold text-lg transition duration-300">
-                    <i class="fas fa-paper-plane mr-2"></i> Send Request
-                </button>
-            </form>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section id="faq" class="py-20 gold-pattern">
-        <div class="max-w-4xl mx-auto px-4"> <!-- Diperkecil container -->
+        <div class="max-w-4xl mx-auto px-4">
             <div class="text-center w-full">
-                <h2 class="section-title text-3xl font-bold text-center mb-4 text-white">Frequently Asked Questions</h2>
-                <!-- Diperkecil text -->
-                <p class="text-xl text-center mb-12 max-w-2xl mx-auto text-gold-200 luxury-text"> <!-- Diperkecil text -->
-                    Informasi lengkap tentang acara ICA-PDHI 2025
+                <h2 class="section-title text-3xl font-bold text-center mb-4 text-white">Tanya Jawab</h2>
+                <p class="text-xl text-center mb-12 max-w-2xl mx-auto text-gold-200 luxury-text">
+                    Informasi lengkap tentang acara ICA 2025
                 </p>
             </div>
             <div class="faq-container">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>1. Apa itu acara ICA-PDHI 2025?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Acara ini merupakan kolaborasi antara Indonesian Cat Association (ICA) dan
-                            Perhimpunan Dokter Hewan Indonesia (PDHI) yang mencakup tiga kegiatan utama: Musyawarah Kerja
-                            Nasional (Mukernas), Cat Expo & Product Exhibition, serta Gala Dinner & Award Night.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 1 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>1. Apa itu acara ICA 2025?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Acara ini diselenggarakan oleh Indonesian Cat Association (ICA) dan mencakup tiga kegiatan utama: Musyawarah Kerja Nasional (Mukernas), Cat Expo & Product Exhibition, serta Gala Dinner & Award Night.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 2 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>2. Kapan dan di mana acara ICA–PDHI 2025 dilaksanakan?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Acara akan berlangsung pada 28–30 November 2025 di Hotel HARRIS Riverview,
-                            Denpasar, Bali. Selama tiga hari, acara mencakup Mukernas ICA, Cat Expo & Product Exhibition,
-                            serta Gala Dinner & Award Night.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 2 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>2. Kapan dan di mana acara ICA 2025 dilaksanakan?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Acara akan berlangsung pada 28–30 November 2025 di Hotel HARRIS Riverview, Denpasar, Bali. Selama tiga hari, acara mencakup Mukernas ICA, Cat Expo & Product Exhibition, serta Gala Dinner & Award Night.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 3 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>3. Apa tujuan utama dari kegiatan ini?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Tujuan kegiatan ini antara lain:<br>
-                            • Menjadi wadah musyawarah nasional bagi seluruh anggota ICA.<br>
-                            • Memberikan apresiasi kepada pemilik dan breeder kucing berprestasi.<br>
-                            • Meningkatkan eksistensi ICA sebagai organisasi profesional bertaraf internasional.<br>
-                            • Membangun jejaring kerja sama antara ICA, PDHI, sponsor, dan industri hewan peliharaan.<br>
-                            • Menjadi sarana promosi dan branding bagi mitra dan sponsor yang berpartisipasi.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>3. Apa tujuan utama dari kegiatan ini?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Tujuan kegiatan ini antara lain:<br>
+                • Menjadi wadah musyawarah nasional bagi seluruh anggota ICA.<br>
+                • Memberikan apresiasi kepada pemilik dan breeder kucing berprestasi.<br>
+                • Meningkatkan eksistensi ICA sebagai organisasi profesional bertaraf internasional.<br>
+                • Membangun jejaring kerja sama antara ICA, sponsor, dan industri hewan peliharaan.<br>
+                • Menjadi sarana promosi dan branding bagi mitra dan sponsor yang berpartisipasi.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 4 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>4. Siapa saja tokoh utama yang terlibat?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">• <strong>Russy Idroes, S.Kom., M.M.</strong> — Ketua Umum ICA, pendiri ICA,
-                            sekaligus juri internasional yang diakui Fédération Internationale Féline (FIFe).<br>
-                            • <strong>Dr. Drh. Muhammad Munawaroh, M.M.</strong> — Ketua Umum PDHI, tokoh penting dalam
-                            pengembangan profesi dokter hewan nasional.<br>
-                            • <strong>Dr. Ir. I Wayan Koster, M.M.</strong> — Gubernur Bali, yang mendukung penyelenggaraan
-                            acara ini sebagai bagian dari promosi pariwisata dan kegiatan nasional di Bali.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 4 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>4. Siapa saja tokoh utama yang terlibat?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">• <strong>Russy Idroes, S.Kom., M.M.</strong> — Ketua Umum ICA, pendiri ICA,
+                sekaligus juri internasional yang diakui Fédération Internationale Féline (FIFe).<br>
+                • <strong>Dr. Ir. I Wayan Koster, M.M.</strong> — Gubernur Bali, yang mendukung penyelenggaraan acara ini
+                sebagai bagian dari promosi pariwisata dan kegiatan nasional di Bali.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 5 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>5. Siapa saja yang dapat menjadi sponsor acara ini?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Terdapat empat kategori sponsor:<br>
-                            🥇 <strong>Platinum Sponsor</strong><br>
-                            🥈 <strong>Gold Sponsor</strong><br>
-                            🥉 <strong>Silver Sponsor</strong><br>
-                            🏅 <strong>Bronze Sponsor</strong><br><br>
-                            Setiap kategori memiliki nilai kontribusi dan fasilitas berbeda, seperti booth pameran,
-                            penayangan video profil perusahaan, serta penempatan logo pada materi publikasi resmi ICA.
-                            Sponsor juga akan disebutkan secara berkala oleh MC selama acara dan berkesempatan tampil di
-                            panggung Award Night.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 5 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>5. Siapa saja yang dapat menjadi sponsor acara ini?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Terdapat empat kategori sponsor:<br>
+                🥇 <strong>Platinum Sponsor</strong><br>
+                🥈 <strong>Gold Sponsor</strong><br>
+                🥉 <strong>Silver Sponsor</strong><br>
+                🏅 <strong>Bronze Sponsor</strong><br><br>
+                Setiap kategori memiliki nilai kontribusi dan fasilitas berbeda, seperti booth pameran,
+                penayangan video profil perusahaan, serta penempatan logo pada materi publikasi resmi ICA.
+                Sponsor juga akan disebutkan secara berkala oleh MC selama acara dan berkesempatan tampil di
+                panggung Award Night.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 6 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>6. Apakah ada kerja sama dengan media nasional?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Ya. Panitia bekerja sama dengan Kompas, Metro TV, dan Trans TV sebagai mitra
-                            liputan resmi. Logo media partner akan ditampilkan pada seluruh materi publikasi cetak maupun
-                            digital untuk memperkuat branding acara.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 6 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>6. Apakah ada kerja sama dengan media nasional?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Ya. Panitia bekerja sama dengan Kompas, Metro TV, dan Trans TV sebagai mitra
+                liputan resmi. Logo media partner akan ditampilkan pada seluruh materi publikasi cetak maupun
+                digital untuk memperkuat branding acara.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 7 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>7. Bagaimana konsep Gala Dinner & Award Night?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Gala Dinner akan menjadi puncak acara dengan konsep elegan bertema
-                            Catropolitan Style. Penghargaan hanya akan diberikan kepada peserta yang hadir langsung di
-                            lokasi. Sponsor besar akan mendapat kesempatan tampil di panggung, dan door prize akan diberikan
-                            berupa produk hewan peliharaan dari sponsor, bukan makanan kucing.</p>
-                    </div>
-                </div>
+    <!-- FAQ Item 7 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>7. Bagaimana konsep Gala Dinner & Award Night?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Gala Dinner akan menjadi puncak acara dengan konsep elegan bertema
+                Catropolitan Style. Penghargaan hanya akan diberikan kepada peserta yang hadir langsung di
+                lokasi. Sponsor besar akan mendapat kesempatan tampil di panggung, dan door prize akan diberikan
+                berupa produk hewan peliharaan dari sponsor, bukan makanan kucing.</p>
+        </div>
+    </div>
 
-                <!-- FAQ Item 8 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>8. Apakah akan melibatkan publik figur atau influencer?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="luxury-text">Ya. Panitia merencanakan kerja sama dengan beberapa tokoh publik dan member
-                            ICA untuk mendukung promosi melalui media sosial. Salah satu target endorsement adalah Davina
-                            Karamoy, yang diharapkan dapat membantu meningkatkan eksposur publik acara ini.</p>
+    <!-- FAQ Item 8 -->
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>8. Apakah akan melibatkan publik figur atau influencer?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p class="luxury-text">Ya. Panitia merencanakan kerja sama dengan beberapa tokoh publik dan member
+                ICA untuk mendukung promosi melalui media sosial. Salah satu target endorsement adalah Davina
+                Karamoy, yang diharapkan dapat membantu meningkatkan eksposur publik acara ini.</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Events Section - SUPER SIMPLE VERSION -->
+    <section id="events" class="py-20 gold-pattern">
+        <div class="max-w-4xl mx-auto px-4"> <!-- Diperkecil max-width -->
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto luxury-text">
+                    Segera daftarkan diri Anda dan jadilah bagian dari momen spesial ICA 2025 </p>
+            </div>
+
+            <!-- SINGLE EVENT CARD -->
+            <div
+                class="card-luxury rounded-xl overflow-hidden transition-all duration-500 hover:transform hover:scale-105 max-w-2xl mx-auto">
+                <div class="p-1 bg-gradient-to-r from-gold-400 to-gold-600">
+                    <div class="bg-dark-gray p-8 rounded-lg h-full flex flex-col">
+
+                        <!-- Cat Logo/Paw Header -->
+                        <div class="text-center mb-6">
+                            <!-- Animated Cat Paw -->
+                            <div class="relative inline-block mb-4">
+                                <div class="cat-paw-animation">
+                                    <i class="fas fa-paw text-gold-400 text-5xl"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2">
+                                    <i class="fas fa-paw text-gold-300 text-2xl opacity-70"></i>
+                                </div>
+                            </div>
+
+                            <h3 class="text-3xl font-bold text-white luxury-heading mb-4">Indonesian Cat Association</h3>
+
+                            <p class="text-gray-300 luxury-text text-lg leading-relaxed">
+                                Ayo daftar sekarang dan ikut meramaikan acara paling ditunggu para cat lovers tahun ini!
+                                Jangan sampai ketinggalan momen seru, edukatif, dan penuh kejutan!
+                            </p>
+                        </div>
+
+                        <!-- Event Details dengan Ikon Kucing -->
+                        <div class="space-y-4 mb-8 flex-grow">
+                            <div class="flex items-center text-gold-300">
+                                <i class="fas fa-calendar-day mr-4 text-gold-400 text-xl w-6"></i>
+                                <span class="luxury-text text-lg">28 November 2025</span>
+                            </div>
+                            <div class="flex items-center text-gold-300">
+                                <i class="fas fa-map-marker-alt mr-4 text-gold-400 text-xl w-6"></i>
+                                <span class="luxury-text text-lg">HARRIS Hotel & Residence Riverview Kuta Bali</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Button dengan Cat Theme -->
+                        <div class="mt-auto text-center">
+                            @php
+                                // Get the first event ID dynamically
+                                $eventId = isset($events) && $events->count() > 0 ? $events->first()->id : 1;
+                            @endphp
+
+                            <a href="{{ route('registrations.create', $eventId) }}"
+                                class="btn-gold px-12 py-4 rounded-lg font-semibold text-xl inline-block transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
+                                <!-- Animated Cat -->
+                                <div class="absolute -left-8 group-hover:left-4 transition-all duration-300">
+                                    <i class="fas fa-cat text-black text-lg"></i>
+                                </div>
+                                <i class="fas fa-ticket-alt mr-3"></i> Daftar Sekarang
+                                <div class="absolute -right-8 group-hover:right-4 transition-all duration-300">
+                                    <i class="fas fa-paw text-black text-lg"></i>
+                                </div>
+                            </a>
+
+                            <!-- Cat-themed Footer Text -->
+                            <div class="flex justify-center items-center space-x-2 mt-4">
+                                <i class="fas fa-paw text-gold-300 text-sm"></i>
+                                <p class="text-gold-300 luxury-text text-lg">
+                                    Don't miss this purr-fect event!
+                                </p>
+                                <i class="fas fa-paw text-gold-300 text-sm"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 @endsection

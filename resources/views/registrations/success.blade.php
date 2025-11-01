@@ -1,56 +1,74 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-success text-white">
-                    <h4>🎉 Pendaftaran Berhasil!</h4>
-                </div>
-                <div class="card-body text-center">
-                    <div class="alert alert-info">
-                        <i class="fas fa-envelope"></i>
-                        <strong>Tiket telah dikirim ke email:</strong> {{ $registration->email }}
+    <div class="ticket-page">
+        <div class="container ticket-container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 ticket-col">
+                    <!-- Success Alert -->
+                    <div class="ticket-alert-success text-center mb-4 py-2">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Pendaftaran Berhasil!
                     </div>
 
-                    <h5>Terima kasih <strong>{{ $registration->name }}</strong>!</h5>
-                    <p>Anda telah terdaftar untuk event: <strong>{{ $registration->event->name }}</strong></p>
-                    
-                    <div class="my-4">
-                        <p><strong>QR Code Anda (simpan sebagai backup):</strong></p>
-                        <div class="d-flex justify-content-center">
-                            {!! $qrImage !!}
+                    <!-- Main Ticket Card -->
+                    <div class="ticket-card">
+                        <!-- Header -->
+                        <div class="ticket-header">
+                            <small>QR Code ini diperlukan untuk proses check-in di venue. Sebagai tambahan,
+                                QR Code juga telah dikirimkan ke email Anda. Mohon pastikan email telah diterima
+                                sebelum menghadiri acara.</small>
                         </div>
-                    </div>
 
-                    <div class="ticket-info bg-light p-3 rounded mb-3">
-                        <h6>📋 Detail Tiket:</h6>
-                        <p class="mb-1"><strong>No. Tiket:</strong> {{ $registration->qr_code }}</p>
-                        <p class="mb-1"><strong>Tanggal Event:</strong> {{ \Carbon\Carbon::parse($registration->event->event_date)->format('d M Y H:i') }}</p>
-                        <p class="mb-0"><strong>Lokasi:</strong> {{ $registration->event->location }}</p>
-                    </div>
-                    
-                    <p class="text-muted">
-                        <i class="fas fa-info-circle"></i>
-                        Cek inbox atau spam folder di email Anda untuk mendapatkan tiket digital
-                    </p>
-                    
-                    <div class="mt-4">
-                        <a href="{{ route('events.index') }}" class="btn btn-primary">
-                            <i class="fas fa-calendar"></i> Kembali ke Daftar Event
-                        </a>
-                        <button onclick="window.print()" class="btn btn-secondary">
-                            <i class="fas fa-print"></i> Print Halaman Ini
-                        </button>
-                        <a href="mailto:?subject=Tiket Event {{ $registration->event->name }}&body=Hi, saya ingin berbagi tiket event. No. tiket: {{ $registration->qr_code }}" 
-                           class="btn btn-outline-primary">
-                            <i class="fas fa-share-alt"></i> Bagikan
-                        </a>
+                        <!-- QR Code Section -->
+                        <div class="qr-section">
+                            <div class="qr-container">
+                                {!! $qrImage !!}
+                            </div>
+                        </div>
+
+                        <!-- Ticket Details -->
+                        <div class="ticket-details">
+                            <div class="detail-item">
+                                <span class="label">No. Tiket</span>
+                                <span class="value">{{ $registration->qr_code }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Tanggal Event</span>
+                                <span
+                                    class="value">{{ \Carbon\Carbon::parse($registration->event->event_date)->format('d M Y') }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Nama</span>
+                                <span class="value">{{ $registration->name }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Email</span>
+                                <span class="value">{{ $registration->email }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Lokasi</span>
+                                <span class="value">{{ $registration->event->location }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="ticket-actions">
+                            <button onclick="window.print()" class="btn btn-sm btn-outline-primary ticket-btn">
+                                <i class="fas fa-print me-2"></i> Print
+                            </button>
+                            <a href="{{ route('registrations.download-qrcode', $registration) }}"
+                                class="btn btn-sm btn-success ticket-btn">
+                                <i class="fas fa-download me-2"></i> Download
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <style>
+        /* Copy CSS di atas ke sini */
+    </style>
 @endsection

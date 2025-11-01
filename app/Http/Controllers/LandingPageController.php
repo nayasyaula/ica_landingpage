@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class LandingPageController extends Controller
 {
     public function index()
-    {
-        return view('landing.index');
-    }
+{
+    // Simple query - no slot calculations
+    $events = Event::where('event_date', '>', now())
+                ->orderBy('event_date', 'asc')
+                ->get();
+
+    return view('landing.index', compact('events'));
+}
 
     public function contact(Request $request)
     {
@@ -19,9 +25,6 @@ class LandingPageController extends Controller
             'email' => 'required|email',
             'message' => 'required|string|min:10'
         ]);
-
-        // Here you can send email, save to database, etc.
-        // Mail::to('your@email.com')->send(new ContactFormMail($validated));
         
         return back()->with('success', 'Thank you for your message! We\'ll get back to you soon.');
     }
