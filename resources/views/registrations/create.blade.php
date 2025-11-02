@@ -2,9 +2,9 @@
 
 @section('content')
     <section class="min-h-screen py-20 gold-pattern flex justify-center">
-    <div class="max-w-7xl mx-auto px-4 w-full mt-24">
-        <div class="flex justify-center">
-            <div class="w-full max-w-2xl">
+        <div class="max-w-7xl mx-auto px-4 w-full mt-24">
+            <div class="flex justify-center">
+                <div class="w-full max-w-2xl">
                     <!-- Header Section -->
                     <div class="text-center mb-12">
                         <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
@@ -21,7 +21,8 @@
                                 <div class="flex items-center">
                                     <i class="fas fa-calendar-day text-gold-400 mr-3 w-5"></i>
                                     <span class="luxury-text">
-                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d F Y') }}
+                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d') }} -
+                                        {{ \Carbon\Carbon::parse($event->end_date)->format('d F Y') }}
                                     </span>
                                 </div>
                                 <div class="flex items-center">
@@ -29,7 +30,7 @@
                                     <span class="luxury-text">{{ $event->location }}</span>
                                 </div>
                             </div>
-                            @if($event->description)
+                            @if ($event->description)
                                 <div class="mt-4 pt-4 border-t border-medium-gray">
                                     <p class="text-gray-300 luxury-text">{{ $event->description }}</p>
                                 </div>
@@ -70,9 +71,10 @@
                                         <div class="relative">
                                             <i
                                                 class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="text" class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="name" name="name" value="{{ old('name') }}"
-                                                placeholder="Masukkan nama Anda" required>
+                                            <input type="text"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="name"
+                                                name="name" value="{{ old('name') }}" placeholder="Masukkan nama Anda"
+                                                required>
                                         </div>
                                         @error('name')
                                             <p class="text-red-400 luxury-text mt-2">{{ $message }}</p>
@@ -86,8 +88,9 @@
                                         <div class="relative">
                                             <i
                                                 class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="email" class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="email" name="email" value="{{ old('email') }}"
+                                            <input type="email"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="email"
+                                                name="email" value="{{ old('email') }}"
                                                 placeholder="Masukkan alamat email Anda" required>
                                         </div>
                                         @error('email')
@@ -102,8 +105,9 @@
                                         <div class="relative">
                                             <i
                                                 class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="tel" class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="phone" name="phone" value="{{ old('phone') }}"
+                                            <input type="tel"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="phone"
+                                                name="phone" value="{{ old('phone') }}"
                                                 placeholder="Masukkan nomor telepon Anda" required>
                                         </div>
                                         @error('phone')

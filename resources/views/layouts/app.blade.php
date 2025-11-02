@@ -97,7 +97,7 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
             overflow: hidden;
             margin-bottom: 20px;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -107,7 +107,7 @@
             color: #1A1A1A;
             padding: 20px 15px;
             text-align: center;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             border-bottom: 1px solid #D4AF37;
         }
 
@@ -142,7 +142,7 @@
 
         .ticket-details {
             padding: 20px;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             background: rgba(26, 26, 26, 0.6);
         }
 
@@ -162,7 +162,7 @@
             color: #D4AF37;
             font-size: 0.85rem;
             font-weight: 600;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             min-width: 100px;
         }
 
@@ -172,7 +172,7 @@
             font-size: 0.85rem;
             text-align: right;
             max-width: 60%;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             line-height: 1.4;
         }
 
@@ -189,7 +189,7 @@
             border-radius: 6px;
             font-size: 0.85rem;
             padding: 8px 16px;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
             border: 1px solid #D4AF37;
             transition: all 0.3s ease;
@@ -227,7 +227,7 @@
             margin-bottom: 20px;
             padding: 12px 16px;
             text-align: center;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
             max-width: 400px;
             margin-left: auto;
@@ -246,11 +246,11 @@
 
         /* Override untuk memastikan tiket terlihat baik */
         .ticket-card .detail-item .value {
-            font-family: 'Cormorant Garamond', serif !important;
+            font-family: 'Montserrat', serif !important;
         }
 
         .ticket-card .detail-item .label {
-            font-family: 'Cinzel', serif !important;
+            font-family: 'Montserrat', serif !important;
         }
 
         @media (max-width: 768px) {
@@ -392,7 +392,7 @@
                 print-color-adjust: exact;
             }
         }
-        
+
 
         html {
             scroll-padding-top: 80px;
@@ -400,7 +400,7 @@
 
         /* FONT LUXURY UNTUK SEMUA ELEMEN */
         body {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             background-color: var(--black);
             color: #fff;
             scroll-behavior: smooth;
@@ -414,55 +414,55 @@
         h4,
         h5,
         h6 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
 
         /* Navigation dengan font luxury */
         .nav-luxury {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
         }
 
         .nav-link {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
             letter-spacing: 0.3px;
         }
 
         /* Footer dengan font luxury */
         .footer-luxury {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
         }
 
         /* Button dengan font luxury */
         .btn-gold {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
             letter-spacing: 0.3px;
         }
 
         /* Schedule tabs dengan font luxury */
         .schedule-tab {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
         }
 
         /* FAQ dengan font luxury */
         .faq-question {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
         }
 
         .timeline-speaker {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
             font-style: italic;
         }
 
         /* Sponsor tiers dengan font luxury */
         .tier-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 700;
             letter-spacing: 0.8px;
         }
@@ -470,23 +470,23 @@
         /* Form elements dengan font luxury */
         .form-luxury input,
         .form-luxury textarea {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
         }
 
         /* Mobile menu dengan font luxury */
         .mobile-menu-link {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
         }
 
         /* Contact info dengan font luxury */
         .contact-info {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
         }
 
         /* Section title styling luxury */
         .section-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -494,7 +494,7 @@
 
         /* Luxury text variants */
         .luxury-text {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 400;
         }
 
@@ -506,7 +506,7 @@
         }
 
         .luxury-caption {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             font-style: italic;
             font-weight: 300;
         }
@@ -842,10 +842,15 @@
             border-top: 1px solid var(--medium-gray);
         }
 
-        .gold-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
+        .paw-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Bantalan utama lebih oval --%3E%3Cellipse cx='25' cy='15' rx='6' ry='8' fill='%23d4af37' fill-opacity='0.1'/%3E%3C!-- Jari-jari lebih runcing --%3E%3Cpath d='M15 25 Q13 28 15 30 Q17 32 18 30 Q17 27 15 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M35 25 Q37 28 35 30 Q33 32 32 30 Q33 27 35 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M10 35 Q8 38 10 40 Q12 42 13 40 Q12 37 10 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M40 35 Q42 38 40 40 Q38 42 37 40 Q38 37 40 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3C/svg%3E");
+    animation: catWalk 20s infinite linear;
+}
 
+@keyframes catWalk {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
         .speaker-image-container {
             width: 170px;
             height: 170px;
@@ -1024,6 +1029,7 @@
             color: #b0b0b0;
             font-size: 1.1rem;
             line-height: 1.4;
+            font-family: 'Montserrat', serif
         }
 
         .schedule-highlight {
@@ -1377,7 +1383,8 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang kami</a>
+                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang
+                        kami</a>
                     <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
                     <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
                     <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
@@ -1452,7 +1459,8 @@
                         </li>
                         <li>
                             <a href="#about"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Tentang Kami</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Tentang
+                                Kami</a>
                         </li>
                         <li><a href="#speakers"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Pembicara</a>
@@ -1507,7 +1515,7 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.querySelector('.mobile-menu');
             const menuIcon = this.querySelector('i');
 
@@ -1527,7 +1535,7 @@
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', function () {
+            link.addEventListener('click', function() {
                 const mobileMenu = document.querySelector('.mobile-menu');
                 const menuButton = document.querySelector('.mobile-menu-button');
                 const menuIcon = menuButton.querySelector('i');
@@ -1541,7 +1549,7 @@
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1554,7 +1562,7 @@
         });
 
         // Schedule Tab Functionality - SINGLE VERSION
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.schedule-tab');
             const days = document.querySelectorAll('.schedule-day');
 
@@ -1576,7 +1584,7 @@
 
             // Add click event to all tabs
             tabs.forEach(tab => {
-                tab.addEventListener('click', function () {
+                tab.addEventListener('click', function() {
                     const targetDay = this.getAttribute('data-day');
                     switchTab(targetDay);
                 });
@@ -1584,7 +1592,7 @@
 
             // FAQ Accordion Functionality
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function () {
+                question.addEventListener('click', function() {
                     const faqItem = this.parentElement;
                     faqItem.classList.toggle('active');
                 });
