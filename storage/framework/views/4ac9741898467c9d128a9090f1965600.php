@@ -926,7 +926,7 @@
                 <p><strong>Telepon:</strong> ${reg.phone || '-'}</p>
                 <p><strong>Status:</strong> <span style="color: #28a745;">✓ SUDAH CHECK-IN</span></p>
                 <p><strong>Waktu Check-in:</strong> ${reg.checked_in_at ? new Date(reg.checked_in_at).toLocaleString('id-ID') : new Date().toLocaleString('id-ID')}</p>
-                ${message ? <p><strong>Pesan:</strong> ${message}</p> : ''}
+                ${message ? `<p><strong>Pesan:</strong> ${message}</p>` : ''}
             </div>`;
 
             document.getElementById('participant-info').innerHTML = info;
