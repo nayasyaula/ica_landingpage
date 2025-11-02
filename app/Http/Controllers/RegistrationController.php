@@ -81,38 +81,32 @@ class RegistrationController extends Controller
 
     // ✅ FALLBACK DENGAN QR CODE EXTERNAL
     private function sendEmailWithExternalQR($registration)
-    {
-        try {
-            $qrData = urlencode($registration->qr_code);
-            $qrImageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $qrData . "&format=png";
+{
+    try {
+        $qrData = urlencode($registration->qr_code);
+        $qrImageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $qrData . "&format=png";
 
-            Log::info('🌀 Fallback: Using external QR API');
+        Log::info('🌀 Fallback: Using external QR API');
 
-            Mail::send([], [], function ($message) use ($registration, $qrImageUrl) {
-                $message->to($registration->email)
-                    ->subject('Indonesian Cat Assosiation - ')
-                    ->html('
-                        <h2>Pendaftaran Berhasil!</h2>
-                        <p>Halo <strong>' . $registration->name . '</strong>,</p>
-                        <p>Terima kasih telah melakukan pendaftaran. Proses registrasi Anda telah berhasil.</p>
-                        <p>Kami sangat menantikan kehadiran Anda dalam acara ini. Pastikan Anda hadir tepat waktu untuk menikmati rangkaian kegiatan yang telah kami siapkan.</p>
-                        <p>Buka tiket Anda ke Indonesian Cat Assosiation ! Tunjukkan kode QR yang tertera pada saat check-in di lokasi acara untuk konfirmasi kehadiran Anda.</p>
+        // Gunakan view yang sama tapi dengan parameter QR external
+        $emailContent = view('emails.ticket-confirmation', [
+            'registration' => $registration,
+            'event' => $registration->event,
+            'qrImageUrl' => $qrImageUrl, // Kirim URL QR external
+            'isFallback' => true // Flag untuk fallback
+        ])->render();
 
-                        <div style="text-align: center; margin: 25px 0;">
-                            <h3>QR Code Anda:</h3>
-                            <img src="' . $qrImageUrl . '" alt="QR Code" 
-                                 style="max-width: 300px; height: auto; border: 3px solid #D4AF37; padding: 15px; background: white;">
-                            <p><strong>Kode: ' . $registration->qr_code . '</strong></p>
-                            <p><small>Scan QR code di atas  </small></p>
-                        </div>
-                    ');
-            });
+        Mail::send([], [], function ($message) use ($registration, $emailContent) {
+            $message->to($registration->email)
+                ->subject('Konfirmasi Pendaftaran - Indonesian Cat Association 2025')
+                ->html($emailContent);
+        });
 
-            Log::info('✅ FALLBACK EMAIL WITH EXTERNAL QR SENT');
-        } catch (\Exception $e) {
-            Log::error('❌ FALLBACK EMAIL FAILED: ' . $e->getMessage());
-        }
+        Log::info('✅ FALLBACK EMAIL WITH EXTERNAL QR SENT');
+    } catch (\Exception $e) {
+        Log::error('❌ FALLBACK EMAIL FAILED: ' . $e->getMessage());
     }
+}
     public function success(Registration $registration)
     {
         // TAMPILKAN QR CODE DI PAGE

@@ -15,9 +15,7 @@
                     <div class="ticket-card">
                         <!-- Header -->
                         <div class="ticket-header">
-                            <small>QR Code ini diperlukan untuk proses check-in di venue. Sebagai tambahan,
-                                QR Code juga telah dikirimkan ke email Anda. Mohon pastikan email telah diterima
-                                sebelum menghadiri acara.</small>
+                            <small>QR Code ini diperlukan untuk proses check-in di venue.</small>
                         </div>
 
                         <!-- QR Code Section -->
@@ -35,8 +33,7 @@
                             </div>
                             <div class="detail-item">
                                 <span class="label">Tanggal Event</span>
-                                <span
-                                    class="value">{{ \Carbon\Carbon::parse($registration->event->event_date)->format('d M Y') }}</span>
+                                <span>28 - 20 November 2025</span>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Nama</span>
@@ -57,16 +54,45 @@
                             <button onclick="window.print()" class="btn btn-sm btn-outline-primary ticket-btn">
                                 <i class="fas fa-print me-2"></i> Print
                             </button>
-                            <a href="{{ route('registrations.download-qrcode', $registration) }}"
-                                class="btn btn-sm btn-success ticket-btn">
+                            <button onclick="downloadQRCode()" class="btn btn-sm btn-success ticket-btn">
                                 <i class="fas fa-download me-2"></i> Download
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<script>
+        function downloadQRCode() {
+            // Ambil SVG dari QR code
+            const svgElement = document.querySelector('.qr-container svg');
+            const svgData = new XMLSerializer().serializeToString(svgElement);
+            
+            // Convert SVG ke PNG
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                
+                // Download sebagai PNG
+                const pngFile = canvas.toDataURL('image/png');
+                const downloadLink = document.createElement('a');
+                downloadLink.download = 'QR-Code-{{ $registration->qr_code }}.png';
+                downloadLink.href = pngFile;
+                downloadLink.click();
+            };
+            
+            // Convert SVG ke data URL
+            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(svgBlob);
+            img.src = url;
+        }
+    </script>
 
     <style>
         /* Copy CSS di atas ke sini */
