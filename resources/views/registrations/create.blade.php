@@ -8,7 +8,6 @@
                     <!-- Header Section -->
                     <div class="text-center mb-12">
                         <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
-                        <p class="text-xl text-gray-300 luxury-text">Selesaikan pendaftaran Anda untuk acara eksklusif </p>
                     </div>
 
                     <!-- Event Info Card -->
@@ -20,9 +19,7 @@
                             <div class="grid md:grid-cols-2 gap-4 text-gray-300">
                                 <div class="flex items-center">
                                     <i class="fas fa-calendar-day text-gold-400 mr-3 w-5"></i>
-                                    <span class="luxury-text">
-                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d') }} -
-                                        {{ \Carbon\Carbon::parse($event->end_date)->format('d F Y') }}
+                                    <span class="luxury-text"> 28 - 20 November 2025
                                     </span>
                                 </div>
                                 <div class="flex items-center">
@@ -137,7 +134,7 @@
                                             <i class="fas fa-paper-plane mr-2"></i> Kirim
                                         </button>
                                         <a href="{{ url()->previous() }}"
-                                            class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors">
+                                            class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors no-underline">
                                             <i class="fas fa-arrow-left mr-2"></i> Kembali
                                         </a>
                                     </div>

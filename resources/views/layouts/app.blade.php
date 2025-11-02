@@ -79,8 +79,116 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: inherit;
-            z-index: -1;
+            /* Banyak diamond shapes - diperbanyak */
+            background-image:
+                /* Diamond 1-10 */
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.6) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.6) 50%, transparent 52%),
+                /* Diamond 11-20 */
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                /* Diamond 11-20 */
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%);
+
+            background-size:
+                /* Ukuran diamond bervariasi */
+                12px 12px, 12px 12px,
+                /* 1 */
+                10px 10px, 10px 10px,
+                /* 2 */
+                8px 8px, 8px 8px,
+                /* 3 */
+                14px 14px, 14px 14px,
+                /* 4 */
+                6px 6px, 6px 6px,
+                /* 5 */
+                11px 11px, 11px 11px,
+                /* 6 */
+                9px 9px, 9px 9px,
+                /* 7 */
+                13px 13px, 13px 13px,
+                /* 8 */
+                7px 7px, 7px 7px,
+                /* 9 */
+                15px 15px, 15px 15px;
+            /* 10 */
+
+            background-position:
+                /* Posisi tersebar merata */
+                10% 20%, 10% 20%,
+                /* 1 */
+                25% 40%, 25% 40%,
+                /* 2 */
+                40% 15%, 40% 15%,
+                /* 3 */
+                60% 30%, 60% 30%,
+                /* 4 */
+                75% 50%, 75% 50%,
+                /* 5 */
+                85% 25%, 85% 25%,
+                /* 6 */
+                15% 70%, 15% 70%,
+                /* 7 */
+                35% 85%, 35% 85%,
+                /* 8 */
+                55% 65%, 55% 65%,
+                /* 9 */
+                90% 80%, 90% 80%;
+            /* 10 */
+
+            background-repeat: no-repeat;
+            animation: diamondTwinkle 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes diamondTwinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                filter: brightness(1);
+            }
+
+            25% {
+                opacity: 0.8;
+                filter: brightness(1.5);
+            }
+
+            50% {
+                opacity: 0.4;
+                filter: brightness(1.2);
+            }
+
+            75% {
+                opacity: 0.9;
+                filter: brightness(1.8);
+            }
         }
 
         /* ===== STYLE KHUSUS HALAMAN TIKET/SUCCESS ===== */
@@ -454,6 +562,68 @@
             font-weight: 600;
         }
 
+        .gold-number-gradient {
+            background: linear-gradient(135deg, #B8860B, #D4AF37, #FFEC8B, #D4AF37);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            width: 48px !important;
+            height: 48px !important;
+            min-width: 48px !important;
+            min-height: 48px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #B8860B, #D4AF37, #FFEC8B, #D4AF37);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .gold-badge-gradient {
+            background: linear-gradient(135deg, #B8860B, #D4AF37, #FFEC8B, #D4AF37);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .image-container {
+            background: #1a1a1a;
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 16rem;
+            border: 2px solid #d4af37;
+        }
+
+        .hotel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hotel-image:hover {
+            transform: scale(1.1);
+        }
+
         .timeline-speaker {
             font-family: 'Montserrat', serif;
             font-weight: 500;
@@ -516,13 +686,15 @@
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
                 url('{{ asset('images/ica1.jpg') }}');
             background-size: cover;
-            background-position: center;
+            background-position: center 100px;
+            /* Turunin 100px dari atas */
             background-repeat: no-repeat;
             height: 100vh;
-            min-height: 700px;
+            min-height: 740px;
             display: flex;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
         .hero-bg::after {
@@ -842,15 +1014,16 @@
             border-top: 1px solid var(--medium-gray);
         }
 
-        .paw-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Bantalan utama lebih oval --%3E%3Cellipse cx='25' cy='15' rx='6' ry='8' fill='%23d4af37' fill-opacity='0.1'/%3E%3C!-- Jari-jari lebih runcing --%3E%3Cpath d='M15 25 Q13 28 15 30 Q17 32 18 30 Q17 27 15 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M35 25 Q37 28 35 30 Q33 32 32 30 Q33 27 35 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M10 35 Q8 38 10 40 Q12 42 13 40 Q12 37 10 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M40 35 Q42 38 40 40 Q38 42 37 40 Q38 37 40 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3C/svg%3E");
-    animation: catWalk 20s infinite linear;
-}
+        @keyframes catWalk {
+            0% {
+                background-position: 0 0;
+            }
 
-@keyframes catWalk {
-    0% { background-position: 0 0; }
-    100% { background-position: 50px 50px; }
-}
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
         .speaker-image-container {
             width: 170px;
             height: 170px;
@@ -1365,6 +1538,59 @@
             margin-bottom: 1rem;
             filter: brightness(1.1) saturate(1.2) sepia(0.3) hue-rotate(-5deg);
         }
+
+        /* Ganti paw-pattern dengan pattern kaki kucing yang sebenarnya */
+        .paw {
+            position: relative;
+            background-color: #0A0A0A;
+            /* Background normal */
+        }
+
+        .paw::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("{{ asset('images/paw.png') }}");
+            background-size: 40px 30px;
+            /* Ukuran besar biar jarang */
+            background-position: 0 0;
+            background-repeat: repeat;
+            animation: movePaw 30s linear infinite;
+            /* Hanya opacity background pattern saja */
+            opacity: 0.15;
+            /* Filter untuk warna gold */
+            filter: sepia(1) saturate(2) hue-rotate(5deg) brightness(0.9);
+            pointer-events: none;
+            /* Biar tidak mengganggu klik */
+            z-index: 0;
+        }
+
+        @keyframes movePaw {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        /* Pastikan semua konten di atas pattern */
+        .paw>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .paw .container,
+        .paw .max-w-7xl,
+        .paw .max-w-6xl,
+        .paw .max-w-4xl {
+            position: relative;
+            z-index: 2;
+        }
     </style>
 </head>
 
@@ -1515,7 +1741,7 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.querySelector('.mobile-menu');
             const menuIcon = this.querySelector('i');
 
@@ -1535,7 +1761,7 @@
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 const mobileMenu = document.querySelector('.mobile-menu');
                 const menuButton = document.querySelector('.mobile-menu-button');
                 const menuIcon = menuButton.querySelector('i');
@@ -1549,7 +1775,7 @@
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1562,7 +1788,7 @@
         });
 
         // Schedule Tab Functionality - SINGLE VERSION
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.schedule-tab');
             const days = document.querySelectorAll('.schedule-day');
 
@@ -1584,7 +1810,7 @@
 
             // Add click event to all tabs
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     const targetDay = this.getAttribute('data-day');
                     switchTab(targetDay);
                 });
@@ -1592,7 +1818,7 @@
 
             // FAQ Accordion Functionality
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function () {
                     const faqItem = this.parentElement;
                     faqItem.classList.toggle('active');
                 });

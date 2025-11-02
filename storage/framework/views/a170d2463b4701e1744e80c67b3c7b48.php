@@ -1,12 +1,11 @@
 <?php $__env->startSection('content'); ?>
     <section class="min-h-screen py-20 gold-pattern flex justify-center">
-    <div class="max-w-7xl mx-auto px-4 w-full mt-24">
-        <div class="flex justify-center">
-            <div class="w-full max-w-2xl">
+        <div class="max-w-7xl mx-auto px-4 w-full mt-24">
+            <div class="flex justify-center">
+                <div class="w-full max-w-2xl">
                     <!-- Header Section -->
                     <div class="text-center mb-12">
                         <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
-                        <p class="text-xl text-gray-300 luxury-text">Selesaikan pendaftaran Anda untuk acara eksklusif </p>
                     </div>
 
                     <!-- Event Info Card -->
@@ -18,9 +17,7 @@
                             <div class="grid md:grid-cols-2 gap-4 text-gray-300">
                                 <div class="flex items-center">
                                     <i class="fas fa-calendar-day text-gold-400 mr-3 w-5"></i>
-                                    <span class="luxury-text">
-                                        <?php echo e(\Carbon\Carbon::parse($event->event_date)->format('d F Y')); ?>
-
+                                    <span class="luxury-text"> 28 - 20 November 2025
                                     </span>
                                 </div>
                                 <div class="flex items-center">
@@ -69,9 +66,10 @@
                                         <div class="relative">
                                             <i
                                                 class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="text" class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="name" name="name" value="<?php echo e(old('name')); ?>"
-                                                placeholder="Masukkan nama Anda" required>
+                                            <input type="text"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="name"
+                                                name="name" value="<?php echo e(old('name')); ?>" placeholder="Masukkan nama Anda"
+                                                required>
                                         </div>
                                         <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -92,8 +90,9 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="email" class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="email" name="email" value="<?php echo e(old('email')); ?>"
+                                            <input type="email"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="email"
+                                                name="email" value="<?php echo e(old('email')); ?>"
                                                 placeholder="Masukkan alamat email Anda" required>
                                         </div>
                                         <?php $__errorArgs = ['email'];
@@ -115,8 +114,9 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="tel" class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="phone" name="phone" value="<?php echo e(old('phone')); ?>"
+                                            <input type="tel"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="phone"
+                                                name="phone" value="<?php echo e(old('phone')); ?>"
                                                 placeholder="Masukkan nomor telepon Anda" required>
                                         </div>
                                         <?php $__errorArgs = ['phone'];
@@ -153,7 +153,7 @@ unset($__errorArgs, $__bag); ?>
                                             <i class="fas fa-paper-plane mr-2"></i> Kirim
                                         </button>
                                         <a href="<?php echo e(url()->previous()); ?>"
-                                            class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors">
+                                            class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors no-underline">
                                             <i class="fas fa-arrow-left mr-2"></i> Kembali
                                         </a>
                                     </div>
@@ -261,4 +261,5 @@ unset($__errorArgs, $__bag); ?>
         }
     </style>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\ica_landingpage\resources\views/registrations/create.blade.php ENDPATH**/ ?>

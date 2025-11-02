@@ -2,14 +2,10 @@
 
 namespace App\Mail;
 
+use App\Models\Registration;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Registration;
-use Illuminate\Mail\Mailables\Address;
-use Illuminate\Mail\Mailables\Attachment;
 
 class TicketConfirmationMail extends Mailable
 {
@@ -19,34 +15,30 @@ class TicketConfirmationMail extends Mailable
     public $qrPath;
     public $qrFilename;
 
-    public function __construct(Registration $registration, $qrPath, $qrFilename)
+    public function __construct(Registration $registration, $qrPath = null, $qrFilename = null)
     {
         $this->registration = $registration;
         $this->qrPath = $qrPath;
         $this->qrFilename = $qrFilename;
     }
 
-    public function envelope(): Envelope
+    public function build()
     {
-        return new Envelope(
-            subject: 'Indonesian Cat Association',
-            from: new Address('indonesiancatassociation2@gmail.com', 'Indonesian Cat Association'),
-        );
-    }
+        $email = $this->subject('Konfirmasi Pendaftaran - Indonesian Cat Association 2025')
+            ->view('emails.ticket-confirmation')
+            ->with([
+                'registration' => $this->registration,
+                'event' => $this->registration->event,
+            ]);
 
-    public function content(): Content
-    {
-        return new Content(
-            view: 'emails.ticket-confirmation',
-        );
-    }
+        // Attach QR code jika ada
+        if ($this->qrPath && file_exists($this->qrPath)) {
+            $email->attach($this->qrPath, [
+                'as' => $this->qrFilename,
+                'mime' => 'image/png',
+            ]);
+        }
 
-    public function attachments(): array
-    {
-        return [
-            Attachment::fromPath($this->qrPath)
-                    ->as($this->qrFilename)
-                    ->withMime('image/png'),
-        ];
+        return $email;
     }
 }
