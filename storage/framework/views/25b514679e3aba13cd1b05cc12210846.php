@@ -1,8 +1,6 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'Welcome - Indonesian Cat Association'); ?>
 
-@section('title', 'Welcome - Indonesian Cat Association')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- Home/Hero Section -->
     <section id="home" class="hero-bg">
         <div class="max-w-7xl mx-auto px-4 text-center w-full">
@@ -60,7 +58,7 @@
                 </div>
                 <div class="bg-dark-gray rounded-lg overflow-hidden h-96 relative gold-border-frame image-hover-container">
                     <!-- Background image filling the entire container -->
-                    <img src="{{ asset('images/ab-ICA.png') }}" alt="ICA Background"
+                    <img src="<?php echo e(asset('images/ab-ICA.png')); ?>" alt="ICA Background"
                         class="absolute inset-0 w-full h-full object-cover">
 
                     <!-- Gradient overlay -->
@@ -212,7 +210,7 @@
                 <!-- Speaker 1 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/wayan.jpg') }}" alt="DR. IR. I WAYAN KOSTER, M.M" class="speaker-image">
+                        <img src="<?php echo e(asset('images/wayan.jpg')); ?>" alt="DR. IR. I WAYAN KOSTER, M.M" class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading">DR. IR. I WAYAN KOSTER, M.M</h3>
                     <p class="text-gold-400 mb-4 luxury-text text-lg">GUBERNUR BALI</p>
@@ -228,7 +226,7 @@
                 <!-- Speaker 2 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/russy.jpg') }}" alt="RUSSY IDROES, S.KOM. M.M." class="speaker-image">
+                        <img src="<?php echo e(asset('images/russy.jpg')); ?>" alt="RUSSY IDROES, S.KOM. M.M." class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> RUSSY IDROES, S.KOM. M.M.</h3>
                     <p class="text-gold-400 mb-4 luxury-text text-lg">KETUA UMUM ICA</p>
@@ -244,7 +242,7 @@
                 <!-- Speaker 3 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/munawaroh.jpg') }}" alt="DR. DRH. MUHAMMAD MUNAWAROH, M.M."
+                        <img src="<?php echo e(asset('images/munawaroh.jpg')); ?>" alt="DR. DRH. MUHAMMAD MUNAWAROH, M.M."
                             class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> DR. DRH. MUHAMMAD MUNAWAROH, M.M.
@@ -487,7 +485,7 @@
                 </div>
 
                 <div>
-                    <img src="{{ asset('images/harris-hotel.webp') }}" alt="Harris Hotel Kuta Bali"
+                    <img src="<?php echo e(asset('images/harris-hotel.webp')); ?>" alt="Harris Hotel Kuta Bali"
                         class="w-full h-auto rounded-lg shadow-lg border-4 border-gold-400">
                 </div>
             </div>
@@ -720,7 +718,7 @@
 
                         <div class="text-center mb-6">
                             <div class="logo-gold-outline" style="transform: scale(0.8); transform-origin: left;">
-                                <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                                <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                                     class="logo-glow">
                             </div>
 
@@ -746,12 +744,12 @@
 
                         <!-- Action Button dengan Cat Theme -->
                         <div class="mt-auto text-center">
-                            @php
+                            <?php
                                 // Get the first event ID dynamically
                                 $eventId = isset($events) && $events->count() > 0 ? $events->first()->id : 1;
-                            @endphp
+                            ?>
 
-                            <a href="{{ route('registrations.create', $eventId) }}"
+                            <a href="<?php echo e(route('registrations.create', $eventId)); ?>"
                                 class="btn-gold px-12 py-4 rounded-lg font-semibold text-xl inline-block transition-all duration-300 hover:shadow-lg group relative overflow-hidden no-underline">
                                 <!-- Animated Cat -->
                                 <div class="absolute -left-8 group-hover:left-4 transition-all duration-300">
@@ -777,4 +775,5 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/landing/index.blade.php ENDPATH**/ ?>

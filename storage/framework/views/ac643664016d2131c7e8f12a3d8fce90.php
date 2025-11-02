@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('images/logo-ICA.png')); ?>">
     <title>Indonesian Cat Association - Mukernas & Gala Dinner 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Luxury yang lebih elegan -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,381 +24,9 @@
             --medium-gray: #2A2A2A;
         }
 
-        /* PERBAIKAN NAVBAR - TAMBAHKAN INI */
-        .nav-luxury {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            z-index: 9999 !important;
-            background: rgba(10, 10, 10, 0.98) !important;
-        }
-
-        /* OFFSET UNTUK FIXED NAVBAR */
-        section {
-            scroll-margin-top: 80px;
-        }
-
-        #home,
-        #about,
-        #speakers,
-        #schedule,
-        #location,
-        #sponsors,
-        #contact,
-        #faq,
-        #events {
-            padding-top: 80px;
-            margin-top: -80px;
-        }
-
-        .hero-bg {
-            background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
-                url('{{ asset('images/ica1.jpg') }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            /* TAMBAHKAN INI: */
-            margin-top: 0 !important;
-            padding-top: 80px !important;
-            box-sizing: border-box;
-        }
-
-        /* PASTIKAN background cover penuh */
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: inherit;
-            z-index: -1;
-        }
-
-        /* ===== STYLE KHUSUS HALAMAN TIKET/SUCCESS ===== */
-        .ticket-page {
-            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
-            min-height: 100vh;
-            padding: 20px 0;
-        }
-
-        .ticket-card {
-            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
-            border-radius: 12px;
-            border: 1px solid #D4AF37;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-            overflow: hidden;
-            margin-bottom: 20px;
-            font-family: 'Montserrat', serif;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .ticket-header {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-            color: #1A1A1A;
-            padding: 20px 15px;
-            text-align: center;
-            font-family: 'Montserrat', serif;
-            border-bottom: 1px solid #D4AF37;
-        }
-
-        .ticket-header h5 {
-            margin: 0 0 8px 0;
-            font-weight: 700;
-            font-size: 1.3rem;
-            letter-spacing: 0.5px;
-        }
-
-        .ticket-header small {
-            opacity: 0.9;
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        .qr-section {
-            padding: 25px 20px;
-            text-align: center;
-            background: rgba(26, 26, 26, 0.8);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .qr-container {
-            display: inline-block;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            border: 2px solid #D4AF37;
-        }
-
-        .ticket-details {
-            padding: 20px;
-            font-family: 'Montserrat', serif;
-            background: rgba(26, 26, 26, 0.6);
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .detail-item:last-child {
-            border-bottom: none;
-        }
-
-        .detail-item .label {
-            color: #D4AF37;
-            font-size: 0.85rem;
-            font-weight: 600;
-            font-family: 'Montserrat', serif;
-            min-width: 100px;
-        }
-
-        .detail-item .value {
-            font-weight: 500;
-            color: #FFFFFF;
-            font-size: 0.85rem;
-            text-align: right;
-            max-width: 60%;
-            font-family: 'Montserrat', serif;
-            line-height: 1.4;
-        }
-
-        .ticket-actions {
-            padding: 20px;
-            background: rgba(26, 26, 26, 0.8);
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .ticket-btn {
-            border-radius: 6px;
-            font-size: 0.85rem;
-            padding: 8px 16px;
-            font-family: 'Montserrat', serif;
-            font-weight: 600;
-            border: 1px solid #D4AF37;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-primary {
-            background: transparent;
-            color: #D4AF37;
-        }
-
-        .btn-outline-primary:hover {
-            background: #D4AF37;
-            color: #1A1A1A;
-            transform: translateY(-2px);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #D4AF37, #B8860B);
-            color: #1A1A1A;
-            border: 1px solid #D4AF37;
-        }
-
-        .btn-success:hover {
-            background: linear-gradient(135deg, #B8860B, #D4AF37);
-            transform: translateY(-2px);
-            color: #1A1A1A;
-        }
-
-        .ticket-alert-success {
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            background: rgba(212, 175, 55, 0.1);
-            color: #D4AF37;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            padding: 12px 16px;
-            text-align: center;
-            font-family: 'Montserrat', serif;
-            font-weight: 600;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ticket-alert-success i {
-            color: #D4AF37;
-        }
-
-        /* Pastikan ada spacing untuk navbar */
-        .ticket-container {
-            margin-top: 100px !important;
-            padding-top: 2rem !important;
-        }
-
-        /* Override untuk memastikan tiket terlihat baik */
-        .ticket-card .detail-item .value {
-            font-family: 'Montserrat', serif !important;
-        }
-
-        .ticket-card .detail-item .label {
-            font-family: 'Montserrat', serif !important;
-        }
-
-        @media (max-width: 768px) {
-            .ticket-container {
-                margin-top: 80px !important;
-                padding-top: 1rem !important;
-            }
-
-            .ticket-col {
-                padding: 0 15px;
-            }
-
-            .ticket-card {
-                max-width: 100%;
-                margin: 0 10px;
-            }
-
-            .ticket-header {
-                padding: 15px 12px;
-            }
-
-            .ticket-header h5 {
-                font-size: 1.1rem;
-            }
-
-            .qr-section {
-                padding: 20px 15px;
-            }
-
-            .ticket-details {
-                padding: 15px;
-            }
-
-            .detail-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-                padding: 8px 0;
-            }
-
-            .detail-item .value {
-                text-align: left;
-                max-width: 100%;
-                font-size: 0.9rem;
-            }
-
-            .detail-item .label {
-                font-size: 0.8rem;
-                min-width: auto;
-            }
-
-            .ticket-actions {
-                flex-direction: column;
-                gap: 8px;
-                padding: 15px;
-            }
-
-            .ticket-btn {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .ticket-container {
-                margin-top: 70px !important;
-            }
-
-            .ticket-col {
-                padding: 0 10px;
-            }
-
-            .ticket-card {
-                margin: 0 5px;
-            }
-
-            .ticket-header {
-                padding: 12px 10px;
-            }
-
-            .ticket-header h5 {
-                font-size: 1rem;
-            }
-
-            .ticket-header small {
-                font-size: 0.75rem;
-            }
-
-            .qr-section {
-                padding: 15px 10px;
-            }
-
-            .qr-container {
-                padding: 10px;
-            }
-
-            .ticket-details {
-                padding: 12px 10px;
-            }
-        }
-
-        @media print {
-
-            .ticket-actions,
-            .ticket-alert-success {
-                display: none !important;
-            }
-
-            .ticket-card {
-                box-shadow: none !important;
-                border: 2px solid #D4AF37 !important;
-                max-width: 100% !important;
-                margin: 0 !important;
-            }
-
-            .ticket-container {
-                margin-top: 0 !important;
-                padding-top: 0 !important;
-            }
-
-            body {
-                background-color: white !important;
-            }
-
-            .ticket-page {
-                background-color: white !important;
-                padding: 0 !important;
-            }
-
-            .ticket-header {
-                background: #D4AF37 !important;
-                color: #1A1A1A !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .detail-item .label {
-                color: #D4AF37 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-
-
-        html {
-            scroll-padding-top: 80px;
-        }
-
         /* FONT LUXURY UNTUK SEMUA ELEMEN */
         body {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
             background-color: var(--black);
             color: #fff;
             scroll-behavior: smooth;
@@ -414,55 +40,55 @@
         h4,
         h5,
         h6 {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
 
         /* Navigation dengan font luxury */
         .nav-luxury {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
         }
 
         .nav-link {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 500;
             letter-spacing: 0.3px;
         }
 
         /* Footer dengan font luxury */
         .footer-luxury {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         /* Button dengan font luxury */
         .btn-gold {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 500;
             letter-spacing: 0.3px;
         }
 
         /* Schedule tabs dengan font luxury */
         .schedule-tab {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 500;
         }
 
         /* FAQ dengan font luxury */
         .faq-question {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 600;
         }
 
         .timeline-speaker {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             font-style: italic;
         }
 
         /* Sponsor tiers dengan font luxury */
         .tier-title {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 700;
             letter-spacing: 0.8px;
         }
@@ -470,23 +96,23 @@
         /* Form elements dengan font luxury */
         .form-luxury input,
         .form-luxury textarea {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         /* Mobile menu dengan font luxury */
         .mobile-menu-link {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 500;
         }
 
         /* Contact info dengan font luxury */
         .contact-info {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         /* Section title styling luxury */
         .section-title {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -494,7 +120,7 @@
 
         /* Luxury text variants */
         .luxury-text {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
         }
 
@@ -502,11 +128,10 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             letter-spacing: 0.8px;
-            font-size: 20px;
         }
 
         .luxury-caption {
-            font-family: 'Montserrat', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 300;
         }
@@ -514,7 +139,7 @@
         /* Sisanya tetap sama... */
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
-                url('{{ asset('images/ica1.jpg') }}');
+                url('<?php echo e(asset('images/ica1.jpg')); ?>');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -610,7 +235,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("{{ asset('images/logo-ICA.png') }}") center/contain no-repeat;
+            background: url("<?php echo e(asset('images/logo-ICA.png')); ?>") center/contain no-repeat;
             z-index: 1;
             transition: all 0.3s ease;
         }
@@ -842,15 +467,10 @@
             border-top: 1px solid var(--medium-gray);
         }
 
-        .paw-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Bantalan utama lebih oval --%3E%3Cellipse cx='25' cy='15' rx='6' ry='8' fill='%23d4af37' fill-opacity='0.1'/%3E%3C!-- Jari-jari lebih runcing --%3E%3Cpath d='M15 25 Q13 28 15 30 Q17 32 18 30 Q17 27 15 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M35 25 Q37 28 35 30 Q33 32 32 30 Q33 27 35 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M10 35 Q8 38 10 40 Q12 42 13 40 Q12 37 10 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M40 35 Q42 38 40 40 Q38 42 37 40 Q38 37 40 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3C/svg%3E");
-    animation: catWalk 20s infinite linear;
-}
+        .gold-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
 
-@keyframes catWalk {
-    0% { background-position: 0 0; }
-    100% { background-position: 50px 50px; }
-}
         .speaker-image-container {
             width: 170px;
             height: 170px;
@@ -1029,7 +649,6 @@
             color: #b0b0b0;
             font-size: 1.1rem;
             line-height: 1.4;
-            font-family: 'Montserrat', serif
         }
 
         .schedule-highlight {
@@ -1376,20 +995,20 @@
                 <div class="flex items-center">
                     <!-- Logo with gold outline effect following image shape -->
                     <div class="logo-gold-outline">
-                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                        <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
                     <span class="ml-3 text-white text-2xl hidden md:block luxury-text">Indonesian Cat Association</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang
-                        kami</a>
-                    <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
-                    <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
-                    <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
-                    <a href="#sponsors" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsor</a>
-                    <a href="#faq" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
+                    <a href="<?php echo e(url('/#home')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Home</a>
+                    <a href="<?php echo e(url('/#about')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">About</a>
+                    <a href="<?php echo e(url('/#speakers')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Speakers</a>
+                    <a href="<?php echo e(url('/#schedule')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Schedule</a>
+                    <a href="<?php echo e(url('/#location')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Location</a>
+                    <a href="<?php echo e(url('/#sponsors')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsors</a>
+                    <a href="<?php echo e(route('events.index')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Register</a>
+                    <a href="<?php echo e(url('/#faq')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button text-gold-400">
@@ -1401,21 +1020,21 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu">
                 <div class="mobile-menu-links">
-                    <a href="#home" class="mobile-menu-link text-base">Home</a>
-                    <a href="#about" class="mobile-menu-link text-base">About</a>
-                    <a href="#speakers" class="mobile-menu-link text-base">Speakers</a>
-                    <a href="#schedule" class="mobile-menu-link text-base">Schedule</a>
-                    <a href="#location" class="mobile-menu-link text-base">Location</a>
-                    <a href="#sponsors" class="mobile-menu-link text-base">Sponsors</a>
-                    <a href="#events" class="mobile-menu-link text-base">Register</a>
-                    <a href="#faq" class="mobile-menu-link text-base">FAQ</a>
+                    <a href="<?php echo e(url('/#home')); ?>" class="mobile-menu-link text-base">Home</a>
+                    <a href="<?php echo e(url('/#about')); ?>" class="mobile-menu-link text-base">About</a>
+                    <a href="<?php echo e(url('/#speakers')); ?>" class="mobile-menu-link text-base">Speakers</a>
+                    <a href="<?php echo e(url('/#schedule')); ?>" class="mobile-menu-link text-base">Schedule</a>
+                    <a href="<?php echo e(url('/#location')); ?>" class="mobile-menu-link text-base">Location</a>
+                    <a href="<?php echo e(url('/#sponsors')); ?>" class="mobile-menu-link text-base">Sponsors</a>
+                    <a href="<?php echo e(route('events.index')); ?>" class="mobile-menu-link text-base">Register</a>
+                    <a href="<?php echo e(url('/#faq')); ?>" class="mobile-menu-link text-base">FAQ</a>
                 </div>
             </div>
         </div>
     </nav>
     <!-- Main Content -->
     <main>
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
 
     <!-- Footer -->
@@ -1425,7 +1044,7 @@
                 <div>
                     <!-- Replaced text with logo image -->
                     <div class="logo-gold-outline" style="transform: scale(0.8); transform-origin: left;">
-                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                        <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
                     <!-- Updated description text -->
@@ -1451,33 +1070,35 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Akses Cepat</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Quick Links</h4>
                     <ul class="space-y-2">
                         <li>
                             <a href="#home"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Beranda</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Home</a>
                         </li>
                         <li>
                             <a href="#about"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Tentang
-                                Kami</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">About</a>
                         </li>
                         <li><a href="#speakers"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Pembicara</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Speakers</a>
                         </li>
                         <li><a href="#schedule"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Jadwal</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Schedule</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Info Lengkap</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">More Info</h4>
                     <ul class="space-y-2">
                         <li><a href="#location"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Lokasi</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Location</a>
                         </li>
                         <li><a href="#sponsors"
-                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Sponsor</a>
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Sponsors</a>
+                        </li>
+                        <li><a href="#contact"
+                                class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Contact</a>
                         </li>
                         <li><a href="#faq"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">FAQ</a>
@@ -1508,7 +1129,7 @@
                 </div>
             </div>
             <div class="border-t border-medium-gray mt-8 pt-8 text-center text-gray-500 luxury-text">
-                <p>&copy; 2025 Bintang Kreasi Multivision</p>
+                <p>&copy; 2025 Indonesian Cat Association. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1602,3 +1223,4 @@
 </body>
 
 </html>
+<?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app-regist.blade.php ENDPATH**/ ?>

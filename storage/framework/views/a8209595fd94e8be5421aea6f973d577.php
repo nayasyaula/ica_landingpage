@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('images/logo-ICA.png')); ?>">
     <title>Indonesian Cat Association - Mukernas & Gala Dinner 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
 
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
-                url('{{ asset('images/ica1.jpg') }}');
+                url('<?php echo e(asset('images/ica1.jpg')); ?>');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -514,7 +514,7 @@
         /* Sisanya tetap sama... */
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
-                url('{{ asset('images/ica1.jpg') }}');
+                url('<?php echo e(asset('images/ica1.jpg')); ?>');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -610,7 +610,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("{{ asset('images/logo-ICA.png') }}") center/contain no-repeat;
+            background: url("<?php echo e(asset('images/logo-ICA.png')); ?>") center/contain no-repeat;
             z-index: 1;
             transition: all 0.3s ease;
         }
@@ -1376,7 +1376,7 @@
                 <div class="flex items-center">
                     <!-- Logo with gold outline effect following image shape -->
                     <div class="logo-gold-outline">
-                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                        <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
                     <span class="ml-3 text-white text-2xl hidden md:block luxury-text">Indonesian Cat Association</span>
@@ -1415,7 +1415,7 @@
     </nav>
     <!-- Main Content -->
     <main>
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
 
     <!-- Footer -->
@@ -1425,7 +1425,7 @@
                 <div>
                     <!-- Replaced text with logo image -->
                     <div class="logo-gold-outline" style="transform: scale(0.8); transform-origin: left;">
-                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                        <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
                     <!-- Updated description text -->
@@ -1601,4 +1601,4 @@
     </script>
 </body>
 
-</html>
+</html><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>

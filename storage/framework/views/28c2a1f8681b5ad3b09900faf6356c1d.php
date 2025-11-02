@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="min-h-screen py-20 gold-pattern flex justify-center">
         <div class="max-w-7xl mx-auto px-4 w-full mt-24">
             <div class="flex justify-center">
@@ -15,26 +13,27 @@
                     <div class="card-luxury rounded-xl mb-8">
                         <div class="p-6">
                             <div class="mb-4">
-                                <h3 class="text-2xl font-bold text-white luxury-heading">{{ $event->name }}</h3>
+                                <h3 class="text-2xl font-bold text-white luxury-heading"><?php echo e($event->name); ?></h3>
                             </div>
                             <div class="grid md:grid-cols-2 gap-4 text-gray-300">
                                 <div class="flex items-center">
                                     <i class="fas fa-calendar-day text-gold-400 mr-3 w-5"></i>
                                     <span class="luxury-text">
-                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d') }} -
-                                        {{ \Carbon\Carbon::parse($event->end_date)->format('d F Y') }}
+                                        <?php echo e(\Carbon\Carbon::parse($event->event_date)->format('d')); ?> -
+                                        <?php echo e(\Carbon\Carbon::parse($event->end_date)->format('d F Y')); ?>
+
                                     </span>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-gold-400 mr-3 w-5"></i>
-                                    <span class="luxury-text">{{ $event->location }}</span>
+                                    <span class="luxury-text"><?php echo e($event->location); ?></span>
                                 </div>
                             </div>
-                            @if ($event->description)
+                            <?php if($event->description): ?>
                                 <div class="mt-4 pt-4 border-t border-medium-gray">
-                                    <p class="text-gray-300 luxury-text">{{ $event->description }}</p>
+                                    <p class="text-gray-300 luxury-text"><?php echo e($event->description); ?></p>
                                 </div>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -47,22 +46,22 @@
                                     <p class="text-gray-300 luxury-text">Harap isi detail Anda dengan akurat</p>
                                 </div>
 
-                                @if ($errors->any())
+                                <?php if($errors->any()): ?>
                                     <div class="mb-6 bg-red-900 border border-red-700 text-red-100 px-6 py-4 rounded-lg">
                                         <div class="flex items-center mb-2">
                                             <i class="fas fa-exclamation-circle text-red-300 mr-3 text-xl"></i>
                                             <span class="font-semibold">Harap perbaiki kesalahan berikut:</span>
                                         </div>
                                         <ul class="list-disc list-inside space-y-1 luxury-text">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
+                                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <li><?php echo e($error); ?></li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </ul>
                                     </div>
-                                @endif
+                                <?php endif; ?>
 
-                                <form method="POST" action="{{ route('registrations.store', $event) }}" class="space-y-6">
-                                    @csrf
+                                <form method="POST" action="<?php echo e(route('registrations.store', $event)); ?>" class="space-y-6">
+                                    <?php echo csrf_field(); ?>
 
                                     <!-- Name Field -->
                                     <div class="form-group">
@@ -73,12 +72,19 @@
                                                 class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
                                             <input type="text"
                                                 class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="name"
-                                                name="name" value="{{ old('name') }}" placeholder="Masukkan nama Anda"
+                                                name="name" value="<?php echo e(old('name')); ?>" placeholder="Masukkan nama Anda"
                                                 required>
                                         </div>
-                                        @error('name')
-                                            <p class="text-red-400 luxury-text mt-2">{{ $message }}</p>
-                                        @enderror
+                                        <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="text-red-400 luxury-text mt-2"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <!-- Email Field -->
@@ -90,12 +96,19 @@
                                                 class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
                                             <input type="email"
                                                 class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="email"
-                                                name="email" value="{{ old('email') }}"
+                                                name="email" value="<?php echo e(old('email')); ?>"
                                                 placeholder="Masukkan alamat email Anda" required>
                                         </div>
-                                        @error('email')
-                                            <p class="text-red-400 luxury-text mt-2">{{ $message }}</p>
-                                        @enderror
+                                        <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="text-red-400 luxury-text mt-2"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <!-- Phone Field -->
@@ -107,12 +120,19 @@
                                                 class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
                                             <input type="tel"
                                                 class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="phone"
-                                                name="phone" value="{{ old('phone') }}"
+                                                name="phone" value="<?php echo e(old('phone')); ?>"
                                                 placeholder="Masukkan nomor telepon Anda" required>
                                         </div>
-                                        @error('phone')
-                                            <p class="text-red-400 luxury-text mt-2">{{ $message }}</p>
-                                        @enderror
+                                        <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="text-red-400 luxury-text mt-2"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <!-- Additional Notes -->
@@ -136,7 +156,7 @@
                                             class="btn-gold flex-1 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg">
                                             <i class="fas fa-paper-plane mr-2"></i> Kirim
                                         </button>
-                                        <a href="{{ url()->previous() }}"
+                                        <a href="<?php echo e(url()->previous()); ?>"
                                             class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors">
                                             <i class="fas fa-arrow-left mr-2"></i> Kembali
                                         </a>
@@ -244,4 +264,6 @@
             }
         }
     </style>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/registrations/create.blade.php ENDPATH**/ ?>
