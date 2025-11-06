@@ -11,9 +11,11 @@ class AdminSeeder extends Seeder
     public function run()
     {
         Admin::create([
-            'name' => 'ICA Admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin123'),
+            'name' => 'Super Admin',
+            'email' => 'admin@ica.com',
+            'password' => Hash::make('password123'),
+            'phone' => '08123456789',
+            'is_super_admin' => true,
         ]);
     }
 }

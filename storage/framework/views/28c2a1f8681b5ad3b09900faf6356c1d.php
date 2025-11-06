@@ -6,7 +6,6 @@
                     <!-- Header Section -->
                     <div class="text-center mb-12">
                         <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
-                        <p class="text-xl text-gray-300 luxury-text">Selesaikan pendaftaran Anda untuk acara eksklusif </p>
                     </div>
 
                     <!-- Event Info Card -->
@@ -18,10 +17,7 @@
                             <div class="grid md:grid-cols-2 gap-4 text-gray-300">
                                 <div class="flex items-center">
                                     <i class="fas fa-calendar-day text-gold-400 mr-3 w-5"></i>
-                                    <span class="luxury-text">
-                                        <?php echo e(\Carbon\Carbon::parse($event->event_date)->format('d')); ?> -
-                                        <?php echo e(\Carbon\Carbon::parse($event->end_date)->format('d F Y')); ?>
-
+                                    <span class="luxury-text"> 28 - 30 November 2025
                                     </span>
                                 </div>
                                 <div class="flex items-center">
@@ -135,6 +131,70 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                     </div>
 
+                                    <!-- Position Field dengan Select Options -->
+                                    <div class="form-group">
+                                        <label for="position"
+                                            class="form-label luxury-heading text-white mb-2 block">Jabatan / Posisi</label>
+                                        <div class="relative">
+                                            <i
+                                                class="fas fa-briefcase absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
+                                            <select name="position" id="position"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg appearance-none"
+                                                required>
+                                                <option value="">Pilih Jabatan/Posisi</option>
+                                                <option value="Owner" <?php echo e(old('position') == 'Owner' ? 'selected' : ''); ?>>
+                                                    Owner</option>
+                                                <option value="Director"
+                                                    <?php echo e(old('position') == 'Director' ? 'selected' : ''); ?>>Director</option>
+                                                <option value="Manager"
+                                                    <?php echo e(old('position') == 'Manager' ? 'selected' : ''); ?>>Manager</option>
+                                                <option value="Supervisor"
+                                                    <?php echo e(old('position') == 'Supervisor' ? 'selected' : ''); ?>>Supervisor
+                                                </option>
+                                                <option value="Staff" <?php echo e(old('position') == 'Staff' ? 'selected' : ''); ?>>
+                                                    Staff</option>
+                                                <option value="Veterinarian"
+                                                    <?php echo e(old('position') == 'Veterinarian' ? 'selected' : ''); ?>>Veterinarian
+                                                </option>
+                                                <option value="Breeder"
+                                                    <?php echo e(old('position') == 'Breeder' ? 'selected' : ''); ?>>Breeder</option>
+                                                <option value="Groomer"
+                                                    <?php echo e(old('position') == 'Groomer' ? 'selected' : ''); ?>>Groomer</option>
+                                                <option value="Trainer"
+                                                    <?php echo e(old('position') == 'Trainer' ? 'selected' : ''); ?>>Trainer</option>
+                                                <option value="Other" <?php echo e(old('position') == 'Other' ? 'selected' : ''); ?>>
+                                                    Lainnya</option>
+                                            </select>
+                                            <i
+                                                class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gold-400 pointer-events-none"></i>
+                                        </div>
+                                        <?php $__errorArgs = ['position'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="text-red-400 luxury-text mt-2"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                    </div>
+
+                                    <!-- Field Lainnya (jika memilih Other) -->
+                                    <div class="form-group" id="otherPositionField" style="display: none;">
+                                        <label for="other_position"
+                                            class="form-label luxury-heading text-white mb-2 block">Jabatan Lainnya</label>
+                                        <div class="relative">
+                                            <i
+                                                class="fas fa-edit absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
+                                            <input type="text"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
+                                                id="other_position" name="other_position"
+                                                value="<?php echo e(old('other_position')); ?>"
+                                                placeholder="Tuliskan jabatan/posisi Anda">
+                                        </div>
+                                    </div>
+
                                     <!-- Additional Notes -->
                                     <div
                                         class="bg-gold-400 bg-opacity-10 border border-gold-400 border-opacity-30 rounded-lg p-4">
@@ -157,7 +217,7 @@ unset($__errorArgs, $__bag); ?>
                                             <i class="fas fa-paper-plane mr-2"></i> Kirim
                                         </button>
                                         <a href="<?php echo e(url()->previous()); ?>"
-                                            class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors">
+                                            class="border border-gold-400 text-gold-400 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gold-400 hover:text-white transition-colors no-underline">
                                             <i class="fas fa-arrow-left mr-2"></i> Kembali
                                         </a>
                                     </div>
@@ -170,7 +230,64 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const positionSelect = document.getElementById('position');
+            const otherPositionField = document.getElementById('otherPositionField');
+            const otherPositionInput = document.getElementById('other_position');
+
+            positionSelect.addEventListener('change', function() {
+                if (this.value === 'Other') {
+                    otherPositionField.style.display = 'block';
+                    otherPositionInput.setAttribute('required', 'required');
+                } else {
+                    otherPositionField.style.display = 'none';
+                    otherPositionInput.removeAttribute('required');
+                    otherPositionInput.value = '';
+                }
+            });
+
+            // Set initial state based on old input
+            <?php if(old('position') == 'Other'): ?>
+                otherPositionField.style.display = 'block';
+                otherPositionInput.setAttribute('required', 'required');
+            <?php endif; ?>
+        });
+    </script>
+
     <style>
+        /* Style untuk select element yang luxury */
+        .form-luxury-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-luxury-input:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-luxury-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Style khusus untuk select */
+        select.form-luxury-input {
+            appearance: none;
+            background-image: none;
+        }
+
+        /* Hover effects */
+        .form-luxury-input:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
         /* Custom styles for the registration form */
         .gold-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -266,4 +383,4 @@ unset($__errorArgs, $__bag); ?>
     </style>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/registrations/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app-registration', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/registrations/create.blade.php ENDPATH**/ ?>

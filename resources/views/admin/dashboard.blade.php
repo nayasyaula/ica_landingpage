@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -12,8 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -26,7 +25,7 @@
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
             color: #fff;
             margin: 0;
@@ -40,7 +39,7 @@
         h4,
         h5,
         h6 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
         }
 
@@ -79,7 +78,7 @@
         }
 
         .admin-logo-text {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.3rem;
             color: #D4AF37;
             font-weight: 700;
@@ -93,7 +92,7 @@
 
         .admin-welcome {
             color: rgba(255, 255, 255, 0.8);
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
         }
 
@@ -103,7 +102,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 6px;
             padding: 8px 16px;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             font-size: 0.9rem;
             text-decoration: none;
@@ -142,7 +141,7 @@
         }
 
         .admin-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 2.2rem;
             color: #D4AF37;
@@ -151,7 +150,7 @@
         }
 
         .admin-subtitle {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.8);
             margin: 0;
@@ -170,14 +169,14 @@
             gap: 30px;
             justify-content: center;
             flex-wrap: wrap;
-            max-width: 700px;
+            max-width: 900px;
             width: 100%;
         }
 
         .admin-card-item {
             flex: 1;
-            min-width: 280px;
-            max-width: 320px;
+            min-width: 250px;
+            max-width: 280px;
         }
 
         /* Stat Card & Action Card SAMA UKURAN */
@@ -192,7 +191,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
-            height: 200px;
+            height: 180px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -209,30 +208,30 @@
 
         /* Stat Card Specific */
         .stat-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #D4AF37, #B8860B);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #1A1A1A;
         }
 
         .stat-content h3 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #D4AF37;
             margin: 0 0 8px 0;
             line-height: 1;
         }
 
         .stat-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
             margin: 0;
             font-weight: 500;
@@ -248,9 +247,9 @@
         }
 
         .card-title-luxury {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: #D4AF37;
             margin: 0;
         }
@@ -264,10 +263,10 @@
             color: #1A1A1A;
             border: none;
             border-radius: 8px;
-            padding: 12px 24px;
-            font-family: 'Cinzel', serif;
+            padding: 10px 20px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -291,14 +290,14 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             margin: 0 auto;
-            max-width: 1000px;
+            max-width: 1100px;
         }
 
         .table-admin {
             width: 100%;
             border-collapse: collapse;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
         }
 
         .table-admin thead {
@@ -306,20 +305,20 @@
         }
 
         .table-admin th {
-            padding: 15px 12px;
+            padding: 12px 10px;
             text-align: left;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             color: #D4AF37;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .table-admin td {
-            padding: 12px 10px;
+            padding: 10px 8px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .table-admin tbody tr {
@@ -331,32 +330,38 @@
         }
 
         .ticket-code {
-            font-family: 'Courier New', monospace;
+            font-family: 'Montserrat', monospace;
             font-weight: 600;
             color: #D4AF37 !important;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .user-name {
             font-weight: 600;
             color: #FFFFFF !important;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+        }
+
+        .user-position {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 0.8rem;
+            font-style: italic;
         }
 
         .user-email {
             color: rgba(255, 255, 255, 0.8) !important;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .event-name {
             color: #F5E8C8 !important;
             font-style: italic;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .register-date {
             color: rgba(255, 255, 255, 0.7) !important;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .action-buttons {
@@ -368,10 +373,10 @@
             color: #D4AF37;
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 6px;
-            padding: 6px 12px;
-            font-family: 'Cinzel', serif;
+            padding: 5px 10px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -404,12 +409,18 @@
 
         .modal-header {
             border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
         }
 
         .modal-title {
             color: #D4AF37 !important;
-            font-family: 'Cinzel', serif !important;
+            font-family: 'Montserrat', sans-serif !important;
             font-weight: 600 !important;
+        }
+
+        .modal-body {
+            color: #FFFFFF !important;
+            font-family: 'Montserrat', sans-serif !important;
         }
 
         .modal-footer {
@@ -417,8 +428,7 @@
         }
 
         .btn-close {
-            background-color: #D4AF37 !important;
-            opacity: 1 !important;
+            filter: invert(1) !important;
         }
 
         /* Responsive Design */
@@ -448,12 +458,12 @@
             }
 
             .admin-card-item {
-                min-width: 250px;
+                min-width: 220px;
             }
 
             .admin-stat-card,
             .admin-action-card {
-                height: 180px;
+                height: 160px;
                 padding: 20px 15px;
             }
 
@@ -462,30 +472,30 @@
             }
 
             .stat-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
                 margin-bottom: 12px;
             }
 
             .card-title-luxury {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .table-admin th,
             .table-admin td {
-                padding: 10px 8px;
-                font-size: 0.85rem;
+                padding: 8px 6px;
+                font-size: 0.8rem;
             }
 
             .btn-admin-action {
-                font-size: 0.9rem;
-                padding: 10px 20px;
+                font-size: 0.85rem;
+                padding: 8px 16px;
             }
 
             .btn-table-view {
-                padding: 5px 10px;
-                font-size: 0.75rem;
+                padding: 4px 8px;
+                font-size: 0.7rem;
             }
         }
 
@@ -523,14 +533,14 @@
 
             .admin-stat-card,
             .admin-action-card {
-                height: 160px;
+                height: 150px;
                 padding: 15px 12px;
             }
 
             .stat-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
 
             .stat-content h3 {
@@ -538,20 +548,20 @@
             }
 
             .stat-label {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .card-title-luxury {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .btn-admin-action {
-                font-size: 0.85rem;
-                padding: 8px 16px;
+                font-size: 0.8rem;
+                padding: 8px 14px;
             }
 
             .table-responsive {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
         }
 
@@ -589,7 +599,7 @@
 </head>
 
 <body class="antialiased">
-    <!-- Admin Top Header (Tanpa Navbar Lengkap) -->
+    <!-- Admin Top Header -->
     <div class="admin-top-header">
         <div class="admin-header-content">
             <div class="admin-logo">
@@ -629,23 +639,39 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="stat-content">
-                                <h3 class="stat-number">{{ $totalRegistrations }}</h3>
+                                <h3 class="stat-number">{{ $totalRegistrations ?? 0 }}</h3>
                                 <p class="stat-label">Total Pendaftar</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Admin Actions Card -->
+                    <!-- QR Scan Card -->
                     <div class="admin-card-item">
                         <div class="admin-action-card">
                             <div class="card-header-luxury">
                                 <h5 class="card-title-luxury">
-                                    <i class="fas fa-cogs me-2"></i>Admin Actions
+                                    <i class="fas fa-qrcode me-2"></i>Scan QR
                                 </h5>
                             </div>
                             <div class="card-body-luxury">
                                 <a href="{{ route('admin.scan-qr') }}" class="btn-admin-action">
-                                    <i class="fas fa-qrcode me-2"></i>Scan QR Code
+                                    <i class="fas fa-camera me-2"></i>Scan QR Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sponsor Management Card -->
+                    <div class="admin-card-item">
+                        <div class="admin-action-card">
+                            <div class="card-header-luxury">
+                                <h5 class="card-title-luxury">
+                                    <i class="fas fa-handshake me-2"></i>Sponsor
+                                </h5>
+                            </div>
+                            <div class="card-body-luxury">
+                                <a href="{{ route('admin.sponsors.index') }}" class="btn-admin-action">
+                                    <i class="fas fa-cog me-2"></i>Kelola Sponsor
                                 </a>
                             </div>
                         </div>
@@ -654,64 +680,104 @@
             </div>
 
             <!-- Registrations Table -->
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <div class="admin-table-card">
-                        <div class="card-header-luxury">
-                            <h5 class="card-title-luxury text-center">
-                                <i class="fas fa-list-alt me-2"></i>Data Pendaftaran
-                            </h5>
-                        </div>
-                        <div class="card-body-luxury">
-                            <div class="table-responsive">
-                                <table class="table-admin">
-                                    <thead>
-                                        <tr>
-                                            <th>No. Tiket</th>
-                                            <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Event</th>
-                                            <th>Tanggal Daftar</th>
-                                            <th>Actions</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($registrations as $registration)
+            @if (isset($registrations) && $registrations->count() > 0)
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="admin-table-card">
+                            <div class="card-header-luxury">
+                                <h5 class="card-title-luxury text-center">
+                                    <i class="fas fa-list-alt me-2"></i>Data Pendaftaran
+                                </h5>
+                            </div>
+                            <div class="card-body-luxury">
+                                <div class="table-responsive">
+                                    <table class="table-admin">
+                                        <thead>
                                             <tr>
-                                                <td class="ticket-code">{{ $registration->qr_code }}</td>
-                                                <td class="user-name">{{ $registration->name }}</td>
-                                                <td class="user-email">{{ $registration->email }}</td>
-                                                <td class="event-name">{{ $registration->event->name }}</td>
-                                                <td class="register-date">{{ $registration->created_at->format('d M Y') }}
-                                                </td>
-                                                <td class="action-buttons">
-                                                    <a href="javascript:void(0);"
-                                                        class="btn-table-view view-registration-btn"
-                                                        data-id="{{ $registration->id }}"
-                                                        data-name="{{ $registration->name }}"
-                                                        data-email="{{ $registration->email }}"
-                                                        data-event="{{ $registration->event->name }}"
-                                                        data-qr="{{ $registration->qr_code }}">
-                                                        <i class="fas fa-eye me-1"></i>View
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    @if($registration->is_checked_in)
-                                                        <span class="badge bg-success">Hadir</span>
-                                                    @else
-                                                        <span class="badge bg-secondary">Belum Hadir</span>
-                                                    @endif
-                                                </td>
+                                                <th>No. Tiket</th>
+                                                <th>Nama</th>
+                                                <th>Jabatan</th>
+                                                <th>Email</th>
+                                                <th>Event</th>
+                                                <th>Tanggal Daftar</th>
+                                                <th>Status Check-in</th>
+                                                <th>Di-scan Oleh</th>
+                                                <th>Waktu Scan</th>
+                                                <th>Actions</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($registrations as $registration)
+                                                <tr>
+                                                    <td class="ticket-code">{{ $registration->qr_code ?? 'N/A' }}</td>
+                                                    <td class="user-name">{{ $registration->name ?? 'N/A' }}</td>
+                                                    <td class="user-position">{{ $registration->position ?? 'N/A' }}
+                                                    </td>
+                                                    <td class="user-email">{{ $registration->email ?? 'N/A' }}</td>
+                                                    <td class="event-name">{{ $registration->event->name ?? 'N/A' }}
+                                                    </td>
+                                                    <td class="register-date">
+                                                        {{ $registration->created_at->format('d M Y') }}</td>
+                                                    <td>
+                                                        @if ($registration->is_checked_in)
+                                                            <span class="badge bg-success">✓ Hadir</span>
+                                                        @else
+                                                            <span class="badge bg-secondary">Belum Hadir</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="scanner-info">
+                                                        @if ($registration->scanner_name)
+                                                            <span
+                                                                class="text-gold">{{ $registration->scanner_name }}</span>
+                                                        @else
+                                                            <span class="text-muted">-</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="scan-time">
+                                                        @if ($registration->scanned_at)
+                                                            <small
+                                                                class="text-muted">{{ $registration->scanned_at->format('d M Y H:i') }}</small>
+                                                        @else
+                                                            <span class="text-muted">-</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="action-buttons">
+                                                        <button type="button"
+                                                            class="btn-table-view view-registration-btn"
+                                                            data-id="{{ $registration->id }}"
+                                                            data-name="{{ $registration->name }}"
+                                                            data-position="{{ $registration->position }}"
+                                                            data-email="{{ $registration->email }}"
+                                                            data-event="{{ $registration->event->name ?? 'N/A' }}"
+                                                            data-qr="{{ $registration->qr_code }}"
+                                                            data-scanner="{{ $registration->scanner_name ?? 'Belum di-scan' }}"
+                                                            data-scanned-at="{{ $registration->scanned_at ? $registration->scanned_at->format('d M Y H:i') : 'Belum di-scan' }}"
+                                                            data-checked-in="{{ $registration->is_checked_in ? 'Ya' : 'Tidak' }}">
+                                                            <i class="fas fa-eye me-1"></i>View
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-8">
+                        <div class="admin-table-card">
+                            <div class="card-body-luxury text-center py-5">
+                                <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">Belum ada data pendaftaran</h5>
+                                <p class="text-muted">Data pendaftaran akan muncul di sini</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </main>
 
@@ -722,14 +788,37 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="registrationModalLabel">
-                        <i class="fas fa-qrcode me-2"></i>QR Code Tiket
+                        <i class="fas fa-qrcode me-2"></i>Detail Tiket
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <div id="qrCodeContainer" class="mb-3" style="display: flex; justify-content: center;"></div>
-                    <p style="color: #D4AF37; font-family: 'Cinzel', serif; font-weight: 600; margin-top: 10px;"
-                        id="modalName"></p>
+                    <div id="qrCodeContainer" class="mb-3 d-flex justify-content-center"></div>
+
+                    <h6 style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-weight: 600; margin-bottom: 5px;"
+                        id="modalName"></h6>
+                    <p style="color: #FFFFFF; font-family: 'Montserrat', sans-serif; margin-bottom: 5px; font-size: 0.9rem;"
+                        id="modalPosition"></p>
+                    <p style="color: #FFFFFF; font-family: 'Montserrat', sans-serif; margin-bottom: 5px; font-size: 0.85rem;"
+                        id="modalEmail"></p>
+                    <p style="color: #FFFFFF; font-family: 'Montserrat', sans-serif; margin-bottom: 5px; font-size: 0.85rem;"
+                        id="modalEvent"></p>
+
+                    <!-- Info Scanner -->
+                    <div class="scanner-info mt-3 p-3"
+                        style="background: rgba(212, 175, 55, 0.1); border-radius: 8px;">
+                        <h6 style="color: #D4AF37; font-size: 0.9rem; margin-bottom: 8px;">Info Check-in</h6>
+                        <p style="color: #FFFFFF; font-size: 0.8rem; margin: 2px 0;">
+                            <strong>Status:</strong> <span id="modalCheckedIn"></span>
+                        </p>
+                        <p style="color: #FFFFFF; font-size: 0.8rem; margin: 2px 0;">
+                            <strong>Di-scan oleh:</strong> <span id="modalScanner"></span>
+                        </p>
+                        <p style="color: #FFFFFF; font-size: 0.8rem; margin: 2px 0;">
+                            <strong>Waktu scan:</strong> <span id="modalScannedAt"></span>
+                        </p>
+                    </div>
+
                     <p class="text-muted small mt-2" id="modalQrCode"></p>
                 </div>
                 <div class="modal-footer">
@@ -745,45 +834,60 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script>
-        let currentQrCode = '';
-        let currentName = '';
-
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const viewButtons = document.querySelectorAll('.view-registration-btn');
             const downloadBtn = document.getElementById('downloadQrBtn');
+            let currentQrCode = '';
+            let currentName = '';
 
             viewButtons.forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const name = this.dataset.name;
-                    const qr = this.dataset.qr;
+                    const position = this.dataset.position;
                     const email = this.dataset.email;
                     const event = this.dataset.event;
+                    const qr = this.dataset.qr;
+                    const scanner = this.dataset.scanner;
+                    const scannedAt = this.dataset.scannedAt;
+                    const checkedIn = this.dataset.checkedIn;
 
                     // Simpan data untuk download
                     currentQrCode = qr;
                     currentName = name;
 
-                    // Tampilkan nama dan QR code
+                    // Tampilkan data di modal
                     document.getElementById('modalName').textContent = name;
-                    document.getElementById('modalQrCode').textContent = qr;
+                    document.getElementById('modalPosition').textContent = position;
+                    document.getElementById('modalEmail').textContent = email;
+                    document.getElementById('modalEvent').textContent = event;
+                    document.getElementById('modalScanner').textContent = scanner;
+                    document.getElementById('modalScannedAt').textContent = scannedAt;
+                    document.getElementById('modalCheckedIn').textContent = checkedIn;
+                    document.getElementById('modalQrCode').textContent = `Kode: ${qr}`;
 
                     // Generate QR Code
                     const qrContainer = document.getElementById('qrCodeContainer');
-                    qrContainer.innerHTML = ''; // clear dulu
+                    qrContainer.innerHTML = '';
                     const qrCanvas = document.createElement('canvas');
                     qrCanvas.id = 'qrCanvas';
                     qrCanvas.width = 200;
                     qrCanvas.height = 200;
 
-                    new QRious({
-                        element: qrCanvas,
-                        value: qr,
-                        size: 200,
-                        background: 'white',
-                        foreground: 'black',
-                        level: 'H'
-                    });
-                    qrContainer.appendChild(qrCanvas);
+                    try {
+                        new QRious({
+                            element: qrCanvas,
+                            value: qr,
+                            size: 200,
+                            background: 'white',
+                            foreground: 'black',
+                            level: 'H'
+                        });
+                        qrContainer.appendChild(qrCanvas);
+                    } catch (error) {
+                        console.error('Error generating QR code:', error);
+                        qrContainer.innerHTML =
+                            '<p class="text-danger">Error generating QR code</p>';
+                    }
 
                     // Tampilkan modal
                     const modal = new bootstrap.Modal(document.getElementById('registrationModal'));
@@ -792,27 +896,22 @@
             });
 
             // Download QR Code functionality
-            downloadBtn.addEventListener('click', function () {
-                downloadQRCode();
+            downloadBtn.addEventListener('click', function() {
+                const canvas = document.getElementById('qrCanvas');
+                if (!canvas) {
+                    alert('QR Code belum tersedia untuk didownload');
+                    return;
+                }
+
+                // Create download link
+                const link = document.createElement('a');
+                link.download = `QRCode-${currentName}-${currentQrCode}.png`;
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             });
         });
-
-        // Function untuk download QR Code
-        function downloadQRCode() {
-            const canvas = document.getElementById('qrCanvas');
-            if (!canvas) {
-                alert('QR Code belum tersedia untuk didownload');
-                return;
-            }
-
-            // Create download link
-            const link = document.createElement('a');
-            link.download = `QRCode-${currentName}-${currentQrCode}.png`;
-            link.href = canvas.toDataURL('image/png');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
     </script>
 </body>
 

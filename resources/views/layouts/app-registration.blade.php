@@ -1671,14 +1671,13 @@
                     <span class="ml-3 text-white text-2xl hidden md:block luxury-text">Indonesian Cat Association</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang
-                        kami</a>
-                    <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
-                    <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
-                    <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
-                    <a href="#sponsors" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsor</a>
-                    <a href="#faq" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
+                    <a href="{{ url('/#home') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
+                    <a href="{{ url('/#about') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang kami</a>
+                    <a href="{{ url('/#speakers') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
+                    <a href="{{ url('/#schedule') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
+                    <a href="{{ url('/#location') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
+                    <a href="{{ url('/#sponsors') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsor</a>
+                    <a href="{{ url('/#faq') }}" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button text-gold-400">
@@ -1743,18 +1742,18 @@
                     <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Akses Cepat</h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#home"
+                            <a href="{{ url('/#home') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Beranda</a>
                         </li>
                         <li>
-                            <a href="#about"
+                            <a href="{{ url('/#about') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Tentang
                                 Kami</a>
                         </li>
-                        <li><a href="#speakers"
+                        <li><a href="{{ url('/#speakers') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Pembicara</a>
                         </li>
-                        <li><a href="#schedule"
+                        <li><a href="{{ url('/#schedule') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Jadwal</a>
                         </li>
                     </ul>
@@ -1762,13 +1761,13 @@
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Info Lengkap</h4>
                     <ul class="space-y-2">
-                        <li><a href="#location"
+                        <li><a href="{{ url('/#location') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Lokasi</a>
                         </li>
-                        <li><a href="#sponsors"
+                        <li><a href="{{ url('/#sponsors') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Sponsor</a>
                         </li>
-                        <li><a href="#faq"
+                        <li><a href="{{ url('/#faq') }}"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">FAQ</a>
                         </li>
                     </ul>

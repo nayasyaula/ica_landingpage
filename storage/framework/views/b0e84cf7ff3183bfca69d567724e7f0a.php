@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
-    <title>@yield('title', 'Admin Dashboard - Indonesian Cat Association')</title>
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('images/logo-ICA.png')); ?>">
+    <title><?php echo $__env->yieldContent('title', 'Admin Dashboard - Indonesian Cat Association'); ?></title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -664,7 +664,7 @@
         }
     </style>
 
-    @stack('styles')
+    <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
 
 <body class="antialiased">
@@ -672,13 +672,13 @@
     <div class="admin-top-header">
         <div class="admin-header-content">
             <div class="admin-logo">
-                <img src="{{ asset('images/logo-ICA.png') }}" alt="ICA Logo" class="admin-logo-img">
+                <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="ICA Logo" class="admin-logo-img">
                 <span class="admin-logo-text">Admin Dashboard</span>
             </div>
             <div class="admin-user-menu">
                 <span class="admin-welcome">Welcome, Administrator</span>
-                <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
-                    @csrf
+                <form action="<?php echo e(route('admin.logout')); ?>" method="POST" class="d-inline">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="btn-admin-logout">
                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                     </button>
@@ -689,7 +689,7 @@
 
     <!-- Main Content -->
     <main class="admin-main-content">
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
 
     <!-- Bootstrap & jQuery -->
@@ -718,7 +718,8 @@
         });
     </script>
 
-    @stack('scripts')
+    <?php echo $__env->yieldPushContent('scripts'); ?>
 </body>
 
 </html>
+<?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

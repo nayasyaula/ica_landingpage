@@ -1,5 +1,5 @@
 <?php
-// app/Models/Admin.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,10 +16,18 @@ class Admin extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'is_super_admin',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'is_super_admin' => 'boolean',
+        'password' => 'hashed',
     ];
 }

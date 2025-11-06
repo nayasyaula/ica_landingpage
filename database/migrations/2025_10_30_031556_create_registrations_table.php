@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('position');
             $table->string('qr_code')->unique();
             $table->boolean('is_checked_in')->default(false);
             $table->timestamp('checked_in_at')->nullable();

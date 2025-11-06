@@ -36,7 +36,15 @@ class RegistrationController extends Controller
                 })
             ],
             'phone' => 'required|string|max:20',
+            'position' => 'required|string|max:255',
+            'other_position' => 'nullable|string|max:255', // Validasi untuk other position
         ]);
+
+        // Jika memilih "Other", gunakan nilai dari other_position
+        $finalPosition = $validated['position'];
+        if ($validated['position'] === 'Other' && !empty($validated['other_position'])) {
+            $finalPosition = $validated['other_position'];
+        }
 
         $qrCodeString = 'ICA-' . strtoupper(Str::random(3)) . '-' . rand(1000, 9999);
 
@@ -45,6 +53,7 @@ class RegistrationController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],
+            'position' => $finalPosition, // Gunakan position yang sudah diproses
             'qr_code' => $qrCodeString,
         ]);
 
@@ -81,32 +90,32 @@ class RegistrationController extends Controller
 
     // ✅ FALLBACK DENGAN QR CODE EXTERNAL
     private function sendEmailWithExternalQR($registration)
-{
-    try {
-        $qrData = urlencode($registration->qr_code);
-        $qrImageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $qrData . "&format=png";
+    {
+        try {
+            $qrData = urlencode($registration->qr_code);
+            $qrImageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $qrData . "&format=png";
 
-        Log::info('🌀 Fallback: Using external QR API');
+            Log::info('🌀 Fallback: Using external QR API');
 
-        // Gunakan view yang sama tapi dengan parameter QR external
-        $emailContent = view('emails.ticket-confirmation', [
-            'registration' => $registration,
-            'event' => $registration->event,
-            'qrImageUrl' => $qrImageUrl, // Kirim URL QR external
-            'isFallback' => true // Flag untuk fallback
-        ])->render();
+            // Gunakan view yang sama tapi dengan parameter QR external
+            $emailContent = view('emails.ticket-confirmation', [
+                'registration' => $registration,
+                'event' => $registration->event,
+                'qrImageUrl' => $qrImageUrl, // Kirim URL QR external
+                'isFallback' => true // Flag untuk fallback
+            ])->render();
 
-        Mail::send([], [], function ($message) use ($registration, $emailContent) {
-            $message->to($registration->email)
-                ->subject('Konfirmasi Pendaftaran - Indonesian Cat Association 2025')
-                ->html($emailContent);
-        });
+            Mail::send([], [], function ($message) use ($registration, $emailContent) {
+                $message->to($registration->email)
+                    ->subject('Konfirmasi Pendaftaran - Indonesian Cat Association 2025')
+                    ->html($emailContent);
+            });
 
-        Log::info('✅ FALLBACK EMAIL WITH EXTERNAL QR SENT');
-    } catch (\Exception $e) {
-        Log::error('❌ FALLBACK EMAIL FAILED: ' . $e->getMessage());
+            Log::info('✅ FALLBACK EMAIL WITH EXTERNAL QR SENT');
+        } catch (\Exception $e) {
+            Log::error('❌ FALLBACK EMAIL FAILED: ' . $e->getMessage());
+        }
     }
-}
     public function success(Registration $registration)
     {
         // TAMPILKAN QR CODE DI PAGE
@@ -156,6 +165,9 @@ class RegistrationController extends Controller
             ->with('success', 'Peserta berhasil check-in!');
     }
 
+    /**
+     * Handle check-in dengan tracking scanner
+     */
     public function checkIn(Request $request)
     {
         $registration = Registration::with('event')->where('qr_code', $request->qr_code)->first();
@@ -167,25 +179,47 @@ class RegistrationController extends Controller
             ]);
         }
 
+        // Get admin yang sedang login (scanner)
+        $scanner = Auth::guard('admin')->user();
+
         // Cek apakah sudah check-in
         if ($registration->is_checked_in) {
             return response()->json([
                 'success' => true,
-                'message' => 'Peserta sudah check-in sebelumnya pada: ' . $registration->checked_in_at->format('d/m/Y H:i'),
-                'registration' => $registration
+                'message' => 'Peserta sudah check-in sebelumnya pada: ' . $registration->checked_in_at->format('d/m/Y H:i') . 
+                            ($registration->scanner_name ? ' oleh: ' . $registration->scanner_name : ''),
+                'registration' => $registration,
+                'scanner_info' => $registration->scanner_name ? [
+                    'scanned_by' => $registration->scanner_name,
+                    'scanned_at' => $registration->scanned_at->format('d/m/Y H:i')
+                ] : null
             ]);
         }
 
-        // Lakukan check-in
+        // Lakukan check-in dengan data scanner
         $registration->update([
             'is_checked_in' => true,
             'checked_in_at' => now(),
+            'scanned_by' => $scanner ? $scanner->id : null,
+            'scanned_at' => now(),
+            'scanner_name' => $scanner ? $scanner->name : 'System'
+        ]);
+
+        // Log activity
+        Log::info('Check-in berhasil', [
+            'participant' => $registration->name,
+            'scanner' => $scanner ? $scanner->name : 'Unknown',
+            'time' => now()->format('Y-m-d H:i:s')
         ]);
 
         return response()->json([
             'success' => true,
             'message' => 'Check-in berhasil!',
-            'registration' => $registration
+            'registration' => $registration,
+            'scanner_info' => [
+                'scanned_by' => $scanner ? $scanner->name : 'System',
+                'scanned_at' => now()->format('d/m/Y H:i')
+            ]
         ]);
     }
 }

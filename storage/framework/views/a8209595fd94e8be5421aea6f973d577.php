@@ -13,8 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -79,8 +78,116 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: inherit;
-            z-index: -1;
+            /* Banyak diamond shapes - diperbanyak */
+            background-image:
+                /* Diamond 1-10 */
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.6) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.6) 50%, transparent 52%),
+                /* Diamond 11-20 */
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                /* Diamond 11-20 */
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.7) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.9) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.5) 50%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.8) 50%, transparent 52%);
+
+            background-size:
+                /* Ukuran diamond bervariasi */
+                12px 12px, 12px 12px,
+                /* 1 */
+                10px 10px, 10px 10px,
+                /* 2 */
+                8px 8px, 8px 8px,
+                /* 3 */
+                14px 14px, 14px 14px,
+                /* 4 */
+                6px 6px, 6px 6px,
+                /* 5 */
+                11px 11px, 11px 11px,
+                /* 6 */
+                9px 9px, 9px 9px,
+                /* 7 */
+                13px 13px, 13px 13px,
+                /* 8 */
+                7px 7px, 7px 7px,
+                /* 9 */
+                15px 15px, 15px 15px;
+            /* 10 */
+
+            background-position:
+                /* Posisi tersebar merata */
+                10% 20%, 10% 20%,
+                /* 1 */
+                25% 40%, 25% 40%,
+                /* 2 */
+                40% 15%, 40% 15%,
+                /* 3 */
+                60% 30%, 60% 30%,
+                /* 4 */
+                75% 50%, 75% 50%,
+                /* 5 */
+                85% 25%, 85% 25%,
+                /* 6 */
+                15% 70%, 15% 70%,
+                /* 7 */
+                35% 85%, 35% 85%,
+                /* 8 */
+                55% 65%, 55% 65%,
+                /* 9 */
+                90% 80%, 90% 80%;
+            /* 10 */
+
+            background-repeat: no-repeat;
+            animation: diamondTwinkle 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes diamondTwinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                filter: brightness(1);
+            }
+
+            25% {
+                opacity: 0.8;
+                filter: brightness(1.5);
+            }
+
+            50% {
+                opacity: 0.4;
+                filter: brightness(1.2);
+            }
+
+            75% {
+                opacity: 0.9;
+                filter: brightness(1.8);
+            }
         }
 
         /* ===== STYLE KHUSUS HALAMAN TIKET/SUCCESS ===== */
@@ -454,6 +561,68 @@
             font-weight: 600;
         }
 
+        .gold-number-gradient {
+            background: linear-gradient(135deg, #B8860B, #D4AF37, #FFEC8B, #D4AF37);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            width: 48px !important;
+            height: 48px !important;
+            min-width: 48px !important;
+            min-height: 48px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #B8860B, #D4AF37, #FFEC8B, #D4AF37);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .gold-badge-gradient {
+            background: linear-gradient(135deg, #B8860B, #D4AF37, #FFEC8B, #D4AF37);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .image-container {
+            background: #1a1a1a;
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 16rem;
+            border: 2px solid #d4af37;
+        }
+
+        .hotel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hotel-image:hover {
+            transform: scale(1.1);
+        }
+
         .timeline-speaker {
             font-family: 'Montserrat', serif;
             font-weight: 500;
@@ -516,13 +685,15 @@
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
                 url('<?php echo e(asset('images/ica1.jpg')); ?>');
             background-size: cover;
-            background-position: center;
+            background-position: center 100px;
+            /* Turunin 100px dari atas */
             background-repeat: no-repeat;
             height: 100vh;
-            min-height: 700px;
+            min-height: 740px;
             display: flex;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
         .hero-bg::after {
@@ -842,15 +1013,16 @@
             border-top: 1px solid var(--medium-gray);
         }
 
-        .paw-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Bantalan utama lebih oval --%3E%3Cellipse cx='25' cy='15' rx='6' ry='8' fill='%23d4af37' fill-opacity='0.1'/%3E%3C!-- Jari-jari lebih runcing --%3E%3Cpath d='M15 25 Q13 28 15 30 Q17 32 18 30 Q17 27 15 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M35 25 Q37 28 35 30 Q33 32 32 30 Q33 27 35 25' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M10 35 Q8 38 10 40 Q12 42 13 40 Q12 37 10 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3Cpath d='M40 35 Q42 38 40 40 Q38 42 37 40 Q38 37 40 35' fill='%23d4af37' fill-opacity='0.1'/%3E%3C/svg%3E");
-    animation: catWalk 20s infinite linear;
-}
+        @keyframes catWalk {
+            0% {
+                background-position: 0 0;
+            }
 
-@keyframes catWalk {
-    0% { background-position: 0 0; }
-    100% { background-position: 50px 50px; }
-}
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
         .speaker-image-container {
             width: 170px;
             height: 170px;
@@ -1136,6 +1308,70 @@
             margin-bottom: 3rem;
         }
 
+        /* Tambahkan di CSS landing page */
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sponsor-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            min-height: 120px;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .sponsor-logo {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        .sponsor-name {
+            color: #D4AF37;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .platinum-gradient {
+            background: linear-gradient(135deg, rgba(229, 228, 226, 0.2), rgba(192, 192, 192, 0.1));
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(212, 175, 55, 0.1));
+        }
+
+        .silver-gradient {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(168, 168, 168, 0.1));
+        }
+
+        .bronze-gradient {
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(140, 107, 70, 0.1));
+        }
+
+        .tier-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
         /* Sponsor Gradient Backgrounds */
         .platinum-gradient {
             background: linear-gradient(135deg, #8A8A8A, #E5E4E2, #FFFFFF, #C0C0C0);
@@ -1364,6 +1600,59 @@
             width: auto;
             margin-bottom: 1rem;
             filter: brightness(1.1) saturate(1.2) sepia(0.3) hue-rotate(-5deg);
+        }
+
+        /* Ganti paw-pattern dengan pattern kaki kucing yang sebenarnya */
+        .paw {
+            position: relative;
+            background-color: #0A0A0A;
+            /* Background normal */
+        }
+
+        .paw::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("<?php echo e(asset('images/paw.png')); ?>");
+            background-size: 40px 30px;
+            /* Ukuran besar biar jarang */
+            background-position: 0 0;
+            background-repeat: repeat;
+            animation: movePaw 30s linear infinite;
+            /* Hanya opacity background pattern saja */
+            opacity: 0.15;
+            /* Filter untuk warna gold */
+            filter: sepia(1) saturate(2) hue-rotate(5deg) brightness(0.9);
+            pointer-events: none;
+            /* Biar tidak mengganggu klik */
+            z-index: 0;
+        }
+
+        @keyframes movePaw {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        /* Pastikan semua konten di atas pattern */
+        .paw>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .paw .container,
+        .paw .max-w-7xl,
+        .paw .max-w-6xl,
+        .paw .max-w-4xl {
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -1601,4 +1890,5 @@
     </script>
 </body>
 
-</html><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>
