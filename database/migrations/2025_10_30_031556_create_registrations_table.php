@@ -21,7 +21,12 @@ return new class extends Migration
             $table->string('qr_code')->unique();
             $table->boolean('is_checked_in')->default(false);
             $table->timestamp('checked_in_at')->nullable();
+            $table->string('checked_in_by')->nullable();
+            $table->string('checkin_method')->nullable();
             $table->timestamps();
+
+            $table->index('qr_code');
+            $table->index('is_checked_in');
         });
     }
 
