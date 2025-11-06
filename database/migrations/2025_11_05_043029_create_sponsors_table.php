@@ -9,24 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone')->nullable();
-            $table->boolean('is_super_admin')->default(false);
-            $table->rememberToken();
+            $table->string('logo')->nullable();
+            $table->enum('tier', ['platinum', 'gold', 'silver', 'bronze']);
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('sponsors');
     }
 };

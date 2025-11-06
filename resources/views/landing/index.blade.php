@@ -447,7 +447,8 @@
                             </a>
                         </div>
                         <div class="location-info mt-6">
-                            <h3 class="text-2xl font-bold text-white mb-4 luxury-heading">HARRIS Hotel & Residence Riverview
+                            <h3 class="text-2xl font-bold text-white mb-4 luxury-heading">HARRIS Hotel & Residence
+                                Riverview
                                 Kuta Bali</h3>
 
                             <div class="location-feature">
@@ -494,90 +495,116 @@
             <div class="text-center w-full">
                 <h2 class="section-title text-4xl font-bold mb-4 text-white">Para Sponsor</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
-                    Didukung dengan penuh semangat oleh para pemimpin industri dalam perawatan dan inovasi dunia kucing </p>
+                    Didukung dengan penuh semangat oleh para pemimpin industri dalam perawatan dan inovasi dunia kucing
+                </p>
             </div>
+
+            @php
+                use App\Models\Sponsor;
+                $platinumSponsors = Sponsor::byTier('platinum')->get();
+                $goldSponsors = Sponsor::byTier('gold')->get();
+                $silverSponsors = Sponsor::byTier('silver')->get();
+                $bronzeSponsors = Sponsor::byTier('bronze')->get();
+            @endphp
 
             <!-- Platinum Sponsors -->
-            <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Sponsor Platinum</h3>
-                <div class="sponsor-grid">
-                    <div class="sponsor-card platinum-gradient">
-                        <div class="text-white text-xl font-bold luxury-heading">Platinum</div>
-                    </div>
-                    <div class="sponsor-card platinum-gradient">
-                        <div class="text-white text-xl font-bold luxury-heading">Platinum</div>
-                    </div>
-                    <div class="sponsor-card platinum-gradient">
-                        <div class="text-white text-xl font-bold luxury-heading">Platinum</div>
+            @if ($platinumSponsors->count() > 0)
+                <div class="sponsor-tier mb-8">
+                    <h3 class="tier-title">Sponsor Platinum</h3>
+                    <div class="sponsor-grid">
+                        @foreach ($platinumSponsors as $sponsor)
+                            <div class="sponsor-card platinum-gradient">
+                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
+                                        class="sponsor-logo"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                @endif
+                                <div
+                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
+                                    {{ $sponsor->name }}
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+            @endif
 
+            <!-- Repeat untuk Gold, Silver, Bronze dengan pattern yang sama -->
             <!-- Gold Sponsors -->
-            <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Sponsor Emas</h3>
-                <div class="sponsor-grid">
-                    <div class="sponsor-card gold-gradient">
-                        <div class="text-white text-lg font-semibold luxury-heading">Emas</div>
-                    </div>
-                    <div class="sponsor-card gold-gradient">
-                        <div class="text-white text-lg font-semibold luxury-heading">Emas</div>
-                    </div>
-                    <div class="sponsor-card gold-gradient">
-                        <div class="text-white text-lg font-semibold luxury-heading">Emas</div>
-                    </div>
-                    <div class="sponsor-card gold-gradient">
-                        <div class="text-white text-lg font-semibold luxury-heading">Emas</div>
+            @if ($goldSponsors->count() > 0)
+                <div class="sponsor-tier mb-8">
+                    <h3 class="tier-title">Sponsor Gold</h3>
+                    <div class="sponsor-grid">
+                        @foreach ($goldSponsors as $sponsor)
+                            <div class="sponsor-card gold-gradient">
+                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
+                                        class="sponsor-logo"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                @endif
+                                <div
+                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
+                                    {{ $sponsor->name }}
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+            @endif
 
             <!-- Silver Sponsors -->
-            <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Sponsor Perak</h3>
-                <div class="sponsor-grid">
-                    <div class="sponsor-card silver-gradient">
-                        <div class="text-white luxury-heading">Perak</div>
-                    </div>
-                    <div class="sponsor-card silver-gradient">
-                        <div class="text-white luxury-heading">Perak</div>
-                    </div>
-                    <div class="sponsor-card silver-gradient">
-                        <div class="text-white luxury-heading">Perak</div>
-                    </div>
-                    <div class="sponsor-card silver-gradient">
-                        <div class="text-white luxury-heading">Perak</div>
-                    </div>
-                    <div class="sponsor-card silver-gradient">
-                        <div class="text-white luxury-heading">Perak</div>
+            @if ($silverSponsors->count() > 0)
+                <div class="sponsor-tier mb-8">
+                    <h3 class="tier-title">Sponsor Silver</h3>
+                    <div class="sponsor-grid">
+                        @foreach ($silverSponsors as $sponsor)
+                            <div class="sponsor-card silver-gradient">
+                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
+                                        class="sponsor-logo"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                @endif
+                                <div
+                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
+                                    {{ $sponsor->name }}
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+            @endif
 
-            <!-- Bronze Sponsors (New) -->
-            <div class="sponsor-tier mb-8">
-                <h3 class="tier-title">Sponsor Perunggu</h3>
-                <div class="sponsor-grid">
-                    <div class="sponsor-card bronze-gradient">
-                        <div class="text-white luxury-heading">Perunggu</div>
-                    </div>
-                    <div class="sponsor-card bronze-gradient">
-                        <div class="text-white luxury-heading">Perunggu</div>
-                    </div>
-                    <div class="sponsor-card bronze-gradient">
-                        <div class="text-white luxury-heading">Perunggu</div>
-                    </div>
-                    <div class="sponsor-card bronze-gradient">
-                        <div class="text-white luxury-heading">Perunggu</div>
-                    </div>
-                    <div class="sponsor-card bronze-gradient">
-                        <div class="text-white luxury-heading">Perunggu</div>
-                    </div>
-                    <div class="sponsor-card bronze-gradient">
-                        <div class="text-white luxury-heading">Perunggu</div>
+            <!-- Bronze Sponsors -->
+            @if ($bronzeSponsors->count() > 0)
+                <div class="sponsor-tier mb-8">
+                    <h3 class="tier-title">Sponsor Bronze</h3>
+                    <div class="sponsor-grid">
+                        @foreach ($bronzeSponsors as $sponsor)
+                            <div class="sponsor-card bronze-gradient">
+                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
+                                        class="sponsor-logo"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                @endif
+                                <div
+                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
+                                    {{ $sponsor->name }}
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+            @endif
+
+            @if (
+                $platinumSponsors->count() == 0 &&
+                    $goldSponsors->count() == 0 &&
+                    $silverSponsors->count() == 0 &&
+                    $bronzeSponsors->count() == 0)
+                <div class="text-center py-8">
+                    <p class="text-gold-200 text-lg">Sponsor akan segera diumumkan</p>
+                </div>
+            @endif
         </div>
     </section>
 

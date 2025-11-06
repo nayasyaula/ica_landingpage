@@ -10,27 +10,19 @@ class EventSeeder extends Seeder
 {
     public function run()
     {
-        // CEK DULU APA SUDAH ADA EVENT
-        $existingEvent = Event::first();
-        
-        if (!$existingEvent) {
-            // BUAT EVENT BARU JIKA BELUM ADA
-            Event::create([
-                'name' => 'Indonesian Cat Association',
-                'description' => 'Melalui acara ini, kami ingin mengedukasi masyarakat tentang cara merawat kucing dengan baik, 
-                serta mempertemukan komunitas pecinta kucing, pelaku industri, dan masyarakat umum dalam satu kegiatan yang inspiratif dan bermanfaat.',
-                'event_date' => Carbon::create(2025, 11, 28),
-                'location' => 'HARRIS Hotel & Residence Riverview Kuta Bali',
-            ]);
-        } else {
-            // UPDATE EVENT YANG SUDAH ADA
-            $existingEvent->update([
-                'name' => 'Indonesian Cat Association',
-                'description' => 'Melalui acara ini, kami ingin mengedukasi masyarakat tentang cara merawat kucing dengan baik, 
-                serta mempertemukan komunitas pecinta kucing, pelaku industri, dan masyarakat umum dalam satu kegiatan yang inspiratif dan bermanfaat.',
-                'event_date' => Carbon::create(2025, 11, 28),
-                'location' => 'HARRIS Hotel & Residence Riverview Kuta Bali',
-            ]);
-        }
+        // HAPUS SEMUA EVENT LAMA (gunakan delete() bukan truncate())
+        Event::query()->delete();
+
+        // BUAT HANYA 1 EVENT TANPA CAPACITY
+        Event::create([
+            'name' => 'Indonesian Cat Association',
+            'description' => 'Indonesian Cat Association (ICA) adalah organisasi resmi yang mewadahi para pecinta, pemilik, 
+    dan pengembang ras kucing di Indonesia. ICA berkomitmen untuk mengedukasi masyarakat, meningkatkan kesejahteraan 
+    kucing, serta mempererat hubungan antar komunitas pecinta kucing melalui berbagai kegiatan, pelatihan, dan event nasional.',
+            'event_date' => Carbon::create(2025, 11, 28),
+            'end_date' => Carbon::create(2025, 11, 30), // Tambah end_date
+            'location' => 'HARRIS Hotel & Residence Riverview Kuta Bali',
+            // capacity dihapus - UNLIMITED PARTICIPANTS
+        ]);
     }
 }

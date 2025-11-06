@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('images/logo-ICA.png')); ?>">
     <title>Indonesian Cat Association - Mukernas & Gala Dinner 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
 
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
-                url('{{ asset('images/ica1.jpg') }}');
+                url('<?php echo e(asset('images/ica1.jpg')); ?>');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -683,7 +683,7 @@
         /* Sisanya tetap sama... */
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
-                url('{{ asset('images/ica1.jpg') }}');
+                url('<?php echo e(asset('images/ica1.jpg')); ?>');
             background-size: cover;
             background-position: center 100px;
             /* Turunin 100px dari atas */
@@ -781,7 +781,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("{{ asset('images/logo-ICA.png') }}") center/contain no-repeat;
+            background: url("<?php echo e(asset('images/logo-ICA.png')); ?>") center/contain no-repeat;
             z-index: 1;
             transition: all 0.3s ease;
         }
@@ -1616,7 +1616,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url("{{ asset('images/paw.png') }}");
+            background-image: url("<?php echo e(asset('images/paw.png')); ?>");
             background-size: 40px 30px;
             /* Ukuran besar biar jarang */
             background-position: 0 0;
@@ -1665,20 +1665,19 @@
                 <div class="flex items-center">
                     <!-- Logo with gold outline effect following image shape -->
                     <div class="logo-gold-outline">
-                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                        <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
                     <span class="ml-3 text-white text-2xl hidden md:block luxury-text">Indonesian Cat Association</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang
-                        kami</a>
-                    <a href="#speakers" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
-                    <a href="#schedule" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
-                    <a href="#location" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
-                    <a href="#sponsors" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsor</a>
-                    <a href="#faq" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
+                    <a href="<?php echo e(url('/#home')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Beranda</a>
+                    <a href="<?php echo e(url('/#about')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Tentang kami</a>
+                    <a href="<?php echo e(url('/#speakers')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Pembicara</a>
+                    <a href="<?php echo e(url('/#schedule')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Jadwal</a>
+                    <a href="<?php echo e(url('/#location')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Lokasi</a>
+                    <a href="<?php echo e(url('/#sponsors')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">Sponsor</a>
+                    <a href="<?php echo e(url('/#faq')); ?>" class="nav-link text-white hover:text-gold-400 transition text-lg">FAQ</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button text-gold-400">
@@ -1704,7 +1703,7 @@
     </nav>
     <!-- Main Content -->
     <main>
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
 
     <!-- Footer -->
@@ -1714,7 +1713,7 @@
                 <div>
                     <!-- Replaced text with logo image -->
                     <div class="logo-gold-outline" style="transform: scale(0.8); transform-origin: left;">
-                        <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                        <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                             class="logo-glow">
                     </div>
                     <!-- Updated description text -->
@@ -1743,18 +1742,18 @@
                     <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Akses Cepat</h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#home"
+                            <a href="<?php echo e(url('/#home')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Beranda</a>
                         </li>
                         <li>
-                            <a href="#about"
+                            <a href="<?php echo e(url('/#about')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Tentang
                                 Kami</a>
                         </li>
-                        <li><a href="#speakers"
+                        <li><a href="<?php echo e(url('/#speakers')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Pembicara</a>
                         </li>
-                        <li><a href="#schedule"
+                        <li><a href="<?php echo e(url('/#schedule')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Jadwal</a>
                         </li>
                     </ul>
@@ -1762,13 +1761,13 @@
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4 luxury-heading">Info Lengkap</h4>
                     <ul class="space-y-2">
-                        <li><a href="#location"
+                        <li><a href="<?php echo e(url('/#location')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Lokasi</a>
                         </li>
-                        <li><a href="#sponsors"
+                        <li><a href="<?php echo e(url('/#sponsors')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">Sponsor</a>
                         </li>
-                        <li><a href="#faq"
+                        <li><a href="<?php echo e(url('/#faq')); ?>"
                                 class="text-gray-400 hover:text-gold-400 transition luxury-text text-lg">FAQ</a>
                         </li>
                     </ul>
@@ -1891,3 +1890,4 @@
 </body>
 
 </html>
+<?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app-registration.blade.php ENDPATH**/ ?>

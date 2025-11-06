@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-registration')
 
 @section('content')
     <div class="ticket-page">
@@ -32,20 +32,12 @@
                                 <span class="value">{{ $registration->qr_code }}</span>
                             </div>
                             <div class="detail-item">
-                                <span class="label">Tanggal Event</span>
-                                <span>28 - 20 November 2025</span>
-                            </div>
-                            <div class="detail-item">
                                 <span class="label">Nama</span>
                                 <span class="value">{{ $registration->name }}</span>
                             </div>
                             <div class="detail-item">
-                                <span class="label">Email</span>
-                                <span class="value">{{ $registration->email }}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Lokasi</span>
-                                <span class="value">{{ $registration->event->location }}</span>
+                                <span class="label">Jabatan</span>
+                                <span class="value">{{ $registration->position }}</span>
                             </div>
                         </div>
 
@@ -57,28 +49,32 @@
                             <button onclick="downloadQRCode()" class="btn btn-sm btn-success ticket-btn">
                                 <i class="fas fa-download me-2"></i> Download
                             </button>
+                            <button onclick="window.location.href='{{ route('home') }}'"
+                                class="btn btn-sm btn-success ticket-btn">
+                                <i class="fas fa-arrow-left me-2"></i> Kembali
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script>
+    <script>
         function downloadQRCode() {
             // Ambil SVG dari QR code
             const svgElement = document.querySelector('.qr-container svg');
             const svgData = new XMLSerializer().serializeToString(svgElement);
-            
+
             // Convert SVG ke PNG
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             const img = new Image();
-            
+
             img.onload = function() {
                 canvas.width = img.width;
                 canvas.height = img.height;
                 ctx.drawImage(img, 0, 0);
-                
+
                 // Download sebagai PNG
                 const pngFile = canvas.toDataURL('image/png');
                 const downloadLink = document.createElement('a');
@@ -86,9 +82,11 @@
                 downloadLink.href = pngFile;
                 downloadLink.click();
             };
-            
+
             // Convert SVG ke data URL
-            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const svgBlob = new Blob([svgData], {
+                type: 'image/svg+xml;charset=utf-8'
+            });
             const url = URL.createObjectURL(svgBlob);
             img.src = url;
         }
