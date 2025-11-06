@@ -141,29 +141,29 @@ unset($__errorArgs, $__bag); ?>
                                             <select name="position" id="position"
                                                 class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg appearance-none"
                                                 required>
-                                                <option value="">Pilih Jabatan/Posisi</option>
-                                                <option value="Owner" <?php echo e(old('position') == 'Owner' ? 'selected' : ''); ?>>
+                                                <option value="" class="bg-black">Pilih Jabatan/Posisi</option>
+                                                <option value="Owner" class="bg-black" <?php echo e(old('position') == 'Owner' ? 'selected' : ''); ?>>
                                                     Owner</option>
-                                                <option value="Director"
+                                                <option value="Director" class="bg-black"
                                                     <?php echo e(old('position') == 'Director' ? 'selected' : ''); ?>>Director</option>
-                                                <option value="Manager"
+                                                <option value="Manager" class="bg-black"
                                                     <?php echo e(old('position') == 'Manager' ? 'selected' : ''); ?>>Manager</option>
-                                                <option value="Supervisor"
+                                                <option value="Supervisor" class="bg-black"
                                                     <?php echo e(old('position') == 'Supervisor' ? 'selected' : ''); ?>>Supervisor
                                                 </option>
-                                                <option value="Staff" <?php echo e(old('position') == 'Staff' ? 'selected' : ''); ?>>
-                                                    Staff</option>
-                                                <option value="Veterinarian"
+                                                <option value="Staff" class="bg-black"
+                                                    <?php echo e(old('position') == 'Staff' ? 'selected' : ''); ?>>Staff</option>
+                                                <option value="Veterinarian" class="bg-black"
                                                     <?php echo e(old('position') == 'Veterinarian' ? 'selected' : ''); ?>>Veterinarian
                                                 </option>
-                                                <option value="Breeder"
+                                                <option value="Breeder" class="bg-black"
                                                     <?php echo e(old('position') == 'Breeder' ? 'selected' : ''); ?>>Breeder</option>
-                                                <option value="Groomer"
+                                                <option value="Groomer" class="bg-black"
                                                     <?php echo e(old('position') == 'Groomer' ? 'selected' : ''); ?>>Groomer</option>
-                                                <option value="Trainer"
+                                                <option value="Trainer" class="bg-black"
                                                     <?php echo e(old('position') == 'Trainer' ? 'selected' : ''); ?>>Trainer</option>
-                                                <option value="Other" <?php echo e(old('position') == 'Other' ? 'selected' : ''); ?>>
-                                                    Lainnya</option>
+                                                <option value="Other" class="bg-black"
+                                                    <?php echo e(old('position') == 'Other' ? 'selected' : ''); ?>>Lainnya</option>
                                             </select>
                                             <i
                                                 class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gold-400 pointer-events-none"></i>
