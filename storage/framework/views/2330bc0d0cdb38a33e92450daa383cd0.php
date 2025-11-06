@@ -126,7 +126,7 @@
         <!-- Content -->
         <div class="content">
             <div class="greeting">
-                Halo, <strong>{{ $registration->name }}</strong>!
+                Halo, <strong><?php echo e($registration->name); ?></strong>!
             </div>
 
             <p style="margin-bottom: 20px; color: #ccc; font-size: 1rem;">
@@ -135,19 +135,25 @@
             </p>
 
             <!-- QR Code Section -->
-            <div class="qr-section">
-                <div class="qr-title">QR Code Check-in</div>
-                <div class="ticket-code">{{ $registration->qr_code }}</div>
-                <p style="color: #ccc; margin-bottom: 15px;">
-                    Tunjukkan QR code ini saat check-in di lokasi acara
-                </p>
-                <img src="cid:qrcode.png" alt="QR Code" width="220">
-                <p style="color: #ccc; font-size: 0.9rem; margin-top: 10px;">
-                    Scan QR code di atas untuk check-in
-                </p>
-            </div>
+<div class="qr-section">
+    <div class="qr-title">QR Code Check-in</div>
+    <div class="ticket-code"><?php echo e($registration->qr_code); ?></div>
+    <p style="color: #ccc; margin-bottom: 15px;">
+        Tunjukkan QR code ini saat check-in di lokasi acara
+    </p>
+
+    <!-- Tambahkan background putih dan padding -->
+    <div style="display: inline-block; background: #fff; padding: 15px; border-radius: 10px;">
+        <img src="cid:qrcode.png" alt="QR Code" width="220">
+    </div>
+
+    <p style="color: #ccc; font-size: 0.9rem; margin-top: 10px;">
+        Scan QR code di atas untuk check-in
+    </p>
+</div>
+
         </div>
     </div>
 </body>
 
-</html>
+</html><?php /**PATH C:\ica\ica_landingpage\resources\views/emails/ticket-confirmation.blade.php ENDPATH**/ ?>

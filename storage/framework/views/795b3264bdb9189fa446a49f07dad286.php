@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="ticket-page">
         <div class="container ticket-container">
             <div class="row justify-content-center">
@@ -23,14 +21,15 @@
 
                         <!-- QR Code Section -->
                         <div class="qr-section text-center py-4">
-                            {!! $qrImage !!}
+                            <?php echo $qrImage; ?>
+
                         </div>
 
                         <!-- Ticket Details -->
                         <div class="ticket-details">
                             <div class="detail-item">
                                 <span class="label">Kode Tiket</span>
-                                <span class="value ticket-code">{{ $registration->qr_code }}</span>
+                                <span class="value ticket-code"><?php echo e($registration->qr_code); ?></span>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Tanggal Event</span>
@@ -38,19 +37,19 @@
                             </div>
                             <div class="detail-item">
                                 <span class="label">Nama Peserta</span>
-                                <span class="value">{{ $registration->name }}</span>
+                                <span class="value"><?php echo e($registration->name); ?></span>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Email</span>
-                                <span class="value">{{ $registration->email }}</span>
+                                <span class="value"><?php echo e($registration->email); ?></span>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Telepon</span>
-                                <span class="value">{{ $registration->phone }}</span>
+                                <span class="value"><?php echo e($registration->phone); ?></span>
                             </div>
                               <div class="detail-item">
                                 <span class="label">Posisi/Jabatan</span> <!-- ✅ TAMBAH POSITION -->
-                                <span class="value">{{ $registration->position }}</span>
+                                <span class="value"><?php echo e($registration->position); ?></span>
                             </div>
                         </div>
 
@@ -93,7 +92,7 @@
                 logging: false
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'E-Ticket-{{ $registration->qr_code }}.png';
+                link.download = 'E-Ticket-<?php echo e($registration->qr_code); ?>.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
 
@@ -136,4 +135,5 @@
     <style>
        
     </style>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\ica\ica_landingpage\resources\views/registrations/success.blade.php ENDPATH**/ ?>
