@@ -9,6 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tambahkan di head -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Font Luxury yang lebih elegan -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,7 +209,7 @@
             overflow: hidden;
             margin-bottom: 20px;
             font-family: 'Montserrat', serif;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
@@ -1631,6 +1635,20 @@
             z-index: 0;
         }
 
+        /* CSS tambahan */
+        #location.paw::before {
+            top: 50px;
+            /* Turunkan 50px dari atas */
+            bottom: -50px;
+            /* Perpanjang ke bawah */
+        }
+
+        /* Atau lebih spesifik dengan background-position */
+        #location.paw::before {
+            background-position: 0 50px;
+            /* horizontal 0, vertical 50px */
+        }
+
         @keyframes movePaw {
             0% {
                 background-position: 0 0;
@@ -1804,7 +1822,7 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.querySelector('.mobile-menu');
             const menuIcon = this.querySelector('i');
 
@@ -1824,7 +1842,7 @@
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 const mobileMenu = document.querySelector('.mobile-menu');
                 const menuButton = document.querySelector('.mobile-menu-button');
                 const menuIcon = menuButton.querySelector('i');
@@ -1838,7 +1856,7 @@
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1851,7 +1869,7 @@
         });
 
         // Schedule Tab Functionality - SINGLE VERSION
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.schedule-tab');
             const days = document.querySelectorAll('.schedule-day');
 
@@ -1873,7 +1891,7 @@
 
             // Add click event to all tabs
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     const targetDay = this.getAttribute('data-day');
                     switchTab(targetDay);
                 });
@@ -1881,7 +1899,7 @@
 
             // FAQ Accordion Functionality
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function () {
                     const faqItem = this.parentElement;
                     faqItem.classList.toggle('active');
                 });
@@ -1890,5 +1908,4 @@
     </script>
 </body>
 
-</html>
-<?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>

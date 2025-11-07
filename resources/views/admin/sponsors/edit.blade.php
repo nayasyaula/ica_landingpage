@@ -5,58 +5,138 @@
 @section('content')
 <div class="admin-dashboard-container">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-8 col-xl-6">
+            <!-- Page Header -->
+            <div class="admin-header mb-4">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="admin-title mb-2">
+                            <i class="fas fa-handshake me-3"></i>Edit Sponsor
+                        </h1>
+                        <p class="admin-subtitle mb-0">Update data sponsor {{ $sponsor->name }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Card -->
             <div class="admin-table-card">
-                <div class="card-header-luxury">
-                    <h5 class="card-title-luxury text-center">
-                        <i class="fas fa-edit me-2"></i>Edit Sponsor
+                <div class="card-header-luxury p-4">
+                    <h5 class="card-title-luxury text-center mb-0 fw-semibold">
+                        <i class="fas fa-edit me-3"></i>Form Edit Sponsor
                     </h5>
                 </div>
-                <div class="card-body-luxury">
-                    <form action="{{ route('admin.sponsors.update', $sponsor) }}" method="POST" enctype="multipart/form-data">
+                <div class="card-body-luxury p-4">
+                    <form action="{{ route('admin.sponsors.update', $sponsor) }}" method="POST" enctype="multipart/form-data" id="sponsorForm">
                         @csrf
                         @method('PUT')
                         
-                        <div class="form-group-luxury">
-                            <label class="form-label">Nama Sponsor *</label>
-                            <input type="text" name="name" class="form-control-luxury" value="{{ old('name', $sponsor->name) }}" required>
-                            @error('name') <small class="error-message">{{ $message }}</small> @enderror
+                        <!-- Nama Sponsor -->
+                        <div class="mb-4">
+                            <label for="name" class="form-label fw-semibold mb-3">
+                                Nama Sponsor <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" 
+                                   name="name" 
+                                   id="name"
+                                   class="form-control form-control-lg @error('name') is-invalid @enderror" 
+                                   value="{{ old('name', $sponsor->name) }}" 
+                                   required
+                                   placeholder="Masukkan nama sponsor">
+                            @error('name')
+                                <div class="invalid-feedback d-block">
+                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
-                        <div class="form-group-luxury">
-                            <label class="form-label">Tier Sponsor *</label>
-                            <select name="tier" class="form-control-luxury" required>
-                                <option value="platinum" {{ old('tier', $sponsor->tier) == 'platinum' ? 'selected' : '' }}>Platinum</option>
-                                <option value="gold" {{ old('tier', $sponsor->tier) == 'gold' ? 'selected' : '' }}>Gold</option>
-                                <option value="silver" {{ old('tier', $sponsor->tier) == 'silver' ? 'selected' : '' }}>Silver</option>
-                                <option value="bronze" {{ old('tier', $sponsor->tier) == 'bronze' ? 'selected' : '' }}>Bronze</option>
+                        <!-- Tier Sponsor -->
+                        <div class="mb-4">
+                            <label for="tier" class="form-label fw-semibold mb-3">
+                                Tier Sponsor <span class="text-danger">*</span>
+                            </label>
+                            <select name="tier" 
+                                    id="tier"
+                                    class="form-select form-select-lg @error('tier') is-invalid @enderror" 
+                                    required>
+                                <option value="">Pilih Tier Sponsor</option>
+                                <option value="platinum" {{ old('tier', $sponsor->tier) == 'platinum' ? 'selected' : '' }} data-color="bg-light text-dark">
+                                    Platinum
+                                </option>
+                                <option value="gold" {{ old('tier', $sponsor->tier) == 'gold' ? 'selected' : '' }} data-color="bg-warning text-dark">
+                                    Gold
+                                </option>
+                                <option value="silver" {{ old('tier', $sponsor->tier) == 'silver' ? 'selected' : '' }} data-color="bg-secondary">
+                                    Silver
+                                </option>
+                                <option value="bronze" {{ old('tier', $sponsor->tier) == 'bronze' ? 'selected' : '' }} data-color="bg-danger">
+                                    Bronze
+                                </option>
                             </select>
-                            @error('tier') <small class="error-message">{{ $message }}</small> @enderror
+                            @error('tier')
+                                <div class="invalid-feedback d-block">
+                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
-                        <div class="form-group-luxury">
-                            <label class="form-label">Logo Sponsor</label>
-                            
+                        <!-- Logo Sponsor -->
+                        <div class="mb-4">
+                            <label for="logo" class="form-label fw-semibold mb-3">
+                                Logo Sponsor
+                            </label>
+
                             <!-- Current Logo Preview -->
-                            @if($sponsor->logo)
-                                <div class="mb-3">
-                                    <p class="text-gold mb-1">Logo Saat Ini:</p>
-                                    <img src="{{ Storage::url($sponsor->logo) }}" 
-                                         alt="{{ $sponsor->name }}" 
-                                         style="width: 100px; height: 100px; object-fit: contain; border-radius: 8px; background: #f8f9fa;">
+                            @if($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
+                                <div class="current-logo-preview mb-3">
+                                    <p class="text-muted mb-2">Logo Saat Ini:</p>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="{{ Storage::url($sponsor->logo) }}" 
+                                             alt="{{ $sponsor->name }}" 
+                                             class="img-thumbnail current-logo">
+                                        <div class="flex-grow-1">
+                                            <small class="text-muted d-block">
+                                                <i class="fas fa-info-circle me-1"></i>
+                                                Kosongkan jika tidak ingin mengubah logo
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="alert alert-warning mb-3">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    Sponsor ini belum memiliki logo
                                 </div>
                             @endif
 
-                            <input type="file" name="logo" class="form-control-luxury" accept="image/*">
-                            @error('logo') <small class="error-message">{{ $message }}</small> @enderror
-                            <small class="text-muted">Kosongkan jika tidak ingin mengubah logo</small>
+                            <input type="file" 
+                                   name="logo" 
+                                   id="logo"
+                                   class="form-control form-control-lg @error('logo') is-invalid @enderror" 
+                                   accept="image/*"
+                                   onchange="previewImage(this)">
+                            @error('logo')
+                                <div class="invalid-feedback d-block">
+                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
+                                </div>
+                            @enderror
+                            <small class="text-muted mt-2 d-block">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Format: JPEG, PNG, JPG, GIF (Maksimal 2MB). Rekomendasi: 300x300px
+                            </small>
+                            
+                            <!-- New Image Preview -->
+                            <div id="imagePreview" class="mt-3 text-center" style="display: none;">
+                                <p class="text-muted mb-2">Preview Logo Baru:</p>
+                                <img id="preview" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+                            </div>
                         </div>
 
-                        <div class="d-flex gap-2 mt-4">
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-3 mt-5 pt-3">
                             <button type="submit" class="btn-admin-action flex-fill">
                                 <i class="fas fa-save me-2"></i>Update Sponsor
                             </button>
-                            <a href="{{ route('admin.sponsors.index') }}" class="btn-auth-outline">
+                            <a href="{{ route('admin.sponsors.index') }}" class="btn btn-outline-secondary btn-lg py-3 px-4">
                                 <i class="fas fa-arrow-left me-2"></i>Kembali
                             </a>
                         </div>
@@ -66,4 +146,70 @@
         </div>
     </div>
 </div>
+
+<script>
+function previewImage(input) {
+    const preview = document.getElementById('preview');
+    const imagePreview = document.getElementById('imagePreview');
+    
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            imagePreview.style.display = 'block';
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        imagePreview.style.display = 'none';
+    }
+}
+
+// Form validation
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('sponsorForm');
+    const logoInput = document.getElementById('logo');
+    
+    form.addEventListener('submit', function(e) {
+        let valid = true;
+        
+        // Basic validation
+        const requiredFields = form.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                valid = false;
+                field.classList.add('is-invalid');
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+        
+        // File validation (jika ada file yang diupload)
+        if (logoInput.files.length > 0) {
+            const file = logoInput.files[0];
+            const maxSize = 2 * 1024 * 1024; // 2MB
+            
+            if (file.size > maxSize) {
+                valid = false;
+                alert('Ukuran file terlalu besar. Maksimal 2MB.');
+                logoInput.classList.add('is-invalid');
+            } else {
+                logoInput.classList.remove('is-invalid');
+            }
+        }
+        
+        if (!valid) {
+            e.preventDefault();
+            alert('Harap periksa kembali data yang diisi.');
+        }
+    });
+
+    // Show current tier in select
+    const tierSelect = document.getElementById('tier');
+    if (tierSelect) {
+        tierSelect.value = '{{ old('tier', $sponsor->tier) }}';
+    }
+});
+</script>
 @endsection

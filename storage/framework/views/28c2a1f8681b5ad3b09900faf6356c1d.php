@@ -17,8 +17,7 @@
                             <div class="grid md:grid-cols-2 gap-4 text-gray-300">
                                 <div class="flex items-center">
                                     <i class="fas fa-calendar-day text-gold-400 mr-3 w-5"></i>
-                                    <span class="luxury-text"> 28 - 30 November 2025
-                                    </span>
+                                    <span class="luxury-text">28 - 30 November 2025</span>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-gold-400 mr-3 w-5"></i>
@@ -59,17 +58,16 @@
                                 <form method="POST" action="<?php echo e(route('registrations.store', $event)); ?>" class="space-y-6">
                                     <?php echo csrf_field(); ?>
 
-                                    <!-- Name Field -->
+                                    <!-- Name -->
                                     <div class="form-group">
                                         <label for="name"
                                             class="form-label luxury-heading text-white mb-2 block">Nama</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="text"
-                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="name"
-                                                name="name" value="<?php echo e(old('name')); ?>" placeholder="Masukkan nama Anda"
-                                                required>
+                                            <input type="text" id="name" name="name" value="<?php echo e(old('name')); ?>"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
+                                                placeholder="Masukkan nama Anda" required>
                                         </div>
                                         <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -83,16 +81,15 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                     </div>
 
-                                    <!-- Email Field -->
+                                    <!-- Email -->
                                     <div class="form-group">
                                         <label for="email"
                                             class="form-label luxury-heading text-white mb-2 block">Email</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="email"
-                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="email"
-                                                name="email" value="<?php echo e(old('email')); ?>"
+                                            <input type="email" id="email" name="email" value="<?php echo e(old('email')); ?>"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
                                                 placeholder="Masukkan alamat email Anda" required>
                                         </div>
                                         <?php $__errorArgs = ['email'];
@@ -107,16 +104,15 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                     </div>
 
-                                    <!-- Phone Field -->
+                                    <!-- Phone -->
                                     <div class="form-group">
                                         <label for="phone" class="form-label luxury-heading text-white mb-2 block">Nomor
                                             Handphone</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="tel"
-                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg" id="phone"
-                                                name="phone" value="<?php echo e(old('phone')); ?>"
+                                            <input type="tel" id="phone" name="phone" value="<?php echo e(old('phone')); ?>"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
                                                 placeholder="Masukkan nomor telepon Anda" required>
                                         </div>
                                         <?php $__errorArgs = ['phone'];
@@ -131,43 +127,26 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                     </div>
 
-                                    <!-- Position Field dengan Select Options -->
+                                    <!-- Custom Dropdown -->
                                     <div class="form-group">
-                                        <label for="position"
-                                            class="form-label luxury-heading text-white mb-2 block">Jabatan / Posisi</label>
-                                        <div class="relative">
-                                            <i
-                                                class="fas fa-briefcase absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <select name="position" id="position"
-                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg appearance-none"
-                                                required>
-                                                <option value="" class="bg-black">Pilih Jabatan/Posisi</option>
-                                                <option value="Owner" class="bg-black" <?php echo e(old('position') == 'Owner' ? 'selected' : ''); ?>>
-                                                    Owner</option>
-                                                <option value="Director" class="bg-black"
-                                                    <?php echo e(old('position') == 'Director' ? 'selected' : ''); ?>>Director</option>
-                                                <option value="Manager" class="bg-black"
-                                                    <?php echo e(old('position') == 'Manager' ? 'selected' : ''); ?>>Manager</option>
-                                                <option value="Supervisor" class="bg-black"
-                                                    <?php echo e(old('position') == 'Supervisor' ? 'selected' : ''); ?>>Supervisor
-                                                </option>
-                                                <option value="Staff" class="bg-black"
-                                                    <?php echo e(old('position') == 'Staff' ? 'selected' : ''); ?>>Staff</option>
-                                                <option value="Veterinarian" class="bg-black"
-                                                    <?php echo e(old('position') == 'Veterinarian' ? 'selected' : ''); ?>>Veterinarian
-                                                </option>
-                                                <option value="Breeder" class="bg-black"
-                                                    <?php echo e(old('position') == 'Breeder' ? 'selected' : ''); ?>>Breeder</option>
-                                                <option value="Groomer" class="bg-black"
-                                                    <?php echo e(old('position') == 'Groomer' ? 'selected' : ''); ?>>Groomer</option>
-                                                <option value="Trainer" class="bg-black"
-                                                    <?php echo e(old('position') == 'Trainer' ? 'selected' : ''); ?>>Trainer</option>
-                                                <option value="Other" class="bg-black"
-                                                    <?php echo e(old('position') == 'Other' ? 'selected' : ''); ?>>Lainnya</option>
-                                            </select>
-                                            <i
-                                                class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gold-400 pointer-events-none"></i>
+                                        <label class="form-label luxury-heading text-white mb-2 block">Jabatan /
+                                            Posisi</label>
+                                        <div class="custom-select">
+                                            <div class="select-selected">Pilih Jabatan/Posisi</div>
+                                            <div class="select-items hidden">
+                                                <div data-value="Owner">Owner</div>
+                                                <div data-value="Director">Director</div>
+                                                <div data-value="Manager">Manager</div>
+                                                <div data-value="Supervisor">Supervisor</div>
+                                                <div data-value="Staff">Staff</div>
+                                                <div data-value="Veterinarian">Veterinarian</div>
+                                                <div data-value="Breeder">Breeder</div>
+                                                <div data-value="Groomer">Groomer</div>
+                                                <div data-value="Trainer">Trainer</div>
+                                                <div data-value="Other">Lainnya</div>
+                                            </div>
                                         </div>
+                                        <input type="hidden" name="position" id="position">
                                         <?php $__errorArgs = ['position'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -180,37 +159,33 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                     </div>
 
-                                    <!-- Field Lainnya (jika memilih Other) -->
+                                    <!-- Lainnya -->
                                     <div class="form-group" id="otherPositionField" style="display: none;">
                                         <label for="other_position"
                                             class="form-label luxury-heading text-white mb-2 block">Jabatan Lainnya</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-edit absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400"></i>
-                                            <input type="text"
-                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
-                                                id="other_position" name="other_position"
+                                            <input type="text" id="other_position" name="other_position"
                                                 value="<?php echo e(old('other_position')); ?>"
+                                                class="form-luxury-input w-full pl-12 pr-4 py-4 rounded-lg"
                                                 placeholder="Tuliskan jabatan/posisi Anda">
                                         </div>
                                     </div>
 
-                                    <!-- Additional Notes -->
+                                    <!-- Catatan -->
                                     <div
                                         class="bg-gold-400 bg-opacity-10 border border-gold-400 border-opacity-30 rounded-lg p-4">
                                         <div class="flex items-start">
                                             <i class="fas fa-info-circle text-gold-400 mr-3 mt-1"></i>
-                                            <div>
-                                                <p class="text-black luxury-text text-lg">
-                                                    Detail pendaftaran Anda akan diverifikasi. Pastikan semua
-                                                    informasi akurat.
-                                                    Anda akan menerima email konfirmasi setelah pendaftaran berhasil.
-                                                </p>
-                                            </div>
+                                            <p class="text-black luxury-text text-lg">
+                                                Detail pendaftaran Anda akan diverifikasi. Pastikan semua informasi akurat.
+                                                Anda akan menerima email konfirmasi setelah pendaftaran berhasil.
+                                            </p>
                                         </div>
                                     </div>
 
-                                    <!-- Submit Button -->
+                                    <!-- Tombol -->
                                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
                                         <button type="submit"
                                             class="btn-gold flex-1 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg">
@@ -230,32 +205,109 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </section>
 
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const positionSelect = document.getElementById('position');
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectSelected = document.querySelector('.select-selected');
+            const selectItems = document.querySelector('.select-items');
+            const hiddenInput = document.getElementById('position');
             const otherPositionField = document.getElementById('otherPositionField');
             const otherPositionInput = document.getElementById('other_position');
 
-            positionSelect.addEventListener('change', function() {
-                if (this.value === 'Other') {
-                    otherPositionField.style.display = 'block';
-                    otherPositionInput.setAttribute('required', 'required');
-                } else {
-                    otherPositionField.style.display = 'none';
-                    otherPositionInput.removeAttribute('required');
-                    otherPositionInput.value = '';
+            selectSelected.addEventListener('click', () => {
+                selectItems.classList.toggle('hidden');
+                selectSelected.classList.toggle('active');
+            });
+
+            selectItems.querySelectorAll('div').forEach(item => {
+                item.addEventListener('click', () => {
+                    const value = item.getAttribute('data-value');
+                    const text = item.textContent;
+
+                    selectSelected.textContent = text;
+                    hiddenInput.value = value;
+                    selectItems.classList.add('hidden');
+                    selectSelected.classList.remove('active');
+
+                    if (value === 'Other') {
+                        otherPositionField.style.display = 'block';
+                        otherPositionInput.setAttribute('required', 'required');
+                    } else {
+                        otherPositionField.style.display = 'none';
+                        otherPositionInput.removeAttribute('required');
+                        otherPositionInput.value = '';
+                    }
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.custom-select')) {
+                    selectItems.classList.add('hidden');
+                    selectSelected.classList.remove('active');
                 }
             });
 
-            // Set initial state based on old input
-            <?php if(old('position') == 'Other'): ?>
-                otherPositionField.style.display = 'block';
-                otherPositionInput.setAttribute('required', 'required');
+            <?php if(old('position')): ?>
+                const oldValue = "<?php echo e(old('position')); ?>";
+                hiddenInput.value = oldValue;
+                selectSelected.textContent = oldValue;
+                if (oldValue === 'Other') {
+                    otherPositionField.style.display = 'block';
+                    otherPositionInput.setAttribute('required', 'required');
+                }
             <?php endif; ?>
-        });
+    });
     </script>
 
     <style>
+        /* Tambahkan font Montserrat ke dalam project */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* Style untuk placeholder dengan font Montserrat */
+        .form-luxury-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+
+        .custom-select {
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+        }
+
+        .select-selected {
+            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .select-items {
+            position: absolute;
+            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
+            color: #fff;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 5px;
+            z-index: 10;
+        }
+
+        .select-items div {
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+        }
+
+        .select-items div:hover {
+            background: linear-gradient(145deg, #2A2A2A, #3A3A3A);
+        }
+
+        .hidden {
+            display: none;
+        }
+
         /* Style untuk select element yang luxury */
         .form-luxury-input {
             background: rgba(255, 255, 255, 0.1);
@@ -273,10 +325,6 @@ unset($__errorArgs, $__bag); ?>
             background: rgba(255, 255, 255, 0.15);
         }
 
-        .form-luxury-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
         /* Style khusus untuk select */
         select.form-luxury-input {
             appearance: none;
@@ -287,6 +335,7 @@ unset($__errorArgs, $__bag); ?>
         .form-luxury-input:hover {
             border-color: rgba(212, 175, 55, 0.5);
         }
+
 
         /* Custom styles for the registration form */
         .gold-pattern {
@@ -320,14 +369,70 @@ unset($__errorArgs, $__bag); ?>
             font-size: 1.1rem;
         }
 
+        .custom-select {
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .select-selected {
+            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid #d4af37;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .select-selected::after {
+            content: "▼";
+            float: right;
+            color: #d4af37;
+            font-size: 0.8rem;
+            margin-top: 3px;
+            transition: transform 0.2s;
+        }
+
+        .select-selected.active::after {
+            transform: rotate(-180deg);
+        }
+
+        .select-items {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
+            color: #fff;
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            margin-top: 5px;
+            z-index: 99;
+            max-height: 220px;
+            overflow-y: auto;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .select-items div {
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .select-items div:hover {
+            background: linear-gradient(145deg, #2A2A2A, #3A3A3A);
+        }
+
+        .hidden {
+            display: none;
+        }
+
         .form-luxury-input:focus {
             border-color: var(--gold);
             box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
             outline: none;
-        }
-
-        .form-luxury-input::placeholder {
-            color: #6b7280;
         }
 
         .btn-gold {
@@ -376,11 +481,15 @@ unset($__errorArgs, $__bag); ?>
                 flex-direction: column;
             }
 
-            .space-y-6>*+* {
+            .space-y-6>+ {
                 margin-top: 1.5rem;
+            }
+
+            /* Adjust placeholder font size for mobile */
+            .form-luxury-input::placeholder {
+                font-size: 0.9rem;
             }
         }
     </style>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app-registration', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/registrations/create.blade.php ENDPATH**/ ?>

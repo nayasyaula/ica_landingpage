@@ -311,7 +311,7 @@
 
                 <div class="timeline-item schedule-highlight">
                     <span class="timeline-time">15:15 - 15:30</span>
-                    <h3 class="timeline-title">Sambutan Perwakilan FIFA / Tamu Undangan</h3>
+                    <h3 class="timeline-title">Sambutan Perwakilan FIFe / Tamu Undangan</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
@@ -425,14 +425,13 @@
     </section>
 
     <!-- Location Section -->
-    <section id="location" class="py-20 paw">
+    <section id="location" class="py-20 paw location-paw-adjust">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center w-full mb-12">
                 <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Lokasi Event</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 items-start">
-                <!-- Maps Section -->
+            <div class="grid md:grid-cols-2 gap-8 items-start relative"> <!-- Maps Section -->
                 <div class="space-y-6">
                     <div class="location-card">
                         <div class="location-image h-64"> <!-- Tinggi disamakan -->
@@ -468,7 +467,6 @@
                     </div>
                 </div>
 
-                <!-- Hotel Images Section -->
                 <!-- Hotel Images Section -->
                 <div class="space-y-6">
                     <div class="bg-dark-gray rounded-2xl overflow-hidden gold-border-frame h-64"
@@ -515,8 +513,7 @@
                         @foreach ($platinumSponsors as $sponsor)
                             <div class="sponsor-card platinum-gradient">
                                 @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
-                                        class="sponsor-logo"
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 @endif
                                 <div
@@ -538,8 +535,7 @@
                         @foreach ($goldSponsors as $sponsor)
                             <div class="sponsor-card gold-gradient">
                                 @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
-                                        class="sponsor-logo"
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 @endif
                                 <div
@@ -560,8 +556,7 @@
                         @foreach ($silverSponsors as $sponsor)
                             <div class="sponsor-card silver-gradient">
                                 @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
-                                        class="sponsor-logo"
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 @endif
                                 <div
@@ -582,8 +577,7 @@
                         @foreach ($bronzeSponsors as $sponsor)
                             <div class="sponsor-card bronze-gradient">
                                 @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}"
-                                        class="sponsor-logo"
+                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 @endif
                                 <div
@@ -597,10 +591,11 @@
             @endif
 
             @if (
-                $platinumSponsors->count() == 0 &&
+                    $platinumSponsors->count() == 0 &&
                     $goldSponsors->count() == 0 &&
                     $silverSponsors->count() == 0 &&
-                    $bronzeSponsors->count() == 0)
+                    $bronzeSponsors->count() == 0
+                )
                 <div class="text-center py-8">
                     <p class="text-gold-200 text-lg">Sponsor akan segera diumumkan</p>
                 </div>

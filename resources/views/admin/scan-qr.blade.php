@@ -7,13 +7,12 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
     <title>QR Scanner - Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -26,7 +25,7 @@
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
             color: #fff;
             margin: 0;
@@ -40,7 +39,7 @@
         h4,
         h5,
         h6 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
         }
 
@@ -79,7 +78,7 @@
         }
 
         .admin-logo-text {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-size: 1.3rem;
             color: #D4AF37;
             font-weight: 700;
@@ -93,7 +92,7 @@
 
         .admin-welcome {
             color: rgba(255, 255, 255, 0.8);
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             font-size: 1rem;
         }
 
@@ -103,7 +102,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 6px;
             padding: 8px 16px;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
             font-size: 0.9rem;
             text-decoration: none;
@@ -143,7 +142,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 6px;
             padding: 10px 16px;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 500;
             font-size: 0.9rem;
             text-decoration: none;
@@ -169,7 +168,7 @@
         }
 
         .admin-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 700;
             font-size: 2rem;
             color: #D4AF37;
@@ -178,7 +177,7 @@
         }
 
         .admin-subtitle {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', serif;
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.8);
             margin: 0;
@@ -202,7 +201,7 @@
         }
 
         .card-title-luxury {
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
             font-size: 1.3rem;
             color: #D4AF37;
@@ -219,7 +218,7 @@
             border-radius: 8px;
             padding: 12px 24px;
             font-weight: 600;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -228,21 +227,8 @@
             align-items: center;
             justify-content: center;
             min-height: 44px;
-            /* Minimum touch target size untuk mobile */
             touch-action: manipulation;
-            /* Improve touch responsiveness */
             -webkit-tap-highlight-color: transparent;
-            /* Remove blue tap highlight on iOS */
-        }
-
-        #start-scanner,
-        #stop-scanner {
-            min-height: 44px;
-            /* Minimum touch target size untuk mobile */
-            touch-action: manipulation;
-            /* Improve touch responsiveness */
-            -webkit-tap-highlight-color: transparent;
-            /* Remove blue tap highlight on iOS */
         }
 
         .btn-admin-primary {
@@ -278,159 +264,66 @@
             display: block;
             margin-bottom: 8px;
             color: #D4AF37;
-            font-family: 'Cinzel', serif;
+            font-family: 'Montserrat', serif;
             font-weight: 600;
             font-size: 0.95rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 6px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
             color: white;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-family: 'Montserrat', serif;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .form-control:focus {
             outline: none;
             border-color: #D4AF37;
             background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
 
         .form-control::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Loading spinner */
-        .fa-spinner {
-            animation: spin 1s linear infinite;
+        /* Scanner Input Focus Effect */
+        .scanner-input-active {
+            border-color: #D4AF37 !important;
+            background: rgba(212, 175, 55, 0.1) !important;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4) !important;
+            transform: scale(1.02);
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Better button states for mobile */
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* Improve scanner container for mobile */
-        #scanner-container {
+        /* Input Group Styles */
+        .input-group {
             position: relative;
-            margin: 20px 0;
-            min-height: 300px;
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* Scanner Area */
-        #scanner-container {
-            position: relative;
-            margin: 20px 0;
-            min-height: 300px;
-            /* Ensure enough space for scanner */
-
-        }
-
-        #reader {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            background: #000;
-            /* Fallback background */
-            aspect-ratio: 4/3;
-            /* Maintain aspect ratio */
-        }
-
-        #reader video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Ensure video fills container */
-            border-radius: 10px;
-        }
-
-        /* Scan Line Effect */
-        .scan-line {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 100%;
-            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-            animation: scan 2.5s infinite linear;
-            border-radius: 2px;
-            z-index: 10;
-        }
-
-        @keyframes scan {
-            0% {
-                top: 0;
-            }
-
-            50% {
-                top: calc(100% - 3px);
-            }
-
-            100% {
-                top: 0;
-            }
-        }
-
-        /* Tab Styles */
-        .verification-tabs {
             display: flex;
-            justify-content: center;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            align-items: stretch;
+            width: 100%;
         }
 
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 12px 24px;
-            color: rgba(255, 255, 255, 0.7);
-            font-family: 'Cinzel', serif;
-            font-weight: 500;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+        .input-group .form-control {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            flex: 1 1 auto;
+            width: 1%;
+            min-width: 0;
         }
 
-        .tab-button.active {
-            color: #D4AF37;
-            border-bottom-color: #D4AF37;
-        }
-
-        .tab-button:hover {
-            color: #D4AF37;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
+        .input-group .btn {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin-left: -1px;
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
         }
 
         /* Alert Styles */
@@ -460,21 +353,102 @@
             color: white;
         }
 
+        .alert-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: white;
+        }
+
         /* Participant Details */
         .participant-details {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px;
             margin-top: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .participant-details p {
-            margin: 8px 0;
+            margin: 10px 0;
             color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
         }
 
         .participant-details strong {
             color: #D4AF37;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        /* Scanner Status */
+        .scanner-status-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Success Check-in Animation */
+        @keyframes checkInSuccess {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .check-in-success {
+            animation: checkInSuccess 0.5s ease-in-out;
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Icon Fixes */
+        .fa,
+        .fas,
+        .far,
+        .fal,
+        .fab {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+        }
+
+        .btn i {
+            margin-right: 8px;
         }
 
         @media (max-width: 768px) {
@@ -483,7 +457,33 @@
             .btn-admin-secondary {
                 padding: 12px 20px;
                 font-size: 16px;
-                /* Prevent zoom on iOS */
+            }
+
+            .participant-details p {
+                font-size: 0.9rem;
+            }
+
+            .participant-details strong {
+                min-width: 100px;
+            }
+
+            .form-control {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-group .form-control {
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .input-group .btn {
+                border-radius: 8px;
+                margin-left: 0;
             }
         }
 
@@ -518,21 +518,15 @@
             .card-body-luxury {
                 padding: 20px;
             }
+        }
 
-            #reader {
-                max-width: 100%;
-            }
+        #scanner-input {
+            color: #fff !important;
+            background-color: #1a1a1a;
+        }
 
-            .verification-tabs {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .tab-button {
-                width: 100%;
-                max-width: 250px;
-            }
+        #scanner-input::placeholder {
+            color: #bbb;
         }
 
         @media (max-width: 576px) {
@@ -603,7 +597,7 @@
                 <h1 class="admin-title">
                     <i class="fas fa-qrcode me-2"></i>Verifikasi Tiket
                 </h1>
-                <p class="admin-subtitle">Verifikasi peserta dengan scan QR Code atau input manual</p>
+                <p class="admin-subtitle">Scan QR Code atau input kode tiket manual</p>
             </div>
 
             <!-- Kartu Scanner -->
@@ -612,69 +606,86 @@
                     <div class="admin-table-card">
                         <div class="card-header-luxury text-center">
                             <h5 class="card-title-luxury">
-                                <i class="fas fa-check-circle me-2"></i>Verifikasi Peserta
+                                <i class="fas fa-barcode me-2"></i>Scanner QR Code
                             </h5>
                         </div>
 
                         <div class="card-body-luxury">
-                            <!-- Tabs untuk pilihan verifikasi -->
-                            <div class="verification-tabs">
-                                <button class="tab-button active" data-tab="scan-tab">
-                                    <i class="fas fa-camera me-2"></i>Scan QR Code
-                                </button>
-                                <button class="tab-button" data-tab="manual-tab">
-                                    <i class="fas fa-keyboard me-2"></i>Input Manual
-                                </button>
+                            <!-- Scanner Status Indicator -->
+                            <div id="scanner-status" class="alert alert-info mb-4">
+                                <i class="fas fa-plug me-2"></i>
+                                <span id="scanner-status-text">Scanner siap - Gunakan scanner atau ketik manual</span>
                             </div>
 
-                            <!-- Tab Scan QR Code -->
-                            <div id="scan-tab" class="tab-content active">
-                                <!-- Pesan Izin Kamera -->
-                                <div id="camera-permission" class="alert alert-info mb-4">
-                                    <i class="fas fa-info-circle me-2"></i>
-                                    Izinkan akses kamera untuk menggunakan scanner QR Code
-                                </div>
-
-                                <!-- Area Scanner -->
-                                <div id="scanner-container" class="mb-4" style="display: none;">
-                                    <div id="reader">
-                                        <div class="scan-line"></div>
+                            <!-- Scanner Input Area -->
+                            <div class="text-center mb-4">
+                                <div class="form-group">
+                                    <label for="scanner-input" class="form-label">
+                                        <i class="fas fa-barcode me-2"></i>SCAN ATAU INPUT KODE TIKET
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" name="qr_code" id="scanner-input"
+                                            class="form-control form-control-lg"
+                                            placeholder="SCAN QR CODE ATAU KETIK MANUAL (ICA-XXX-XXXX)" required
+                                            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                                            autofocus>
+                                        <button type="button" class="btn-admin-primary" id="verify-btn">
+                                            <i class="fas fa-search me-2"></i>Verifikasi
+                                        </button>
                                     </div>
-                                    <button id="stop-scanner" class="btn btn-admin-secondary mt-3"
-                                        style="display: none;">
-                                        <i class="fas fa-stop me-2"></i>Stop Scanner
-                                    </button>
+                                    <small class="form-text text-warning mt-2">
+                                        <i class="fas fa-lightbulb me-1"></i>
+                                        Arahkan hardware scanner ke input ini untuk scan QR Code, atau ketik kode tiket
+                                        manual lalu klik Verifikasi
+                                    </small>
                                 </div>
-
-                                <!-- Tombol Mulai Scanner -->
-                                <button id="start-scanner" class="btn btn-admin-primary mb-4">
-                                    <i class="fas fa-camera me-2"></i>Mulai Scanner Kamera
-                                </button>
                             </div>
 
-                            <!-- Tab Input Manual -->
-                            <div id="manual-tab" class="tab-content">
-                                <form id="manual-verification-form">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="qr-code-input">Kode QR Tiket</label>
-                                        <input type="text" name="qr_code" id="qr-code-input" class="form-control"
-                                            placeholder="Masukkan kode QR (contoh: ICA-XXXXX-XXXXX)" required>
+                            <!-- Quick Stats -->
+                            <div class="row text-center mb-4">
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="text-gold" style="color: #D4AF37;">
+                                            <i class="fas fa-users fa-lg"></i>
+                                        </div>
+                                        <div class="text-white mt-2">
+                                            <div class="h5 mb-0" id="total-scans">0</div>
+                                            <small>Total Scan</small>
+                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-admin-primary w-100 mt-2">
-                                        <i class="fas fa-check me-2"></i> Verifikasi & Check In
-                                    </button>
-                                </form>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="text-success">
+                                            <i class="fas fa-check-circle fa-lg"></i>
+                                        </div>
+                                        <div class="text-white mt-2">
+                                            <div class="h5 mb-0" id="successful-scans">0</div>
+                                            <small>Berhasil</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="text-danger">
+                                            <i class="fas fa-times-circle fa-lg"></i>
+                                        </div>
+                                        <div class="text-white mt-2">
+                                            <div class="h5 mb-0" id="failed-scans">0</div>
+                                            <small>Gagal</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Hasil Scan/Verifikasi -->
                             <div id="result-container" class="mt-4" style="display: none;">
                                 <div class="alert alert-success" id="success-result">
-                                    <h5><i class="fas fa-check-circle me-2"></i>QR Code Valid!</h5>
+                                    <h5><i class="fas fa-check-circle me-2"></i>Check-in Berhasil!</h5>
                                     <div id="participant-info"></div>
                                 </div>
                                 <div class="alert alert-danger" id="error-result" style="display: none;">
-                                    <h5><i class="fas fa-times-circle me-2"></i>QR Code Tidak Valid</h5>
+                                    <h5><i class="fas fa-times-circle me-2"></i>Check-in Gagal</h5>
                                     <p id="error-message"></p>
                                 </div>
                             </div>
@@ -685,314 +696,316 @@
         </div>
     </main>
 
-    <!-- JS Library -->
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-
     <script>
-        let scannerActive = false;
-        let videoStream = null;
-        let scanAnimationFrame = null;
+        let lastKeyTime = 0;
+        let scannerBuffer = '';
+        let totalScans = 0;
+        let successfulScans = 0;
+        let failedScans = 0;
+        let lastScanData = null;
+        let isManualInput = false;
 
-        // Tab functionality
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', function () {
-                // Remove active class from all tabs
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-                // Add active class to clicked tab
-                this.classList.add('active');
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-
-                // Stop scanner if switching to manual tab
-                if (tabId === 'manual-tab') {
-                    stopCameraScanner();
-                }
-            });
-        });
-
-        // Scanner functionality - tambahkan touch event untuk mobile
-        document.getElementById('start-scanner').addEventListener('click', startCameraScanner);
-        document.getElementById('start-scanner').addEventListener('touchend', startCameraScanner); // untuk touch devices
-        document.getElementById('stop-scanner').addEventListener('click', stopCameraScanner);
-        document.getElementById('stop-scanner').addEventListener('touchend', stopCameraScanner); // untuk touch devices
-
-        // Manual verification form
-        document.getElementById('manual-verification-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const qrCode = document.getElementById('qr-code-input').value.trim();
-            if (qrCode) {
-                verifyQRCode(qrCode);
-            }
-        });
-
-        async function startCameraScanner() {
-            console.log('Starting camera scanner...');
-
-            const container = document.getElementById('scanner-container');
-            const startBtn = document.getElementById('start-scanner');
-            const stopBtn = document.getElementById('stop-scanner');
-            const permissionMsg = document.getElementById('camera-permission');
-
-            // Show loading state
-            startBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Membuka Kamera...';
-            startBtn.disabled = true;
-
-            try {
-                permissionMsg.style.display = 'none';
-
-                // Konfigurasi kamera untuk mobile
-                const constraints = {
-                    video: {
-                        facingMode: "environment",
-                        width: { min: 320, ideal: 1280, max: 1920 },
-                        height: { min: 240, ideal: 720, max: 1080 },
-                        aspectRatio: { ideal: 4 / 3 }
-                    },
-                    audio: false
-                };
-
-                videoStream = await navigator.mediaDevices.getUserMedia(constraints);
-                console.log('Camera access granted');
-
-                const video = document.createElement('video');
-                video.srcObject = videoStream;
-                video.setAttribute("playsinline", true); // Critical for iOS
-                video.setAttribute("autoplay", true);
-                video.setAttribute("muted", true);
-                video.style.width = "100%";
-                video.style.height = "100%";
-                video.style.objectFit = "cover";
-
-                const reader = document.getElementById('reader');
-                reader.innerHTML = '<div class="scan-line"></div>';
-                reader.appendChild(video);
-
-                // Tunggu video ready
-                await new Promise((resolve) => {
-                    video.addEventListener('loadeddata', resolve, { once: true });
-                });
-
-                // Play video
-                await video.play();
-
-                // Update UI
-                startBtn.style.display = 'none';
-                container.style.display = 'block';
-                stopBtn.style.display = 'block';
-                startBtn.disabled = false;
-                startBtn.innerHTML = '<i class="fas fa-camera me-2"></i>Mulai Scanner Kamera';
-
-                // Start QR scanning
-                startQRScanning(video);
-
-            } catch (err) {
-                console.error("Camera error:", err);
-                handleCameraError(err);
-                startBtn.disabled = false;
-                startBtn.innerHTML = '<i class="fas fa-camera me-2"></i>Mulai Scanner Kamera';
-            }
+        // ✅ FUNCTION VALIDASI FORMAT ICA
+        function validateICAQrFormat(qrData) {
+            // Format ICA: ICA-XXX-XXXX (case insensitive)
+            const icaPattern = /^ICA-[A-Z0-9]{3}-[A-Z0-9]{4,}$/i;
+            return icaPattern.test(qrData.trim());
         }
 
-        function startQRScanning(video) {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            scannerActive = true;
+        // ✅ HARDWARE SCANNER DETECTION (ScanLogic CS-700)
+        document.addEventListener('keydown', function(event) {
+            const scannerInput = document.getElementById('scanner-input');
+            const now = Date.now();
+            const timeSinceLastKey = now - lastKeyTime;
 
-            function scanFrame() {
-                if (!scannerActive) return;
+            // Reset buffer jika waktu antara input terlalu lama
+            if (timeSinceLastKey > 100) {
+                scannerBuffer = '';
+                isManualInput = false;
+            }
 
-                try {
-                    if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                        canvas.width = video.videoWidth;
-                        canvas.height = video.videoHeight;
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            lastKeyTime = now;
 
-                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                        const code = jsQR(imageData.data, imageData.width, imageData.height);
+            // Handle Enter key (end of scan)
+            if (event.key === 'Enter' && scannerBuffer.length > 0) {
+                event.preventDefault();
 
-                        if (code) {
-                            console.log('QR Code detected:', code.data);
-                            verifyQRCode(code.data);
-                            stopCameraScanner();
-                            return;
-                        }
-                    }
+                console.log('🔍 HARDWARE SCANNER DETECTED:', scannerBuffer);
 
-                    scanAnimationFrame = requestAnimationFrame(scanFrame);
-                } catch (error) {
-                    console.error('Scanning error:', error);
-                    scanAnimationFrame = requestAnimationFrame(scanFrame);
+                const processedCode = scannerBuffer.trim().toUpperCase();
+                totalScans++;
+                updateStats();
+
+                // Validasi format ICA
+                if (validateICAQrFormat(processedCode)) {
+                    showScannerStatus('✅ QR Code ICA terdeteksi: ' + processedCode, 'success');
+                    scannerInput.classList.add('scanner-input-active');
+                    verifyQRCode(processedCode, 'hardware');
+                } else {
+                    // Jika bukan format ICA, tampilkan error jelas
+                    failedScans++;
+                    updateStats();
+                    showErrorResult('❌ Format tidak valid: <strong>' + processedCode + '</strong><br>❌ Ini adalah <strong>barcode produk</strong>, bukan QR Code ICA!<br>✅ Silakan scan <strong>QR Code ICA</strong> dengan format: <strong>ICA-XXX-XXXX</strong>');
+                    scannerInput.classList.add('scanner-input-active');
+                }
+
+                scannerBuffer = '';
+                // Clear input field
+                setTimeout(() => {
+                    scannerInput.value = '';
+                    scannerInput.classList.remove('scanner-input-active');
+                    scannerInput.focus();
+                }, 100);
+                return;
+            }
+
+            // Accumulate characters (kecuali modifier keys)
+            if (event.key.length === 1 && !event.ctrlKey && !event.altKey && !event.metaKey) {
+                scannerBuffer += event.key;
+                // Jika user mengetik manual, set flag
+                if (!isManualInput && scannerBuffer.length > 2) {
+                    isManualInput = true;
                 }
             }
+        });
 
-            scanAnimationFrame = requestAnimationFrame(scanFrame);
-        }
+        // Manual Verify Button
+        document.getElementById('verify-btn').addEventListener('click', function() {
+            const scannerInput = document.getElementById('scanner-input');
+            const qrData = scannerInput.value.trim();
 
-        function stopCameraScanner() {
-            console.log('Stopping camera scanner...');
-            scannerActive = false;
-
-            if (scanAnimationFrame) {
-                cancelAnimationFrame(scanAnimationFrame);
-                scanAnimationFrame = null;
+            if (!qrData) {
+                showErrorResult('Silakan masukkan atau scan kode QR terlebih dahulu');
+                scannerInput.focus();
+                return;
             }
 
-            if (videoStream) {
-                videoStream.getTracks().forEach(track => {
-                    track.stop();
+            // Untuk input manual, langsung ambil dari value input, bukan dari buffer
+            processQRCode(qrData, 'manual');
+        });
+
+        // Enter key support untuk input manual
+        document.getElementById('scanner-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                // Untuk Enter, gunakan value dari input field langsung
+                const qrData = this.value.trim();
+
+                if (!qrData) {
+                    showErrorResult('Silakan masukkan atau scan kode QR terlebih dahulu');
+                    this.focus();
+                    return;
+                }
+
+                // Jika ada data di buffer, kemungkinan hardware scanner
+                if (scannerBuffer.length > 0 && !isManualInput) {
+                    // Biarkan event keydown yang handle hardware scanner
+                    return;
+                }
+
+                // Jika manual input, proses langsung
+                processQRCode(qrData, 'manual');
+            }
+        });
+
+        // Process QR Code
+        function processQRCode(qrData, source) {
+            const normalizedQrCode = qrData.trim().toUpperCase();
+            totalScans++;
+            updateStats();
+
+            // Validasi format ICA
+            if (!validateICAQrFormat(normalizedQrCode)) {
+                failedScans++;
+                updateStats();
+                showErrorResult('❌ Format QR Code tidak valid: "' + normalizedQrCode + '"<br><strong>Format yang diharapkan: ICA-XXX-XXXX</strong><br>Contoh: <strong>ICA-ABC-1234</strong>');
+                return;
+            }
+
+            showScannerStatus('✅ QR Code ICA terdeteksi: ' + normalizedQrCode, 'success');
+            verifyQRCode(normalizedQrCode, source);
+        }
+
+        // Auto-focus ke input scanner
+        document.addEventListener('DOMContentLoaded', function() {
+            const scannerInput = document.getElementById('scanner-input');
+            if (scannerInput) {
+                scannerInput.focus();
+
+                // Click to focus
+                scannerInput.addEventListener('click', function() {
+                    this.focus();
                 });
-                videoStream = null;
             }
+        });
 
-            document.getElementById('scanner-container').style.display = 'none';
-            document.getElementById('stop-scanner').style.display = 'none';
-            document.getElementById('start-scanner').style.display = 'block';
-            document.getElementById('camera-permission').style.display = 'block';
+        // Update statistics
+        function updateStats() {
+            document.getElementById('total-scans').textContent = totalScans;
+            document.getElementById('successful-scans').textContent = successfulScans;
+            document.getElementById('failed-scans').textContent = failedScans;
         }
 
-        function handleCameraError(err) {
-            let errorMessage = "Tidak dapat mengakses kamera: ";
+        // Scanner Status Functions
+        function showScannerStatus(message, type = 'info') {
+            const statusEl = document.getElementById('scanner-status');
+            const statusText = document.getElementById('scanner-status-text');
 
-            if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
-                errorMessage = "Izin kamera ditolak. Silakan: \n\n1. Izinkan akses kamera di browser Anda\n2. Pastikan website menggunakan HTTPS\n3. Refresh halaman dan coba lagi";
-            } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
-                errorMessage = "Kamera tidak ditemukan. Pastikan perangkat memiliki kamera belakang.";
-            } else if (err.name === 'NotSupportedError') {
-                errorMessage = "Browser tidak mendukung akses kamera. Gunakan Chrome, Firefox, atau Safari versi terbaru.";
-            } else if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
-                errorMessage = "Kamera sedang digunakan oleh aplikasi lain. Tutup aplikasi lain yang menggunakan kamera.";
-            } else if (err.name === 'OverconstrainedError') {
-                errorMessage = "Kamera tidak mendukung mode yang diminta. Coba gunakan browser lain.";
-            } else {
-                errorMessage += err.message;
-            }
+            if (!statusEl) return;
 
-            showErrorResult(errorMessage);
+            statusText.innerHTML = message;
+            statusEl.className = 'alert alert-' + type + ' mb-4 scanner-status-pulse';
+            statusEl.style.display = 'block';
         }
 
-        function verifyQRCode(qrData) {
+        function showErrorResult(message) {
+            document.getElementById('error-message').innerHTML = message;
+            document.getElementById('success-result').style.display = 'none';
+            document.getElementById('error-result').style.display = 'block';
+            document.getElementById('result-container').style.display = 'block';
+
+            document.getElementById('scanner-input').value = '';
+            document.getElementById('scanner-input').focus();
+        }
+
+        function verifyQRCode(qrData, source = 'hardware') {
             if (!qrData || qrData.trim() === '') {
                 showErrorResult('QR Code tidak valid atau kosong');
                 return;
             }
 
-            // Show loading state
+            const normalizedQrCode = qrData.trim().toUpperCase();
+
+            // ✅ VALIDASI FORMAT ICA
+            if (!validateICAQrFormat(normalizedQrCode)) {
+                failedScans++;
+                updateStats();
+                showErrorResult('❌ Format QR Code tidak valid: "' + normalizedQrCode + '"<br><strong>Format yang diharapkan: ICA-XXX-XXXX</strong><br>Contoh: <strong>ICA-ABC-1234</strong>');
+                return;
+            }
+
+            // ✅ PERBAIKAN: Tampilkan loading state yang BENAR (bukan error)
             document.getElementById('result-container').style.display = 'block';
             document.getElementById('success-result').style.display = 'none';
-            document.getElementById('error-result').style.display = 'block';
-            document.getElementById('error-message').textContent = 'Memverifikasi dan melakukan check-in...';
+            document.getElementById('error-result').style.display = 'none'; // Sembunyikan keduanya dulu
 
-            fetch('{{ route("checkin") }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    qr_code: qrData.trim(),
-                    source: 'scanner'
+            // Tampilkan status loading di scanner status
+            showScannerStatus('⏳ Memverifikasi QR Code...', 'info');
+
+            const requestData = {
+                qr_code: normalizedQrCode,
+                source: source
+            };
+
+            console.log('Sending request:', requestData);
+
+            fetch('{{ route('admin.checkin') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
                 })
-            })
                 .then(async response => {
+                    console.log('Response status:', response.status);
                     const data = await response.json();
+                    console.log('Response data:', data);
+
                     if (!response.ok) {
-                        throw new Error(data.message || 'Network error');
+                        throw new Error(data.message || 'HTTP error! status: ' + response.status);
                     }
                     return data;
                 })
                 .then(data => {
-                    if (data.success) {
-                        showSuccessResult(data.registration, data.message);
+                    console.log('Processing data:', data);
+
+                    // ✅ PERBAIKAN: Handle response dengan benar
+                    if (data.success === true) {
+                        successfulScans++;
+                        updateStats();
+
+                        const participantData = data.data || {};
+
+                        // Handle duplicate check-in
+                        if (data.is_duplicate === true) {
+                            showSuccessResult(participantData, data.message || 'Peserta sudah check-in sebelumnya');
+                            showScannerStatus('⚠ Peserta sudah check-in sebelumnya', 'warning');
+                        }
+                        // Handle successful check-in
+                        else {
+                            showSuccessResult(participantData, data.message || 'Check-in berhasil!');
+                            showScannerStatus('✅ Check-in berhasil! Scanner siap untuk scan berikutnya', 'success');
+                        }
+
+                        // Simpan data scan terakhir
+                        lastScanData = {
+                            qrCode: normalizedQrCode,
+                            name: participantData.nama || participantData.name || 'Tidak ada nama',
+                            time: new Date().toLocaleTimeString('id-ID'),
+                            method: source
+                        };
+
                     } else {
+                        // Handle case where success = false
+                        failedScans++;
+                        updateStats();
                         showErrorResult(data.message || 'Verifikasi gagal');
+                        showScannerStatus('❌ Check-in gagal', 'danger');
                     }
                 })
                 .catch(err => {
-                    console.error('Error:', err);
+                    console.error('Fetch Error:', err);
+                    failedScans++;
+                    updateStats();
                     showErrorResult(err.message || 'Terjadi kesalahan saat memverifikasi QR Code');
+                    showScannerStatus('❌ Error: ' + err.message, 'danger');
                 });
         }
 
-        function showSuccessResult(reg, message) {
-            const info = `
-            <div class="participant-details">
-                <p><strong>No. Tiket:</strong> ${reg.qr_code}</p>
-                <p><strong>Nama:</strong> ${reg.name}</p>
-                <p><strong>Email:</strong> ${reg.email}</p>
-                <p><strong>Event:</strong> ${reg.event.name}</p>
-                <p><strong>Telepon:</strong> ${reg.phone || '-'}</p>
-                <p><strong>Status:</strong> <span style="color: #28a745;">✓ SUDAH CHECK-IN</span></p>
-                <p><strong>Waktu Check-in:</strong> ${reg.checked_in_at ? new Date(reg.checked_in_at).toLocaleString('id-ID') : new Date().toLocaleString('id-ID')}</p>
-                ${message ? `<p><strong>Pesan:</strong> ${message}</p>` : ''}
-            </div>`;
+        // ✅ PERBAIKAN: Fungsi showSuccessResult TANPA auto-hide
+        function showSuccessResult(data, message) {
+            if (!data) {
+                data = {};
+            }
+
+            // ✅ PERBAIKAN: SELALU gunakan waktu BROWSER (seperti last scan), jangan waktu server
+            const now = new Date();
+            const jam = String(now.getHours()).padStart(2, '0');
+            const menit = String(now.getMinutes()).padStart(2, '0');
+            const detik = String(now.getSeconds()).padStart(2, '0');
+            const waktuReal = jam + ':' + menit + ':' + detik;
+
+            const info = '<div class="participant-details check-in-success">' +
+                '<p><strong>No. Tiket:</strong> ' + (data.kode || data.qr_code || 'Tidak ada') + '</p>' +
+                '<p><strong>Nama:</strong> ' + (data.nama || data.name || 'Tidak ada') + '</p>' +
+                '<p><strong>Email:</strong> ' + (data.email || 'Tidak ada') + '</p>' +
+                '<p><strong>Posisi/Jabatan:</strong> ' + (data.position || 'Tidak ada') + '</p>' +
+                '<p><strong>Event:</strong> ' + (data.event || 'Tidak ada') + '</p>' +
+                '<p><strong>Telepon:</strong> ' + (data.telepon || data.phone || '-') + '</p>' +
+                '<p><strong>Status:</strong> <span style="color: #28a745;">✓ SUDAH CHECK-IN</span></p>' +
+                '<p><strong>Waktu Check-in:</strong> ' + waktuReal + '</p>' +
+                '<p><strong>Checked-in oleh:</strong> ' + (data.checked_in_by || 'System') + '</p>' +
+                (message ? '<p><strong>Pesan:</strong> ' + message + '</p>' : '') +
+                '</div>';
 
             document.getElementById('participant-info').innerHTML = info;
             document.getElementById('success-result').style.display = 'block';
             document.getElementById('error-result').style.display = 'none';
             document.getElementById('result-container').style.display = 'block';
 
-            // Clear manual input form
-            document.getElementById('qr-code-input').value = '';
-
-            // Auto restart scanner setelah 5 detik
-            setTimeout(() => {
-                document.getElementById('result-container').style.display = 'none';
-                // Restart scanner hanya jika di tab scan
-                if (document.getElementById('scan-tab').classList.contains('active')) {
-                    startCameraScanner();
-                }
-            }, 5000);
+            document.getElementById('scanner-input').value = '';
+            document.getElementById('scanner-input').focus();
         }
 
-        function showErrorResult(msg) {
-            // Remove existing restart button
-            const existingBtn = document.querySelector('.restart-scanner-btn');
-            if (existingBtn) {
-                existingBtn.remove();
-            }
+        // Initial scanner status
+        showScannerStatus('Scanner siap - Gunakan hardware scanner atau input manual', 'info');
 
-            document.getElementById('error-message').textContent = msg;
-            document.getElementById('success-result').style.display = 'none';
-            document.getElementById('error-result').style.display = 'block';
-            document.getElementById('result-container').style.display = 'block';
-
-            // Clear manual input form
-            document.getElementById('qr-code-input').value = '';
-
-            // Add restart button untuk error
-            const errorResult = document.getElementById('error-result');
-            const restartBtn = document.createElement('button');
-            restartBtn.className = 'btn btn-admin-primary mt-3 restart-scanner-btn';
-            restartBtn.innerHTML = '<i class="fas fa-redo me-2"></i>Coba Lagi';
-            restartBtn.onclick = function () {
-                document.getElementById('result-container').style.display = 'none';
-                if (document.getElementById('scan-tab').classList.contains('active')) {
-                    startCameraScanner();
-                }
-            };
-            errorResult.appendChild(restartBtn);
-
-            // Auto hide error setelah 8 detik
-            setTimeout(() => {
-                if (document.getElementById('result-container').style.display !== 'none') {
-                    document.getElementById('result-container').style.display = 'none';
-                }
-            }, 8000);
-        }
-
-        // Handle page visibility changes
-        document.addEventListener('visibilitychange', function () {
-            if (document.hidden && scannerActive) {
-                stopCameraScanner();
-            }
+        // Focus management
+        document.addEventListener('click', function() {
+            document.getElementById('scanner-input').focus();
         });
-
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', stopCameraScanner);
-        window.addEventListener('pagehide', stopCameraScanner);
     </script>
 </body>
 

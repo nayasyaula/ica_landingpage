@@ -13,7 +13,7 @@ class AdminSeeder extends Seeder
         Admin::create([
             'name' => 'Super Admin',
             'email' => 'admin@ica.com',
-            'password' => Hash::make('password123'),
+            'password' => Hash::make('admin123'),
             'phone' => '08123456789',
             'is_super_admin' => true,
         ]);
