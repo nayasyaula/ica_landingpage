@@ -1,8 +1,6 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'Welcome - Indonesian Cat Association'); ?>
 
-@section('title', 'Welcome - Indonesian Cat Association')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- Home/Hero Section -->
     <section id="home" class="hero-bg pt-20">
         <div class="max-w-7xl mx-auto px-4 text-center w-full">
@@ -66,7 +64,7 @@
                 </div>
                 <div class="bg-dark-gray rounded-lg overflow-hidden h-96 relative gold-border-frame image-hover-container">
                     <!-- Background image filling the entire container -->
-                    <img src="{{ asset('images/ab-ICA.png') }}" alt="ICA Background"
+                    <img src="<?php echo e(asset('images/ab-ICA.png')); ?>" alt="ICA Background"
                         class="absolute inset-0 w-full h-full object-cover">
 
                     <!-- Gradient overlay -->
@@ -210,15 +208,13 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center w-full mb-12">
                 <h2 class="section-title text-3xl md:text-5xl text-white mb-4">Para Pembicara Visioner</h2>
-                {{-- <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
-                    Kenali para pelopor yang akan membentuk masa depan keunggulan dunia kucing.
-                </p> --}}
+                
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Speaker 1 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/wayan.jpg') }}" alt="DR. IR. I WAYAN KOSTER, M.M" class="speaker-image">
+                        <img src="<?php echo e(asset('images/wayan.jpg')); ?>" alt="DR. IR. I WAYAN KOSTER, M.M" class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading">DR. IR. I WAYAN KOSTER, M.M</h3>
                     <p class="text-gold-400 mb-4 luxury-text text-lg">GUBERNUR BALI</p>
@@ -234,7 +230,7 @@
                 <!-- Speaker 2 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/russy.jpg') }}" alt="RUSSY IDROES, S.KOM. M.M." class="speaker-image">
+                        <img src="<?php echo e(asset('images/russy.jpg')); ?>" alt="RUSSY IDROES, S.KOM. M.M." class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> RUSSY IDROES, S.KOM. M.M.</h3>
                     <p class="text-gold-400 mb-4 luxury-text text-lg">KETUA UMUM ICA</p>
@@ -250,7 +246,7 @@
                 <!-- Speaker 3 -->
                 <div class="card-luxury rounded-lg p-8 text-center">
                     <div class="speaker-image-container mb-6">
-                        <img src="{{ asset('images/munawaroh.jpg') }}" alt="DR. DRH. MUHAMMAD MUNAWAROH, M.M."
+                        <img src="<?php echo e(asset('images/munawaroh.jpg')); ?>" alt="DR. DRH. MUHAMMAD MUNAWAROH, M.M."
                             class="speaker-image">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2 text-white luxury-heading"> DR. DRH. MUHAMMAD MUNAWAROH, M.M.
@@ -478,14 +474,14 @@
                     <div class="bg-dark-gray rounded-2xl overflow-hidden gold-border-frame h-64"
                         style="transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'"
                         onmouseout="this.style.transform='scale(1)'">
-                        <img src="{{ asset('images/harris1.jpg') }}" alt="Harris Hotel Kuta Bali - Eksterior"
+                        <img src="<?php echo e(asset('images/harris1.jpg')); ?>" alt="Harris Hotel Kuta Bali - Eksterior"
                             class="w-full h-full object-cover">
                     </div>
 
                     <div class="bg-dark-gray rounded-2xl overflow-hidden gold-border-frame h-64"
                         style="transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'"
                         onmouseout="this.style.transform='scale(1)'">
-                        <img src="{{ asset('images/harris2.webp') }}" alt="Harris Hotel Kuta Bali - Interior"
+                        <img src="<?php echo e(asset('images/harris2.webp')); ?>" alt="Harris Hotel Kuta Bali - Interior"
                             class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -503,109 +499,113 @@
                 </p>
             </div>
 
-            @php
+            <?php
                 use App\Models\Sponsor;
                 $platinumSponsors = Sponsor::byTier('platinum')->get();
                 $goldSponsors = Sponsor::byTier('gold')->get();
                 $silverSponsors = Sponsor::byTier('silver')->get();
                 $bronzeSponsors = Sponsor::byTier('bronze')->get();
-            @endphp
+            ?>
 
             <!-- Platinum Sponsors -->
-            @if ($platinumSponsors->count() > 0)
+            <?php if($platinumSponsors->count() > 0): ?>
                 <div class="sponsor-tier mb-8">
                     <h3 class="tier-title">Sponsor Platinum</h3>
                     <div class="sponsor-grid">
-                        @foreach ($platinumSponsors as $sponsor)
+                        <?php $__currentLoopData = $platinumSponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="sponsor-card platinum-gradient">
-                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
+                                <?php if($sponsor->logo && Storage::disk('public')->exists($sponsor->logo)): ?>
+                                    <img src="<?php echo e(Storage::url($sponsor->logo)); ?>" alt="<?php echo e($sponsor->name); ?>" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                @endif
+                                <?php endif; ?>
                                 <div
-                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
-                                    {{ $sponsor->name }}
+                                    class="sponsor-name <?php echo e($sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : ''); ?>">
+                                    <?php echo e($sponsor->name); ?>
+
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
 
             <!-- Repeat untuk Gold, Silver, Bronze dengan pattern yang sama -->
             <!-- Gold Sponsors -->
-            @if ($goldSponsors->count() > 0)
+            <?php if($goldSponsors->count() > 0): ?>
                 <div class="sponsor-tier mb-8">
                     <h3 class="tier-title">Sponsor Gold</h3>
                     <div class="sponsor-grid">
-                        @foreach ($goldSponsors as $sponsor)
+                        <?php $__currentLoopData = $goldSponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="sponsor-card gold-gradient">
-                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
+                                <?php if($sponsor->logo && Storage::disk('public')->exists($sponsor->logo)): ?>
+                                    <img src="<?php echo e(Storage::url($sponsor->logo)); ?>" alt="<?php echo e($sponsor->name); ?>" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                @endif
+                                <?php endif; ?>
                                 <div
-                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
-                                    {{ $sponsor->name }}
+                                    class="sponsor-name <?php echo e($sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : ''); ?>">
+                                    <?php echo e($sponsor->name); ?>
+
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
 
             <!-- Silver Sponsors -->
-            @if ($silverSponsors->count() > 0)
+            <?php if($silverSponsors->count() > 0): ?>
                 <div class="sponsor-tier mb-8">
                     <h3 class="tier-title">Sponsor Silver</h3>
                     <div class="sponsor-grid">
-                        @foreach ($silverSponsors as $sponsor)
+                        <?php $__currentLoopData = $silverSponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="sponsor-card silver-gradient">
-                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
+                                <?php if($sponsor->logo && Storage::disk('public')->exists($sponsor->logo)): ?>
+                                    <img src="<?php echo e(Storage::url($sponsor->logo)); ?>" alt="<?php echo e($sponsor->name); ?>" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                @endif
+                                <?php endif; ?>
                                 <div
-                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
-                                    {{ $sponsor->name }}
+                                    class="sponsor-name <?php echo e($sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : ''); ?>">
+                                    <?php echo e($sponsor->name); ?>
+
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
 
             <!-- Bronze Sponsors -->
-            @if ($bronzeSponsors->count() > 0)
+            <?php if($bronzeSponsors->count() > 0): ?>
                 <div class="sponsor-tier mb-8">
                     <h3 class="tier-title">Sponsor Bronze</h3>
                     <div class="sponsor-grid">
-                        @foreach ($bronzeSponsors as $sponsor)
+                        <?php $__currentLoopData = $bronzeSponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="sponsor-card bronze-gradient">
-                                @if ($sponsor->logo && Storage::disk('public')->exists($sponsor->logo))
-                                    <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}" class="sponsor-logo"
+                                <?php if($sponsor->logo && Storage::disk('public')->exists($sponsor->logo)): ?>
+                                    <img src="<?php echo e(Storage::url($sponsor->logo)); ?>" alt="<?php echo e($sponsor->name); ?>" class="sponsor-logo"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                @endif
+                                <?php endif; ?>
                                 <div
-                                    class="sponsor-name {{ $sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : '' }}">
-                                    {{ $sponsor->name }}
+                                    class="sponsor-name <?php echo e($sponsor->logo && Storage::disk('public')->exists($sponsor->logo) ? 'd-none' : ''); ?>">
+                                    <?php echo e($sponsor->name); ?>
+
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
 
-            @if (
+            <?php if(
                     $platinumSponsors->count() == 0 &&
                     $goldSponsors->count() == 0 &&
                     $silverSponsors->count() == 0 &&
                     $bronzeSponsors->count() == 0
-                )
+                ): ?>
                 <div class="text-center py-8">
                     <p class="text-gold-200 text-lg">Sponsor akan segera diumumkan</p>
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </section>
 
@@ -728,7 +728,7 @@
 
                         <div class="text-center mb-6">
                             <div class="logo-gold-outline" style="transform: scale(0.8); transform-origin: left;">
-                                <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association Logo"
+                                <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="Indonesian Cat Association Logo"
                                     class="logo-glow">
                             </div>
 
@@ -755,13 +755,13 @@
                         </div>
 
 <div class="mt-auto text-center">
-    @php
+    <?php
         // Get the first event ID dynamically
         $eventId = isset($events) && $events->count() > 0 ? $events->first()->id : 1;
-    @endphp
+    ?>
 
     <div class="flex justify-center">
-        <a href="{{ route('registrations.create', $eventId) }}"
+        <a href="<?php echo e(route('registrations.create', $eventId)); ?>"
             class="btn-gold py-4 rounded-lg font-semibold text-xl transition-all duration-300 hover:shadow-lg group relative overflow-hidden no-underline inline-flex items-center justify-center min-w-80 px-8">
             <!-- Animated Cat -->
             <div class="absolute -left-8 group-hover:left-4 transition-all duration-300">
@@ -790,4 +790,5 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\ica_landingpage\resources\views/landing/index.blade.php ENDPATH**/ ?>

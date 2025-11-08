@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-ICA.png') }}">
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('images/logo-ICA.png')); ?>">
     <title>Admin Dashboard - Indonesian Cat Association</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -603,13 +603,13 @@
     <div class="admin-top-header">
         <div class="admin-header-content">
             <div class="admin-logo">
-                <img src="{{ asset('images/logo-ICA.png') }}" alt="ICA Logo" class="admin-logo-img">
+                <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="ICA Logo" class="admin-logo-img">
                 <span class="admin-logo-text">Admin Dashboard</span>
             </div>
             <div class="admin-user-menu">
                 <span class="admin-welcome">Welcome, Administrator</span>
-                <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
-                    @csrf
+                <form action="<?php echo e(route('admin.logout')); ?>" method="POST" class="d-inline">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="btn-admin-logout">
                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                     </button>
@@ -639,7 +639,7 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="stat-content">
-                                <h3 class="stat-number">{{ $totalRegistrations ?? 0 }}</h3>
+                                <h3 class="stat-number"><?php echo e($totalRegistrations ?? 0); ?></h3>
                                 <p class="stat-label">Total Pendaftar</p>
                             </div>
                         </div>
@@ -654,7 +654,7 @@
                                 </h5>
                             </div>
                             <div class="card-body-luxury">
-                                <a href="{{ route('admin.scan-qr') }}" class="btn-admin-action">
+                                <a href="<?php echo e(route('admin.scan-qr')); ?>" class="btn-admin-action">
                                     <i class="fas fa-camera me-2"></i>Scan QR Code
                                 </a>
                             </div>
@@ -670,7 +670,7 @@
                                 </h5>
                             </div>
                             <div class="card-body-luxury">
-                                <a href="{{ route('admin.sponsors.index') }}" class="btn-admin-action">
+                                <a href="<?php echo e(route('admin.sponsors.index')); ?>" class="btn-admin-action">
                                     <i class="fas fa-cog me-2"></i>Kelola Sponsor
                                 </a>
                             </div>
@@ -680,7 +680,7 @@
             </div>
 
             <!-- Registrations Table -->
-            @if (isset($registrations) && $registrations->count() > 0)
+            <?php if(isset($registrations) && $registrations->count() > 0): ?>
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="admin-table-card">
@@ -707,56 +707,59 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($registrations as $registration)
+                                            <?php $__currentLoopData = $registrations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $registration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
-                                                    <td class="ticket-code">{{ $registration->qr_code ?? 'N/A' }}</td>
-                                                    <td class="user-name">{{ $registration->name ?? 'N/A' }}</td>
-                                                    <td class="user-position">{{ $registration->position ?? 'N/A' }}
+                                                    <td class="ticket-code"><?php echo e($registration->qr_code ?? 'N/A'); ?></td>
+                                                    <td class="user-name"><?php echo e($registration->name ?? 'N/A'); ?></td>
+                                                    <td class="user-position"><?php echo e($registration->position ?? 'N/A'); ?>
+
                                                     </td>
-                                                    <td class="user-email">{{ $registration->email ?? 'N/A' }}</td>
-                                                    <td class="event-name">{{ $registration->event->name ?? 'N/A' }}
+                                                    <td class="user-email"><?php echo e($registration->email ?? 'N/A'); ?></td>
+                                                    <td class="event-name"><?php echo e($registration->event->name ?? 'N/A'); ?>
+
                                                     </td>
                                                     <td class="register-date">
-                                                        {{ $registration->created_at->format('d M Y') }}
+                                                        <?php echo e($registration->created_at->format('d M Y')); ?>
+
                                                     </td>
                                                     <td>
-                                                        @if ($registration->is_checked_in)
+                                                        <?php if($registration->is_checked_in): ?>
                                                             <span class="badge bg-success">✓ Hadir</span>
-                                                        @else
+                                                        <?php else: ?>
                                                             <span class="badge bg-secondary">Belum Hadir</span>
-                                                        @endif
+                                                        <?php endif; ?>
                                                     </td>
                                                     <td class="scanner-info">
-                                                        @if ($registration->scanner_name)
-                                                            <span class="text-gold">{{ $registration->scanner_name }}</span>
-                                                        @else
+                                                        <?php if($registration->scanner_name): ?>
+                                                            <span class="text-gold"><?php echo e($registration->scanner_name); ?></span>
+                                                        <?php else: ?>
                                                             <span class="text-muted">-</span>
-                                                        @endif
+                                                        <?php endif; ?>
                                                     </td>
                                                     <td class="scan-time">
-                                                        @if ($registration->scanned_at)
+                                                        <?php if($registration->scanned_at): ?>
                                                             <small
-                                                                class="text-muted">{{ $registration->scanned_at->format('d M Y H:i') }}</small>
-                                                        @else
+                                                                class="text-muted"><?php echo e($registration->scanned_at->format('d M Y H:i')); ?></small>
+                                                        <?php else: ?>
                                                             <span class="text-muted">-</span>
-                                                        @endif
+                                                        <?php endif; ?>
                                                     </td>
                                                     <td class="action-buttons">
                                                         <button type="button" class="btn-table-view view-registration-btn"
-                                                            data-id="{{ $registration->id }}"
-                                                            data-name="{{ $registration->name }}"
-                                                            data-position="{{ $registration->position }}"
-                                                            data-email="{{ $registration->email }}"
-                                                            data-event="{{ $registration->event->name ?? 'N/A' }}"
-                                                            data-qr="{{ $registration->qr_code }}"
-                                                            data-scanner="{{ $registration->scanner_name ?? 'Belum di-scan' }}"
-                                                            data-scanned-at="{{ $registration->scanned_at ? $registration->scanned_at->format('d M Y H:i') : 'Belum di-scan' }}"
-                                                            data-checked-in="{{ $registration->is_checked_in ? 'Ya' : 'Tidak' }}">
+                                                            data-id="<?php echo e($registration->id); ?>"
+                                                            data-name="<?php echo e($registration->name); ?>"
+                                                            data-position="<?php echo e($registration->position); ?>"
+                                                            data-email="<?php echo e($registration->email); ?>"
+                                                            data-event="<?php echo e($registration->event->name ?? 'N/A'); ?>"
+                                                            data-qr="<?php echo e($registration->qr_code); ?>"
+                                                            data-scanner="<?php echo e($registration->scanner_name ?? 'Belum di-scan'); ?>"
+                                                            data-scanned-at="<?php echo e($registration->scanned_at ? $registration->scanned_at->format('d M Y H:i') : 'Belum di-scan'); ?>"
+                                                            data-checked-in="<?php echo e($registration->is_checked_in ? 'Ya' : 'Tidak'); ?>">
                                                             <i class="fas fa-eye me-1"></i>View
                                                         </button>
                                                     </td>
                                                 </tr>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -764,7 +767,7 @@
                         </div>
                     </div>
                 </div>
-            @else
+            <?php else: ?>
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-8">
                         <div class="admin-table-card">
@@ -776,7 +779,7 @@
                         </div>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </main>
 
@@ -913,4 +916,4 @@
     </script>
 </body>
 
-</html>
+</html><?php /**PATH C:\ica_landingpage\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

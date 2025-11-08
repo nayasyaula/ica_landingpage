@@ -294,19 +294,23 @@ class RegistrationController extends Controller
 
 public function downloadQRCode(Registration $registration)
 {
-    // Format data yang sederhana - hanya kode QR saja
-    $qrData = $registration->qr_code; // Contoh: "ICA-MZ3-OLG7"
+    $qrData = $registration->qr_code;
     
     $qrCode = new DNS2D();
-    
-    // Generate QR Code dengan ukuran optimal
     $qrCodePng = $qrCode->getBarcodePNG($qrData, 'QRCODE', 10, 10);
     
-    // Langsung return file PNG untuk download
-    return response($qrCodePng)
-        ->header('Content-Type', 'image/png')
-        ->header('Content-Disposition', 'attachment; filename="QRCode-' . $registration->qr_code . '.png"')
-        ->header('Content-Length', strlen($qrCodePng));
+    // ✅ DECODE BASE64 JIKA PERLU
+    if (base64_decode($qrCodePng, true)) {
+        $qrCodeBinary = base64_decode($qrCodePng);
+        return response($qrCodeBinary)
+            ->header('Content-Type', 'image/png')
+            ->header('Content-Disposition', 'attachment; filename="QRCode-' . $registration->qr_code . '.png"');
+    } else {
+        // Jika sudah binary, langsung return
+        return response($qrCodePng)
+            ->header('Content-Type', 'image/png')
+            ->header('Content-Disposition', 'attachment; filename="QRCode-' . $registration->qr_code . '.png"');
+    }
 }
 
 }
