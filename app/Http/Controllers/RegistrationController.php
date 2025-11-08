@@ -292,23 +292,21 @@ class RegistrationController extends Controller
             ->with('success', 'Check-in berhasil untuk: ' . $registration->name . ' (' . $registration->position . ')');
     }
 
-    public function downloadQRCode(Registration $registration)
-    {
-        $qrData = json_encode([
-            'kode' => $registration->qr_code,
-            'nama' => $registration->name,
-            'email' => $registration->email,
-            'telepon' => $registration->phone,
-            'position' => $registration->position,
-            'event' => $registration->event->name
-        ]);
+public function downloadQRCode(Registration $registration)
+{
+    // Format data yang sederhana - hanya kode QR saja
+    $qrData = $registration->qr_code; // Contoh: "ICA-MZ3-OLG7"
+    
+    $qrCode = new DNS2D();
+    
+    // Generate QR Code dengan ukuran optimal
+    $qrCodePng = $qrCode->getBarcodePNG($qrData, 'QRCODE', 10, 10);
+    
+    // Langsung return file PNG untuk download
+    return response($qrCodePng)
+        ->header('Content-Type', 'image/png')
+        ->header('Content-Disposition', 'attachment; filename="QRCode-' . $registration->qr_code . '.png"')
+        ->header('Content-Length', strlen($qrCodePng));
+}
 
-        $qrCode = new DNS2D();
-        $qrCodePng = $qrCode->getBarcodePNG($qrData, 'QRCODE', 12, 12);
-
-        $qrCodeBase64 = 'data:image/png;base64,' . $qrCodePng;
-        return response()->streamDownload(function () use ($qrCodeBase64) {
-            echo base64_decode(substr($qrCodeBase64, strpos($qrCodeBase64, ',') + 1));
-        }, 'QRCode-' . $registration->qr_code . '.png');
-    }
 }

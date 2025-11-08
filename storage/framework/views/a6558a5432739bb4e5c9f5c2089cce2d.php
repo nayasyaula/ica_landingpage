@@ -684,8 +684,8 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="admin-table-card">
-                            <div class="card-header-luxury">
-                                <h5 class="card-title-luxury text-center">
+                            <div class="card-header-luxury" style="padding: 1rem 1.5rem;">
+                                <h5 class="card-title-luxury text-center" mb-0>
                                     <i class="fas fa-list-alt me-2"></i>Data Pendaftaran
                                 </h5>
                             </div>

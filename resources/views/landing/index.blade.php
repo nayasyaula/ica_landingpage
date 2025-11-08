@@ -289,138 +289,138 @@
             <!-- Day 1 Schedule -->
             <div class="schedule-day active" id="day1">
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">11:00 - 13:00</span>
-                    <h3 class="timeline-title">Registrasi Ulang</h3>
-                </div>
-
-                <div class="timeline-item schedule-highlight">
                     <span class="timeline-time">13:00 - 14:00</span>
-                    <h3 class="timeline-title">- Pengesahan Kuorum Mukernas 2025</h3>
-                    <p class="timeline-title">- Laporan Penyelenggaraan Mukernas</p>
-                    <p class="timeline-title">- Pembukaan Mukernas 2025</p>
+                    <h3 class="timeline-title">Registrasi Peserta & Check-In Hotel</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">14:00 - 15:00</span>
-                    <h3 class="timeline-title">Evaluasi Kinerja Pengurus Cabang</h3>
-                    <p class="timeline-description">(Laporan Pertanggungjawaban Cabang)</p>
+                    <span class="timeline-time">14:00 - 14:30</span>
+                    <h3 class="timeline-title">Pembukaan Acara Mukernas ICA 2025</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">15:00 - 15:30</span>
+                    <span class="timeline-time">14:30 - 14:45</span>
+                    <h3 class="timeline-title">Menyanyikan Lagu Indonesia Raya & Mars ICA</h3>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">14:45 - 15:15</span>
+                    <h3 class="timeline-title">Sambutan Ketua Umum ICA</h3>
+                    <p class="timeline-description">Russy Idroes, S.KOM. M.M.</p>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">15:15 - 15:30</span>
+                    <h3 class="timeline-title">Sambutan Perwakilan FIFe / Tamu Undangan</h3>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">15:30 - 16:00</span>
+                    <h3 class="timeline-title">Doa & Pembukaan Resmi Mukernas</h3>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">16:00 - 16:15</span>
                     <h3 class="timeline-title">Coffee Break</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">15:30 - 17:00</span>
-                    <h3 class="timeline-title">Laporan Pertanggungjawaban Cabang</h3>
+                    <span class="timeline-time">16:15 - 18:00</span>
+                    <h3 class="timeline-title">Sidang Pleno 1 : Laporan Pertanggungjawaban Pengurus</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">17:00 - 19:00</span>
-                    <h3 class="timeline-title">ISHOMA + Dinner</h3>
+                    <span class="timeline-time">18:00 - 19:30</span>
+                    <h3 class="timeline-title">Istirahat / Makan Malam</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">19:00 - 22:00</span>
-                    <h3 class="timeline-title">Laporan Pertanggungjawaban Cabang</h3>
+                    <span class="timeline-time">19:30 - 21:30</span>
+                    <h3 class="timeline-title">Sesi Diskusi Bebas / Networking Night</h3>
                 </div>
             </div>
 
             <!-- Day 2 Schedule -->
-            <!-- Day 2 Schedule -->
             <div class="schedule-day" id="day2">
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">06:00 - 08:00</span>
-                    <h3 class="timeline-title">Breakfast</h3>
+                    <span class="timeline-time">19:00 - 19:30</span>
+                    <h3 class="timeline-title">Kedatangan Tamu & Welcome Drink</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">08:00 - 08:30</span>
-                    <h3 class="timeline-title">Product Knowledge</h3>
+                    <span class="timeline-time">19:30 - 19:45</span>
+                    <h3 class="timeline-title">Pembukaan Gala Dinner oleh MC</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">08:30 - 10:00</span>
-                    <h3 class="timeline-title">Laporan Pertanggungjawaban Cabang</h3>
+                    <span class="timeline-time">19:45 - 20:00</span>
+                    <h3 class="timeline-title">Opening Dance "Metropolitan Glamour"</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">10:00 - 10:15</span>
-                    <h3 class="timeline-title">Coffee Break</h3>
+                    <span class="timeline-time">20:00 - 20:15</span>
+                    <h3 class="timeline-title">Sambutan Ketua Umum ICA</h3>
+                    <p class="timeline-description">Russy Idroes, S.KOM. M.M.</p>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">10:15 - 12:00</span>
-                    <h3 class="timeline-title">Laporan Pertanggungjawaban Cabang</h3>
+                    <span class="timeline-time">20:15 - 20:30</span>
+                    <h3 class="timeline-title">Sambutan Perwakilan Sponsor</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">12:00 - 13:00</span>
-                    <h3 class="timeline-title">ISHOMA</h3>
+                    <span class="timeline-time">20:30 - 21:00</span>
+                    <h3 class="timeline-title">Makan Malam & Hiburan Musik</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">13:00 - 16:00</span>
-                    <h3 class="timeline-title">Evaluasi Kinerja ICA 2025</h3>
-                    <p class="timeline-description">Presentasi Hasil Dari GA 2024:</p>
-                    <ul class="timeline-description">
-                        <li>- Komisi BRO Pusat (Riski Nanda)</li>
-                        <li>- Komisi Show Pusat (Drg. Gunawan)</li>
-                    </ul>
+                    <span class="timeline-time">21:00 - 22:00</span>
+                    <h3 class="timeline-title">Awarding Session - Penghargaan Kucing & Owner</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">16:00 - 19:00</span>
-                    <h3 class="timeline-title">Persiapan Gala Dinner</h3>
+                    <span class="timeline-time">22:00 - 22:15</span>
+                    <h3 class="timeline-title">Doorprize Session</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">19:00 - 22:00</span>
-                    <h3 class="timeline-title">Gala Dinner</h3>
+                    <span class="timeline-time">22:15 - 22:30</span>
+                    <h3 class="timeline-title">Fashion Parade "Catropolitan Look"</h3>
+                </div>
+
+                <div class="timeline-item schedule-highlight">
+                    <span class="timeline-time">22:30 - 23:00</span>
+                    <h3 class="timeline-title">Penutupan, Foto Bersama & Live Music</h3>
                 </div>
             </div>
 
             <!-- Day 3 Schedule -->
             <div class="schedule-day" id="day3">
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">06:00 - 08:00</span>
-                    <h3 class="timeline-title">Breakfast</h3>
+                    <span class="timeline-time">07:30 - 08:30</span>
+                    <h3 class="timeline-title">Sarapan Pagi</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">08:00 - 10:00</span>
-                    <h3 class="timeline-title">Perencanaan Kegiatan ICA 2025</h3>
-                    <p class="timeline-description">Drg. Gunawan & dr. Rifki</p>
+                    <span class="timeline-time">08:30 - 09:00</span>
+                    <h3 class="timeline-title">Evaluasi & Penutupan Mukernas</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">10:00 - 10:15</span>
-                    <h3 class="timeline-title">Coffee Break</h3>
+                    <span class="timeline-time">09:00 - 09:30</span>
+                    <h3 class="timeline-title">Pembacaan Keputusan Mukernas 2025</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">10:15 - 11:30</span>
-                    <h3 class="timeline-title">Perencanaan Kegiatan ICA 2025</h3>
-                    <p class="timeline-description">Drg. Gunawan & dr. Rifki</p>
+                    <span class="timeline-time">09:30 - 10:00</span>
+                    <h3 class="timeline-title">Penutupan Resmi & Doa Bersama</h3>
                 </div>
 
                 <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">11:30 - 12:00</span>
-                    <h3 class="timeline-title">Penutupan & Foto Bersama</h3>
-                </div>
-
-                <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">12:00 - 13:00</span>
-                    <h3 class="timeline-title">ISHOMA</h3>
-                </div>
-
-                <div class="timeline-item schedule-highlight">
-                    <span class="timeline-time">13:00 - Selesai</span>
-                    <h3 class="timeline-title">Acara Bebas / Kembali ke Daerah Masing-Masing</h3>
+                    <span class="timeline-time">10.00 - 12:00</span>
+                    <h3 class="timeline-title">Check-out Hotel & Acara Bebas / City Tour Opsional</h3>
                 </div>
             </div>
-
         </div>
     </section>
 

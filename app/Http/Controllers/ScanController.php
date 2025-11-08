@@ -63,14 +63,14 @@ class ScanController extends Controller
             $checkinTime = optional($registration->checked_in_at)->format('d/m/Y H:i:s') ?? 'Unknown';
             $checkedInBy = $registration->checked_in_by ?? 'System';
 
-            Log::info('⚠️ DUPLICATE SCAN', [
+            Log::info('⚠ DUPLICATE SCAN', [
                 'qr_code' => $scannedCode,
                 'previous_checkin' => $checkinTime
             ]);
 
             return response()->json([
                 'success' => true, // Tetap success karena valid, hanya sudah check-in
-                'message' => "ℹ️ Peserta sudah check-in pada: {$checkinTime} oleh: {$checkedInBy}",
+                'message' => "ℹ Peserta sudah check-in pada: {$checkinTime} oleh: {$checkedInBy}",
                 'registration' => $registration,
                 'is_duplicate' => true,
                 'data' => [ // ✅ TAMBAH DATA CONSISTENT

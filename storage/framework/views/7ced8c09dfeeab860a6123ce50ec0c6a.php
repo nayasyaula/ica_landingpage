@@ -25,6 +25,9 @@
     <div class="row justify-content-center mb-4">
         <div class="col-12 col-lg-8">
             <div class="text-center">
+                <a href="<?php echo e(route('admin.dashboard')); ?>" class="btn-admin-action">
+                    Dashboard
+                </a>
                 <a href="<?php echo e(route('admin.sponsors.create')); ?>" class="btn-admin-action">
                     <i class="fas fa-plus me-2"></i>Tambah Sponsor Baru
                 </a>
@@ -34,10 +37,10 @@
 
     <!-- Sponsors List -->
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-            <div class="admin-table-card">
-                <div class="card-header-luxury">
-                    <h5 class="card-title-luxury text-center">
+        <div class="col-10 col-lg-8">
+            <div class="admin-table-card" >
+                <div class="card-header-luxury" style="padding: 1rem 1.5rem;">
+                    <h5 class="card-title-luxury text-center mb-0">
                         <i class="fas fa-list me-2"></i>Daftar Sponsor
                     </h5>
                 </div>

@@ -9,6 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tambahkan di head -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Font Luxury yang lebih elegan -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -190,317 +194,6 @@
             }
         }
 
-        /* ===== STYLE KHUSUS HALAMAN TIKET/SUCCESS ===== */
-        .ticket-page {
-            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
-            min-height: 100vh;
-            padding: 20px 0;
-        }
-
-        .ticket-card {
-            background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
-            border-radius: 12px;
-            border: 1px solid #D4AF37;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-            overflow: hidden;
-            margin-bottom: 20px;
-            font-family: 'Montserrat', serif;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .ticket-header {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-            color: #1A1A1A;
-            padding: 20px 15px;
-            text-align: center;
-            font-family: 'Montserrat', serif;
-            border-bottom: 1px solid #D4AF37;
-        }
-
-        .ticket-header h5 {
-            margin: 0 0 8px 0;
-            font-weight: 700;
-            font-size: 1.3rem;
-            letter-spacing: 0.5px;
-        }
-
-        .ticket-header small {
-            opacity: 0.9;
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        .qr-section {
-            padding: 25px 20px;
-            text-align: center;
-            background: rgba(26, 26, 26, 0.8);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .qr-container {
-            display: inline-block;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            border: 2px solid #D4AF37;
-        }
-
-        .ticket-details {
-            padding: 20px;
-            font-family: 'Montserrat', serif;
-            background: rgba(26, 26, 26, 0.6);
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .detail-item:last-child {
-            border-bottom: none;
-        }
-
-        .detail-item .label {
-            color: #D4AF37;
-            font-size: 0.85rem;
-            font-weight: 600;
-            font-family: 'Montserrat', serif;
-            min-width: 100px;
-        }
-
-        .detail-item .value {
-            font-weight: 500;
-            color: #FFFFFF;
-            font-size: 0.85rem;
-            text-align: right;
-            max-width: 60%;
-            font-family: 'Montserrat', serif;
-            line-height: 1.4;
-        }
-
-        .ticket-actions {
-            padding: 20px;
-            background: rgba(26, 26, 26, 0.8);
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .ticket-btn {
-            border-radius: 6px;
-            font-size: 0.85rem;
-            padding: 8px 16px;
-            font-family: 'Montserrat', serif;
-            font-weight: 600;
-            border: 1px solid #D4AF37;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-primary {
-            background: transparent;
-            color: #D4AF37;
-        }
-
-        .btn-outline-primary:hover {
-            background: #D4AF37;
-            color: #1A1A1A;
-            transform: translateY(-2px);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #D4AF37, #B8860B);
-            color: #1A1A1A;
-            border: 1px solid #D4AF37;
-        }
-
-        .btn-success:hover {
-            background: linear-gradient(135deg, #B8860B, #D4AF37);
-            transform: translateY(-2px);
-            color: #1A1A1A;
-        }
-
-        .ticket-alert-success {
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            background: rgba(212, 175, 55, 0.1);
-            color: #D4AF37;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            padding: 12px 16px;
-            text-align: center;
-            font-family: 'Montserrat', serif;
-            font-weight: 600;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ticket-alert-success i {
-            color: #D4AF37;
-        }
-
-        /* Pastikan ada spacing untuk navbar */
-        .ticket-container {
-            margin-top: 100px !important;
-            padding-top: 2rem !important;
-        }
-
-        /* Override untuk memastikan tiket terlihat baik */
-        .ticket-card .detail-item .value {
-            font-family: 'Montserrat', serif !important;
-        }
-
-        .ticket-card .detail-item .label {
-            font-family: 'Montserrat', serif !important;
-        }
-
-        @media (max-width: 768px) {
-            .ticket-container {
-                margin-top: 80px !important;
-                padding-top: 1rem !important;
-            }
-
-            .ticket-col {
-                padding: 0 15px;
-            }
-
-            .ticket-card {
-                max-width: 100%;
-                margin: 0 10px;
-            }
-
-            .ticket-header {
-                padding: 15px 12px;
-            }
-
-            .ticket-header h5 {
-                font-size: 1.1rem;
-            }
-
-            .qr-section {
-                padding: 20px 15px;
-            }
-
-            .ticket-details {
-                padding: 15px;
-            }
-
-            .detail-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-                padding: 8px 0;
-            }
-
-            .detail-item .value {
-                text-align: left;
-                max-width: 100%;
-                font-size: 0.9rem;
-            }
-
-            .detail-item .label {
-                font-size: 0.8rem;
-                min-width: auto;
-            }
-
-            .ticket-actions {
-                flex-direction: column;
-                gap: 8px;
-                padding: 15px;
-            }
-
-            .ticket-btn {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .ticket-container {
-                margin-top: 70px !important;
-            }
-
-            .ticket-col {
-                padding: 0 10px;
-            }
-
-            .ticket-card {
-                margin: 0 5px;
-            }
-
-            .ticket-header {
-                padding: 12px 10px;
-            }
-
-            .ticket-header h5 {
-                font-size: 1rem;
-            }
-
-            .ticket-header small {
-                font-size: 0.75rem;
-            }
-
-            .qr-section {
-                padding: 15px 10px;
-            }
-
-            .qr-container {
-                padding: 10px;
-            }
-
-            .ticket-details {
-                padding: 12px 10px;
-            }
-        }
-
-        @media print {
-
-            .ticket-actions,
-            .ticket-alert-success {
-                display: none !important;
-            }
-
-            .ticket-card {
-                box-shadow: none !important;
-                border: 2px solid #D4AF37 !important;
-                max-width: 100% !important;
-                margin: 0 !important;
-            }
-
-            .ticket-container {
-                margin-top: 0 !important;
-                padding-top: 0 !important;
-            }
-
-            body {
-                background-color: white !important;
-            }
-
-            .ticket-page {
-                background-color: white !important;
-                padding: 0 !important;
-            }
-
-            .ticket-header {
-                background: #D4AF37 !important;
-                color: #1A1A1A !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .detail-item .label {
-                color: #D4AF37 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-
-
         html {
             scroll-padding-top: 80px;
         }
@@ -604,25 +297,6 @@
             }
         }
 
-        .image-container {
-            background: #1a1a1a;
-            border-radius: 1rem;
-            overflow: hidden;
-            height: 16rem;
-            border: 2px solid #d4af37;
-        }
-
-        .hotel-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .hotel-image:hover {
-            transform: scale(1.1);
-        }
-
         .timeline-speaker {
             font-family: 'Montserrat', serif;
             font-weight: 500;
@@ -634,12 +308,6 @@
             font-family: 'Montserrat', serif;
             font-weight: 700;
             letter-spacing: 0.8px;
-        }
-
-        /* Form elements dengan font luxury */
-        .form-luxury input,
-        .form-luxury textarea {
-            font-family: 'Montserrat', serif;
         }
 
         /* Mobile menu dengan font luxury */
@@ -680,7 +348,6 @@
             font-weight: 300;
         }
 
-        /* Sisanya tetap sama... */
         .hero-bg {
             background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(212, 175, 55, 0.2)),
                 url('<?php echo e(asset('images/ica1.jpg')); ?>');
@@ -992,35 +659,6 @@
 
         .nav-link:hover::after {
             width: 100%;
-        }
-
-        .form-luxury input,
-        .form-luxury textarea {
-            background: var(--dark-gray);
-            border: 1px solid var(--medium-gray);
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .form-luxury input:focus,
-        .form-luxury textarea:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-        }
-
-        .footer-luxury {
-            background: linear-gradient(to top, var(--dark-gray), var(--black));
-            border-top: 1px solid var(--medium-gray);
-        }
-
-        @keyframes catWalk {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 50px 50px;
-            }
         }
 
         .speaker-image-container {
@@ -1631,6 +1269,20 @@
             z-index: 0;
         }
 
+        /* CSS tambahan */
+        #location.paw::before {
+            top: 50px;
+            /* Turunkan 50px dari atas */
+            bottom: -50px;
+            /* Perpanjang ke bawah */
+        }
+
+        /* Atau lebih spesifik dengan background-position */
+        #location.paw::before {
+            background-position: 0 50px;
+            /* horizontal 0, vertical 50px */
+        }
+
         @keyframes movePaw {
             0% {
                 background-position: 0 0;
@@ -1804,7 +1456,7 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.querySelector('.mobile-menu');
             const menuIcon = this.querySelector('i');
 
@@ -1824,7 +1476,7 @@
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 const mobileMenu = document.querySelector('.mobile-menu');
                 const menuButton = document.querySelector('.mobile-menu-button');
                 const menuIcon = menuButton.querySelector('i');
@@ -1838,7 +1490,7 @@
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1851,7 +1503,7 @@
         });
 
         // Schedule Tab Functionality - SINGLE VERSION
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.schedule-tab');
             const days = document.querySelectorAll('.schedule-day');
 
@@ -1873,7 +1525,7 @@
 
             // Add click event to all tabs
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     const targetDay = this.getAttribute('data-day');
                     switchTab(targetDay);
                 });
@@ -1881,7 +1533,7 @@
 
             // FAQ Accordion Functionality
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function () {
                     const faqItem = this.parentElement;
                     faqItem.classList.toggle('active');
                 });
@@ -1890,5 +1542,4 @@
     </script>
 </body>
 
-</html>
-<?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/layouts/app.blade.php ENDPATH**/ ?>

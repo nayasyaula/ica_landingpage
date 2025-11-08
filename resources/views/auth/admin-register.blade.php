@@ -134,10 +134,9 @@
                 <span class="text-muted-light">
                     Sudah punya akun? 
                     <a href="{{ route('login') }}" class="auth-link">
-                        Login di sini
+                    Login di sini
                     </a>
                 </span>
-                <span class="auth-divider">•</span>
                 <a href="{{ route('home') }}" class="auth-link">
                     <i class="fas fa-home me-1"></i>Kembali ke Home
                 </a>
