@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 // ===== PUBLIC ROUTES =====
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
 
-// Registration Routes
 Route::prefix('registrations')->name('registrations.')->group(function () {
     Route::get('/{event}/create', [RegistrationController::class, 'create'])->name('create');
     Route::post('/{event}', [RegistrationController::class, 'store'])->name('store');
@@ -19,35 +18,19 @@ Route::prefix('registrations')->name('registrations.')->group(function () {
         ->name('download-qrcode');
 });
 
-// QR Code Public Access
 Route::get('/qrcode/{qrCode}', [RegistrationController::class, 'showQRCode'])
     ->name('qrcode.show')
-    ->middleware('signed'); // Add signed middleware for security
+    ->middleware('signed');
 
 // ===== AUTH ROUTES =====
 Route::middleware('guest:admin')->group(function () {
-    // Login
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
     
-    // Registration
     Route::get('/register', [AdminAuthController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [AdminAuthController::class, 'register'])->name('register.submit');
-    
-    // Password Reset
-    Route::prefix('password')->name('admin.password.')->group(function () {
-        Route::get('/forgot', [AdminAuthController::class, 'showForgotPasswordForm'])
-            ->name('request');
-        Route::post('/forgot', [AdminAuthController::class, 'sendResetLink'])
-            ->name('email');
-        Route::get('/reset/{token}', [AdminAuthController::class, 'showResetForm'])
-            ->name('reset');
-        Route::post('/reset', [AdminAuthController::class, 'reset'])
-            ->name('update');
-    });
 });
 
-// Logout - should be protected
 Route::post('/logout', [AdminAuthController::class, 'logout'])
     ->middleware('auth:admin')
     ->name('admin.logout');

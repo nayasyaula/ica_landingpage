@@ -94,10 +94,6 @@
 
             <!-- Links Section -->
             <div class="auth-links">
-                <a href="{{ route('admin.password.request') }}" class="auth-link">
-                    <i class="fas fa-question-circle me-1"></i>Lupa Password?
-                </a>
-                <span class="auth-divider">•</span>
                 <a href="{{ route('home') }}" class="auth-link">
                     <i class="fas fa-home me-1"></i>Kembali ke Home
                 </a>

@@ -56,6 +56,39 @@
             color: #d4af37;
         }
 
+        .event-details {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #d4af37;
+        }
+
+        .event-details h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+
+        .detail-label {
+            min-width: 80px;
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .detail-value {
+            flex: 1;
+            color: #ffffff;
+            font-size: 0.95rem;
+        }
+
         .qr-section {
             text-align: center;
             padding: 25px;
@@ -111,6 +144,14 @@
             .header h1 {
                 font-size: 1.6rem;
             }
+            
+            .detail-item {
+                flex-direction: column;
+            }
+            
+            .detail-label {
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -134,6 +175,23 @@
                 Kami sangat menantikan kehadiran Anda dalam acara ini!
             </p>
 
+            <!-- Event Details Section -->
+            <div class="event-details">
+                <h3>📅 Detail Acara</h3>
+                <div class="detail-item">
+                    <div class="detail-label">Nama:</div>
+                    <div class="detail-value">{{ $registration->name }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Tanggal:</div>
+                    <div class="detail-value">28 - 30 November 2025</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Lokasi:</div>
+                    <div class="detail-value">{{ $registration->event->location }}</div>
+                </div>
+            </div>
+
             <!-- QR Code Section -->
             <div class="qr-section">
                 <div class="qr-title">QR Code Check-in</div>
@@ -141,11 +199,22 @@
                 <p style="color: #ccc; margin-bottom: 15px;">
                     Tunjukkan QR code ini saat check-in di lokasi acara
                 </p>
-                <img src="cid:qrcode.png" alt="QR Code" width="220">
+                
+                <!-- QR Code dengan background putih -->
+                <div class="qr-code-container">
+                    <img src="cid:qrcode.png" alt="QR Code" width="220" class="qr-code-image">
+                </div>
+                
                 <p style="color: #ccc; font-size: 0.9rem; margin-top: 10px;">
                     Scan QR code di atas untuk check-in
                 </p>
             </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Indonesian Cat Association 2025</p>
+            <p style="margin-top: 10px;">© 2025 Indonesian Cat Association. All rights reserved.</p>
         </div>
     </div>
 </body>

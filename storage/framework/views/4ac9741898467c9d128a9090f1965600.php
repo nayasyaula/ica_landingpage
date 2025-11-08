@@ -617,6 +617,31 @@
                                 <span id="scanner-status-text">Scanner siap - Gunakan scanner atau ketik manual</span>
                             </div>
 
+                            <!-- Tab Scan QR Code -->
+                            <div id="scan-tab" class="tab-content active">
+                                <!-- Pesan Izin Kamera -->
+                                <div id="camera-permission" class="alert alert-info mb-4">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Izinkan akses kamera untuk menggunakan scanner QR Code
+                                </div>
+
+                                <!-- Area Scanner -->
+                                <div id="scanner-container" class="mb-4" style="display: none;">
+                                    <div id="reader">
+                                        <div class="scan-line"></div>
+                                    </div>
+                                    <button id="stop-scanner" class="btn btn-admin-secondary mt-3"
+                                        style="display: none;">
+                                        <i class="fas fa-stop me-2"></i>Stop Scanner
+                                    </button>
+                                </div>
+
+                                <!-- Tombol Mulai Scanner -->
+                                <button id="start-scanner" class="btn btn-admin-primary mb-4">
+                                    <i class="fas fa-camera me-2"></i>Mulai Scanner Kamera
+                                </button>
+                            </div>
+
                             <!-- Scanner Input Area -->
                             <div class="text-center mb-4">
                                 <div class="form-group">
@@ -697,6 +722,7 @@
     </main>
 
     <script>
+        // Global Variables
         let lastKeyTime = 0;
         let scannerBuffer = '';
         let totalScans = 0;
@@ -704,16 +730,66 @@
         let failedScans = 0;
         let lastScanData = null;
         let isManualInput = false;
+        let scannerActive = false;
+        let videoStream = null;
+        let scanAnimationFrame = null;
 
-        // ✅ FUNCTION VALIDASI FORMAT ICA
-        function validateICAQrFormat(qrData) {
-            // Format ICA: ICA-XXX-XXXX (case insensitive)
-            const icaPattern = /^ICA-[A-Z0-9]{3}-[A-Z0-9]{4,}$/i;
-            return icaPattern.test(qrData.trim());
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScanner();
+            initializeEventListeners();
+            showScannerStatus('Scanner siap - Gunakan hardware scanner atau input manual', 'info');
+        });
+
+        // Initialize Scanner Functionality
+        function initializeScanner() {
+            const scannerInput = document.getElementById('scanner-input');
+            if (scannerInput) {
+                scannerInput.focus();
+                
+                // Click to focus
+                scannerInput.addEventListener('click', function() {
+                    this.focus();
+                });
+            }
         }
 
-        // ✅ HARDWARE SCANNER DETECTION (ScanLogic CS-700)
-        document.addEventListener('keydown', function(event) {
+        // Initialize Event Listeners
+        function initializeEventListeners() {
+            // Camera Scanner Controls
+            document.getElementById('start-scanner').addEventListener('click', startCameraScanner);
+            document.getElementById('start-scanner').addEventListener('touchend', startCameraScanner);
+            document.getElementById('stop-scanner').addEventListener('click', stopCameraScanner);
+            document.getElementById('stop-scanner').addEventListener('touchend', stopCameraScanner);
+
+            // Manual Verification
+            document.getElementById('verify-btn').addEventListener('click', handleManualVerification);
+            
+            // Enter key support for manual input
+            document.getElementById('scanner-input').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    handleManualVerification();
+                }
+            });
+
+            // Hardware Scanner Detection
+            document.addEventListener('keydown', handleHardwareScanner);
+
+            // Page Visibility Changes
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden && scannerActive) {
+                    stopCameraScanner();
+                }
+            });
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', stopCameraScanner);
+            window.addEventListener('pagehide', stopCameraScanner);
+        }
+
+        // Hardware Scanner Detection
+        function handleHardwareScanner(event) {
             const scannerInput = document.getElementById('scanner-input');
             const now = Date.now();
             const timeSinceLastKey = now - lastKeyTime;
@@ -767,10 +843,10 @@
                     isManualInput = true;
                 }
             }
-        });
+        }
 
-        // Manual Verify Button
-        document.getElementById('verify-btn').addEventListener('click', function() {
+        // Manual Verification Handler
+        function handleManualVerification() {
             const scannerInput = document.getElementById('scanner-input');
             const qrData = scannerInput.value.trim();
 
@@ -780,33 +856,9 @@
                 return;
             }
 
-            // Untuk input manual, langsung ambil dari value input, bukan dari buffer
+            // Untuk input manual, langsung ambil dari value input
             processQRCode(qrData, 'manual');
-        });
-
-        // Enter key support untuk input manual
-        document.getElementById('scanner-input').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                // Untuk Enter, gunakan value dari input field langsung
-                const qrData = this.value.trim();
-
-                if (!qrData) {
-                    showErrorResult('Silakan masukkan atau scan kode QR terlebih dahulu');
-                    this.focus();
-                    return;
-                }
-
-                // Jika ada data di buffer, kemungkinan hardware scanner
-                if (scannerBuffer.length > 0 && !isManualInput) {
-                    // Biarkan event keydown yang handle hardware scanner
-                    return;
-                }
-
-                // Jika manual input, proses langsung
-                processQRCode(qrData, 'manual');
-            }
-        });
+        }
 
         // Process QR Code
         function processQRCode(qrData, source) {
@@ -826,48 +878,160 @@
             verifyQRCode(normalizedQrCode, source);
         }
 
-        // Auto-focus ke input scanner
-        document.addEventListener('DOMContentLoaded', function() {
-            const scannerInput = document.getElementById('scanner-input');
-            if (scannerInput) {
-                scannerInput.focus();
+        // Camera Scanner Functions
+        async function startCameraScanner() {
+            console.log('Starting camera scanner...');
 
-                // Click to focus
-                scannerInput.addEventListener('click', function() {
-                    this.focus();
+            const container = document.getElementById('scanner-container');
+            const startBtn = document.getElementById('start-scanner');
+            const stopBtn = document.getElementById('stop-scanner');
+            const permissionMsg = document.getElementById('camera-permission');
+
+            // Show loading state
+            startBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Membuka Kamera...';
+            startBtn.disabled = true;
+
+            try {
+                permissionMsg.style.display = 'none';
+
+                // Konfigurasi kamera untuk mobile
+                const constraints = {
+                    video: {
+                        facingMode: "environment",
+                        width: { min: 320, ideal: 1280, max: 1920 },
+                        height: { min: 240, ideal: 720, max: 1080 },
+                        aspectRatio: { ideal: 4 / 3 }
+                    },
+                    audio: false
+                };
+
+                videoStream = await navigator.mediaDevices.getUserMedia(constraints);
+                console.log('Camera access granted');
+
+                const video = document.createElement('video');
+                video.srcObject = videoStream;
+                video.setAttribute("playsinline", true); // Critical for iOS
+                video.setAttribute("autoplay", true);
+                video.setAttribute("muted", true);
+                video.style.width = "100%";
+                video.style.height = "100%";
+                video.style.objectFit = "cover";
+
+                const reader = document.getElementById('reader');
+                reader.innerHTML = '<div class="scan-line"></div>';
+                reader.appendChild(video);
+
+                // Tunggu video ready
+                await new Promise((resolve) => {
+                    video.addEventListener('loadeddata', resolve, { once: true });
                 });
+
+                // Play video
+                await video.play();
+
+                // Update UI
+                startBtn.style.display = 'none';
+                container.style.display = 'block';
+                stopBtn.style.display = 'block';
+                startBtn.disabled = false;
+                startBtn.innerHTML = '<i class="fas fa-camera me-2"></i>Mulai Scanner Kamera';
+
+                // Start QR scanning
+                startQRScanning(video);
+
+            } catch (err) {
+                console.error("Camera error:", err);
+                handleCameraError(err);
+                startBtn.disabled = false;
+                startBtn.innerHTML = '<i class="fas fa-camera me-2"></i>Mulai Scanner Kamera';
             }
-        });
-
-        // Update statistics
-        function updateStats() {
-            document.getElementById('total-scans').textContent = totalScans;
-            document.getElementById('successful-scans').textContent = successfulScans;
-            document.getElementById('failed-scans').textContent = failedScans;
         }
 
-        // Scanner Status Functions
-        function showScannerStatus(message, type = 'info') {
-            const statusEl = document.getElementById('scanner-status');
-            const statusText = document.getElementById('scanner-status-text');
+        function startQRScanning(video) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            scannerActive = true;
 
-            if (!statusEl) return;
+            function scanFrame() {
+                if (!scannerActive) return;
 
-            statusText.innerHTML = message;
-            statusEl.className = 'alert alert-' + type + ' mb-4 scanner-status-pulse';
-            statusEl.style.display = 'block';
+                try {
+                    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                        if (code) {
+                            console.log('QR Code detected:', code.data);
+                            verifyQRCode(code.data);
+                            stopCameraScanner();
+                            return;
+                        }
+                    }
+
+                    scanAnimationFrame = requestAnimationFrame(scanFrame);
+                } catch (error) {
+                    console.error('Scanning error:', error);
+                    scanAnimationFrame = requestAnimationFrame(scanFrame);
+                }
+            }
+
+            scanAnimationFrame = requestAnimationFrame(scanFrame);
         }
 
-        function showErrorResult(message) {
-            document.getElementById('error-message').innerHTML = message;
-            document.getElementById('success-result').style.display = 'none';
-            document.getElementById('error-result').style.display = 'block';
-            document.getElementById('result-container').style.display = 'block';
+        function stopCameraScanner() {
+            console.log('Stopping camera scanner...');
+            scannerActive = false;
 
-            document.getElementById('scanner-input').value = '';
-            document.getElementById('scanner-input').focus();
+            if (scanAnimationFrame) {
+                cancelAnimationFrame(scanAnimationFrame);
+                scanAnimationFrame = null;
+            }
+
+            if (videoStream) {
+                videoStream.getTracks().forEach(track => {
+                    track.stop();
+                });
+                videoStream = null;
+            }
+
+            document.getElementById('scanner-container').style.display = 'none';
+            document.getElementById('stop-scanner').style.display = 'none';
+            document.getElementById('start-scanner').style.display = 'block';
+            document.getElementById('camera-permission').style.display = 'block';
         }
 
+        function handleCameraError(err) {
+            let errorMessage = "Tidak dapat mengakses kamera: ";
+
+            if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+                errorMessage = "Izin kamera ditolak. Silakan: \n\n1. Izinkan akses kamera di browser Anda\n2. Pastikan website menggunakan HTTPS\n3. Refresh halaman dan coba lagi";
+            } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+                errorMessage = "Kamera tidak ditemukan. Pastikan perangkat memiliki kamera belakang.";
+            } else if (err.name === 'NotSupportedError') {
+                errorMessage = "Browser tidak mendukung akses kamera. Gunakan Chrome, Firefox, atau Safari versi terbaru.";
+            } else if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
+                errorMessage = "Kamera sedang digunakan oleh aplikasi lain. Tutup aplikasi lain yang menggunakan kamera.";
+            } else if (err.name === 'OverconstrainedError') {
+                errorMessage = "Kamera tidak mendukung mode yang diminta. Coba gunakan browser lain.";
+            } else {
+                errorMessage += err.message;
+            }
+
+            showErrorResult(errorMessage);
+        }
+
+        // QR Code Validation
+        function validateICAQrFormat(qrData) {
+            // Format ICA: ICA-XXX-XXXX (case insensitive)
+            const icaPattern = /^ICA-[A-Z0-9]{3}-[A-Z0-9]{4,}$/i;
+            return icaPattern.test(qrData.trim());
+        }
+
+        // QR Code Verification
         function verifyQRCode(qrData, source = 'hardware') {
             if (!qrData || qrData.trim() === '') {
                 showErrorResult('QR Code tidak valid atau kosong');
@@ -884,10 +1048,10 @@
                 return;
             }
 
-            // ✅ PERBAIKAN: Tampilkan loading state yang BENAR (bukan error)
+            // ✅ PERBAIKAN: Tampilkan loading state yang BENAR
             document.getElementById('result-container').style.display = 'block';
             document.getElementById('success-result').style.display = 'none';
-            document.getElementById('error-result').style.display = 'none'; // Sembunyikan keduanya dulu
+            document.getElementById('error-result').style.display = 'none';
 
             // Tampilkan status loading di scanner status
             showScannerStatus('⏳ Memverifikasi QR Code...', 'info');
@@ -964,7 +1128,7 @@
                 });
         }
 
-        // ✅ PERBAIKAN: Fungsi showSuccessResult TANPA auto-hide
+        // Result Display Functions
         function showSuccessResult(data, message) {
             if (!data) {
                 data = {};
@@ -999,13 +1163,59 @@
             document.getElementById('scanner-input').focus();
         }
 
-        // Initial scanner status
-        showScannerStatus('Scanner siap - Gunakan hardware scanner atau input manual', 'info');
+        function showErrorResult(message) {
+            // Remove existing restart button
+            const existingBtn = document.querySelector('.restart-scanner-btn');
+            if (existingBtn) {
+                existingBtn.remove();
+            }
 
-        // Focus management
-        document.addEventListener('click', function() {
+            document.getElementById('error-message').innerHTML = message;
+            document.getElementById('success-result').style.display = 'none';
+            document.getElementById('error-result').style.display = 'block';
+            document.getElementById('result-container').style.display = 'block';
+
+            document.getElementById('scanner-input').value = '';
             document.getElementById('scanner-input').focus();
-        });
+
+            // Add restart button untuk error
+            const errorResult = document.getElementById('error-result');
+            const restartBtn = document.createElement('button');
+            restartBtn.className = 'btn btn-admin-primary mt-3 restart-scanner-btn';
+            restartBtn.innerHTML = '<i class="fas fa-redo me-2"></i>Coba Lagi';
+            restartBtn.onclick = function () {
+                document.getElementById('result-container').style.display = 'none';
+                if (document.getElementById('scan-tab').classList.contains('active')) {
+                    startCameraScanner();
+                }
+            };
+            errorResult.appendChild(restartBtn);
+
+            // Auto hide error setelah 8 detik
+            setTimeout(() => {
+                if (document.getElementById('result-container').style.display !== 'none') {
+                    document.getElementById('result-container').style.display = 'none';
+                }
+            }, 8000);
+        }
+
+        // Utility Functions
+        function updateStats() {
+            document.getElementById('total-scans').textContent = totalScans;
+            document.getElementById('successful-scans').textContent = successfulScans;
+            document.getElementById('failed-scans').textContent = failedScans;
+        }
+
+        function showScannerStatus(message, type = 'info') {
+            const statusEl = document.getElementById('scanner-status');
+            const statusText = document.getElementById('scanner-status-text');
+
+            if (!statusEl) return;
+
+            statusText.innerHTML = message;
+            statusEl.className = 'alert alert-' + type + ' mb-4 scanner-status-pulse';
+            statusEl.style.display = 'block';
+        }
     </script>
 </body>
 

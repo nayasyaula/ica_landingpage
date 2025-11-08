@@ -163,10 +163,9 @@ unset($__errorArgs, $__bag); ?>
                 <span class="text-muted-light">
                     Sudah punya akun? 
                     <a href="<?php echo e(route('login')); ?>" class="auth-link">
-                        Login di sini
+                    Login di sini
                     </a>
                 </span>
-                <span class="auth-divider">•</span>
                 <a href="<?php echo e(route('home')); ?>" class="auth-link">
                     <i class="fas fa-home me-1"></i>Kembali ke Home
                 </a>
