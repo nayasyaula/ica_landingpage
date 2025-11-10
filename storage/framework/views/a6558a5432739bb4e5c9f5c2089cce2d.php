@@ -702,7 +702,6 @@
                                                 <th>Tanggal Daftar</th>
                                                 <th>Status Check-in</th>
                                                 <th>Di-scan Oleh</th>
-                                                <th>Waktu Scan</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -719,7 +718,9 @@
 
                                                     </td>
                                                     <td class="register-date">
-                                                        <?php echo e($registration->created_at->format('d M Y')); ?></td>
+                                                        <?php echo e($registration->created_at->format('d M Y')); ?>
+
+                                                    </td>
                                                     <td>
                                                         <?php if($registration->is_checked_in): ?>
                                                             <span class="badge bg-success">✓ Hadir</span>
@@ -728,17 +729,9 @@
                                                         <?php endif; ?>
                                                     </td>
                                                     <td class="scanner-info">
-                                                        <?php if($registration->scanner_name): ?>
+                                                        <?php if($registration->checked_in_by): ?>
                                                             <span
-                                                                class="text-gold"><?php echo e($registration->scanner_name); ?></span>
-                                                        <?php else: ?>
-                                                            <span class="text-muted">-</span>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td class="scan-time">
-                                                        <?php if($registration->scanned_at): ?>
-                                                            <small
-                                                                class="text-muted"><?php echo e($registration->scanned_at->format('d M Y H:i')); ?></small>
+                                                                class="text-gold"><?php echo e($registration->checked_in_by); ?></span>
                                                         <?php else: ?>
                                                             <span class="text-muted">-</span>
                                                         <?php endif; ?>
@@ -752,8 +745,8 @@
                                                             data-email="<?php echo e($registration->email); ?>"
                                                             data-event="<?php echo e($registration->event->name ?? 'N/A'); ?>"
                                                             data-qr="<?php echo e($registration->qr_code); ?>"
-                                                            data-scanner="<?php echo e($registration->scanner_name ?? 'Belum di-scan'); ?>"
-                                                            data-scanned-at="<?php echo e($registration->scanned_at ? $registration->scanned_at->format('d M Y H:i') : 'Belum di-scan'); ?>"
+                                                            data-scanner="<?php echo e($registration->checked_in_by ?? 'Belum di-scan'); ?>"
+                                                            data-scanned-at="<?php echo e($registration->checked_in_at ? \Carbon\Carbon::parse($registration->checked_in_at)->format('d M Y H:i') : 'Belum di-scan'); ?>"
                                                             data-checked-in="<?php echo e($registration->is_checked_in ? 'Ya' : 'Tidak'); ?>">
                                                             <i class="fas fa-eye me-1"></i>View
                                                         </button>
@@ -772,9 +765,9 @@
                     <div class="col-12 col-lg-8">
                         <div class="admin-table-card">
                             <div class="card-body-luxury text-center py-5">
-                                <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
-                                <h5 class="text-muted">Belum ada data pendaftaran</h5>
-                                <p class="text-muted">Data pendaftaran akan muncul di sini</p>
+                                <i class="fas fa-inbox fa-3x text-white mb-3"></i>
+                                <h5 class="text-white">Belum ada data pendaftaran</h5>
+                                <p class="text-white">Data pendaftaran akan muncul di sini</p>
                             </div>
                         </div>
                     </div>

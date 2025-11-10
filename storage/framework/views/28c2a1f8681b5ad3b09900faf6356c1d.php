@@ -42,7 +42,8 @@
                                 </div>
 
                                 <?php if($errors->any()): ?>
-                                    <div class="mb-4 bg-red-900 border border-red-700 text-red-100 px-4 py-3 rounded-lg text-sm">
+                                    <div
+                                        class="mb-4 bg-red-900 border border-red-700 text-red-100 px-4 py-3 rounded-lg text-sm">
                                         <div class="flex items-center mb-1">
                                             <i class="fas fa-exclamation-circle text-red-300 mr-2 text-lg"></i>
                                             <span class="font-semibold">Harap perbaiki kesalahan berikut:</span>
@@ -60,8 +61,8 @@
 
                                     <!-- Name -->
                                     <div class="form-group">
-                                        <label for="name"
-                                            class="form-label luxury-heading text-white mb-1 block text-sm">Nama</label>
+                                        <label for="name" class="form-label luxury-heading text-white mb-1 block"
+                                            style="font-size: 0.95rem;">Nama</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 text-sm"></i>
@@ -83,8 +84,8 @@ unset($__errorArgs, $__bag); ?>
 
                                     <!-- Email -->
                                     <div class="form-group">
-                                        <label for="email"
-                                            class="form-label luxury-heading text-white mb-1 block text-sm">Email</label>
+                                        <label for="email" class="form-label luxury-heading text-white mb-1 block"
+                                            style="font-size: 0.95rem;">Email</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 text-sm"></i>
@@ -106,7 +107,8 @@ unset($__errorArgs, $__bag); ?>
 
                                     <!-- Phone -->
                                     <div class="form-group">
-                                        <label for="phone" class="form-label luxury-heading text-white mb-1 block text-sm">Nomor
+                                        <label for="phone" class="form-label luxury-heading text-white mb-1 block"
+                                            style="font-size: 0.95rem;">Nomor
                                             Handphone</label>
                                         <div class="relative">
                                             <i
@@ -129,7 +131,8 @@ unset($__errorArgs, $__bag); ?>
 
                                     <!-- Custom Dropdown -->
                                     <div class="form-group">
-                                        <label class="form-label luxury-heading text-white mb-1 block text-sm">Jabatan /
+                                        <label class="form-label luxury-heading text-white mb-1 block"
+                                            style="font-size: 0.95rem;">Jabatan /
                                             Posisi</label>
                                         <div class="custom-select">
                                             <div class="select-selected text-sm">Pilih Jabatan/Posisi</div>
@@ -161,8 +164,9 @@ unset($__errorArgs, $__bag); ?>
 
                                     <!-- Lainnya -->
                                     <div class="form-group" id="otherPositionField" style="display: none;">
-                                        <label for="other_position"
-                                            class="form-label luxury-heading text-white mb-1 block text-sm">Jabatan Lainnya</label>
+                                        <label for="other_position" class="form-label luxury-heading text-white mb-1 block"
+                                            style="font-size: 0.95rem;">Jabatan
+                                            Lainnya</label>
                                         <div class="relative">
                                             <i
                                                 class="fas fa-edit absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 text-sm"></i>
@@ -256,7 +260,7 @@ unset($__errorArgs, $__bag); ?>
                     otherPositionInput.setAttribute('required', 'required');
                 }
             <?php endif; ?>
-    });
+            });
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app-registration', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/registrations/create.blade.php ENDPATH**/ ?>
