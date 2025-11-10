@@ -38,6 +38,10 @@
                                     <span class="value">28 - 30 November 2025</span>
                                 </div>
                                 <div class="detail-item">
+                                    <span class="label">Lokasi</span>
+                                    <span class="value">HARRIS Hotel & Residence Riverview Kuta Bali</span>
+                                </div>
+                                <div class="detail-item">
                                     <span class="label">Nama Peserta</span>
                                     <span class="value"><?php echo e($registration->name); ?></span>
                                 </div>
@@ -48,13 +52,12 @@
                             </div>
                         </div>
 
-                        <!-- Actions (Separate from download content) -->
                         <div class="ticket-actions" id="ticket-actions">
                             <a href="<?php echo e(route('home')); ?>" class="btn btn-sm btn-outline-primary ticket-btn">
                                 <i class="fas fa-arrow-left mr-1"></i> Kembali
                             </a>
-                            <button onclick="downloadTicketAsImage()" class="btn btn-sm btn-success ticket-btn">
-                                <i class="fas fa-download me-2"></i> Download Tiket
+                            <button onclick="downloadQRCodeOnly()" class="btn btn-sm btn-gold ticket-btn">
+                                <i class="fas fa-qrcode me-2"></i> Download QR
                             </button>
                         </div>
                     </div>
@@ -71,113 +74,62 @@
     </div>
 
     <script>
-        // Fungsi Download Ticket sebagai Gambar PNG
-        function downloadTicketAsImage() {
-            const ticketElement = document.getElementById('ticket-content');
-            const loadingOverlay = document.getElementById('loadingOverlay');
+        // Simple QR Code only download
+        function downloadQRCodeOnly() {
+            const qrImage = document.querySelector('.qr-section img');
+            if (qrImage) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
 
-            // Tampilkan loading
-            loadingOverlay.style.display = 'flex';
+                // Canvas size disesuaikan
+                canvas.width = 400;
+                canvas.height = 450;
 
-            // Opsi html2canvas untuk hasil terbaik
-            const options = {
-                scale: 3, // Scale tinggi untuk kualitas lebih baik
-                useCORS: true,
-                logging: false,
-                backgroundColor: '#ffffff',
-                width: ticketElement.scrollWidth,
-                height: ticketElement.scrollHeight,
-                scrollX: 0,
-                scrollY: 0,
-                onclone: function(clonedDoc) {
-                    // Pastikan semua elemen terlihat dengan baik di clone
-                    const clonedElement = clonedDoc.getElementById('ticket-content');
-                    clonedElement.style.width = '100%';
-                    clonedElement.style.backgroundColor = '#ffffff';
-                    
-                    // Ubah warna QR code menjadi hitam
-                    const qrImages = clonedElement.getElementsByTagName('img');
-                    const qrSvg = clonedElement.querySelector('svg');
-                    
-                    // Untuk gambar QR code
-                    for (let img of qrImages) {
-                        img.style.filter = 'brightness(0) saturate(100%)'; // Membuat gambar menjadi hitam
-                        img.style.backgroundColor = '#ffffff';
-                        img.style.border = '1px solid #f0f0f0';
-                    }
-                    
-                    // Untuk SVG QR code (jika menggunakan SVG)
-                    if (qrSvg) {
-                        const paths = qrSvg.querySelectorAll('path');
-                        paths.forEach(path => {
-                            path.style.fill = '#000000'; // Ubah warna path menjadi hitam
-                        });
-                        qrSvg.style.backgroundColor = '#ffffff';
-                    }
-                }
-            };
+                // Background putih
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            html2canvas(ticketElement, options)
-                .then(canvas => {
-                    // Konversi canvas ke blob dengan kualitas tinggi
-                    canvas.toBlob(function(blob) {
-                        // Buat URL untuk blob
+                const img = new Image();
+                img.crossOrigin = 'Anonymous';
+                img.onload = function () {
+                    // Teks di ATAS QR code
+                    ctx.fillStyle = '#000000';
+                    ctx.textAlign = 'center';
+
+                    // Judul di atas
+                    ctx.font = 'bold 18px Arial';
+                    ctx.fillText('QR EVENT ICA', canvas.width / 2, 30);
+
+                    // Tanggal
+                    ctx.font = '14px Arial';
+                    ctx.fillText('28 - 30 November 2025', canvas.width / 2, 55);
+
+                    // Tempat
+                    ctx.font = '12px Arial';
+                    ctx.fillText('HARRIS Hotel & Residence Riverview Kuta Bali', canvas.width / 2, 75);
+
+                    // Draw QR code di bawah teks
+                    ctx.drawImage(img, 75, 90, 250, 250);
+
+                    canvas.toBlob(function (blob) {
                         const url = URL.createObjectURL(blob);
-                        
-                        // Buat elemen link untuk download
                         const link = document.createElement('a');
-                        link.download = `E-Ticket-<?php echo e($registration->qr_code); ?>.png`;
+                        link.download = `QRCode-<?php echo e($registration->qr_code); ?>.png`;
                         link.href = url;
-                        
-                        // Trigger download
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
-                        
-                        // Bersihkan URL
                         URL.revokeObjectURL(url);
-                        
-                        // Sembunyikan loading
-                        loadingOverlay.style.display = 'none';
-                    }, 'image/png', 1.0); // Kualitas 100%
-                })
-                .catch(error => {
-                    console.error('Error generating image:', error);
-                    alert('Terjadi kesalahan saat mengunduh tiket.');
-                    loadingOverlay.style.display = 'none';
-                });
-        }
-
-        // Fallback jika html2canvas belum dimuat
-        function ensureHtml2Canvas() {
-            if (typeof html2canvas === 'undefined') {
-                console.log('Loading html2canvas...');
-                const script = document.createElement('script');
-                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-                script.onload = function() {
-                    console.log('html2canvas loaded successfully');
+                    }, 'image/png', 1.0);
                 };
-                script.onerror = function() {
-                    alert('Gagal memuat library yang diperlukan. Silakan refresh halaman.');
+                img.onerror = function () {
+                    alert('Gagal memuat QR code');
                 };
-                document.head.appendChild(script);
-                return false;
+                img.src = qrImage.src;
+            } else {
+                alert('QR Code tidak ditemukan');
             }
-            return true;
         }
-
-        // Event listener untuk tombol download
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.querySelector('[onclick="downloadTicketAsImage()"]');
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function(e) {
-                    if (!ensureHtml2Canvas()) {
-                        e.preventDefault();
-                        alert('Sedang mempersiapkan library download... Silakan coba lagi dalam beberapa detik.');
-                    }
-                });
-            }
-        });
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app-registration', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/registrations/success.blade.php ENDPATH**/ ?>

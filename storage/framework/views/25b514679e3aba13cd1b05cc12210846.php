@@ -3,25 +3,31 @@
 <?php $__env->startSection('content'); ?>
     <!-- Home/Hero Section -->
     <section id="home" class="hero-bg pt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center w-full ">
+        <div class="max-w-7xl mx-auto px-4 text-center w-full">
             <div class="mb-8">
-                <span class="text-gold-400 uppercase tracking-widest text-3xl mb-4 inline-block">
+                <span class="text-gold-400 uppercase tracking-widest text-lg md:text-xl lg:text-2xl mb-4 inline-block">
                     GALA DINNER, EXPO & ICA AWARDS 2025
                 </span>
-                <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-                    <span class="text-white">Indonesian</span>
-                    <span class="gold-accent block">Cat Association</span>
-                </h1>
-                <p class="text-xl md:text-3xl mb-8 max-w-3xl mx-auto text-gold-200">
+
+                <!-- PERBAIKAN DI SINI -->
+                <div class="mb-6">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                        <div class="text-white">Indonesian</div>
+                        <div class="gold-accent">Cat Association</div>
+                    </h1>
+                </div>
+
+                <p class="text-xl md:text-2xl lg:text-3xl mb-8 max-w-3xl mx-auto text-gold-200">
                     Catropolitan Style
                 </p>
-                <div class="space-x-4 space-y-4 md:space-y-0">
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="#registration"
-                        class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block no-underline">
+                        class="btn-gold px-8 py-3 rounded-lg font-semibold text-base inline-block no-underline w-full sm:w-64 text-center whitespace-nowrap">
                         <i class="fas fa-clipboard-list mr-2"></i> Daftar Sekarang
                     </a>
                     <a href="#schedule"
-                        class="btn-gold px-8 py-4 rounded-lg font-semibold text-lg inline-block no-underline">
+                        class="btn-gold px-8 py-3 rounded-lg font-semibold text-base inline-block no-underline w-full sm:w-64 text-center whitespace-nowrap">
                         <i class="fas fa-clock mr-2"></i> Lihat Jadwal
                     </a>
                 </div>
@@ -39,7 +45,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="section-title text-4xl font-bold mb-6 text-white">Tentang ICA</h2>
+                    <h2 class="section-title text-3xl md:text-5xl font-bold mb-6 text-white">Tentang ICA</h2>
                     <p class="text-gray-300 mb-6 text-lg luxury-text">
                         Kucing bukan sekadar hewan peliharaan, melainkan bagian dari gaya hidup dan komunitas yang
                         berkembang
@@ -73,7 +79,7 @@
         <div class="container mx-auto px-4 mt-20">
             <!-- Header Section -->
             <div class="text-center mb-12">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 text-white">
+                <h2 class="section-title text-3xl md:text-5xl font-bold mb-4 text-white">
                     RANGKAIAN ACARA UTAMA
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto mb-6"></div>
@@ -201,7 +207,7 @@
     <section id="speakers" class="py-16 mt-20 paw">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center w-full mb-12">
-                <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Para Pembicara Visioner</h2>
+                <h2 class="section-title text-3xl md:text-5xl text-white mb-4">Para Pembicara Visioner</h2>
                 
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -263,7 +269,7 @@
     <section id="schedule" class="py-16 gold-pattern">
         <div class="max-w-3xl mx-auto px-4 mt-20">
             <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Jadwal Event</h2>
+                <h2 class="section-title text-3xl md:text-5xl text-white mb-4">Jadwal Event</h2>
                 <p class="text-xl text-center mb-12 max-w-2xl mx-auto text-gold-200 luxury-text">
                     Tiga hari seru untuk menambah pengetahuan tentang kucing, menjalin koneksi, dan merayakan komunitas
                     pecinta kucing.
@@ -424,7 +430,7 @@
     <section id="location" class="py-20 paw location-paw-adjust">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center w-full mb-12">
-                <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Lokasi Event</h2>
+                <h2 class="section-title text-3xl md:text-5xl text-white mb-4">Lokasi Event</h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 items-start relative"> <!-- Maps Section -->
@@ -487,7 +493,7 @@
     <section id="sponsors" class="py-16 gold-pattern section-padding">
         <div class="max-w-4xl mx-auto px-4 mt-20">
             <div class="text-center w-full">
-                <h2 class="section-title text-4xl font-bold mb-4 text-white">Para Sponsor</h2>
+                <h2 class="section-title text-3xl md:text-5xl font-bold mb-4 text-white">Para Sponsor</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gold-200 luxury-text">
                     Didukung dengan penuh semangat oleh para pemimpin industri dalam perawatan dan inovasi dunia kucing
                 </p>
@@ -607,7 +613,7 @@
     <section id="faq" class="py-20 gold-pattern paw">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center w-full">
-                <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Tanya Jawab</h2>
+                <h2 class="section-title text-3xl md:text-5xl text-white mb-4">Tanya Jawab</h2>
                 <p class="text-xl text-center mb-12 max-w-2xl mx-auto text-gold-200 luxury-text">
                     Informasi lengkap tentang acara ICA 2025
                 </p>
@@ -708,7 +714,7 @@
     <section id="registration" class="py-20 gold-pattern">
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
+                <h2 class="section-title text-3xl md:text-5xl text-white mb-4">Pendaftaran Acara</h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto luxury-text">
                     Segera daftarkan diri Anda dan jadilah bagian dari momen spesial ICA 2025
                 </p>
@@ -748,33 +754,36 @@
                             </div>
                         </div>
 
-                        <!-- Action Button dengan Cat Theme -->
-                        <div class="mt-auto text-center">
-                            <?php
-                                // Get the first event ID dynamically
-                                $eventId = isset($events) && $events->count() > 0 ? $events->first()->id : 1;
-                            ?>
+<div class="mt-auto text-center">
+    <?php
+        // Get the first event ID dynamically
+        $eventId = isset($events) && $events->count() > 0 ? $events->first()->id : 1;
+    ?>
 
-                            <a href="<?php echo e(route('registrations.create', $eventId)); ?>"
-                                class="btn-gold px-12 py-4 rounded-lg font-semibold text-xl inline-block transition-all duration-300 hover:shadow-lg group relative overflow-hidden no-underline">
-                                <!-- Animated Cat -->
-                                <div class="absolute -left-8 group-hover:left-4 transition-all duration-300">
-                                    <i class="fas fa-cat text-black text-lg"></i>
-                                </div>
-                                <i class="fas fa-clipboard-list mr-3"></i> Daftar Sekarang
-                                <div class="absolute -right-8 group-hover:right-4 transition-all duration-300">
-                                    <i class="fas fa-paw text-black text-lg"></i>
-                                </div>
-                            </a>
+    <div class="flex justify-center">
+        <a href="<?php echo e(route('registrations.create', $eventId)); ?>"
+            class="btn-gold py-4 rounded-lg font-semibold text-xl transition-all duration-300 hover:shadow-lg group relative overflow-hidden no-underline inline-flex items-center justify-center min-w-80 px-8">
+            <!-- Animated Cat -->
+            <div class="absolute -left-8 group-hover:left-4 transition-all duration-300">
+                <i class="fas fa-cat text-black text-lg"></i>
+            </div>
+            <i class="fas fa-clipboard-list mr-3"></i> 
+            <span class="whitespace-nowrap">Daftar Sekarang</span>
+            <div class="absolute -right-8 group-hover:right-4 transition-all duration-300">
+                <i class="fas fa-paw text-black text-lg"></i>
+            </div>
+        </a>
+    </div>
 
-                            <!-- Cat-themed Footer Text -->
-                            <div class="flex justify-center items-center space-x-2 mt-4">
-                                <i class="fas fa-paw text-gold-300 text-sm"></i>
-                                <p class="text-gold-300 luxury-text text-lg">
-                                    Jangan lewatkan acara ini!
-                                </p>
-                                <i class="fas fa-paw text-gold-300 text-sm"></i>
-                            </div>
+    <!-- Cat-themed Footer Text -->
+    <div class="flex justify-center items-center space-x-2 mt-4">
+        <i class="fas fa-paw text-gold-300 text-sm"></i>
+        <p class="text-gold-300 luxury-text text-lg">
+            Jangan lewatkan acara ini!
+        </p>
+        <i class="fas fa-paw text-gold-300 text-sm"></i>
+    </div>
+</div>
                         </div>
                     </div>
                 </div>

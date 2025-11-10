@@ -254,43 +254,130 @@ class RegistrationController extends Controller
     }
 
     // Manual Check-in (alternatif route untuk form submission)
-    public function verifyTicket(Request $request)
-    {
-        $request->validate(['qr_code' => 'required|string']);
+    public function verify(Request $request)
+{
+    $request->validate([
+        'qr_code' => 'required|string|max:20'
+    ]);
 
-        $qrCode = trim($request->qr_code);
+    $scannedCode = trim($request->qr_code);
 
-        $registration = Registration::with('event')
-            ->where('qr_code', $qrCode)
-            ->first();
+    Log::info('🔍 SCAN ATTEMPT', [
+        'qr_code' => $scannedCode,
+        'scanner_ip' => $request->ip(),
+        'timestamp' => now()
+    ]);
 
-        if (!$registration) {
-            return redirect()->back()->with('error', 'Kode tiket tidak ditemukan: ' . $qrCode);
-        }
+    $scanner = Auth::guard('admin')->user();
+    $scannerName = $scanner ? $scanner->name : 'System';
 
-        if ($registration->is_checked_in) {
-            return redirect()->route('admin.dashboard')
-                ->with('info', $registration->name . ' (' . $registration->position . ') sudah check-in pada: ' . $registration->checked_in_at->format('d/m/Y H:i') . ' oleh: ' . $registration->checked_in_by);
-        }
+    $registration = Registration::with('event')
+        ->where(function($query) use ($scannedCode) {
+            $query->where('barcode_number', $scannedCode) // Untuk scanner 13 digit
+                  ->orWhere('qr_code', $scannedCode);      // Untuk manual input ICA
+        })
+        ->first();
 
-        // ✅ GET ADMIN YANG SEDANG LOGIN
-        $scanner = Auth::guard('admin')->user();
-        $scannerName = $scanner ? $scanner->name : 'System';
+    if (!$registration) {
+        Log::warning('❌ SCAN FAILED - Code not found', ['qr_code' => $scannedCode]);
+        return response()->json([
+            'success' => false,
+            'message' => '❌ Kode tiket tidak ditemukan: ' . $scannedCode
+        ], 404);
+    }
 
-        // ✅ Tentukan metode check-in (MANUAL untuk method ini)
-        $checkinMethod = 'manual';
-        $checkedInBy = $scannerName . ' (Manual Input)';
+    // Cek event masih aktif
+    if (!$registration->event || !$registration->event->is_active) {
+        return response()->json([
+            'success' => false,
+            'message' => '❌ Event sudah berakhir atau tidak aktif.'
+        ]);
+    }
+
+    // Cek duplicate check-in
+    if ($registration->is_checked_in) {
+        $checkinTime = optional($registration->checked_in_at)->format('d/m/Y H:i:s') ?? 'Unknown';
+        $checkedInBy = $registration->checked_in_by ?? 'System';
+
+        Log::info('⚠ DUPLICATE SCAN', [
+            'qr_code' => $scannedCode,
+            'previous_checkin' => $checkinTime
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => "ℹ Peserta sudah check-in pada: {$checkinTime} oleh: {$checkedInBy}",
+            'registration' => $registration,
+            'is_duplicate' => true,
+            'data' => [
+                'kode' => $registration->qr_code,
+                'barcode' => $registration->barcode_number,
+                'nama' => $registration->name,
+                'email' => $registration->email,
+                'telepon' => $registration->phone,
+                'position' => $registration->position,
+                'event' => $registration->event->name,
+                'waktu_checkin' => $registration->checked_in_at->format('H:i:s'),
+                'checked_in_by' => $registration->checked_in_by,
+                'ticket_type' => $registration->ticket_type
+            ]
+        ]);
+    }
+
+    // Proses check-in
+    try {
+        $isBarcode = preg_match('/^\d{13}$/', $scannedCode);
+        $checkinMethod = $isBarcode ? 'qr_scanner' : 'manual_input';
+        $checkedInBy = $scannerName . ' (' . ($isBarcode ? 'QR Scanner' : 'Manual Input') . ')';
 
         $registration->update([
             'is_checked_in' => true,
             'checked_in_at' => now(),
             'checked_in_by' => $checkedInBy,
-            'checkin_method' => $checkinMethod,
+            'checkin_method' => $checkinMethod
         ]);
 
-        return redirect()->route('admin.dashboard')
-            ->with('success', 'Check-in berhasil untuk: ' . $registration->name . ' (' . $registration->position . ')');
+        Log::info('✅ CHECK-IN SUCCESS', [
+            'registration_id' => $registration->id,
+            'name' => $registration->name,
+            'event' => $registration->event->name,
+            'barcode_number' => $registration->barcode_number,
+            'qr_code' => $registration->qr_code,
+            'checked_by' => $checkedInBy,
+            'method' => $checkinMethod
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => '✅ Check-in berhasil!',
+            'registration' => $registration,
+            'data' => [
+                'kode' => $registration->qr_code,
+                'barcode' => $registration->barcode_number,
+                'nama' => $registration->name,
+                'email' => $registration->email,
+                'telepon' => $registration->phone,
+                'position' => $registration->position,
+                'event' => $registration->event->name,
+                'waktu_checkin' => now()->format('H:i:s'),
+                'checked_in_by' => $checkedInBy,
+                'ticket_type' => $registration->ticket_type,
+                'checkin_method' => $checkinMethod
+            ]
+        ]);
+    } catch (\Exception $e) {
+        Log::error('❌ CHECK-IN ERROR', [
+            'qr_code' => $scannedCode,
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ]);
+
+        return response()->json([
+            'success' => false,
+            'message' => '❌ Terjadi error saat check-in. Silakan coba lagi.'
+        ], 500);
     }
+}
 
 public function downloadQRCode(Registration $registration)
 {

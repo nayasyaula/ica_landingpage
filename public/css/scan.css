@@ -1,0 +1,108 @@
+/* scan.css */
+:root {
+    --gold: #D4AF37;
+    --dark-gold: #B8860B;
+    --light-gold: #F5E8C8;
+    --black: #0A0A0A;
+    --dark-gray: #1A1A1A;
+    --medium-gray: #2A2A2A;
+}
+
+body {
+    font-family: 'Montserrat', serif;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Admin Header */
+.admin-top-header {
+    background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+    border-bottom: 2px solid #D4AF37;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Scanner Input Focus Effect */
+.scanner-input-active {
+    border-color: #D4AF37 !important;
+    background: rgba(212, 175, 55, 0.1) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4) !important;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* Success Animation */
+@keyframes checkInSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.check-in-success {
+    animation: checkInSuccess 0.5s ease-in-out;
+}
+
+/* Scanner Status Pulse */
+@keyframes statusPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.scanner-status-pulse {
+    animation: statusPulse 2s infinite;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .admin-main-content {
+        margin-top: 70px;
+        padding: 15px 0;
+    }
+    
+    .admin-table-card {
+        margin: 0 10px;
+    }
+    
+    .stat-card {
+        margin-bottom: 10px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn-admin-primary {
+        border: 2px solid #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .scanner-status-pulse,
+    .check-in-success {
+        animation: none;
+    }
+}

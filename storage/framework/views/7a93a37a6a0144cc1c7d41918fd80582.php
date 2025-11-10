@@ -184,15 +184,11 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Tanggal:</div>
-                    <div class="detail-value"><?php echo e($registration->event->start_date); ?> - <?php echo e($registration->event->end_date); ?></div>
+                    <div class="detail-value">28 - 30 November 2025</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Lokasi:</div>
                     <div class="detail-value"><?php echo e($registration->event->location); ?></div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">Posisi:</div>
-                    <div class="detail-value"><?php echo e($registration->position); ?></div>
                 </div>
             </div>
 

@@ -72,6 +72,13 @@
             margin-top: 0 !important;
             padding-top: 80px !important;
             box-sizing: border-box;
+            z-index: 1;
+            /* Pastikan di bawah navbar */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
         }
 
         /* PASTIKAN background cover penuh */

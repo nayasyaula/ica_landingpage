@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Registration;
 use App\Models\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth; // ✅ TAMBAH INI
@@ -16,7 +17,7 @@ class ScanController extends Controller
         return view('scan.index', compact('events'));
     }
 
-    public function verify(Request $request)
+     public function verify(Request $request)
     {
         $request->validate([
             'qr_code' => 'required|string|max:20'
@@ -27,19 +28,17 @@ class ScanController extends Controller
         Log::info('🔍 SCAN ATTEMPT', [
             'qr_code' => $scannedCode,
             'scanner_ip' => $request->ip(),
-            'timestamp' => now()
+            'timestamp' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s')
         ]);
 
         // ✅ GET ADMIN/SCANNER YANG SEDANG LOGIN
         $scanner = Auth::guard('admin')->user();
         $scannerName = $scanner ? $scanner->name : 'System';
 
-        // ✅ CARI REGISTRATION: 
-        // 1. Cari by barcode_number (13 digit dari scanner) 
-        // 2. Cari by qr_code (format ICA dari manual input)
+        // ✅ CARI REGISTRATION
         $registration = Registration::with('event')
-            ->where('barcode_number', $scannedCode) // Untuk scanner 13 digit
-            ->orWhere('qr_code', $scannedCode)      // Untuk manual input ICA
+            ->where('barcode_number', $scannedCode)
+            ->orWhere('qr_code', $scannedCode)
             ->first();
 
         if (!$registration) {
@@ -60,7 +59,11 @@ class ScanController extends Controller
 
         // Cek duplicate check-in
         if ($registration->is_checked_in) {
-            $checkinTime = optional($registration->checked_in_at)->format('d/m/Y H:i:s') ?? 'Unknown';
+            // ✅ FORMAT WAKTU JAKARTA
+            $checkinTime = $registration->checked_in_at 
+                ? $registration->checked_in_at->timezone('Asia/Jakarta')->format('d/m/Y H:i:s')
+                : 'Unknown';
+            
             $checkedInBy = $registration->checked_in_by ?? 'System';
 
             Log::info('⚠ DUPLICATE SCAN', [
@@ -69,19 +72,20 @@ class ScanController extends Controller
             ]);
 
             return response()->json([
-                'success' => true, // Tetap success karena valid, hanya sudah check-in
+                'success' => true,
                 'message' => "ℹ Peserta sudah check-in pada: {$checkinTime} oleh: {$checkedInBy}",
-                'registration' => $registration,
                 'is_duplicate' => true,
-                'data' => [ // ✅ TAMBAH DATA CONSISTENT
+                'data' => [
                     'kode' => $registration->qr_code,
                     'nama' => $registration->name,
                     'email' => $registration->email,
                     'telepon' => $registration->phone,
                     'position' => $registration->position,
                     'event' => $registration->event->name,
-                    'waktu_checkin' => $registration->checked_in_at->format('H:i:s'),
-                    'checked_in_by' => $registration->checked_in_by
+                    'waktu_checkin' => $registration->checked_in_at->timezone('Asia/Jakarta')->format('H:i:s'),
+                    'checked_in_at' => $registration->checked_in_at->toISOString(),
+                    'checked_in_by' => $registration->checked_in_by,
+                    'checkin_method' => $registration->checkin_method
                 ]
             ]);
         }
@@ -89,12 +93,16 @@ class ScanController extends Controller
         // Proses check-in
         try {
             // ✅ Tentukan metode check-in
-            $checkinMethod = 'qr_scanner'; // Karena ini dari hardware scanner
-            $checkedInBy = $scannerName . ' (QR Scanner)';
+            $isBarcode = preg_match('/^\d{13}$/', $scannedCode);
+            $checkinMethod = $isBarcode ? 'qr_scanner' : 'manual_input';
+            $checkedInBy = $scannerName . ' (' . ($isBarcode ? 'QR Scanner' : 'Manual Input') . ')';
+
+            // ✅ GUNAKAN WAKTU JAKARTA
+            $jakartaTime = Carbon::now('Asia/Jakarta');
 
             $registration->update([
                 'is_checked_in' => true,
-                'checked_in_at' => now(),
+                'checked_in_at' => $jakartaTime,
                 'checked_in_by' => $checkedInBy,
                 'checkin_method' => $checkinMethod
             ]);
@@ -105,7 +113,8 @@ class ScanController extends Controller
                 'event' => $registration->event->name,
                 'barcode_number' => $registration->barcode_number,
                 'qr_code' => $registration->qr_code,
-                'checked_by' => $checkedInBy
+                'checked_by' => $checkedInBy,
+                'checkin_time' => $jakartaTime->format('Y-m-d H:i:s')
             ]);
 
             return response()->json([
@@ -113,23 +122,24 @@ class ScanController extends Controller
                 'message' => '✅ Check-in berhasil!',
                 'registration' => $registration,
                 'data' => [
-                    'kode' => $registration->qr_code, // ✅ CONSISTENT FORMAT
+                    'kode' => $registration->qr_code,
+                    'barcode' => $registration->barcode_number,
                     'nama' => $registration->name,
                     'email' => $registration->email,
                     'telepon' => $registration->phone,
-                    'position' => $registration->position, // ✅ TAMBAH POSITION
+                    'position' => $registration->position,
                     'event' => $registration->event->name,
-                    'waktu_checkin' => now()->format('H:i:s'),
-                    'checked_in_by' => $checkedInBy, // ✅ TAMBAH CHECKED_IN_BY
-                    'qr_code' => $registration->qr_code,
-                    'barcode_number' => $registration->barcode_number,
-                    'ticket_type' => $registration->ticket_type ?? 'Regular'
+                    'waktu_checkin' => $jakartaTime->format('H:i:s'),
+                    'checked_in_by' => $checkedInBy,
+                    'ticket_type' => $registration->ticket_type,
+                    'checkin_method' => $checkinMethod
                 ]
             ]);
         } catch (\Exception $e) {
             Log::error('❌ CHECK-IN ERROR', [
                 'qr_code' => $scannedCode,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
             ]);
 
             return response()->json([

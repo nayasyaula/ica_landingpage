@@ -702,7 +702,6 @@
                                                 <th>Tanggal Daftar</th>
                                                 <th>Status Check-in</th>
                                                 <th>Di-scan Oleh</th>
-                                                <th>Waktu Scan</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -727,30 +726,24 @@
                                                         @endif
                                                     </td>
                                                     <td class="scanner-info">
-                                                        @if ($registration->scanner_name)
-                                                            <span class="text-gold">{{ $registration->scanner_name }}</span>
-                                                        @else
-                                                            <span class="text-muted">-</span>
-                                                        @endif
-                                                    </td>
-                                                    <td class="scan-time">
-                                                        @if ($registration->scanned_at)
-                                                            <small
-                                                                class="text-muted">{{ $registration->scanned_at->format('d M Y H:i') }}</small>
+                                                        @if ($registration->checked_in_by)
+                                                            <span
+                                                                class="text-gold">{{ $registration->checked_in_by }}</span>
                                                         @else
                                                             <span class="text-muted">-</span>
                                                         @endif
                                                     </td>
                                                     <td class="action-buttons">
-                                                        <button type="button" class="btn-table-view view-registration-btn"
+                                                        <button type="button"
+                                                            class="btn-table-view view-registration-btn"
                                                             data-id="{{ $registration->id }}"
                                                             data-name="{{ $registration->name }}"
                                                             data-position="{{ $registration->position }}"
                                                             data-email="{{ $registration->email }}"
                                                             data-event="{{ $registration->event->name ?? 'N/A' }}"
                                                             data-qr="{{ $registration->qr_code }}"
-                                                            data-scanner="{{ $registration->scanner_name ?? 'Belum di-scan' }}"
-                                                            data-scanned-at="{{ $registration->scanned_at ? $registration->scanned_at->format('d M Y H:i') : 'Belum di-scan' }}"
+                                                            data-scanner="{{ $registration->checked_in_by ?? 'Belum di-scan' }}"
+                                                            data-scanned-at="{{ $registration->checked_in_at ? \Carbon\Carbon::parse($registration->checked_in_at)->format('d M Y H:i') : 'Belum di-scan' }}"
                                                             data-checked-in="{{ $registration->is_checked_in ? 'Ya' : 'Tidak' }}">
                                                             <i class="fas fa-eye me-1"></i>View
                                                         </button>
@@ -804,7 +797,8 @@
                         id="modalEvent"></p>
 
                     <!-- Info Scanner -->
-                    <div class="scanner-info mt-3 p-3" style="background: rgba(212, 175, 55, 0.1); border-radius: 8px;">
+                    <div class="scanner-info mt-3 p-3"
+                        style="background: rgba(212, 175, 55, 0.1); border-radius: 8px;">
                         <h6 style="color: #D4AF37; font-size: 0.9rem; margin-bottom: 8px;">Info Check-in</h6>
                         <p style="color: #FFFFFF; font-size: 0.8rem; margin: 2px 0;">
                             <strong>Status:</strong> <span id="modalCheckedIn"></span>
@@ -832,14 +826,14 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const viewButtons = document.querySelectorAll('.view-registration-btn');
             const downloadBtn = document.getElementById('downloadQrBtn');
             let currentQrCode = '';
             let currentName = '';
 
             viewButtons.forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const name = this.dataset.name;
                     const position = this.dataset.position;
                     const email = this.dataset.email;
@@ -894,7 +888,7 @@
             });
 
             // Download QR Code functionality
-            downloadBtn.addEventListener('click', function () {
+            downloadBtn.addEventListener('click', function() {
                 const canvas = document.getElementById('qrCanvas');
                 if (!canvas) {
                     alert('QR Code belum tersedia untuk didownload');
