@@ -756,16 +756,21 @@
                                     <label for="scanner-input" class="form-label">
                                         <i class="fas fa-barcode me-2"></i>SCAN ATAU INPUT KODE TIKET
                                     </label>
-                                    <div class="input-group">
-                                        <input type="text" name="qr_code" id="scanner-input"
-                                            class="form-control form-control-lg"
-                                            placeholder="SCAN QR CODE ATAU KETIK MANUAL (ICA-XXX-XXXX)" required
-                                            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                                            autofocus>
-                                        <button type="button" class="btn-admin-primary" id="verify-btn">
-                                            <i class="fas fa-search me-2"></i>Verifikasi
-                                        </button>
+
+                                    <div class="row g-2">
+                                        <div class="col-12 col-md-8">
+                                            <input type="text" name="qr_code" id="scanner-input" class="form-control"
+                                                placeholder="SCAN QR CODE ATAU KETIK MANUAL (ICA-XXX-XXXX)" required
+                                                autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                spellcheck="false" autofocus>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <button type="button" class="btn-admin-primary w-100" id="verify-btn">
+                                                <i class="fas fa-search me-2"></i>Verifikasi
+                                            </button>
+                                        </div>
                                     </div>
+
                                     <small class="form-text text-warning mt-2">
                                         <i class="fas fa-lightbulb me-1"></i>
                                         Arahkan hardware scanner ke input ini untuk scan QR Code, atau ketik kode tiket
@@ -1177,9 +1182,7 @@
                     if (byMatch && !data.checked_in_by) {
                         checkedInBy = byMatch[1].trim();
                     }
-                }
-
-                else if (data.checked_in_at) {
+                } else if (data.checked_in_at) {
                     const checkinDate = new Date(data.checked_in_at);
                     previousCheckinTime = checkinDate.toLocaleTimeString('id-ID', {
                         timeZone: 'Asia/Jakarta',
