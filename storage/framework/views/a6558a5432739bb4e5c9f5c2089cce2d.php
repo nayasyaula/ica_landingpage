@@ -1,8 +1,6 @@
-@extends('layouts.admin')
+<?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-@section('title', 'Admin Dashboard')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="admin-dashboard-container">
         <!-- Page Header -->
@@ -23,7 +21,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-content">
-                            <h3 class="stat-number">{{ $totalRegistrations ?? 0 }}</h3>
+                            <h3 class="stat-number"><?php echo e($totalRegistrations ?? 0); ?></h3>
                             <p class="stat-label">Total Pendaftar</p>
                         </div>
                     </div>
@@ -38,7 +36,7 @@
                             </h5>
                         </div>
                         <div class="card-body-luxury">
-                            <a href="{{ route('admin.scan-qr') }}" class="btn-admin-action">
+                            <a href="<?php echo e(route('admin.scan-qr')); ?>" class="btn-admin-action">
                                 <i class="fas fa-camera me-2"></i>Scan QR Code
                             </a>
                         </div>
@@ -54,7 +52,7 @@
                             </h5>
                         </div>
                         <div class="card-body-luxury">
-                            <a href="{{ route('admin.sponsors.index') }}" class="btn-admin-action">
+                            <a href="<?php echo e(route('admin.sponsors.index')); ?>" class="btn-admin-action">
                                 <i class="fas fa-cog me-2"></i>Kelola Sponsor
                             </a>
                         </div>
@@ -64,7 +62,7 @@
         </div>
 
         <!-- Registrations Table -->
-        @if (isset($registrations) && $registrations->count() > 0)
+        <?php if(isset($registrations) && $registrations->count() > 0): ?>
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="admin-table-card">
@@ -89,40 +87,43 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($registrations as $registration)
+                                        <?php $__currentLoopData = $registrations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $registration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td class="ticket-code">{{ $registration->qr_code ?? 'N/A' }}</td>
-                                                <td class="user-name">{{ $registration->name ?? 'N/A' }}</td>
-                                                <td class="user-position">{{ $registration->position ?? 'N/A' }}
+                                                <td class="ticket-code"><?php echo e($registration->qr_code ?? 'N/A'); ?></td>
+                                                <td class="user-name"><?php echo e($registration->name ?? 'N/A'); ?></td>
+                                                <td class="user-position"><?php echo e($registration->position ?? 'N/A'); ?>
+
                                                 </td>
-                                                <td class="user-email">{{ $registration->email ?? 'N/A' }}</td>
-                                                <td class="event-name">{{ $registration->event->name ?? 'N/A' }}
+                                                <td class="user-email"><?php echo e($registration->email ?? 'N/A'); ?></td>
+                                                <td class="event-name"><?php echo e($registration->event->name ?? 'N/A'); ?>
+
                                                 </td>
                                                 <td class="register-date">
-                                                    {{ $registration->created_at->format('d M Y') }}
+                                                    <?php echo e($registration->created_at->format('d M Y')); ?>
+
                                                 </td>
                                                 <td>
-                                                    @if ($registration->is_checked_in)
+                                                    <?php if($registration->is_checked_in): ?>
                                                         <span class="badge bg-success">✓ Hadir</span>
-                                                    @else
+                                                    <?php else: ?>
                                                         <span class="badge bg-secondary">Belum Hadir</span>
-                                                    @endif
+                                                    <?php endif; ?>
                                                 </td>
                                                 <td class="action-buttons">
                                                     <button type="button" class="btn-table-view view-registration-btn"
-                                                        data-id="{{ $registration->id }}"
-                                                        data-name="{{ $registration->name }}"
-                                                        data-position="{{ $registration->position }}"
-                                                        data-email="{{ $registration->email }}"
-                                                        data-event="{{ $registration->event->name ?? 'N/A' }}"
-                                                        data-qr="{{ $registration->qr_code }}"
-                                                        data-scanned-at="{{ $registration->checked_in_at ? \Carbon\Carbon::parse($registration->checked_in_at)->format('d M Y H:i') : 'Belum di-scan' }}"
-                                                        data-checked-in="{{ $registration->is_checked_in ? 'Ya' : 'Belum di-scan' }}">
+                                                        data-id="<?php echo e($registration->id); ?>"
+                                                        data-name="<?php echo e($registration->name); ?>"
+                                                        data-position="<?php echo e($registration->position); ?>"
+                                                        data-email="<?php echo e($registration->email); ?>"
+                                                        data-event="<?php echo e($registration->event->name ?? 'N/A'); ?>"
+                                                        data-qr="<?php echo e($registration->qr_code); ?>"
+                                                        data-scanned-at="<?php echo e($registration->checked_in_at ? \Carbon\Carbon::parse($registration->checked_in_at)->format('d M Y H:i') : 'Belum di-scan'); ?>"
+                                                        data-checked-in="<?php echo e($registration->is_checked_in ? 'Ya' : 'Belum di-scan'); ?>">
                                                         <i class="fas fa-eye me-1"></i>View
                                                     </button>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -130,7 +131,7 @@
                     </div>
                 </div>
             </div>
-        @else
+        <?php else: ?>
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <div class="admin-table-card">
@@ -142,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
     </div>
 
     <!-- Modal Detail Pendaftaran -->
@@ -191,7 +192,7 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
@@ -277,3 +278,5 @@
     </body>
 
     </html>
+
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

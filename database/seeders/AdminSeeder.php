@@ -17,5 +17,13 @@ class AdminSeeder extends Seeder
             'phone' => '08123456789',
             'is_super_admin' => true,
         ]);
+
+        Admin::create([
+            'name' => 'Admin',
+            'email' => 'admin2@gmail.com',
+            'password' => Hash::make('admin1234'),
+            'phone' => '08123456780',
+            'is_super_admin' => false,
+        ]);
     }
 }

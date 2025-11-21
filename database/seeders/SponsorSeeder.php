@@ -34,11 +34,6 @@ class SponsorSeeder extends Seeder
                 'tier' => 'gold',
                 'logo' => 'sponsors/hills.png',
             ],
-            [
-                'name' => 'IAMS',
-                'tier' => 'gold',
-                'logo' => 'sponsors/iams.png',
-            ],
 
             // Silver Sponsors
             [
@@ -51,11 +46,6 @@ class SponsorSeeder extends Seeder
                 'tier' => 'silver',
                 'logo' => 'sponsors/sheba.png',
             ],
-            [
-                'name' => 'Fancy Feast',
-                'tier' => 'silver',
-                'logo' => 'sponsors/fancy-feast.png',
-            ],
 
             // Bronze Sponsors
             [
@@ -67,11 +57,6 @@ class SponsorSeeder extends Seeder
                 'name' => 'Greenies',
                 'tier' => 'bronze',
                 'logo' => 'sponsors/greenies.png',
-            ],
-            [
-                'name' => 'Meow Mix',
-                'tier' => 'bronze',
-                'logo' => 'sponsors/meow-mix.png',
             ],
         ];
 

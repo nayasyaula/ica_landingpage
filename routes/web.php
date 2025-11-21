@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\AdminAuthController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -24,21 +24,18 @@ Route::get('/qrcode/{qrCode}', [RegistrationController::class, 'showQRCode'])
 
 // ===== AUTH ROUTES =====
 Route::middleware('guest:admin')->group(function () {
-    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
-    
-    Route::get('/register', [AdminAuthController::class, 'showRegisterForm'])->name('register');
-    Route::post('/register', [AdminAuthController::class, 'register'])->name('register.submit');
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 });
 
-Route::post('/logout', [AdminAuthController::class, 'logout'])
+Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth:admin')
     ->name('admin.logout');
 
 // ===== ADMIN ROUTES =====
 Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
     // Dashboard & QR Operations
-    Route::get('/dashboard', [AdminAuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::get('/scan-qr', [DashboardController::class, 'scanQR'])->name('scan-qr');
     Route::post('/verify-qr', [DashboardController::class, 'verifyQR'])->name('verify-qr');
     Route::get('/registration/{id}', [DashboardController::class, 'viewRegistration'])
