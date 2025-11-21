@@ -14,12 +14,8 @@ class Registration extends Model
         'phone',
         'position',
         'qr_code',
-        'barcode_number',
-        'ticket_type',
         'is_checked_in',
         'checked_in_at',
-        'checked_in_by',
-        'checkin_method',
     ];
 
     protected $casts = [
@@ -54,10 +50,5 @@ class Registration extends Model
     public function event()
     {
         return $this->belongsTo(Event::class);
-    }
-
-    public function scanner()
-    {
-        return $this->belongsTo(Admin::class, 'checked_in_by');
     }
 }

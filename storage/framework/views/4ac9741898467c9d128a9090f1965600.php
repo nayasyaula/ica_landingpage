@@ -1,12 +1,10 @@
-@extends('layouts.admin')
+<?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-@section('title', 'Admin Dashboard')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="admin-dashboard-container">
         <!-- Tombol Kembali -->
-        <a href="{{ route('admin.dashboard') }}" class="back-button">
+        <a href="<?php echo e(route('admin.dashboard')); ?>" class="back-button">
             <i class="fas fa-arrow-left me-2"></i>Kembali ke Dashboard
         </a>
 
@@ -147,7 +145,7 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 <script>
     // QR Scanner Application
     class QRScanner {
@@ -361,11 +359,11 @@
 
                 console.log('Sending verification request:', requestData);
 
-                const response = await fetch('{{ route('admin.checkin') }}', {
+                const response = await fetch('<?php echo e(route('admin.checkin')); ?>', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify(requestData)
@@ -753,3 +751,4 @@
         window.qrScanner = new QRScanner();
     });
 </script>
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ICA-LANDING_PAGE\landing-page\resources\views/admin/scan-qr.blade.php ENDPATH**/ ?>

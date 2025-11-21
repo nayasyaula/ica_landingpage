@@ -1,6 +1,6 @@
 @extends('layouts.admin-auth')
 
-@section('title', 'ICA - Admin Registration')
+@section('title', 'ICA - Admin Login')
 
 @section('content')
 <div class="auth-card">
@@ -11,11 +11,11 @@
                 <img src="{{ asset('images/logo-ICA.png') }}" alt="Indonesian Cat Association" class="logo-glow">
             </div>
         </div>
-        <h3 class="auth-title"><i class="fas fa-user-plus me-2"></i>Buat Akun Admin</h3>
-        <p class="auth-subtitle">Daftar untuk akses sistem administrasi</p>
+        <h3 class="auth-title"><i class="fas fa-lock me-2"></i>Admin Login</h3>
+        <p class="auth-subtitle">Masuk ke sistem administrasi</p>
     </div>
 
-    <!-- Register Form -->
+    <!-- Login Form -->
     <div class="auth-card-body">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -36,27 +36,9 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('register.submit') }}">
+        <form method="POST" action="{{ route('login.submit') }}">
             @csrf
             
-            <!-- Name Field -->
-            <div class="form-group-luxury">
-                <label class="form-label">
-                    <i class="fas fa-user me-2"></i>Nama Lengkap
-                </label>
-                <div class="input-group-luxury">
-                    <input type="text" name="name" class="form-control-luxury" 
-                           value="{{ old('name') }}" 
-                           placeholder="Masukkan nama lengkap" required>
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
-                @error('name') 
-                    <small class="error-message">{{ $message }}</small> 
-                @enderror
-            </div>
-
             <!-- Email Field -->
             <div class="form-group-luxury">
                 <label class="form-label">
@@ -67,28 +49,10 @@
                            value="{{ old('email') }}" 
                            placeholder="Masukkan email" required>
                     <div class="input-icon">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
                 @error('email') 
-                    <small class="error-message">{{ $message }}</small> 
-                @enderror
-            </div>
-
-            <!-- Phone Field -->
-            <div class="form-group-luxury">
-                <label class="form-label">
-                    <i class="fas fa-phone me-2"></i>Nomor Telepon
-                </label>
-                <div class="input-group-luxury">
-                    <input type="tel" name="phone" class="form-control-luxury" 
-                           value="{{ old('phone') }}" 
-                           placeholder="Masukkan nomor telepon">
-                    <div class="input-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                </div>
-                @error('phone') 
                     <small class="error-message">{{ $message }}</small> 
                 @enderror
             </div>
@@ -100,7 +64,7 @@
                 </label>
                 <div class="input-group-luxury">
                     <input type="password" name="password" class="form-control-luxury" 
-                           placeholder="Masukkan password (min. 8 karakter)" required>
+                           placeholder="Masukkan password" required>
                     <div class="input-icon">
                         <i class="fas fa-lock"></i>
                     </div>
@@ -110,33 +74,21 @@
                 @enderror
             </div>
 
-            <!-- Confirm Password Field -->
-            <div class="form-group-luxury">
-                <label class="form-label">
-                    <i class="fas fa-key me-2"></i>Konfirmasi Password
+            <!-- Remember Me Checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                <label class="form-check-label" for="remember">
+                    Ingat saya
                 </label>
-                <div class="input-group-luxury">
-                    <input type="password" name="password_confirmation" class="form-control-luxury" 
-                           placeholder="Ulangi password" required>
-                    <div class="input-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                </div>
             </div>
 
-            <!-- Register Button -->
+            <!-- Login Button -->
             <button type="submit" class="btn-auth-primary">
-                <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
+                <i class="fas fa-sign-in-alt me-2"></i>Login
             </button>
 
             <!-- Links Section -->
             <div class="auth-links">
-                <span class="text-muted-light">
-                    Sudah punya akun? 
-                    <a href="{{ route('login') }}" class="auth-link">
-                    Login di sini
-                    </a>
-                </span>
                 <a href="{{ route('home') }}" class="auth-link">
                     <i class="fas fa-home me-1"></i>Kembali ke Home
                 </a>

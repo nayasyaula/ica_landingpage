@@ -17,7 +17,7 @@ class ScanController extends Controller
         return view('scan.index', compact('events'));
     }
 
-     public function verify(Request $request)
+    public function verify(Request $request)
     {
         $request->validate([
             'qr_code' => 'required|string|max:20'
@@ -31,14 +31,9 @@ class ScanController extends Controller
             'timestamp' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s')
         ]);
 
-        // ✅ GET ADMIN/SCANNER YANG SEDANG LOGIN
-        $scanner = Auth::guard('admin')->user();
-        $scannerName = $scanner ? $scanner->name : 'System';
-
-        // ✅ CARI REGISTRATION
+        // CARI REGISTRATION - HANYA BERDASARKAN QR_CODE
         $registration = Registration::with('event')
-            ->where('barcode_number', $scannedCode)
-            ->orWhere('qr_code', $scannedCode)
+            ->where('qr_code', $scannedCode)
             ->first();
 
         if (!$registration) {
@@ -59,12 +54,9 @@ class ScanController extends Controller
 
         // Cek duplicate check-in
         if ($registration->is_checked_in) {
-            // ✅ FORMAT WAKTU JAKARTA
             $checkinTime = $registration->checked_in_at 
                 ? $registration->checked_in_at->timezone('Asia/Jakarta')->format('d/m/Y H:i:s')
                 : 'Unknown';
-            
-            $checkedInBy = $registration->checked_in_by ?? 'System';
 
             Log::info('⚠ DUPLICATE SCAN', [
                 'qr_code' => $scannedCode,
@@ -73,7 +65,7 @@ class ScanController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => "ℹ Peserta sudah check-in pada: {$checkinTime} oleh: {$checkedInBy}",
+                'message' => "ℹ Peserta sudah check-in pada: {$checkinTime}",
                 'is_duplicate' => true,
                 'data' => [
                     'kode' => $registration->qr_code,
@@ -84,36 +76,26 @@ class ScanController extends Controller
                     'event' => $registration->event->name,
                     'waktu_checkin' => $registration->checked_in_at->timezone('Asia/Jakarta')->format('H:i:s'),
                     'checked_in_at' => $registration->checked_in_at->toISOString(),
-                    'checked_in_by' => $registration->checked_in_by,
-                    'checkin_method' => $registration->checkin_method
                 ]
             ]);
         }
 
         // Proses check-in
         try {
-            // ✅ Tentukan metode check-in
-            $isBarcode = preg_match('/^\d{13}$/', $scannedCode);
-            $checkinMethod = $isBarcode ? 'qr_scanner' : 'manual_input';
-            $checkedInBy = $scannerName . ' (' . ($isBarcode ? 'QR Scanner' : 'Manual Input') . ')';
-
-            // ✅ GUNAKAN WAKTU JAKARTA
+            // GUNAKAN WAKTU JAKARTA
             $jakartaTime = Carbon::now('Asia/Jakarta');
 
+            // UPDATE SESUAI FILLABLE MODEL
             $registration->update([
                 'is_checked_in' => true,
-                'checked_in_at' => $jakartaTime,
-                'checked_in_by' => $checkedInBy,
-                'checkin_method' => $checkinMethod
+                'checked_in_at' => $jakartaTime
             ]);
 
             Log::info('✅ CHECK-IN SUCCESS', [
                 'registration_id' => $registration->id,
                 'name' => $registration->name,
                 'event' => $registration->event->name,
-                'barcode_number' => $registration->barcode_number,
                 'qr_code' => $registration->qr_code,
-                'checked_by' => $checkedInBy,
                 'checkin_time' => $jakartaTime->format('Y-m-d H:i:s')
             ]);
 
@@ -123,16 +105,12 @@ class ScanController extends Controller
                 'registration' => $registration,
                 'data' => [
                     'kode' => $registration->qr_code,
-                    'barcode' => $registration->barcode_number,
                     'nama' => $registration->name,
                     'email' => $registration->email,
                     'telepon' => $registration->phone,
                     'position' => $registration->position,
                     'event' => $registration->event->name,
-                    'waktu_checkin' => $jakartaTime->format('H:i:s'),
-                    'checked_in_by' => $checkedInBy,
-                    'ticket_type' => $registration->ticket_type,
-                    'checkin_method' => $checkinMethod
+                    'waktu_checkin' => $jakartaTime->format('H:i:s')
                 ]
             ]);
         } catch (\Exception $e) {
@@ -210,7 +188,6 @@ class ScanController extends Controller
                     'position' => $registration->position,
                     'event' => $registration->event->name,
                     'waktu_checkin' => $registration->checked_in_at->format('H:i:s'),
-                    'checked_in_by' => $registration->checked_in_by
                 ]
             ]);
         }
@@ -219,8 +196,6 @@ class ScanController extends Controller
         $registration->update([
             'is_checked_in' => true,
             'checked_in_at' => now(),
-            'checked_in_by' => $checkedInBy,
-            'checkin_method' => $checkinMethod,
         ]);
 
         return response()->json([
@@ -234,7 +209,6 @@ class ScanController extends Controller
                 'position' => $registration->position,
                 'event' => $registration->event->name,
                 'waktu_checkin' => now()->format('H:i:s'),
-                'checked_in_by' => $checkedInBy
             ]
         ]);
     }
@@ -259,8 +233,7 @@ class ScanController extends Controller
 
             // ✅ CARI DUAL CODE: 13 digit ATAU ICA format
             $registration = Registration::with('event')
-                ->where('barcode_number', $searchCode)
-                ->orWhere('qr_code', $searchCode)
+                ->Where('qr_code', $searchCode)
                 ->first();
 
             if (!$registration) {
@@ -280,9 +253,7 @@ class ScanController extends Controller
                     'message' => 'Sudah check-in',
                     'registration' => [
                         'name' => $registration->name,
-                        'barcode_number' => $registration->barcode_number,
                         'checked_in_at' => $registration->checked_in_at?->format('d/m/Y H:i'),
-                        'checked_in_by' => $registration->checked_in_by
                     ]
                 ];
                 $successCount++;
@@ -294,8 +265,6 @@ class ScanController extends Controller
             $registration->update([
                 'is_checked_in' => true,
                 'checked_in_at' => now(),
-                'checked_in_by' => $checkedInBy,
-                'checkin_method' => 'bulk'
             ]);
 
             $results[] = [
@@ -305,8 +274,6 @@ class ScanController extends Controller
                 'registration' => [
                     'name' => $registration->name,
                     'qr_code' => $registration->qr_code,
-                    'barcode_number' => $registration->barcode_number,
-                    'checked_in_by' => $checkedInBy
                 ]
             ];
             $successCount++;
@@ -323,8 +290,6 @@ class ScanController extends Controller
             'results' => $results
         ]);
     }
-
-    // ... method-method lainnya (dashboard, search, getParticipantDetails, dll) tetap sama ...
 
     public function scanBarcode(Request $request)
     {
