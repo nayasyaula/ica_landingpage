@@ -22,11 +22,87 @@
             background-color: var(--luxury-darker);
             color: #fff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Admin Header */
+        .admin-top-header {
+            background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+            border-bottom: 2px solid #D4AF37;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-logo-img {
+            height: 40px;
+            width: auto;
+            filter: brightness(1.1) saturate(1.2) sepia(0.3) hue-rotate(-5deg);
+        }
+
+        .admin-logo-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.3rem;
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        .admin-user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .admin-welcome {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn-admin-logout {
+            background: rgba(212, 175, 55, 0.1);
+            color: #D4AF37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-admin-logout:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+            color: #F5E8C8;
+            transform: translateY(-1px);
         }
         
         .admin-dashboard-container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 80px auto 20px;
             padding: 20px;
         }
         
@@ -307,10 +383,60 @@
             #reader {
                 height: 250px;
             }
+
+            .admin-header-content {
+                padding: 0 15px;
+            }
+
+            .admin-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .admin-welcome {
+                display: none;
+            }
+
+            .admin-dashboard-container {
+                margin-top: 70px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .admin-top-header {
+                padding: 12px 0;
+            }
+
+            .admin-logo-text {
+                font-size: 1rem;
+            }
+
+            .admin-logo-img {
+                height: 35px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Admin Top Header -->
+    <div class="admin-top-header">
+        <div class="admin-header-content">
+            <div class="admin-logo">
+                <img src="{{ asset('images/logo-ICA.png') }}" alt="ICA Logo" class="admin-logo-img">
+                <span class="admin-logo-text">Admin Dashboard</span>
+            </div>
+            <div class="admin-user-menu">
+                <span class="admin-welcome">Welcome, Administrator</span>
+                <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn-admin-logout">
+                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="admin-dashboard-container">
         <!-- Tombol Kembali -->
         <a href="{{ route('admin.dashboard') }}" class="back-button">
