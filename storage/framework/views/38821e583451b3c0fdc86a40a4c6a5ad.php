@@ -22,11 +22,87 @@
             background-color: var(--luxury-darker);
             color: #fff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Admin Header */
+        .admin-top-header {
+            background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+            border-bottom: 2px solid #D4AF37;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-logo-img {
+            height: 40px;
+            width: auto;
+            filter: brightness(1.1) saturate(1.2) sepia(0.3) hue-rotate(-5deg);
+        }
+
+        .admin-logo-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.3rem;
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        .admin-user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .admin-welcome {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn-admin-logout {
+            background: rgba(212, 175, 55, 0.1);
+            color: #D4AF37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-admin-logout:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+            color: #F5E8C8;
+            transform: translateY(-1px);
         }
         
         .admin-dashboard-container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 80px auto 20px;
             padding: 20px;
         }
         
@@ -307,10 +383,60 @@
             #reader {
                 height: 250px;
             }
+
+            .admin-header-content {
+                padding: 0 15px;
+            }
+
+            .admin-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .admin-welcome {
+                display: none;
+            }
+
+            .admin-dashboard-container {
+                margin-top: 70px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .admin-top-header {
+                padding: 12px 0;
+            }
+
+            .admin-logo-text {
+                font-size: 1rem;
+            }
+
+            .admin-logo-img {
+                height: 35px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Admin Top Header -->
+    <div class="admin-top-header">
+        <div class="admin-header-content">
+            <div class="admin-logo">
+                <img src="<?php echo e(asset('images/logo-ICA.png')); ?>" alt="ICA Logo" class="admin-logo-img">
+                <span class="admin-logo-text">Admin Dashboard</span>
+            </div>
+            <div class="admin-user-menu">
+                <span class="admin-welcome">Welcome, Administrator</span>
+                <form action="<?php echo e(route('admin.logout')); ?>" method="POST" class="d-inline">
+                    <?php echo csrf_field(); ?>
+                    <button type="submit" class="btn-admin-logout">
+                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="admin-dashboard-container">
         <!-- Tombol Kembali -->
         <a href="<?php echo e(route('admin.dashboard')); ?>" class="back-button">
@@ -747,61 +873,56 @@
             }
 
             async verifyQRCode(qrData, source = 'manual') {
-    if (this.isProcessing) return;
+                if (this.isProcessing) return;
 
-    this.isProcessing = true;
-    const normalizedQrCode = qrData.trim().toUpperCase();
+                this.isProcessing = true;
+                const normalizedQrCode = qrData.trim().toUpperCase();
 
-    this.showLoadingState();
-    this.showScannerStatus('⏳ Memverifikasi QR Code...', 'info');
+                // Show loading state
+                this.showLoadingState();
 
-    try {
-        // 🚨 PAKAI FORM DATA TANPA CSRF (sementara)
-        const formData = new FormData();
-        formData.append('qr_code', normalizedQrCode);
-        formData.append('source', source);
-        // formData.append('_token', document.querySelector('meta[name="csrf-token"]')?.content);
+                try {
+                    const requestData = {
+                        qr_code: normalizedQrCode,
+                        source: source,
+                        timestamp: Date.now()
+                    };
 
-        console.log('📤 Sending without CSRF (testing):', normalizedQrCode);
+                    console.log('Sending verification request:', requestData);
 
-        const response = await fetch('/admin/checkin', {
-            method: 'POST',
-            body: formData
-        });
+                    const response = await fetch('<?php echo e(route('admin.checkin')); ?>', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(requestData)
+                    });
 
-        console.log('📥 Response status:', response.status);
+                    const data = await response.json();
+                    console.log('Verification response:', data);
 
-        if (response.status === 419) {
-            throw new Error('CSRF Token Missing - Please refresh page');
-        }
+                    if (!response.ok) {
+                        throw new Error(data.message || `HTTP error! status: ${response.status}`);
+                    }
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+                    this.handleVerificationResponse(data, normalizedQrCode, source);
 
-        const data = await response.json();
-        console.log('✅ Verification response:', data);
+                } catch (error) {
+                    console.error('Verification Error:', error);
+                    this.failedScans++;
+                    this.updateStats();
+                    this.showErrorResult(error.message || 'Terjadi kesalahan saat memverifikasi QR Code');
+                    this.showScannerStatus('❌ Error: ' + error.message, 'danger');
+                } finally {
+                    this.isProcessing = false;
+                    this.hideLoadingState();
+                    // Don't clear input immediately, wait a bit
+                    setTimeout(() => this.clearScannerInput(), 2000);
+                }
+            }
 
-        this.handleVerificationResponse(data, normalizedQrCode, source);
-
-    } catch (error) {
-        console.error('❌ Verification Error:', error);
-        this.failedScans++;
-        this.updateStats();
-        
-        let errorMessage = error.message || 'Terjadi kesalahan';
-        if (error.message.includes('CSRF')) {
-            errorMessage = 'Session expired. Silakan REFRESH halaman dan coba lagi.';
-        }
-        
-        this.showErrorResult(errorMessage);
-        this.showScannerStatus('❌ Error: ' + errorMessage, 'danger');
-    } finally {
-        this.isProcessing = false;
-        this.hideLoadingState();
-        setTimeout(() => this.clearScannerInput(), 2000);
-    }
-}
             handleVerificationResponse(data, qrCode, source) {
                 if (data.success === true) {
                     this.successfulScans++;
