@@ -313,7 +313,7 @@
 <body>
     <div class="admin-dashboard-container">
         <!-- Tombol Kembali -->
-        <a href="{{ route('admin.dashboard') }}" class="back-button">
+        <a href="<?php echo e(route('admin.dashboard')); ?>" class="back-button">
             <i class="fas fa-arrow-left me-2"></i>Kembali ke Dashboard
         </a>
 
@@ -374,7 +374,7 @@
                         <!-- Tab Input Manual -->
                         <div id="manual-tab" class="tab-content">
                             <form id="manual-verification-form">
-                                @csrf
+                                <?php echo csrf_field(); ?>
                                 <div class="form-group">
                                     <label for="qr-code-input">Kode QR Tiket</label>
                                     <input type="text" name="qr_code" id="qr-code-input" class="form-control"
@@ -747,56 +747,61 @@
             }
 
             async verifyQRCode(qrData, source = 'manual') {
-                if (this.isProcessing) return;
+    if (this.isProcessing) return;
 
-                this.isProcessing = true;
-                const normalizedQrCode = qrData.trim().toUpperCase();
+    this.isProcessing = true;
+    const normalizedQrCode = qrData.trim().toUpperCase();
 
-                // Show loading state
-                this.showLoadingState();
+    this.showLoadingState();
+    this.showScannerStatus('⏳ Memverifikasi QR Code...', 'info');
 
-                try {
-                    const requestData = {
-                        qr_code: normalizedQrCode,
-                        source: source,
-                        timestamp: Date.now()
-                    };
+    try {
+        // 🚨 PAKAI FORM DATA TANPA CSRF (sementara)
+        const formData = new FormData();
+        formData.append('qr_code', normalizedQrCode);
+        formData.append('source', source);
+        // formData.append('_token', document.querySelector('meta[name="csrf-token"]')?.content);
 
-                    console.log('Sending verification request:', requestData);
+        console.log('📤 Sending without CSRF (testing):', normalizedQrCode);
 
-                    const response = await fetch('{{ route('admin.checkin') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(requestData)
-                    });
+        const response = await fetch('/admin/checkin', {
+            method: 'POST',
+            body: formData
+        });
 
-                    const data = await response.json();
-                    console.log('Verification response:', data);
+        console.log('📥 Response status:', response.status);
 
-                    if (!response.ok) {
-                        throw new Error(data.message || `HTTP error! status: ${response.status}`);
-                    }
+        if (response.status === 419) {
+            throw new Error('CSRF Token Missing - Please refresh page');
+        }
 
-                    this.handleVerificationResponse(data, normalizedQrCode, source);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-                } catch (error) {
-                    console.error('Verification Error:', error);
-                    this.failedScans++;
-                    this.updateStats();
-                    this.showErrorResult(error.message || 'Terjadi kesalahan saat memverifikasi QR Code');
-                    this.showScannerStatus('❌ Error: ' + error.message, 'danger');
-                } finally {
-                    this.isProcessing = false;
-                    this.hideLoadingState();
-                    // Don't clear input immediately, wait a bit
-                    setTimeout(() => this.clearScannerInput(), 2000);
-                }
-            }
+        const data = await response.json();
+        console.log('✅ Verification response:', data);
 
+        this.handleVerificationResponse(data, normalizedQrCode, source);
+
+    } catch (error) {
+        console.error('❌ Verification Error:', error);
+        this.failedScans++;
+        this.updateStats();
+        
+        let errorMessage = error.message || 'Terjadi kesalahan';
+        if (error.message.includes('CSRF')) {
+            errorMessage = 'Session expired. Silakan REFRESH halaman dan coba lagi.';
+        }
+        
+        this.showErrorResult(errorMessage);
+        this.showScannerStatus('❌ Error: ' + errorMessage, 'danger');
+    } finally {
+        this.isProcessing = false;
+        this.hideLoadingState();
+        setTimeout(() => this.clearScannerInput(), 2000);
+    }
+}
             handleVerificationResponse(data, qrCode, source) {
                 if (data.success === true) {
                     this.successfulScans++;
@@ -1005,4 +1010,4 @@
         });
     </script>
 </body>
-</html>
+</html><?php /**PATH C:\ica_landingpage\resources\views/admin/scan-qr.blade.php ENDPATH**/ ?>
